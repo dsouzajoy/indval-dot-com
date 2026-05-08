@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand colours — replace with actual values once client provides brand guidelines */
+  --color-brand-primary: #000000;
+  --color-brand-secondary: #000000;
+  --color-brand-accent: #000000;
+
+  --font-sans: 'ClientFont', system-ui, sans-serif;
+}
+
+@font-face {
+  font-family: 'ClientFont';
+  src: url('/fonts/clientfont.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ClientFont';
+  src: url('/fonts/clientfont-bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}

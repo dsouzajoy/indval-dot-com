@@ -1,0 +1,38 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  canonicalURL: string;
+  ogImage?: string;
+}
+
+const { title, description, canonicalURL, ogImage = '/images/og-default.webp' } = Astro.props;
+---
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Open Graph -->
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:type" content="website" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+
+<!-- Google Search Console Verification — replace VERIFICATION_TOKEN once client provides -->
+<meta name="google-site-verification" content="VERIFICATION_TOKEN" />
+
+<!-- Font preload -->
+<link rel="preload" href="/fonts/clientfont.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/fonts/clientfont-bold.woff2" as="font" type="font/woff2" crossorigin />
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta name="generator" content={Astro.generator} />

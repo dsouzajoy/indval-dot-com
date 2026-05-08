@@ -1,0 +1,17 @@
+---
+const currentYear = new Date().getFullYear();
+---
+<footer role="contentinfo" class="w-full border-t border-gray-200 bg-white mt-auto">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <p class="text-sm text-gray-600">
+      &copy; {currentYear} Company Name. All rights reserved.
+    </p>
+    <nav aria-label="Footer navigation">
+      <ul class="flex gap-4 list-none m-0 p-0">
+        <li><a href="/products" class="text-sm text-gray-600 hover:text-brand-accent transition-colors">Products</a></li>
+        <li><a href="/about" class="text-sm text-gray-600 hover:text-brand-accent transition-colors">About</a></li>
+        <li><a href="/contact" class="text-sm text-gray-600 hover:text-brand-accent transition-colors">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>

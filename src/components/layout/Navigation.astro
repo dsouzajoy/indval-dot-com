@@ -1,0 +1,29 @@
+---
+const navLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'Products', href: '/products' },
+  { label: 'About', href: '/about' },
+  { label: 'Contact', href: '/contact' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+<nav aria-label="Main navigation">
+  <ul class="flex gap-6 list-none m-0 p-0">
+    {navLinks.map(({ label, href }) => (
+      <li>
+        <a
+          href={href}
+          class:list={[
+            'text-sm font-medium transition-colors hover:text-brand-accent',
+            { 'text-brand-accent': currentPath === href || (href !== '/' && currentPath.startsWith(href)) },
+            { 'text-brand-primary': !(currentPath === href || (href !== '/' && currentPath.startsWith(href))) },
+          ]}
+          aria-current={currentPath === href ? 'page' : undefined}
+        >
+          {label}
+        </a>
+      </li>
+    ))}
+  </ul>
+</nav>

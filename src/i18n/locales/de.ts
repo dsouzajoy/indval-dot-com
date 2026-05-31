@@ -18,7 +18,9 @@ export const de = {
     ctaPrimary: 'Unsere Experten kontaktieren',
     ctaSecondary: 'Portfolio ansehen',
     certLabel: 'Zertifizierte Exzellenz',
-    certBody: 'Vollständige AS9100D & ISO 9001 Konformität in jede Designiteration integriert.',
+    certBodyPrefix: 'Vollständige',
+    certBodyConjunction: 'und',
+    certBodySuffix: 'Konformität in jede Designiteration integriert',
     imgAlt: 'Fortschrittliches Turbinenkomponente — Präzisions-Luft- und Raumfahrttechnik',
   },
   stats: {

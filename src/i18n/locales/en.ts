@@ -16,7 +16,9 @@ export const en = {
     ctaPrimary: 'Consult Our Experts',
     ctaSecondary: 'View Portfolio',
     certLabel: 'Certified Excellence',
-    certBody: 'Full AS9100D & ISO 9001 compliance integrated into every design iteration.',
+    certBodyPrefix: 'Full',
+    certBodyConjunction: 'and',
+    certBodySuffix: 'compliance integrated into every design iteration',
     imgAlt: 'Advanced Turbine Component — precision aerospace engineering',
   },
   stats: {

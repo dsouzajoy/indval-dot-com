@@ -18,7 +18,9 @@ export const pl = {
     ctaPrimary: 'Skontaktuj się z naszymi ekspertami',
     ctaSecondary: 'Zobacz portfolio',
     certLabel: 'Certyfikowana doskonałość',
-    certBody: 'Pełna zgodność z AS9100D i ISO 9001 zintegrowana z każdą iteracją projektową.',
+    certBodyPrefix: 'Pełna',
+    certBodyConjunction: 'i',
+    certBodySuffix: 'zgodność zintegrowana z każdą iteracją projektową',
     imgAlt: 'Zaawansowany komponent turbiny — precyzyjna inżynieria lotnicza',
   },
   stats: {

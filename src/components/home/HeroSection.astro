@@ -61,7 +61,9 @@ import { en } from '@/i18n/locales/en';
             <span class="material-symbols-outlined text-green-700 text-base lg:text-xl" style="font-variation-settings: 'FILL' 1; color: #003c0b;">verified</span>
             <span class="font-label font-bold text-[10px] lg:text-xs uppercase tracking-tighter" data-i18n="hero.certLabel">{en.hero.certLabel}</span>
           </div>
-          <p class="text-[10px] lg:text-xs text-on-surface-variant leading-relaxed" data-i18n="hero.certBody">{en.hero.certBody}</p>
+          <p class="text-[10px] lg:text-xs text-on-surface-variant leading-relaxed">
+            <span data-i18n="hero.certBodyPrefix">{en.hero.certBodyPrefix}</span> <span class="font-label font-bold">ISO 9001:2015</span>, <span class="font-label font-bold">TÜV</span>, <span class="font-label font-bold">DUN</span>, <span data-i18n="hero.certBodyConjunction">{en.hero.certBodyConjunction}</span> <span class="font-label font-bold">TiSAX</span> <span data-i18n="hero.certBodySuffix">{en.hero.certBodySuffix}</span>
+          </p>
         </div>
       </div>
     </div>

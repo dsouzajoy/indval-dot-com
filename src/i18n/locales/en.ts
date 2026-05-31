@@ -52,25 +52,25 @@ export const en = {
     },
   },
   thought: {
-    heading: 'Engineering Excellence in 2026',
-    description: 'The convergence of AI, additive manufacturing, and sustainable materials is redefining the boundaries of physical design.',
-    label: 'Thought Leadership',
+    heading: 'Why IndvalTech?',
+    description: 'Driving industrial transformation through a unique synthesis of veteran engineering wisdom and cutting-edge execution speed.',
+    label: 'Our value proposition',
     articles: {
-      generativeDesign: {
-        title: 'Generative Design Synthesis',
-        description: 'Moving beyond human intuition, we leverage cloud-based generative algorithms to create high-performance topologies that minimize mass while maximizing structural integrity.',
+      clientSuccess: {
+        title: 'Proven client success & retention',
+        description: 'Our outstanding track record is built on engineering excellence and deep-rooted long-term partnerships that drive sustainable business outcomes.',
       },
-      circularMaterial: {
-        title: 'Circular Material Economy',
-        description: 'Engineering for end-of-life starts at inception. We help OEMs integrate recycled carbon fiber and bio-resins into high-stress applications without compromising safety.',
+      veteranExpertise: {
+        title: 'Veteran expertise & prompt execution',
+        description: 'A unique blend of industry veterans and technical experts ensuring high-precision project delivery on aggressive schedules.',
       },
-      hybridManufacturing: {
-        title: 'Hybrid Manufacturing Flows',
-        description: 'Strategic integration of subtractive CNC and additive DMLS processes to produce complex internal geometries and cooling channels previously impossible to manufacture.',
+      costEffective: {
+        title: 'Cost-effective engineering without compromise',
+        description: 'We deliver optimized, budget-conscious solutions that reduce overhead without trading off the integrity or reliability of the final output.',
       },
-      infrastructure: {
-        title: 'Critical Infrastructure Security',
-        description: 'Robust engineering solutions for energy, water, and transport networks, designed to withstand both physical stress and cyber-physical threats in modern urban centers.',
+      continuousImprovement: {
+        title: 'Continuous improvement & on-time delivery',
+        description: 'Our team evolves processes daily, refining workflows, tightening schedules, and adapting systems to ensure every deadline is met and every client is satisfied.',
       },
     },
   },

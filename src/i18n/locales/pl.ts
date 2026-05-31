@@ -54,25 +54,25 @@ export const pl = {
     },
   },
   thought: {
-    heading: 'Doskonałość inżynieryjna 2026',
-    description: 'Konwergencja AI, produkcji addytywnej i zrównoważonych materiałów na nowo definiuje granice projektowania fizycznego.',
-    label: 'Thought Leadership',
+    heading: 'Dlaczego IndvalTech?',
+    description: 'Napędzamy transformację przemysłową poprzez unikalną syntezę doświadczenia inżynierskiego weteranów i nowoczesnej szybkości realizacji.',
+    label: 'Nasza propozycja wartości',
     articles: {
-      generativeDesign: {
-        title: 'Synteza projektowania generatywnego',
-        description: 'Wychodząc poza ludzką intuicję, wykorzystujemy chmurowe algorytmy generatywne do tworzenia wysokowydajnych topologii minimalizujących masę przy maksymalizacji integralności strukturalnej.',
+      clientSuccess: {
+        title: 'Udokumentowany sukces i lojalność klientów',
+        description: 'Nasza wyjątkowa historia sukcesów opiera się na doskonałości inżynierskiej i głęboko zakorzenionych długoterminowych partnerstwach, które przynoszą trwałe wyniki biznesowe.',
       },
-      circularMaterial: {
-        title: 'Gospodarka o obiegu zamkniętym materiałów',
-        description: 'Inżynieria z myślą o końcu życia produktu zaczyna się od samego początku. Pomagamy producentom OEM integrować recyklingowane włókno węglowe i bio-żywice w aplikacjach wysokoobciążeniowych bez kompromisów bezpieczeństwa.',
+      veteranExpertise: {
+        title: 'Doświadczenie weteranów i szybka realizacja',
+        description: 'Unikalne połączenie weteranów branżowych i ekspertów technicznych zapewnia precyzyjną realizację projektów nawet przy wymagających harmonogramach.',
       },
-      hybridManufacturing: {
-        title: 'Hybrydowe procesy produkcyjne',
-        description: 'Strategiczna integracja subtraktywnych procesów CNC i addytywnych procesów DMLS do produkcji złożonych geometrii wewnętrznych i kanałów chłodzących, wcześniej niemożliwych do wytworzenia.',
+      costEffective: {
+        title: 'Efektywne kosztowo inżynieria bez kompromisów',
+        description: 'Dostarczamy zoptymalizowane, budżetowe rozwiązania, które redukują koszty ogólne bez uszczerbku dla integralności lub niezawodności końcowego produktu.',
       },
-      infrastructure: {
-        title: 'Bezpieczeństwo infrastruktury krytycznej',
-        description: 'Solidne rozwiązania inżynieryjne dla sieci energetycznych, wodnych i transportowych, zaprojektowane do wytrzymania zarówno stresu fizycznego, jak i zagrożeń cyberfizycznych w nowoczesnych centrach miejskich.',
+      continuousImprovement: {
+        title: 'Ciągłe doskonalenie i terminowe dostarczanie',
+        description: 'Nasz zespół codziennie usprawnia procesy, dopracowuje przepływy pracy, zacieśnia harmonogramy i dostosowuje systemy, aby dotrzymywać każdego terminu i zadowalać każdego klienta.',
       },
     },
   },

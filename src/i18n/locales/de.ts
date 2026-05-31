@@ -54,25 +54,25 @@ export const de = {
     },
   },
   thought: {
-    heading: 'Technische Exzellenz 2026',
-    description: 'Die Konvergenz von KI, additiver Fertigung und nachhaltigen Materialien definiert die Grenzen des physischen Designs neu.',
-    label: 'Thought Leadership',
+    heading: 'Warum IndvalTech?',
+    description: 'Wir treiben den industriellen Wandel voran durch eine einzigartige Synthese aus erfahrenem Ingenieurwissen und modernster Ausführungsgeschwindigkeit.',
+    label: 'Unser Wertversprechen',
     articles: {
-      generativeDesign: {
-        title: 'Generatives Design-Synthese',
-        description: 'Über menschliche Intuition hinaus nutzen wir cloudbasierte generative Algorithmen, um leistungsstarke Topologien zu entwickeln, die Masse minimieren und strukturelle Integrität maximieren.',
+      clientSuccess: {
+        title: 'Bewährter Kundenerfolg & Kundenbindung',
+        description: 'Unsere hervorragende Erfolgsbilanz basiert auf Engineering-Exzellenz und tief verwurzelten, langfristigen Partnerschaften, die nachhaltige Geschäftsergebnisse erzielen.',
       },
-      circularMaterial: {
-        title: 'Kreislaufwirtschaft für Materialien',
-        description: 'Engineering für das Lebensende beginnt bei der Entwicklung. Wir helfen OEMs, recyceltes Kohlefaser und Bio-Harze in Hochlastanwendungen zu integrieren, ohne die Sicherheit zu beeinträchtigen.',
+      veteranExpertise: {
+        title: 'Veteranenkompetenz & schnelle Ausführung',
+        description: 'Eine einzigartige Kombination aus Branchenveteranen und technischen Experten gewährleistet hochpräzise Projektlieferung auch bei anspruchsvollen Zeitplänen.',
       },
-      hybridManufacturing: {
-        title: 'Hybride Fertigungsabläufe',
-        description: 'Strategische Integration von subtraktivem CNC und additivem DMLS-Verfahren zur Herstellung komplexer innerer Geometrien und Kühlkanäle, die zuvor nicht fertigbar waren.',
+      costEffective: {
+        title: 'Kosteneffizientes Engineering ohne Kompromisse',
+        description: 'Wir liefern optimierte, budgetbewusste Lösungen, die den Aufwand reduzieren, ohne die Integrität oder Zuverlässigkeit des Endergebnisses zu beeinträchtigen.',
       },
-      infrastructure: {
-        title: 'Kritische Infrastruktursicherheit',
-        description: 'Robuste Ingenieurl­ösungen für Energie-, Wasser- und Verkehrsnetze, die physischem Stress und Cyber-Bedrohungen in modernen Ballungsräumen standhalten.',
+      continuousImprovement: {
+        title: 'Kontinuierliche Verbesserung & pünktliche Lieferung',
+        description: 'Unser Team entwickelt Prozesse täglich weiter, verfeinert Arbeitsabläufe, strafft Zeitpläne und passt Systeme an, um jeden Termin zu halten und jeden Kunden zufriedenzustellen.',
       },
     },
   },

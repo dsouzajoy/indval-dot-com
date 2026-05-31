@@ -1,0 +1,43 @@
+---
+---
+<div id="splash" class="fixed inset-0 z-[200] flex items-center justify-center bg-surface">
+  <div id="splash-inner" style="display:flex; flex-direction:column; align-items:center; gap:1.25rem;">
+    <img src="/images/logo.png" alt="Indvaltech" style="height:7rem; width:auto;" />
+    <span class="font-label font-bold text-4xl tracking-tight">
+      <span class="text-secondary">Indval</span><span class="text-primary">tech</span>
+    </span>
+  </div>
+</div>
+
+<script>
+  const splash = document.getElementById('splash') as HTMLElement;
+  const inner = document.getElementById('splash-inner') as HTMLElement;
+
+  if (sessionStorage.getItem('splashSeen')) {
+    splash.remove();
+  } else {
+    document.body.style.overflow = 'hidden';
+
+    const startTime = Date.now();
+    const minDelay = 800;
+
+    function dismissSplash() {
+      inner.style.transition = 'transform 600ms ease-in-out, opacity 600ms ease-in-out';
+      inner.style.transform = 'translateY(-40px)';
+      inner.style.opacity = '0';
+      splash.style.transition = 'opacity 600ms ease-in-out';
+      splash.style.opacity = '0';
+      setTimeout(() => {
+        splash.remove();
+        document.body.style.overflow = '';
+      }, 650);
+      sessionStorage.setItem('splashSeen', '1');
+    }
+
+    window.addEventListener('load', () => {
+      const elapsed = Date.now() - startTime;
+      const remaining = Math.max(0, minDelay - elapsed);
+      setTimeout(dismissSplash, remaining);
+    });
+  }
+</script>

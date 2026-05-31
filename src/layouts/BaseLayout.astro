@@ -3,6 +3,7 @@ import BaseHead from '../components/seo/BaseHead.astro';
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
 import BottomNav from '../components/layout/BottomNav.astro';
+import Splash from '../components/layout/Splash.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -10,6 +11,7 @@ interface Props {
   description: string;
   canonicalURL?: string;
   ogImage?: string;
+  showSplash?: boolean;
 }
 
 const {
@@ -17,6 +19,7 @@ const {
   description,
   canonicalURL = new URL(Astro.url.pathname, Astro.site).toString(),
   ogImage,
+  showSplash = false,
 } = Astro.props;
 ---
 <!doctype html>
@@ -30,6 +33,7 @@ const {
     />
   </head>
   <body class="min-h-screen flex flex-col font-sans bg-surface text-on-surface">
+    {showSplash && <Splash />}
     <Header />
     <main id="main-content" class="flex-1 pb-16 md:pb-0">
       <slot />

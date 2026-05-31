@@ -2,18 +2,24 @@
 import { en } from '@/i18n/locales/en';
 
 const stats = [
-  { icon: 'category',    value: '8+',   label: en.stats.industries, i18nKey: 'stats.industries' },
-  { icon: 'groups',      value: '60+',  label: en.stats.clients,    i18nKey: 'stats.clients'    },
-  { icon: 'history',     value: '18+',  label: en.stats.years,      i18nKey: 'stats.years'      },
-  { icon: 'engineering', value: '750+', label: en.stats.employees,  i18nKey: 'stats.employees'  },
+  { icon: 'category',    numericValue: 5,   suffix: '',  label: en.stats.industries, i18nKey: 'stats.industries' },
+  { icon: 'history',     numericValue: 5,   suffix: '+', label: en.stats.years,      i18nKey: 'stats.years'      },
+  { icon: 'groups',      numericValue: 64,  suffix: '',  label: en.stats.clients,    i18nKey: 'stats.clients'    },
+  { icon: 'engineering', numericValue: 750, suffix: '+', label: en.stats.employees,  i18nKey: 'stats.employees'  },
 ];
 ---
 <section class="bg-surface-container-low py-16 border-y border-outline-variant/5" aria-label="Credentials">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-12">
-    {stats.map(({ icon, value, label, i18nKey }) => (
+    {stats.map(({ icon, numericValue, suffix, label, i18nKey }) => (
       <div class="flex flex-col items-center text-center gap-2">
         <span class="material-symbols-outlined text-primary text-4xl">{icon}</span>
-        <span class="font-sans font-black text-4xl text-primary">{value}</span>
+        <span
+          class="font-sans font-black text-4xl text-primary"
+          data-count={numericValue}
+          data-suffix={suffix}
+        >
+          0{suffix}
+        </span>
         <span
           class="font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant leading-tight"
           data-i18n={i18nKey}
@@ -24,3 +30,121 @@ const stats = [
     ))}
   </div>
 </section>
+
+<script>
+  const section = document.querySelector('section[aria-label="Credentials"]') as HTMLElement;
+  const counters = section.querySelectorAll<HTMLElement>('[data-count]');
+
+  type SlotState = { curr: HTMLElement; nxt: HTMLElement; lineH: number; target: number };
+
+  // Build DOM immediately so there's no flash when the observer fires
+  const setupCounter = (el: HTMLElement): SlotState => {
+    const target = parseInt(el.dataset.count!, 10);
+    const suffix = el.dataset.suffix ?? '';
+
+    el.textContent = '';
+    el.style.display = 'flex';
+    el.style.alignItems = 'baseline';
+    el.style.justifyContent = 'center';
+
+    // Slot window — clips the sliding number
+    const slotWrap = document.createElement('span');
+    slotWrap.style.cssText = 'display:inline-block;overflow:hidden;position:relative;';
+
+    const curr = document.createElement('span');
+    curr.style.cssText = 'display:block;position:absolute;top:0;left:0;right:0;text-align:center;';
+    curr.textContent = '0';
+
+    const nxt = document.createElement('span');
+    nxt.style.cssText = 'display:block;position:absolute;left:0;right:0;text-align:center;';
+
+    // Invisible spacer sized to the widest value so the slot never reflows
+    const spacer = document.createElement('span');
+    spacer.setAttribute('aria-hidden', 'true');
+    spacer.style.cssText = 'display:block;visibility:hidden;pointer-events:none;';
+    spacer.textContent = String(target);
+
+    slotWrap.append(curr, nxt, spacer);
+    el.appendChild(slotWrap);
+
+    // Static suffix sits outside the slot — never animates
+    if (suffix) {
+      const suffixEl = document.createElement('span');
+      suffixEl.textContent = suffix;
+      el.appendChild(suffixEl);
+    }
+
+    const lineH = spacer.offsetHeight;
+    slotWrap.style.height = `${lineH}px`;
+    nxt.style.top = `${lineH}px`;
+
+    return { curr, nxt, lineH, target };
+  };
+
+  const animateCounter = ({ curr, nxt, lineH, target }: SlotState) => {
+    const TARGET_FLIPS = 20;
+    const stepSize = Math.max(1, Math.ceil(target / TARGET_FLIPS));
+
+    const steps: number[] = [];
+    for (let v = stepSize; v < target; v += stepSize) steps.push(v);
+    steps.push(target);
+
+    const totalSteps = steps.length;
+
+    // Precompute cumulative end-time for each flip (ease-out: 60ms → 150ms)
+    const endTimes: number[] = [];
+    let cumulative = 0;
+    for (let i = 0; i < totalSteps; i++) {
+      const t = totalSteps > 1 ? i / (totalSteps - 1) : 1;
+      cumulative += 60 + t ** 2 * 90;
+      endTimes.push(cumulative);
+    }
+
+    let startTime: number | null = null;
+
+    const frame = (now: number) => {
+      if (startTime === null) startTime = now;
+      const elapsed = now - startTime;
+
+      if (elapsed >= endTimes[totalSteps - 1]) {
+        curr.textContent = String(target);
+        curr.style.transform = 'translateY(0)';
+        nxt.style.transform = `translateY(${lineH}px)`;
+        nxt.textContent = '';
+        return;
+      }
+
+      // Derive current step purely from elapsed — no mutable step state
+      let i = 0;
+      while (i < totalSteps - 1 && endTimes[i] <= elapsed) i++;
+
+      const stepStart = i === 0 ? 0 : endTimes[i - 1];
+      const stepDuration = endTimes[i] - stepStart;
+      const t = (elapsed - stepStart) / stepDuration;
+      const eased = 1 - (1 - t) ** 2;
+
+      curr.textContent = String(i === 0 ? 0 : steps[i - 1]);
+      nxt.textContent = String(steps[i]);
+      curr.style.transform = `translateY(${-eased * lineH}px)`;
+      nxt.style.transform = `translateY(${-eased * lineH}px)`;
+
+      requestAnimationFrame(frame);
+    };
+
+    requestAnimationFrame(frame);
+  };
+
+  const states = Array.from(counters).map(setupCounter);
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      if (entries[0].isIntersecting) {
+        states.forEach(animateCounter);
+        observer.disconnect();
+      }
+    },
+    { threshold: 0.3 }
+  );
+
+  observer.observe(section);
+</script>

@@ -1,0 +1,61 @@
+---
+const articles = [
+  {
+    icon: 'memory',
+    title: 'Generative Design Synthesis',
+    description: 'Moving beyond human intuition, we leverage cloud-based generative algorithms to create high-performance topologies that minimize mass while maximizing structural integrity.',
+  },
+  {
+    icon: 'eco',
+    title: 'Circular Material Economy',
+    description: 'Engineering for end-of-life starts at inception. We help OEMs integrate recycled carbon fiber and bio-resins into high-stress applications without compromising safety.',
+  },
+  {
+    icon: 'precision_manufacturing',
+    title: 'Hybrid Manufacturing Flows',
+    description: 'Strategic integration of subtractive CNC and additive DMLS processes to produce complex internal geometries and cooling channels previously impossible to manufacture.',
+  },
+  {
+    icon: 'security',
+    title: 'Critical Infrastructure Security',
+    description: 'Robust engineering solutions for energy, water, and transport networks, designed to withstand both physical stress and cyber-physical threats in modern urban centers.',
+  },
+];
+---
+<section id="quality" class="bg-surface-container-lowest py-20 md:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden relative" aria-label="Thought leadership">
+  <!-- Decorative background text -->
+  <div class="absolute -right-20 top-20 text-[12rem] lg:text-[20rem] font-black text-surface opacity-[0.04] select-none pointer-events-none leading-none">
+    2026
+  </div>
+
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+
+    <!-- Left: sticky header -->
+    <div class="lg:col-span-4 lg:sticky lg:top-32">
+      <h2 class="font-sans font-black text-4xl lg:text-5xl text-primary leading-tight mb-6">
+        Engineering Excellence in 2026
+      </h2>
+      <p class="font-sans text-on-surface-variant text-base lg:text-lg leading-relaxed mb-8">
+        The convergence of AI, additive manufacturing, and sustainable materials is redefining the boundaries of physical design.
+      </p>
+      <div class="h-px w-20 bg-secondary mb-6"></div>
+      <p class="font-label text-sm uppercase tracking-[0.3em] text-secondary font-bold">Thought Leadership</p>
+    </div>
+
+    <!-- Right: 2x2 article grid -->
+    <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-12">
+      {articles.map(({ icon, title, description }) => (
+        <div>
+          <h4 class="font-sans font-bold text-lg lg:text-xl text-primary mb-3 flex items-center gap-3">
+            <span class="material-symbols-outlined text-secondary shrink-0">{icon}</span>
+            {title}
+          </h4>
+          <p class="font-sans text-on-surface-variant text-sm leading-relaxed">
+            {description}
+          </p>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

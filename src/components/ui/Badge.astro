@@ -1,0 +1,20 @@
+---
+interface Props {
+  variant?: 'default' | 'green';
+  class?: string;
+}
+
+const { variant = 'default', class: className } = Astro.props;
+
+const base = 'inline-flex items-center px-2 py-0.5 rounded-sm font-label font-bold text-[10px] uppercase tracking-wider';
+
+const variants = {
+  default: 'bg-secondary-fixed text-on-secondary-fixed-variant',
+  green: 'bg-tertiary-fixed text-on-tertiary-fixed-variant',
+};
+
+const classes = [base, variants[variant], className].filter(Boolean).join(' ');
+---
+<span class={classes}>
+  <slot />
+</span>

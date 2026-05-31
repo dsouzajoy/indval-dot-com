@@ -5,7 +5,7 @@ import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://clientdomain.com',
+  site: 'https://www.indvaltech.com',
   output: 'static',
   vite: {
     plugins: [tailwindcss()],

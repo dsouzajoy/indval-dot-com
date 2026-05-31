@@ -27,12 +27,12 @@ const { title, description, canonicalURL, ogImage = '/images/og-default.webp' } 
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={ogImage} />
 
-<!-- Google Search Console Verification — replace VERIFICATION_TOKEN once client provides -->
-<meta name="google-site-verification" content="VERIFICATION_TOKEN" />
+<!-- TODO: add google-site-verification meta tag once client provides the Search Console token -->
 
 <!-- Font preload -->
-<link rel="preload" href="/fonts/clientfont.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="preload" href="/fonts/clientfont-bold.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/fonts/space-grotesk-variable.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/fonts/material-symbols-outlined.woff2" as="font" type="font/woff2" crossorigin />
 
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <meta name="generator" content={Astro.generator} />

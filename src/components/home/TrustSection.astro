@@ -1,0 +1,22 @@
+---
+const logos = Array.from({ length: 5 });
+---
+<section class="py-20 bg-surface-container-lowest" aria-label="Trusted clients">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <p class="font-label text-[10px] text-on-surface-variant text-center uppercase tracking-[0.4em] mb-12">
+      Trusted by Global Industry Leaders
+    </p>
+
+    <!-- Logo strip — wrapper-level grayscale -->
+    <div class="flex flex-wrap justify-center items-center gap-12 lg:gap-16 opacity-40 grayscale hover:grayscale-0 hover:opacity-70 transition-all duration-500">
+      {logos.map((_, i) => (
+        <div
+          class="h-8 w-28 lg:w-32 bg-surface-container-high rounded-sm"
+          aria-label={`Client logo ${i + 1}`}
+        ></div>
+      ))}
+    </div>
+
+  </div>
+</section>

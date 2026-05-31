@@ -1,25 +1,19 @@
 ---
 const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Products', href: '/products' },
-  { label: 'About', href: '/about' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'Services',   href: '/404' },
+  { label: 'Industries', href: '/404' },
+  { label: 'Quality',    href: '/404' },
+  { label: 'Company',    href: '/404' },
+  { label: 'Careers',    href: '/404' },
 ];
-
-const currentPath = Astro.url.pathname;
 ---
 <nav aria-label="Main navigation">
-  <ul class="flex gap-6 list-none m-0 p-0">
+  <ul class="flex gap-8 list-none m-0 p-0">
     {navLinks.map(({ label, href }) => (
       <li>
         <a
           href={href}
-          class:list={[
-            'text-sm font-medium transition-colors hover:text-brand-accent',
-            { 'text-brand-accent': currentPath === href || (href !== '/' && currentPath.startsWith(href)) },
-            { 'text-brand-primary': !(currentPath === href || (href !== '/' && currentPath.startsWith(href))) },
-          ]}
-          aria-current={currentPath === href ? 'page' : undefined}
+          class="font-label text-sm uppercase tracking-wider text-on-surface-variant hover:text-secondary transition-colors duration-300"
         >
           {label}
         </a>

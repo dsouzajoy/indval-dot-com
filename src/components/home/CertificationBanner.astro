@@ -1,0 +1,18 @@
+---
+const stats = [
+  { value: '500+', label: 'Complex Projects Delivered' },
+  { value: '12',   label: 'Global Service Hubs' },
+  { value: '98%',  label: 'Client Retention Rate' },
+  { value: 'ISO',  label: '9001:2015 & AS9100D Certified' },
+];
+---
+<section class="bg-surface-container-low py-16 border-y border-outline-variant/5" aria-label="Credentials">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-12">
+    {stats.map(({ value, label }) => (
+      <div class="flex flex-col items-center text-center">
+        <span class="font-sans font-black text-4xl text-primary mb-1">{value}</span>
+        <span class="font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant leading-tight">{label}</span>
+      </div>
+    ))}
+  </div>
+</section>

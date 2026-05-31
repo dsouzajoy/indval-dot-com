@@ -1,12 +1,19 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroSection from '../components/home/HeroSection.astro';
+import CertificationBanner from '../components/home/CertificationBanner.astro';
+import ServicesSection from '../components/home/ServicesSection.astro';
+import ThoughtLeadership from '../components/home/ThoughtLeadership.astro';
+import TrustSection from '../components/home/TrustSection.astro';
 ---
 <BaseLayout
-  title="Company Name | Industrial Equipment Supplier"
-  description="Discover our range of industrial equipment. Global supplier of high-quality industrial machinery and components."
+  title="Indvaltech | Precision Engineering & Accelerated Growth"
+  description="Indvaltech delivers precision engineering services across aerospace, automotive, and industrial sectors — simulation, structural analysis, and manufacturing intelligence for demanding environments."
+  ogImage="/images/hero-turbine.jpg"
 >
-  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-    <h1 class="text-4xl font-bold text-brand-primary">Industrial Equipment</h1>
-    <p class="mt-4 text-lg text-gray-600">Homepage content coming in Phase 3.</p>
-  </section>
+  <HeroSection />
+  <CertificationBanner />
+  <ServicesSection />
+  <ThoughtLeadership />
+  <TrustSection />
 </BaseLayout>

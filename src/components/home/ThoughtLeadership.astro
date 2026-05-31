@@ -1,29 +1,39 @@
 ---
+import { en } from '@/i18n/locales/en';
+
 const articles = [
   {
     icon: 'memory',
-    title: 'Generative Design Synthesis',
-    description: 'Moving beyond human intuition, we leverage cloud-based generative algorithms to create high-performance topologies that minimize mass while maximizing structural integrity.',
+    title: en.thought.articles.generativeDesign.title,
+    description: en.thought.articles.generativeDesign.description,
+    titleKey: 'thought.articles.generativeDesign.title',
+    descKey: 'thought.articles.generativeDesign.description',
   },
   {
     icon: 'eco',
-    title: 'Circular Material Economy',
-    description: 'Engineering for end-of-life starts at inception. We help OEMs integrate recycled carbon fiber and bio-resins into high-stress applications without compromising safety.',
+    title: en.thought.articles.circularMaterial.title,
+    description: en.thought.articles.circularMaterial.description,
+    titleKey: 'thought.articles.circularMaterial.title',
+    descKey: 'thought.articles.circularMaterial.description',
   },
   {
     icon: 'precision_manufacturing',
-    title: 'Hybrid Manufacturing Flows',
-    description: 'Strategic integration of subtractive CNC and additive DMLS processes to produce complex internal geometries and cooling channels previously impossible to manufacture.',
+    title: en.thought.articles.hybridManufacturing.title,
+    description: en.thought.articles.hybridManufacturing.description,
+    titleKey: 'thought.articles.hybridManufacturing.title',
+    descKey: 'thought.articles.hybridManufacturing.description',
   },
   {
     icon: 'security',
-    title: 'Critical Infrastructure Security',
-    description: 'Robust engineering solutions for energy, water, and transport networks, designed to withstand both physical stress and cyber-physical threats in modern urban centers.',
+    title: en.thought.articles.infrastructure.title,
+    description: en.thought.articles.infrastructure.description,
+    titleKey: 'thought.articles.infrastructure.title',
+    descKey: 'thought.articles.infrastructure.description',
   },
 ];
 ---
 <section id="quality" class="bg-surface-container-lowest py-20 md:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden relative" aria-label="Thought leadership">
-  <!-- Decorative background text -->
+  <!-- Decorative background text — intentionally not translated (decorative number) -->
   <div class="absolute -right-20 top-20 text-[12rem] lg:text-[20rem] font-black text-surface opacity-[0.04] select-none pointer-events-none leading-none">
     2026
   </div>
@@ -32,25 +42,39 @@ const articles = [
 
     <!-- Left: sticky header -->
     <div class="lg:col-span-4 lg:sticky lg:top-32">
-      <h2 class="font-sans font-black text-4xl lg:text-5xl text-primary leading-tight mb-6">
-        Engineering Excellence in 2026
+      <h2
+        class="font-sans font-black text-4xl lg:text-5xl text-primary leading-tight mb-6"
+        data-i18n="thought.heading"
+      >
+        {en.thought.heading}
       </h2>
-      <p class="font-sans text-on-surface-variant text-base lg:text-lg leading-relaxed mb-8">
-        The convergence of AI, additive manufacturing, and sustainable materials is redefining the boundaries of physical design.
+      <p
+        class="font-sans text-on-surface-variant text-base lg:text-lg leading-relaxed mb-8"
+        data-i18n="thought.description"
+      >
+        {en.thought.description}
       </p>
       <div class="h-px w-20 bg-secondary mb-6"></div>
-      <p class="font-label text-sm uppercase tracking-[0.3em] text-secondary font-bold">Thought Leadership</p>
+      <p
+        class="font-label text-sm uppercase tracking-[0.3em] text-secondary font-bold"
+        data-i18n="thought.label"
+      >
+        {en.thought.label}
+      </p>
     </div>
 
     <!-- Right: 2x2 article grid -->
     <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-12">
-      {articles.map(({ icon, title, description }) => (
+      {articles.map(({ icon, title, description, titleKey, descKey }) => (
         <div>
           <h4 class="font-sans font-bold text-lg lg:text-xl text-primary mb-3 flex items-center gap-3">
             <span class="material-symbols-outlined text-secondary shrink-0">{icon}</span>
-            {title}
+            <span data-i18n={titleKey}>{title}</span>
           </h4>
-          <p class="font-sans text-on-surface-variant text-sm leading-relaxed">
+          <p
+            class="font-sans text-on-surface-variant text-sm leading-relaxed"
+            data-i18n={descKey}
+          >
             {description}
           </p>
         </div>

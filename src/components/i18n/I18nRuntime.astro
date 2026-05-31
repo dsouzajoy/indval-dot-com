@@ -1,0 +1,55 @@
+<script>
+  import { langStore } from '@/i18n/store';
+  import { translations } from '@/i18n/index';
+
+  type Dict = Record<string, unknown>;
+
+  function resolvePath(obj: Dict, path: string): string {
+    const result = path.split('.').reduce<unknown>((acc, key) => {
+      if (acc && typeof acc === 'object') return (acc as Dict)[key];
+      return undefined;
+    }, obj);
+    return typeof result === 'string' ? result : path;
+  }
+
+  function interpolate(template: string, vars: Record<string, string>): string {
+    return template.replace(/\{(\w+)\}/g, (_, key) => vars[key] ?? `{${key}}`);
+  }
+
+  langStore.subscribe((lang) => {
+    const dict = translations[lang] as unknown as Dict;
+
+    // Text content nodes
+    document.querySelectorAll<HTMLElement>('[data-i18n]').forEach((el) => {
+      const key = el.getAttribute('data-i18n')!;
+      const varsAttr = el.getAttribute('data-i18n-vars');
+      let text = resolvePath(dict, key);
+      if (varsAttr) {
+        try {
+          text = interpolate(text, JSON.parse(varsAttr));
+        } catch {
+          // malformed JSON — use raw text
+        }
+      }
+      if (text && text !== key) el.textContent = text;
+    });
+
+    // HTML attribute nodes (format: "attr:key" or "attr1:key1|attr2:key2")
+    document.querySelectorAll<HTMLElement>('[data-i18n-attr]').forEach((el) => {
+      const pairs = el.getAttribute('data-i18n-attr')!.split('|');
+      pairs.forEach((pair) => {
+        const colonIdx = pair.indexOf(':');
+        if (colonIdx === -1) return;
+        const attr = pair.slice(0, colonIdx);
+        const key = pair.slice(colonIdx + 1);
+        const value = resolvePath(dict, key);
+        if (attr && value && value !== key) el.setAttribute(attr, value);
+      });
+    });
+
+    // Update <html lang> for accessibility
+    document.documentElement.lang = lang;
+    // Remove data-lang to lift the FOUC suppression CSS (it was only needed during initial load)
+    document.documentElement.removeAttribute('data-lang');
+  });
+</script>

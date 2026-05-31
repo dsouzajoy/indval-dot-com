@@ -1,18 +1,21 @@
 ---
+import { en } from '@/i18n/locales/en';
+
 const navLinks = [
-  { label: 'Home',       href: '/' },
-  { label: 'Company',    href: '/404' },
-  { label: 'Industries', href: '/404' },
-  { label: 'Services',   href: '/404' },
-  { label: 'Career',     href: '/404' },
+  { label: en.nav.home,       href: '/',    i18nKey: 'nav.home'       },
+  { label: en.nav.company,    href: '/404', i18nKey: 'nav.company'    },
+  { label: en.nav.industries, href: '/404', i18nKey: 'nav.industries' },
+  { label: en.nav.services,   href: '/404', i18nKey: 'nav.services'   },
+  { label: en.nav.career,     href: '/404', i18nKey: 'nav.career'     },
 ];
 ---
 <nav aria-label="Main navigation">
   <ul class="flex gap-8 list-none m-0 p-0">
-    {navLinks.map(({ label, href }) => (
+    {navLinks.map(({ label, href, i18nKey }) => (
       <li>
         <a
           href={href}
+          data-i18n={i18nKey}
           class="font-label text-sm uppercase tracking-wider text-on-surface-variant hover:text-secondary transition-colors duration-300"
         >
           {label}

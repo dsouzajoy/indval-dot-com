@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+/* FOUC prevention: hide translatable text nodes until runtime script fires for non-English users */
+html[data-lang]:not([data-lang="en"]) [data-i18n],
+html[data-lang]:not([data-lang="en"]) [data-i18n-attr] {
+  visibility: hidden;
+}
+
 @theme {
   /* Colors */
   --color-primary: #00316c;

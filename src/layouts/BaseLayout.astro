@@ -4,6 +4,7 @@ import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
 import BottomNav from '../components/layout/BottomNav.astro';
 import Splash from '../components/layout/Splash.astro';
+import I18nRuntime from '../components/i18n/I18nRuntime.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -25,6 +26,14 @@ const {
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- FOUC prevention: hide translatable nodes before runtime script fires for non-English users -->
+    <script is:inline>
+      (function() {
+        var s = localStorage.getItem('lang');
+        if (s && s !== 'en' && ['de','pl'].indexOf(s) !== -1)
+          document.documentElement.setAttribute('data-lang', s);
+      })();
+    </script>
     <BaseHead
       title={title}
       description={description}
@@ -40,5 +49,6 @@ const {
     </main>
     <Footer />
     <BottomNav />
+    <I18nRuntime />
   </body>
 </html>

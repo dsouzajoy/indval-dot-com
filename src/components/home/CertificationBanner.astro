@@ -1,18 +1,25 @@
 ---
+import { en } from '@/i18n/locales/en';
+
 const stats = [
-  { icon: 'category',    value: '8+',   label: 'Industries' },
-  { icon: 'groups',      value: '60+',  label: 'Clients' },
-  { icon: 'history',     value: '18+',  label: 'Years' },
-  { icon: 'engineering', value: '750+', label: 'Employees' },
+  { icon: 'category',    value: '8+',   label: en.stats.industries, i18nKey: 'stats.industries' },
+  { icon: 'groups',      value: '60+',  label: en.stats.clients,    i18nKey: 'stats.clients'    },
+  { icon: 'history',     value: '18+',  label: en.stats.years,      i18nKey: 'stats.years'      },
+  { icon: 'engineering', value: '750+', label: en.stats.employees,  i18nKey: 'stats.employees'  },
 ];
 ---
 <section class="bg-surface-container-low py-16 border-y border-outline-variant/5" aria-label="Credentials">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-12">
-    {stats.map(({ icon, value, label }) => (
+    {stats.map(({ icon, value, label, i18nKey }) => (
       <div class="flex flex-col items-center text-center gap-2">
         <span class="material-symbols-outlined text-primary text-4xl">{icon}</span>
         <span class="font-sans font-black text-4xl text-primary">{value}</span>
-        <span class="font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant leading-tight">{label}</span>
+        <span
+          class="font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant leading-tight"
+          data-i18n={i18nKey}
+        >
+          {label}
+        </span>
       </div>
     ))}
   </div>

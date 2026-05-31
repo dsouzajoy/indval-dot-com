@@ -1,32 +1,22 @@
 ---
+import { en } from '@/i18n/locales/en';
+
 const logos = [
-  {
-    src: '/images/partners/air-india.svg',
-    alt: 'Air India',
-  },
-  {
-    src: '/images/partners/ford.png',
-    alt: 'Ford',
-  },
-  {
-    src: '/images/partners/newag.png',
-    alt: 'Newag Group',
-  },
-  {
-    src: '/images/partners/caterpillar.png',
-    alt: 'Caterpillar',
-  },
-  {
-    src: '/images/partners/siemens.png',
-    alt: 'Siemens',
-  },
+  { src: '/images/partners/air-india.svg', alt: 'Air India' },
+  { src: '/images/partners/ford.png',      alt: 'Ford' },
+  { src: '/images/partners/newag.png',     alt: 'Newag Group' },
+  { src: '/images/partners/caterpillar.png', alt: 'Caterpillar' },
+  { src: '/images/partners/siemens.png',   alt: 'Siemens' },
 ];
 ---
 <section class="py-20 bg-surface-container-lowest" aria-label="Trusted clients">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-    <p class="font-label text-[10px] text-on-surface-variant text-center uppercase tracking-[0.4em] mb-12">
-      Trusted by Global Industry Leaders
+    <p
+      class="font-label text-[10px] text-on-surface-variant text-center uppercase tracking-[0.4em] mb-12"
+      data-i18n="trust.heading"
+    >
+      {en.trust.heading}
     </p>
 
     <div class="flex flex-wrap justify-center items-center gap-12 lg:gap-16">

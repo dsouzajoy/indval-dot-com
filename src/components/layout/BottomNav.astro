@@ -1,9 +1,11 @@
 ---
+import { en } from '@/i18n/locales/en';
+
 const items = [
-  { label: 'Home',     icon: 'home',    href: '/',    active: true  },
-  { label: 'Explore',  icon: 'explore', href: '/404', active: false },
-  { label: 'Services', icon: 'settings', href: '/404', active: false },
-  { label: 'Contact',  icon: 'person',  href: '/404', active: false },
+  { label: en.bottomNav.home,     icon: 'home',     href: '/',    active: true,  i18nKey: 'bottomNav.home'     },
+  { label: en.bottomNav.explore,  icon: 'explore',  href: '/404', active: false, i18nKey: 'bottomNav.explore'  },
+  { label: en.bottomNav.services, icon: 'settings', href: '/404', active: false, i18nKey: 'bottomNav.services' },
+  { label: en.bottomNav.contact,  icon: 'person',   href: '/404', active: false, i18nKey: 'bottomNav.contact'  },
 ];
 ---
 <nav
@@ -11,7 +13,7 @@ const items = [
   aria-label="Mobile bottom navigation"
 >
   <div class="flex justify-between items-center max-w-lg mx-auto">
-    {items.map(({ label, icon, href, active }) => (
+    {items.map(({ label, icon, href, active, i18nKey }) => (
       <a
         href={href}
         class:list={[
@@ -26,7 +28,7 @@ const items = [
         >
           {icon}
         </span>
-        <span class="font-label text-[10px] font-bold uppercase">{label}</span>
+        <span class="font-label text-[10px] font-bold uppercase" data-i18n={i18nKey}>{label}</span>
       </a>
     ))}
   </div>

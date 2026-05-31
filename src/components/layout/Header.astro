@@ -1,12 +1,14 @@
 ---
 import Navigation from './Navigation.astro';
+import { LanguageSwitcher } from '../i18n/LanguageSwitcher';
+import { en } from '@/i18n/locales/en';
 
 const mobileNavLinks = [
-  { label: 'Home',       href: '/' },
-  { label: 'Company',    href: '/404' },
-  { label: 'Industries', href: '/404' },
-  { label: 'Services',   href: '/404' },
-  { label: 'Career',     href: '/404' },
+  { label: en.nav.home,       href: '/',    i18nKey: 'nav.home'       },
+  { label: en.nav.company,    href: '/404', i18nKey: 'nav.company'    },
+  { label: en.nav.industries, href: '/404', i18nKey: 'nav.industries' },
+  { label: en.nav.services,   href: '/404', i18nKey: 'nav.services'   },
+  { label: en.nav.career,     href: '/404', i18nKey: 'nav.career'     },
 ];
 ---
 <header
@@ -29,20 +31,25 @@ const mobileNavLinks = [
       <Navigation />
     </div>
 
-    <!-- Desktop CTA -->
-    <a
-      href="/404"
-      class="hidden md:inline-flex items-center px-6 py-2.5 rounded-xl font-label text-sm font-bold uppercase tracking-widest text-white
-             bg-gradient-to-r from-primary to-primary-container shrink-0
-             hover:shadow-ambient-lg active:scale-95 transition-all duration-200"
-    >
-      Consult Experts
-    </a>
+    <!-- Desktop: Language Switcher + CTA -->
+    <div class="hidden md:flex items-center gap-3 shrink-0">
+      <LanguageSwitcher client:load />
+      <a
+        href="/404"
+        class="inline-flex items-center px-6 py-2.5 rounded-xl font-label text-sm font-bold uppercase tracking-widest text-white
+               bg-gradient-to-r from-primary to-primary-container
+               hover:shadow-ambient-lg active:scale-95 transition-all duration-200"
+        data-i18n="nav.cta"
+      >
+        {en.nav.cta}
+      </a>
+    </div>
 
     <!-- Hamburger (mobile) -->
     <button
       id="hamburger-btn"
-      aria-label="Open navigation menu"
+      aria-label={en.nav.hamburgerOpen}
+      data-i18n-attr="aria-label:nav.hamburgerOpen"
       aria-expanded="false"
       aria-controls="mobile-drawer"
       class="md:hidden flex items-center justify-center w-9 h-9 rounded-lg text-primary"
@@ -74,10 +81,11 @@ const mobileNavLinks = [
   >
     <nav aria-label="Mobile navigation">
       <ul class="flex flex-col gap-1 list-none m-0 p-0">
-        {mobileNavLinks.map(({ label, href }) => (
+        {mobileNavLinks.map(({ label, href, i18nKey }) => (
           <li>
             <a
               href={href}
+              data-i18n={i18nKey}
               class="block px-3 py-2.5 rounded-lg font-label text-sm uppercase tracking-wider text-on-surface-variant hover:text-secondary hover:bg-surface-container-low transition-colors duration-200"
             >
               {label}
@@ -86,13 +94,20 @@ const mobileNavLinks = [
         ))}
       </ul>
     </nav>
+
+    <!-- Language Switcher in drawer -->
     <div class="mt-6">
+      <LanguageSwitcher client:load />
+    </div>
+
+    <div class="mt-4">
       <a
         href="/404"
+        data-i18n="nav.cta"
         class="block w-full text-center px-6 py-3 rounded-xl font-label text-sm font-bold uppercase tracking-widest text-white
                bg-gradient-to-r from-primary to-primary-container"
       >
-        Consult Experts
+        {en.nav.cta}
       </a>
     </div>
   </div>
@@ -117,13 +132,12 @@ const mobileNavLinks = [
   function applyScrollState(scrolled: boolean) {
     header.classList.toggle('shadow-ambient-lg', scrolled);
     if (window.innerWidth >= DESKTOP_BP) {
-      barEl.style.height = scrolled ? '4rem' : '6rem';          // h-16 / h-24
-      logoEl.style.height = scrolled ? '2.25rem' : '4rem';      // h-9  / h-16
-      wordmarkEl.style.fontSize = scrolled ? '1.25rem' : '1.875rem'; // text-xl / text-3xl
+      barEl.style.height = scrolled ? '4rem' : '6rem';
+      logoEl.style.height = scrolled ? '2.25rem' : '4rem';
+      wordmarkEl.style.fontSize = scrolled ? '1.25rem' : '1.875rem';
     }
   }
 
-  // Set initial state immediately (no scroll yet)
   applyScrollState(window.scrollY > 10);
 
   window.addEventListener('scroll', () => applyScrollState(window.scrollY > 10), { passive: true });

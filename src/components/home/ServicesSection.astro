@@ -4,7 +4,7 @@
   <div class="max-w-7xl mx-auto">
 
     <!-- Section header -->
-    <div class="mb-16 max-w-2xl">
+    <div class="mb-20 max-w-2xl">
       <h2 class="font-sans font-black text-4xl text-primary mb-4 leading-tight">
         Multidisciplinary Engineering Ecosystem
       </h2>
@@ -14,90 +14,86 @@
     </div>
 
     <!-- Bento grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
 
-      <!-- Aerospace & Defense — 2 cols wide -->
-      <div class="md:col-span-2 group relative h-96 overflow-hidden rounded-xl bg-surface-container-high hover:shadow-2xl transition-all duration-500">
+      <!-- Aerospace & Defense — 8 cols -->
+      <div class="md:col-span-8 group relative h-96 overflow-hidden rounded-xl bg-surface-container-high hover:shadow-2xl transition-all duration-500">
         <img
           src="/images/service-aerospace.jpg"
           alt="Aerospace engine component"
-          class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-60 transition-transform duration-700 group-hover:scale-110"
+          class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         />
-        <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent p-10 flex flex-col justify-end">
-          <div class="w-fit mb-3 p-2 bg-secondary/20 rounded-lg">
+        <div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/40 to-transparent p-12 flex flex-col justify-end">
+          <div class="w-fit mb-4 p-2 bg-secondary/20 rounded-lg">
             <span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">flight</span>
           </div>
-          <h3 class="font-sans font-bold text-2xl lg:text-3xl text-white mb-2">Aerospace &amp; Defense</h3>
+          <h3 class="font-sans font-bold text-3xl text-white mb-2">Aerospace &amp; Defense</h3>
           <p class="font-sans text-white/80 text-sm leading-relaxed max-w-lg">
-            Structural optimization, fatigue analysis, and propulsion system integration for next-gen avionics.
+            Precision structural optimization, fatigue analysis, and propulsion system integration for mission-critical avionics.
           </p>
         </div>
       </div>
 
-      <!-- Automotive Systems — 1 col -->
-      <div class="group relative h-96 overflow-hidden rounded-xl bg-[#0b1c30] hover:shadow-2xl transition-all duration-500 p-10 flex flex-col justify-between">
-        <div>
-          <span class="material-symbols-outlined text-secondary text-4xl mb-4 block">directions_car</span>
-          <h3 class="font-sans font-bold text-xl text-white mb-3">Automotive Systems</h3>
-          <p class="font-sans text-slate-400 text-sm leading-relaxed">
-            EV chassis development, thermal management, and ADAS sensor integration frameworks.
-          </p>
-        </div>
-        <ul class="space-y-2.5">
-          <li class="flex items-center gap-2.5 font-label text-[10px] uppercase tracking-wider text-slate-300">
-            <span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0"></span>
-            NVH Simulation
-          </li>
-          <li class="flex items-center gap-2.5 font-label text-[10px] uppercase tracking-wider text-slate-300">
-            <span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0"></span>
-            Powertrain Design
-          </li>
-        </ul>
-      </div>
-
-      <!-- Industrial Automation — 1 col -->
-      <div class="group relative h-96 overflow-hidden rounded-xl bg-surface-container-lowest border border-outline-variant/10 hover:shadow-xl transition-all duration-500 p-10 flex flex-col">
-        <div class="mb-auto">
-          <h3 class="font-sans font-bold text-xl text-primary mb-2">Industrial Automation</h3>
-          <span class="inline-block px-2 py-1 bg-tertiary-fixed text-on-tertiary-fixed-variant font-label font-bold text-[9px] rounded-sm mb-5 uppercase tracking-wider">
-            Industry 4.0
-          </span>
-          <p class="font-sans text-on-surface-variant text-sm leading-relaxed">
-            Designing robotic workcells and automated inspection lines with IoT connectivity.
-          </p>
-        </div>
+      <!-- Automotive Systems — 4 cols -->
+      <div class="md:col-span-4 group relative h-96 overflow-hidden rounded-xl bg-surface-container-high hover:shadow-2xl transition-all duration-500">
         <img
-          src="/images/service-automation.jpg"
-          alt="High-precision robotic arm on assembly line"
-          class="w-full h-36 object-cover rounded-lg mt-4"
+          src="/images/service-automotive.jpg"
+          alt="Automotive engineering"
+          class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-10 flex flex-col justify-end">
+          <div class="w-fit mb-4 p-2 bg-secondary/20 rounded-lg">
+            <span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">directions_car</span>
+          </div>
+          <h3 class="font-sans font-bold text-2xl text-white mb-2">Automotive Systems</h3>
+          <p class="font-sans text-white/80 text-sm leading-relaxed">
+            EV chassis development, advanced thermal management, and ADAS sensor integration frameworks.
+          </p>
+        </div>
       </div>
 
-      <!-- Quality Assurance & Metrology — 2 cols wide -->
-      <div class="md:col-span-2 group relative h-96 overflow-hidden rounded-xl bg-primary-container hover:shadow-2xl transition-all duration-500">
-        <div class="absolute inset-0 flex items-center justify-between p-10 lg:p-12 gap-8">
-          <div class="max-w-md">
-            <h3 class="font-sans font-bold text-2xl lg:text-3xl text-white mb-4">
-              Quality Assurance &amp; Metrology
-            </h3>
-            <p class="font-sans text-white/75 mb-8 leading-relaxed text-sm lg:text-base">
-              Rigorous verification protocols using CMM, 3D scanning, and non-destructive testing (NDT).
-            </p>
-            <div class="grid grid-cols-2 gap-4">
-              <div class="bg-primary/50 p-4 rounded-xl">
-                <span class="block font-sans font-black text-white text-xl">100%</span>
-                <span class="font-label text-[10px] text-white/60 uppercase tracking-wider">Traceability</span>
-              </div>
-              <div class="bg-primary/50 p-4 rounded-xl">
-                <span class="block font-sans font-black text-white text-xl">0.02μm</span>
-                <span class="font-label text-[10px] text-white/60 uppercase tracking-wider">Precision Limit</span>
-              </div>
-            </div>
-          </div>
-          <!-- Decorative icon — desktop only -->
-          <div class="hidden lg:flex w-48 h-full items-center justify-center bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 shrink-0">
-            <span class="material-symbols-outlined text-white/30" style="font-size: 80px;">verified_user</span>
-          </div>
+      <!-- Locomotive — 4 cols -->
+      <div class="md:col-span-4 group relative h-96 overflow-hidden rounded-xl bg-surface-container-lowest border border-outline-variant/10 hover:shadow-2xl transition-all duration-500">
+        <img
+          src="/images/service-locomotive.jpg"
+          alt="Locomotive engineering"
+          class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent p-10 flex flex-col justify-end">
+          <h3 class="font-sans font-bold text-2xl text-white mb-2">Locomotive</h3>
+          <p class="font-sans text-white/80 text-sm leading-relaxed">
+            High-speed rail design and freight locomotive engine assembly optimization.
+          </p>
+        </div>
+      </div>
+
+      <!-- Off Highway — 4 cols -->
+      <div class="md:col-span-4 group relative h-96 overflow-hidden rounded-xl bg-surface-container-high hover:shadow-2xl transition-all duration-500">
+        <img
+          src="/images/service-off-highway.png"
+          alt="Off highway machinery"
+          class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent p-10 flex flex-col justify-end">
+          <h3 class="font-sans font-bold text-2xl text-white mb-2">Off Highway</h3>
+          <p class="font-sans text-white/80 text-sm leading-relaxed">
+            Robust hydraulic systems and chassis engineering for heavy construction &amp; agriculture.
+          </p>
+        </div>
+      </div>
+
+      <!-- General Engineering — 4 cols -->
+      <div class="md:col-span-4 group relative h-96 overflow-hidden rounded-xl bg-primary-container hover:shadow-2xl transition-all duration-500">
+        <img
+          src="/images/service-general.jpg"
+          alt="General engineering"
+          class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-secondary/90 to-transparent p-10 flex flex-col justify-end">
+          <h3 class="font-sans font-bold text-2xl text-white mb-2">General Engineering</h3>
+          <p class="font-sans text-white/80 text-sm leading-relaxed">
+            Multidisciplinary technical solutions for advanced manufacturing and complex assembly lines.
+          </p>
         </div>
       </div>
 

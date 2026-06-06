@@ -16,7 +16,7 @@ const industriesItems = [
   { label: en.industries.automotive.title, href: '/industries/automotive',  i18nKey: 'industries.automotive.title', icon: 'directions_car' },
   { label: en.industries.locomotive.title, href: '/industries/locomotive',  i18nKey: 'industries.locomotive.title', icon: 'train'          },
   { label: en.industries.offHighway.title, href: '/industries/off-highway', i18nKey: 'industries.offHighway.title', icon: 'agriculture'    },
-  { label: en.industries.general.title,    href: '/industries/general',     i18nKey: 'industries.general.title',    icon: 'robot'          },
+  { label: en.industries.general.title,    href: '/industries/general',     i18nKey: 'industries.general.title',    icon: 'precision_manufacturing'          },
 ];
 ---
 <nav aria-label="Main navigation">
@@ -63,7 +63,7 @@ const industriesItems = [
               role="menuitem"
               class="flex items-center gap-3 px-4 py-2.5 font-label text-sm uppercase tracking-wider text-on-surface-variant hover:text-secondary hover:bg-surface-container-low transition-colors duration-150"
             >
-              <span class="material-symbols-outlined text-base leading-none shrink-0 text-secondary" aria-hidden="true">{icon}</span>
+              <span class="material-symbols-outlined text-base leading-none shrink-0 text-secondary" style="font-variation-settings: 'FILL' 1" aria-hidden="true">{icon}</span>
               <span data-i18n={i18nKey}>{label}</span>
             </a>
           ))}
@@ -104,7 +104,7 @@ const industriesItems = [
             <span data-i18n="nav.aboutUs">{en.nav.aboutUs}</span>
           </a>
           <a
-            href={withBase('/404')}
+            href={withBase('/life')}
             role="menuitem"
             class="flex items-center gap-3 px-4 py-2.5 font-label text-sm uppercase tracking-wider text-on-surface-variant hover:text-secondary hover:bg-surface-container-low transition-colors duration-150"
           >

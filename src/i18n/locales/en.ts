@@ -2,6 +2,8 @@ export const en = {
   nav: {
     home: 'Home',
     company: 'Company',
+    aboutUs: 'About Us',
+    lifeAtIndvaltech: 'Life at IndvalTech',
     industries: 'Industries',
     services: 'Services',
     career: 'Career',
@@ -108,6 +110,62 @@ export const en = {
     explore: 'Explore',
     services: 'Services',
     contact: 'Contact',
+  },
+  about: {
+    hero: {
+      eyebrow: 'Engineering Excellence',
+      heading: 'INDVALTECH',
+      body: 'Solving complex engineering problems with forensic precision and a decade of expertise.',
+      cta: 'Our Methodology',
+      metricsLabel: 'Precision Metrics',
+      metric1Value: '10+',
+      metric1Label: 'Years of Excellence',
+      metric2Value: '25+',
+      metric2Label: 'Aerospace Heritage',
+    },
+    vision: {
+      eyebrow: 'The Horizon',
+      title: 'Vision',
+      body: "To be the most competitive, trusted & preferred partner for it's customer across the globe in Engineering Services",
+    },
+    mission: {
+      eyebrow: 'The Pursuit',
+      title: 'Mission',
+      body: 'To make integrated collaborative partnership between employees, clients & suppliers with value addition & creative thinking in our every service offered.',
+    },
+    passion: {
+      eyebrow: 'The Engine',
+      title: 'Passion',
+      body: 'Provide Innovative and creative solutions to the service request of every customer',
+    },
+    leadership: {
+      title: 'Aerospace Veteran Leadership',
+      body: 'Our firm is architected and driven by an aerospace veteran with 25 years of cross-functional experience. This foundation of rigid precision and safety-first methodology informs every vertical of our service delivery.',
+      tag1: 'Aerospace',
+      tag2: 'Defense',
+      tag3: 'Precision Tech',
+    },
+    competences: {
+      eyebrow: 'Engineered Intelligence',
+      heading: 'Competences & Commitment',
+      team: {
+        title: 'Technical Team',
+        body: 'Our core strength lies in our technically sound engineers across diverse domains:',
+        item1: 'Aerospace',
+        item2: 'Automotive',
+        item3: 'Locomotive',
+        item4: 'Off Highway',
+        item5: 'General Engineering',
+      },
+      qa: {
+        title: 'Quality Assurance',
+        body: 'We operate under a "Forensic Precision" mandate, ensuring every calculation and design meets global safety and performance standards without compromise.',
+      },
+      global: {
+        title: 'Global Reach',
+        body: 'With strategic operational hubs, we bridge the gap between complex engineering requirements and localized, high-value execution.',
+      },
+    },
   },
 } as const;
 

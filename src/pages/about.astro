@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AboutHero from '../components/about/AboutHero.astro';
+import VisionMissionPassion from '../components/about/VisionMissionPassion.astro';
+import Competences from '../components/about/Competences.astro';
+---
+
+<BaseLayout
+  title="About Us | Indvaltech Engineering Services"
+  description="Engineering technology services for over a decade. Driven by compassion and the urge to solve complex problems with forensic precision."
+  ogImage="/images/hero-turbine.jpg"
+  showSplash={false}
+>
+  <AboutHero />
+  <VisionMissionPassion />
+  <Competences />
+</BaseLayout>

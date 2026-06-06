@@ -1,0 +1,70 @@
+---
+import { en } from '@/i18n/locales/en';
+---
+
+<section
+  class="relative min-h-[870px] flex items-center overflow-hidden bg-black"
+  aria-label="About hero"
+>
+  <!-- Background image -->
+  <div class="absolute inset-0 z-0">
+    <img
+      class="w-full h-full object-cover opacity-40 scale-105"
+      src="https://images.pexels.com/photos/3862132/pexels-photo-3862132.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop"
+      alt="High-tech industrial engineering laboratory with advanced equipment"
+      loading="eager"
+    />
+    <div class="absolute inset-0 bg-black/60"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 container mx-auto px-8 lg:px-16 grid grid-cols-1 lg:grid-cols-12 gap-8 py-24 lg:py-0">
+    <div class="lg:col-span-8 flex flex-col justify-center">
+
+      <span
+        class="font-label text-secondary uppercase tracking-[0.3em] text-sm mb-6 block"
+        data-i18n="about.hero.eyebrow"
+      >{en.about.hero.eyebrow}</span>
+
+      <h1
+        class="font-headline text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter text-white leading-none mb-8"
+        data-i18n="about.hero.heading"
+      >{en.about.hero.heading}</h1>
+
+      <p
+        class="text-xl lg:text-2xl text-white/80 font-light max-w-xl leading-relaxed mb-12 border-l-4 border-primary pl-8"
+        data-i18n="about.hero.body"
+      >{en.about.hero.body}</p>
+
+      <!-- Inline metrics bar -->
+      <div class="flex flex-wrap gap-12 items-center bg-black/30 backdrop-blur-sm p-6 rounded-2xl w-fit">
+        <div class="flex flex-col">
+          <span
+            class="font-headline text-4xl font-extrabold tracking-tighter text-white"
+            data-i18n="about.hero.metric1Value"
+          >{en.about.hero.metric1Value}</span>
+          <span
+            class="font-label text-[10px] uppercase tracking-widest text-white/90"
+            data-i18n="about.hero.metric1Label"
+          >{en.about.hero.metric1Label}</span>
+        </div>
+        <div class="flex flex-col">
+          <span
+            class="font-headline text-4xl font-extrabold tracking-tighter text-white"
+            data-i18n="about.hero.metric2Value"
+          >{en.about.hero.metric2Value}</span>
+          <span
+            class="font-label text-[10px] uppercase tracking-widest text-white/90"
+            data-i18n="about.hero.metric2Label"
+          >{en.about.hero.metric2Label}</span>
+        </div>
+        <div class="hidden md:block h-12 w-px bg-outline-variant/20"></div>
+        <div class="hidden md:flex items-center gap-2 text-white">
+          <span class="material-symbols-outlined text-sm">verified</span>
+          <span class="font-label text-[9px] uppercase tracking-widest">Forensic Standard</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

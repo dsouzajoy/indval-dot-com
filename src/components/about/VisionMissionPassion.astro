@@ -1,0 +1,93 @@
+---
+import { en } from '@/i18n/locales/en';
+---
+
+<section class="relative overflow-hidden py-24 px-8 lg:px-16 bg-surface" aria-label="Vision, Mission and Passion">
+  <!-- Dotted grid on section background only -->
+  <div class="absolute inset-0 pointer-events-none" style="background-image: radial-gradient(circle, #c3c6d3 1.5px, transparent 1.5px); background-size: 40px 40px;"></div>
+  <div class="container mx-auto relative z-10">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+
+      <!-- Vision — 7 cols -->
+      <div class="md:col-span-7 bg-surface-container-low p-12 rounded-3xl relative overflow-hidden group shadow-ambient">
+        <div class="absolute top-8 right-8">
+          <span class="material-symbols-outlined text-4xl text-primary opacity-90">target</span>
+        </div>
+        <span
+          class="font-label text-primary uppercase tracking-widest text-xs mb-6 block"
+          data-i18n="about.vision.eyebrow"
+        >{en.about.vision.eyebrow}</span>
+        <h2
+          class="font-headline text-4xl font-bold text-on-surface mb-6"
+          data-i18n="about.vision.title"
+        >{en.about.vision.title}</h2>
+        <p
+          class="text-xl text-on-surface-variant font-light leading-relaxed max-w-xl"
+          data-i18n="about.vision.body"
+        >{en.about.vision.body}</p>
+      </div>
+
+      <!-- Mission — 5 cols -->
+      <div class="md:col-span-5 bg-primary-container p-12 rounded-3xl text-white flex flex-col justify-between relative shadow-ambient">
+        <div class="absolute top-8 right-8">
+          <span class="material-symbols-outlined text-4xl text-white opacity-90">visibility</span>
+        </div>
+        <div>
+          <span
+            class="font-label text-on-primary-container uppercase tracking-widest text-xs mb-6 block"
+            data-i18n="about.mission.eyebrow"
+          >{en.about.mission.eyebrow}</span>
+          <h2
+            class="font-headline text-4xl font-bold mb-6"
+            data-i18n="about.mission.title"
+          >{en.about.mission.title}</h2>
+          <p
+            class="text-xl font-light leading-relaxed opacity-90"
+            data-i18n="about.mission.body"
+          >{en.about.mission.body}</p>
+        </div>
+      </div>
+
+      <!-- Passion — 4 cols -->
+      <div class="md:col-span-4 bg-secondary p-12 rounded-3xl text-white relative shadow-ambient">
+        <div class="absolute top-8 right-8">
+          <span class="material-symbols-outlined text-4xl text-white opacity-90">bolt</span>
+        </div>
+        <span
+          class="font-label text-white/60 uppercase tracking-widest text-xs mb-6 block"
+          data-i18n="about.passion.eyebrow"
+        >{en.about.passion.eyebrow}</span>
+        <h2
+          class="font-headline text-4xl font-bold mb-6"
+          data-i18n="about.passion.title"
+        >{en.about.passion.title}</h2>
+        <p
+          class="text-xl font-light leading-relaxed"
+          data-i18n="about.passion.body"
+        >{en.about.passion.body}</p>
+      </div>
+
+      <!-- Leadership — 8 cols -->
+      <div class="md:col-span-8 bg-surface-container-high p-12 rounded-3xl blueprint-bg shadow-ambient">
+        <div class="flex flex-col lg:flex-row gap-8 items-center h-full">
+          <div>
+            <h3
+              class="font-headline text-4xl font-bold text-on-surface mb-8"
+              data-i18n="about.leadership.title"
+            >{en.about.leadership.title}</h3>
+            <p
+              class="text-xl font-light leading-relaxed text-on-surface-variant"
+              data-i18n="about.leadership.body"
+            >{en.about.leadership.body}</p>
+            <div class="mt-8 flex flex-wrap gap-4">
+              <span class="bg-surface px-4 py-2 rounded-lg text-xs font-label uppercase tracking-widest text-primary border border-outline-variant/20" data-i18n="about.leadership.tag1">{en.about.leadership.tag1}</span>
+              <span class="bg-surface px-4 py-2 rounded-lg text-xs font-label uppercase tracking-widest text-primary border border-outline-variant/20" data-i18n="about.leadership.tag2">{en.about.leadership.tag2}</span>
+              <span class="bg-surface px-4 py-2 rounded-lg text-xs font-label uppercase tracking-widest text-primary border border-outline-variant/20" data-i18n="about.leadership.tag3">{en.about.leadership.tag3}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -6,7 +6,6 @@ import { withBase } from '@/lib/utils';
 
 const mobileNavLinks = [
   { label: en.nav.home,       href: '/',    i18nKey: 'nav.home'       },
-  { label: en.nav.company,    href: '/404', i18nKey: 'nav.company'    },
   { label: en.nav.industries, href: '/404', i18nKey: 'nav.industries' },
   { label: en.nav.services,   href: '/404', i18nKey: 'nav.services'   },
   { label: en.nav.career,     href: '/404', i18nKey: 'nav.career'     },
@@ -84,7 +83,62 @@ const mobileNavLinks = [
   >
     <nav aria-label="Mobile navigation">
       <ul class="flex flex-col gap-1 list-none m-0 p-0">
-        {mobileNavLinks.map(({ label, href, i18nKey }) => (
+
+        <!-- Home -->
+        <li>
+          <a
+            href={withBase('/')}
+            data-i18n="nav.home"
+            class="block px-3 py-2.5 rounded-lg font-label text-sm uppercase tracking-wider text-on-surface-variant hover:text-secondary hover:bg-surface-container-low transition-colors duration-200"
+          >
+            {en.nav.home}
+          </a>
+        </li>
+
+        <!-- Company accordion -->
+        <li>
+          <button
+            id="mobile-company-trigger"
+            aria-expanded="false"
+            class="w-full flex items-center justify-between px-3 py-2.5 rounded-lg font-label text-sm uppercase tracking-wider text-on-surface-variant hover:text-secondary hover:bg-surface-container-low transition-colors duration-200"
+          >
+            <span data-i18n="nav.company">{en.nav.company}</span>
+            <span
+              id="mobile-company-chevron"
+              class="material-symbols-outlined text-base leading-none transition-transform duration-200"
+              aria-hidden="true"
+            >expand_more</span>
+          </button>
+          <div
+            id="mobile-company-submenu"
+            class="overflow-hidden transition-all duration-300 ease-in-out"
+            style="max-height: 0;"
+          >
+            <ul class="flex flex-col gap-0.5 mt-1 ml-3 pl-3 border-l-2 border-outline-variant/30 list-none m-0 p-0">
+              <li>
+                <a
+                  href={withBase('/about')}
+                  class="flex items-center gap-2.5 px-3 py-2 rounded-lg font-label text-sm uppercase tracking-wider text-on-surface-variant hover:text-secondary hover:bg-surface-container-low transition-colors duration-200"
+                >
+                  <span class="material-symbols-outlined text-base leading-none shrink-0 text-secondary" aria-hidden="true">corporate_fare</span>
+                  <span data-i18n="nav.aboutUs">{en.nav.aboutUs}</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href={withBase('/404')}
+                  class="flex items-center gap-2.5 px-3 py-2 rounded-lg font-label text-sm uppercase tracking-wider text-on-surface-variant hover:text-secondary hover:bg-surface-container-low transition-colors duration-200"
+                >
+                  <span class="material-symbols-outlined text-base leading-none shrink-0 text-secondary" aria-hidden="true">people</span>
+                  <span data-i18n="nav.lifeAtIndvaltech">{en.nav.lifeAtIndvaltech}</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+        <!-- Remaining links -->
+        {mobileNavLinks.slice(1).map(({ label, href, i18nKey }) => (
           <li>
             <a
               href={withBase(href)}
@@ -161,6 +215,17 @@ const mobileNavLinks = [
     document.body.style.overflow = 'hidden';
   }
 
+  const mobileCompanyTrigger = document.getElementById('mobile-company-trigger')!;
+  const mobileCompanySubmenu = document.getElementById('mobile-company-submenu')!;
+  const mobileCompanyChevron = document.getElementById('mobile-company-chevron')!;
+
+  mobileCompanyTrigger.addEventListener('click', () => {
+    const isOpen = mobileCompanyTrigger.getAttribute('aria-expanded') === 'true';
+    mobileCompanySubmenu.style.maxHeight = isOpen ? '0' : mobileCompanySubmenu.scrollHeight + 'px';
+    mobileCompanyTrigger.setAttribute('aria-expanded', String(!isOpen));
+    mobileCompanyChevron.style.transform = isOpen ? '' : 'rotate(180deg)';
+  });
+
   function closeDrawer() {
     backdrop.classList.add('opacity-0');
     panel.classList.add('translate-x-full');
@@ -168,6 +233,10 @@ const mobileNavLinks = [
     icon.textContent = 'menu';
     document.body.style.overflow = '';
     drawer.classList.add('pointer-events-none');
+    // Reset Company accordion
+    mobileCompanySubmenu.style.maxHeight = '0';
+    mobileCompanyTrigger.setAttribute('aria-expanded', 'false');
+    mobileCompanyChevron.style.transform = '';
   }
 
   btn.addEventListener('click', () => {

@@ -4,6 +4,8 @@ export const de = {
   nav: {
     home: 'Startseite',
     company: 'Unternehmen',
+    aboutUs: 'Über uns',
+    lifeAtIndvaltech: 'Leben bei IndvalTech',
     industries: 'Branchen',
     services: 'Leistungen',
     career: 'Karriere',
@@ -110,5 +112,61 @@ export const de = {
     explore: 'Entdecken',
     services: 'Leistungen',
     contact: 'Kontakt',
+  },
+  about: {
+    hero: {
+      eyebrow: 'Engineering-Exzellenz',
+      heading: 'INDVALTECH',
+      body: 'Komplexe Ingenieurprobleme mit forensischer Präzision und einem Jahrzehnt Expertise lösen.',
+      cta: 'Unsere Methodik',
+      metricsLabel: 'Präzisionskennzahlen',
+      metric1Value: '10+',
+      metric1Label: 'Jahre Exzellenz',
+      metric2Value: '25+',
+      metric2Label: 'Luft- und Raumfahrt-Erbe',
+    },
+    vision: {
+      eyebrow: 'Der Horizont',
+      title: 'Vision',
+      body: "To be the most competitive, trusted & preferred partner for it's customer across the globe in Engineering Services",
+    },
+    mission: {
+      eyebrow: 'Das Streben',
+      title: 'Mission',
+      body: 'To make integrated collaborative partnership between employees, clients & suppliers with value addition & creative thinking in our every service offered.',
+    },
+    passion: {
+      eyebrow: 'Der Antrieb',
+      title: 'Passion',
+      body: 'Provide Innovative and creative solutions to the service request of every customer',
+    },
+    leadership: {
+      title: 'Führung durch Luft- und Raumfahrtveteranen',
+      body: 'Unser Unternehmen wird von einem Luft- und Raumfahrtveteranen mit 25 Jahren funktionsübergreifender Erfahrung geleitet. Dieses Fundament aus rigoroser Präzision und Sicherheitspriorität prägt jeden Bereich unserer Leistungserbringung.',
+      tag1: 'Luft- und Raumfahrt',
+      tag2: 'Verteidigung',
+      tag3: 'Präzisionstechnologie',
+    },
+    competences: {
+      eyebrow: 'Engineered Intelligence',
+      heading: 'Kompetenzen & Engagement',
+      team: {
+        title: 'Technisches Team',
+        body: 'Unsere Kernstärke liegt in unseren technisch versierten Ingenieuren aus verschiedenen Bereichen:',
+        item1: 'Luft- und Raumfahrt',
+        item2: 'Automobil',
+        item3: 'Schienenfahrzeuge',
+        item4: 'Off-Highway',
+        item5: 'Allgemeines Engineering',
+      },
+      qa: {
+        title: 'Qualitätssicherung',
+        body: 'Wir arbeiten nach dem Prinzip "Forensische Präzision" und stellen sicher, dass jede Berechnung und jedes Design globale Sicherheits- und Leistungsstandards ohne Kompromisse erfüllt.',
+      },
+      global: {
+        title: 'Globale Reichweite',
+        body: 'Mit strategischen operativen Standorten überbrücken wir die Lücke zwischen komplexen Engineering-Anforderungen und lokaler, hochwertiger Ausführung.',
+      },
+    },
   },
 } satisfies Translations;

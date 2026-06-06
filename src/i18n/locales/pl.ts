@@ -4,6 +4,8 @@ export const pl = {
   nav: {
     home: 'Strona główna',
     company: 'Firma',
+    aboutUs: 'O nas',
+    lifeAtIndvaltech: 'Życie w IndvalTech',
     industries: 'Branże',
     services: 'Usługi',
     career: 'Kariera',
@@ -110,5 +112,61 @@ export const pl = {
     explore: 'Odkryj',
     services: 'Usługi',
     contact: 'Kontakt',
+  },
+  about: {
+    hero: {
+      eyebrow: 'Doskonałość inżynieryjna',
+      heading: 'INDVALTECH',
+      body: 'Rozwiązywanie złożonych problemów inżynieryjnych z sądową precyzją i dekadą doświadczenia.',
+      cta: 'Nasza metodologia',
+      metricsLabel: 'Wskaźniki precyzji',
+      metric1Value: '10+',
+      metric1Label: 'Lat doskonałości',
+      metric2Value: '25+',
+      metric2Label: 'Dziedzictwo lotnicze',
+    },
+    vision: {
+      eyebrow: 'Horyzont',
+      title: 'Wizja',
+      body: "To be the most competitive, trusted & preferred partner for it's customer across the globe in Engineering Services",
+    },
+    mission: {
+      eyebrow: 'Dążenie',
+      title: 'Misja',
+      body: 'To make integrated collaborative partnership between employees, clients & suppliers with value addition & creative thinking in our every service offered.',
+    },
+    passion: {
+      eyebrow: 'Napęd',
+      title: 'Pasja',
+      body: 'Provide Innovative and creative solutions to the service request of every customer',
+    },
+    leadership: {
+      title: 'Przywództwo weterana lotnictwa',
+      body: 'Nasza firma jest zbudowana i kierowana przez weterana lotnictwa z 25-letnim doświadczeniem interdyscyplinarnym. Ten fundament rygorystycznej precyzji i metodologii bezpieczeństwa pierwszego priorytetu kształtuje każdy aspekt naszych usług.',
+      tag1: 'Lotnictwo',
+      tag2: 'Obronność',
+      tag3: 'Technologia precyzyjna',
+    },
+    competences: {
+      eyebrow: 'Engineered Intelligence',
+      heading: 'Kompetencje i zaangażowanie',
+      team: {
+        title: 'Zespół techniczny',
+        body: 'Nasza siła tkwi w technicznie zaawansowanych inżynierach z różnych dziedzin:',
+        item1: 'Lotnictwo',
+        item2: 'Motoryzacja',
+        item3: 'Pojazdy szynowe',
+        item4: 'Off-highway',
+        item5: 'Inżynieria ogólna',
+      },
+      qa: {
+        title: 'Zapewnienie jakości',
+        body: 'Działamy zgodnie z zasadą "Sądowej precyzji", zapewniając, że każde obliczenie i projekt spełnia globalne standardy bezpieczeństwa i wydajności bez kompromisów.',
+      },
+      global: {
+        title: 'Globalny zasięg',
+        body: 'Dzięki strategicznym hubom operacyjnym wypełniamy lukę między złożonymi wymaganiami inżynieryjnymi a lokalną, wysokowartościową realizacją.',
+      },
+    },
   },
 } satisfies Translations;

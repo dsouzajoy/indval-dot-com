@@ -76,9 +76,6 @@ export const pl = {
       },
     },
   },
-  trust: {
-    heading: 'Zaufanie globalnych liderów przemysłu',
-  },
   footer: {
     brand: 'Wyspecjalizowani partnerzy inżynieryjni dostarczający precyzyjne rozwiązania techniczne dla najbardziej wymagających branż na świecie.',
     solutionsHeading: 'Rozwiązania',

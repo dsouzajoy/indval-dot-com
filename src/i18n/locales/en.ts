@@ -74,9 +74,6 @@ export const en = {
       },
     },
   },
-  trust: {
-    heading: 'Trusted by Global Industry Leaders',
-  },
   footer: {
     brand: 'Specialized engineering partners providing precision technical solutions for the world\'s most demanding industries.',
     solutionsHeading: 'Solutions',

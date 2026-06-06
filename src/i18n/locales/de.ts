@@ -76,9 +76,6 @@ export const de = {
       },
     },
   },
-  trust: {
-    heading: 'Vertrauen globaler Industrieführer',
-  },
   footer: {
     brand: 'Spezialisierte Engineering-Partner, die Präzisionslösungen für die anspruchsvollsten Industrien der Welt liefern.',
     solutionsHeading: 'Lösungen',

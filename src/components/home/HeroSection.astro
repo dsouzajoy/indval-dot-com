@@ -10,7 +10,7 @@ const slides = [
     i18nPrefix: 'hero.slide1',
     img: 'https://images.pexels.com/photos/36692505/pexels-photo-36692505.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop',
     imgAlt: 'Female engineer with laptop overseeing a robotic arm in a manufacturing facility',
-    gradient: 'from-primary/90 via-primary/40 to-transparent',
+    gradient: 'from-primary/80 via-primary/30 to-black/10',
   },
   {
     eyebrow: en.hero.slide2.eyebrow,
@@ -20,7 +20,7 @@ const slides = [
     i18nPrefix: 'hero.slide2',
     img: 'https://images.pexels.com/photos/32845690/pexels-photo-32845690.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop',
     imgAlt: 'Engineers in uniform collaborating on a tablet inside a manufacturing facility',
-    gradient: 'from-black/80 via-black/30 to-transparent',
+    gradient: 'from-black/70 via-black/20 to-black/10',
   },
   {
     eyebrow: en.hero.slide3.eyebrow,
@@ -28,9 +28,9 @@ const slides = [
     body:     en.hero.slide3.body,
     cta:      en.hero.slide3.cta,
     i18nPrefix: 'hero.slide3',
-    img: 'https://images.pexels.com/photos/3862614/pexels-photo-3862614.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop',
-    imgAlt: 'Female engineer smiling confidently in a modern industrial workshop',
-    gradient: 'from-primary/80 via-transparent to-transparent',
+    img: 'https://images.pexels.com/photos/31336021/pexels-photo-31336021.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop',
+    imgAlt: 'Indian female factory worker in a textile manufacturing facility',
+    gradient: 'from-primary/80 via-primary/30 to-black/10',
   },
 ];
 ---
@@ -43,6 +43,7 @@ const slides = [
   <div class="relative h-full w-full min-h-[85vh] lg:min-h-[921px]">
     {slides.map((slide, i) => (
       <div class="carousel-item w-full h-full">
+        <div class="absolute inset-0 bg-black/50 z-10"></div>
         <div class={`absolute inset-0 bg-gradient-to-r ${slide.gradient} z-10`}></div>
         <img
           src={slide.img}

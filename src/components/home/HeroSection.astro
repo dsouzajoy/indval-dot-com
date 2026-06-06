@@ -1,73 +1,215 @@
 ---
 import { en } from '@/i18n/locales/en';
-import { withBase } from '@/lib/utils';
+
+const slides = [
+  {
+    eyebrow: en.hero.slide1.eyebrow,
+    heading:  en.hero.slide1.heading,
+    body:     en.hero.slide1.body,
+    cta:      en.hero.slide1.cta,
+    i18nPrefix: 'hero.slide1',
+    img: 'https://images.pexels.com/photos/36692505/pexels-photo-36692505.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop',
+    imgAlt: 'Female engineer with laptop overseeing a robotic arm in a manufacturing facility',
+    gradient: 'from-primary/90 via-primary/40 to-transparent',
+  },
+  {
+    eyebrow: en.hero.slide2.eyebrow,
+    heading:  en.hero.slide2.heading,
+    body:     en.hero.slide2.body,
+    cta:      en.hero.slide2.cta,
+    i18nPrefix: 'hero.slide2',
+    img: 'https://images.pexels.com/photos/32845690/pexels-photo-32845690.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop',
+    imgAlt: 'Engineers in uniform collaborating on a tablet inside a manufacturing facility',
+    gradient: 'from-black/80 via-black/30 to-transparent',
+  },
+  {
+    eyebrow: en.hero.slide3.eyebrow,
+    heading:  en.hero.slide3.heading,
+    body:     en.hero.slide3.body,
+    cta:      en.hero.slide3.cta,
+    i18nPrefix: 'hero.slide3',
+    img: 'https://images.pexels.com/photos/3862614/pexels-photo-3862614.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop',
+    imgAlt: 'Female engineer smiling confidently in a modern industrial workshop',
+    gradient: 'from-primary/80 via-transparent to-transparent',
+  },
+];
 ---
-<section class="relative min-h-screen flex items-center overflow-hidden blueprint-bg px-8 py-20" aria-label="Hero" id="hero">
-  <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
-    <!-- Text column -->
-    <div class="lg:col-span-7 z-10 flex flex-col">
-      <span
-        class="font-label text-secondary font-bold tracking-[0.2em] uppercase text-sm mb-6 block"
-        data-i18n="hero.eyebrow"
-      >
-        {en.hero.eyebrow}
-      </span>
-
-      <h1 class="font-sans font-black text-5xl lg:text-7xl xl:text-8xl text-primary leading-[0.95] tracking-tight mb-8">
-        <span data-i18n="hero.heading1">{en.hero.heading1}</span><br />
-        <span class="text-on-surface-variant font-light" data-i18n="hero.heading2">{en.hero.heading2}</span>
-      </h1>
-
-      <p class="font-sans text-lg text-on-surface-variant leading-relaxed max-w-xl mb-10" data-i18n="hero.body">
-        {en.hero.body}
-      </p>
-
-      <div class="flex flex-col sm:flex-row gap-4">
-        <a
-          href={withBase('/404')}
-          data-i18n="hero.ctaPrimary"
-          class="inline-flex items-center justify-center px-8 py-4 rounded-xl font-label font-bold text-sm uppercase tracking-wider text-white bg-primary hover:bg-primary-container active:scale-95 transition-all duration-200"
-        >
-          {en.hero.ctaPrimary}
-        </a>
-        <a
-          href={withBase('/404')}
-          data-i18n="hero.ctaSecondary"
-          class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-label font-bold text-sm uppercase tracking-wider text-primary border border-outline-variant/30 hover:bg-surface-container-low active:scale-95 transition-all duration-200"
-        >
-          {en.hero.ctaSecondary}
-          <span class="material-symbols-outlined text-sm" style="font-size: 16px;">arrow_forward</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- Image column -->
-    <div class="lg:col-span-5 relative flex justify-center mt-12 lg:mt-0">
-      <div class="relative w-full max-w-sm lg:max-w-none aspect-square">
-        <!-- Image frame — square with rounded corners -->
-        <div class="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl border-8 border-surface-container-lowest">
-          <img
-            src={withBase('/images/hero-turbine.jpg')}
-            alt={en.hero.imgAlt}
-            data-i18n-attr="alt:hero.imgAlt"
-            class="w-full h-full object-cover"
-          />
-        </div>
-
-        <!-- Floating certification card -->
-        <div class="absolute -bottom-4 -left-4 lg:-bottom-6 lg:-left-12 bg-surface-container-lowest p-4 lg:p-6 rounded-xl max-w-[220px] lg:max-w-xs border border-outline-variant/10"
-          style="box-shadow: 0px 16px 40px rgba(11, 28, 48, 0.12);">
-          <div class="flex items-center gap-2 lg:gap-3 mb-2">
-            <span class="material-symbols-outlined text-green-700 text-base lg:text-xl" style="font-variation-settings: 'FILL' 1; color: #003c0b;">verified</span>
-            <span class="font-label font-bold text-[10px] lg:text-xs uppercase tracking-tighter" data-i18n="hero.certLabel">{en.hero.certLabel}</span>
+<section
+  id="hero-carousel"
+  class="relative min-h-[85vh] lg:min-h-[921px] w-full bg-slate-950 overflow-hidden"
+  aria-label="Hero"
+>
+  <div class="relative h-full w-full min-h-[85vh] lg:min-h-[921px]">
+    {slides.map((slide, i) => (
+      <div class="carousel-item w-full h-full">
+        <div class={`absolute inset-0 bg-gradient-to-r ${slide.gradient} z-10`}></div>
+        <img
+          src={slide.img}
+          alt={slide.imgAlt}
+          class="w-full h-full object-cover"
+          loading={i === 0 ? 'eager' : 'lazy'}
+        />
+        <div class="absolute inset-0 z-20 flex items-center px-8 max-w-screen-2xl mx-auto">
+          <div class="max-w-2xl">
+            <span
+              class="font-label text-secondary font-bold tracking-[0.2em] uppercase text-sm mb-6 block"
+              data-i18n={`${slide.i18nPrefix}.eyebrow`}
+            >
+              {slide.eyebrow}
+            </span>
+            <h1
+              class="font-headline font-black text-5xl lg:text-8xl text-white leading-[0.9] tracking-tight mb-8"
+              data-i18n={`${slide.i18nPrefix}.heading`}
+            >
+              {slide.heading}
+            </h1>
+            <p
+              class="text-white/80 text-xl leading-relaxed max-w-xl mb-12"
+              data-i18n={`${slide.i18nPrefix}.body`}
+            >
+              {slide.body}
+            </p>
+            <button
+              class="bg-secondary text-white px-8 py-4 rounded-xl font-label font-bold uppercase tracking-wider hover:bg-secondary-container active:scale-95 transition-all duration-200"
+              data-i18n={`${slide.i18nPrefix}.cta`}
+            >
+              {slide.cta}
+            </button>
           </div>
-          <p class="text-[10px] lg:text-xs text-on-surface-variant leading-relaxed">
-            <span data-i18n="hero.certBodyPrefix">{en.hero.certBodyPrefix}</span> <span class="font-label font-bold">ISO 9001:2015</span>, <span class="font-label font-bold">TÜV</span>, <span class="font-label font-bold">DUN</span>, <span data-i18n="hero.certBodyConjunction">{en.hero.certBodyConjunction}</span> <span class="font-label font-bold">TiSAX</span> <span data-i18n="hero.certBodySuffix">{en.hero.certBodySuffix}</span>
-          </p>
         </div>
       </div>
-    </div>
+    ))}
+  </div>
 
+  <!-- Navigation controls -->
+  <div class="absolute bottom-12 left-0 right-0 z-30 flex justify-center items-center gap-8">
+    <button
+      id="prev-slide"
+      class="text-white/50 hover:text-white transition-colors"
+      aria-label="Previous slide"
+    >
+      <span class="material-symbols-outlined text-4xl">chevron_left</span>
+    </button>
+    <div class="flex gap-4" id="carousel-dots">
+      {slides.map((_, i) => (
+        <div
+          class={`h-3 rounded-full transition-all duration-300 cursor-pointer ${i === 0 ? 'bg-white w-8' : 'bg-white/30 w-3'}`}
+          data-slide={String(i)}
+          role="button"
+          tabindex="0"
+          aria-label={`Go to slide ${i + 1}`}
+        ></div>
+      ))}
+    </div>
+    <button
+      id="next-slide"
+      class="text-white/50 hover:text-white transition-colors"
+      aria-label="Next slide"
+    >
+      <span class="material-symbols-outlined text-4xl">chevron_right</span>
+    </button>
   </div>
 </section>
+
+<style>
+  .carousel-item {
+    display: block;
+    position: absolute;
+    inset: 0;
+    transform: translateX(100%);
+    will-change: transform;
+  }
+  .carousel-item.active {
+    transform: translateX(0);
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const slides = Array.from(
+      document.querySelectorAll<HTMLElement>('#hero-carousel .carousel-item')
+    );
+    const dots = document.querySelectorAll<HTMLElement>('#carousel-dots [data-slide]');
+    const DURATION = 700;
+    const EASING = 'cubic-bezier(0.4, 0, 0.2, 1)';
+    let currentSlide = 0;
+    let animating = false;
+    let autoplayTimer: ReturnType<typeof setInterval>;
+
+    // Initialise: first slide visible, rest hidden to the right
+    slides.forEach((slide, i) => {
+      slide.style.transform = i === 0 ? 'translateX(0)' : 'translateX(100%)';
+      slide.style.transition = 'none';
+    });
+
+    function goTo(nextIndex: number, direction: 'forward' | 'backward') {
+      if (animating || nextIndex === currentSlide) return;
+      animating = true;
+
+      const incoming = slides[nextIndex];
+      const outgoing = slides[currentSlide];
+      const enterFrom = direction === 'forward' ? '100%' : '-100%';
+      const exitTo   = direction === 'forward' ? '-100%' : '100%';
+
+      // Stage incoming off-screen without transition
+      incoming.style.transition = 'none';
+      incoming.style.transform = `translateX(${enterFrom})`;
+
+      // Force reflow so the browser registers the start position
+      incoming.offsetHeight;
+
+      // Slide both panels simultaneously
+      const t = `transform ${DURATION}ms ${EASING}`;
+      incoming.style.transition = t;
+      outgoing.style.transition = t;
+      incoming.style.transform = 'translateX(0)';
+      outgoing.style.transform = `translateX(${exitTo})`;
+
+      // Update dots immediately
+      dots.forEach((dot, i) => {
+        const active = i === nextIndex;
+        dot.classList.toggle('bg-white', active);
+        dot.classList.toggle('w-8', active);
+        dot.classList.toggle('bg-white/30', !active);
+        dot.classList.toggle('w-3', !active);
+      });
+
+      setTimeout(() => {
+        currentSlide = nextIndex;
+        animating = false;
+      }, DURATION);
+    }
+
+    function startAutoplay() {
+      autoplayTimer = setInterval(() => {
+        goTo((currentSlide + 1) % slides.length, 'forward');
+      }, 6000);
+    }
+
+    function resetAutoplay() {
+      clearInterval(autoplayTimer);
+      startAutoplay();
+    }
+
+    document.getElementById('next-slide')?.addEventListener('click', () => {
+      goTo((currentSlide + 1) % slides.length, 'forward');
+      resetAutoplay();
+    });
+
+    document.getElementById('prev-slide')?.addEventListener('click', () => {
+      goTo((currentSlide - 1 + slides.length) % slides.length, 'backward');
+      resetAutoplay();
+    });
+
+    dots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        const index = parseInt(dot.getAttribute('data-slide') ?? '0', 10);
+        goTo(index, index > currentSlide ? 'forward' : 'backward');
+        resetAutoplay();
+      });
+    });
+
+    startAutoplay();
+  });
+</script>

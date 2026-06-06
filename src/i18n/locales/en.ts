@@ -171,6 +171,67 @@ export const en = {
       },
     },
   },
+  life: {
+    hero: {
+      eyebrow: 'Life at IndvalTech',
+      heading: 'Engineering Your Future',
+      body: "Join a global team of elite engineers dedicated to solving the world's most complex challenges through technical mastery and collaborative innovation.",
+      cta: 'Explore Careers',
+    },
+    atmosphere: {
+      eyebrow: 'Atmosphere',
+      heading: 'The IndvalTech Atmosphere',
+      body: 'We foster an environment where transparency is the baseline, technical excellence is the currency, and mutual respect is the foundation of every design review.',
+      precisionFirst: {
+        title: 'Precision First',
+        body: 'Every decimal point matters. We celebrate the meticulous pursuit of accuracy in every blueprint and line of code.',
+      },
+      collaborativeIntelligence: {
+        title: 'Collaborative Intelligence',
+        body: "Genius doesn't happen in a vacuum. Our cross-disciplinary pods ensure diverse expertise fuels every breakthrough.",
+      },
+      ethicalInnovation: {
+        title: 'Ethical Innovation',
+        body: 'We build for tomorrow. Responsibility to society and the environment is hard-coded into our engineering DNA.',
+      },
+    },
+    development: {
+      eyebrow: 'Development',
+      heading: 'Continuous Engineering Excellence',
+      technicalMentorship: {
+        title: 'Technical Mentorship',
+        body: 'Direct access to our Chief Engineers for hands-on project guidance and career coaching.',
+      },
+      certificationSupport: {
+        title: 'Advanced Certification Support',
+        body: '100% reimbursement for specialist engineering certifications and professional memberships.',
+      },
+      globalMobility: {
+        title: 'Global Project Mobility',
+        body: 'Opportunities for short-term and permanent relocation between our international design centers.',
+      },
+    },
+    perks: {
+      heading: 'Designed for Peak Performance',
+      body: 'Everything you need to do your best work.',
+      performanceIncentives: {
+        title: 'Performance Incentives',
+        body: 'Competitive equity and quarterly project completion bonuses.',
+      },
+      wellnessSafety: {
+        title: 'Wellness & Safety',
+        body: 'Premium health coverage including specialized ergonomic assessments.',
+      },
+      growthMapping: {
+        title: 'Growth Mapping',
+        body: 'Individualized career paths tailored to your technical specialism.',
+      },
+      globalMobility: {
+        title: 'Global Project Mobility',
+        body: 'Short-term international assignments and cross-border technical collaboration opportunities.',
+      },
+    },
+  },
 } as const;
 
 type DeepString<T> = {

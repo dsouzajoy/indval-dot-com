@@ -1,0 +1,71 @@
+---
+import { en } from '@/i18n/locales/en';
+---
+
+<section class="relative py-20 bg-on-surface">
+  <div class="container mx-auto px-6 md:px-8 max-w-7xl">
+    <!-- Header -->
+    <div class="max-w-3xl mb-16">
+      <p
+        class="font-label text-xs uppercase tracking-[0.3em] text-secondary mb-4"
+        data-i18n="life.atmosphere.eyebrow"
+      >{en.life.atmosphere.eyebrow}</p>
+      <h2
+        class="font-headline font-black text-4xl md:text-5xl text-white leading-[0.9] tracking-tight mb-6"
+        data-i18n="life.atmosphere.heading"
+      >{en.life.atmosphere.heading}</h2>
+      <p
+        class="text-white/80 text-xl leading-relaxed"
+        data-i18n="life.atmosphere.body"
+      >{en.life.atmosphere.body}</p>
+    </div>
+
+    <!-- Value cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Precision First -->
+      <div class="group p-8 bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 border border-transparent hover:border-primary/10">
+        <div class="w-12 h-12 flex items-center justify-center bg-primary/5 rounded-lg mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+          <span class="material-symbols-outlined text-primary group-hover:text-white transition-colors" aria-hidden="true">precision_manufacturing</span>
+        </div>
+        <h3
+          class="font-headline font-bold text-xl mb-3 text-on-surface tracking-tight"
+          data-i18n="life.atmosphere.precisionFirst.title"
+        >{en.life.atmosphere.precisionFirst.title}</h3>
+        <p
+          class="text-on-surface-variant text-sm leading-relaxed"
+          data-i18n="life.atmosphere.precisionFirst.body"
+        >{en.life.atmosphere.precisionFirst.body}</p>
+      </div>
+
+      <!-- Collaborative Intelligence -->
+      <div class="group p-8 bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 border border-transparent hover:border-primary/10">
+        <div class="w-12 h-12 flex items-center justify-center bg-primary/5 rounded-lg mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+          <span class="material-symbols-outlined text-primary group-hover:text-white transition-colors" aria-hidden="true">hub</span>
+        </div>
+        <h3
+          class="font-headline font-bold text-xl mb-3 text-on-surface tracking-tight"
+          data-i18n="life.atmosphere.collaborativeIntelligence.title"
+        >{en.life.atmosphere.collaborativeIntelligence.title}</h3>
+        <p
+          class="text-on-surface-variant text-sm leading-relaxed"
+          data-i18n="life.atmosphere.collaborativeIntelligence.body"
+        >{en.life.atmosphere.collaborativeIntelligence.body}</p>
+      </div>
+
+      <!-- Ethical Innovation -->
+      <div class="group p-8 bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 border border-transparent hover:border-primary/10">
+        <div class="w-12 h-12 flex items-center justify-center bg-primary/5 rounded-lg mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+          <span class="material-symbols-outlined text-primary group-hover:text-white transition-colors" aria-hidden="true">security</span>
+        </div>
+        <h3
+          class="font-headline font-bold text-xl mb-3 text-on-surface tracking-tight"
+          data-i18n="life.atmosphere.ethicalInnovation.title"
+        >{en.life.atmosphere.ethicalInnovation.title}</h3>
+        <p
+          class="text-on-surface-variant text-sm leading-relaxed"
+          data-i18n="life.atmosphere.ethicalInnovation.body"
+        >{en.life.atmosphere.ethicalInnovation.body}</p>
+      </div>
+    </div>
+  </div>
+</section>

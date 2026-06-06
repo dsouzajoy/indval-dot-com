@@ -173,4 +173,65 @@ export const pl = {
       },
     },
   },
+  life: {
+    hero: {
+      eyebrow: 'Życie w IndvalTech',
+      heading: 'Inżynieruj swoją przyszłość',
+      body: 'Dołącz do globalnego zespołu wybitnych inżynierów, którzy rozwiązują najbardziej złożone wyzwania świata poprzez mistrzostwo techniczne i współpracę innowacyjną.',
+      cta: 'Odkryj kariery',
+    },
+    atmosphere: {
+      eyebrow: 'Atmosfera',
+      heading: 'Atmosfera IndvalTech',
+      body: 'Tworzymy środowisko, w którym przejrzystość jest podstawą, doskonałość techniczna jest walutą, a wzajemny szacunek jest fundamentem każdego przeglądu projektu.',
+      precisionFirst: {
+        title: 'Precyzja przede wszystkim',
+        body: 'Każde miejsce po przecinku ma znaczenie. Celebrujemy skrupulatne dążenie do dokładności w każdym projekcie i linii kodu.',
+      },
+      collaborativeIntelligence: {
+        title: 'Współpracująca inteligencja',
+        body: 'Geniusz nie rodzi się w próżni. Nasze interdyscyplinarne zespoły zapewniają, że różnorodna wiedza napędza każdy przełom.',
+      },
+      ethicalInnovation: {
+        title: 'Etyczna innowacja',
+        body: 'Budujemy na jutro. Odpowiedzialność wobec społeczeństwa i środowiska jest zakodowana w naszym inżynierskim DNA.',
+      },
+    },
+    development: {
+      eyebrow: 'Rozwój',
+      heading: 'Ciągła doskonałość inżynierska',
+      technicalMentorship: {
+        title: 'Mentoring techniczny',
+        body: 'Bezpośredni dostęp do naszych Głównych Inżynierów w celu praktycznego prowadzenia projektów i coachingu kariery.',
+      },
+      certificationSupport: {
+        title: 'Wsparcie certyfikacyjne',
+        body: '100% zwrotu kosztów certyfikatów inżynierskich i członkostwa zawodowego.',
+      },
+      globalMobility: {
+        title: 'Globalna mobilność projektowa',
+        body: 'Możliwości krótkoterminowej i stałej relokacji między naszymi międzynarodowymi centrami projektowymi.',
+      },
+    },
+    perks: {
+      heading: 'Zaprojektowane dla szczytowej wydajności',
+      body: 'Wszystko, czego potrzebujesz do najlepszej pracy.',
+      performanceIncentives: {
+        title: 'Zachęty wydajnościowe',
+        body: 'Konkurencyjny udział i kwartalne premie za ukończenie projektów.',
+      },
+      wellnessSafety: {
+        title: 'Wellness i bezpieczeństwo',
+        body: 'Wysokiej klasy ubezpieczenie zdrowotne, w tym specjalistyczne oceny ergonomiczne.',
+      },
+      growthMapping: {
+        title: 'Planowanie kariery',
+        body: 'Indywidualne ścieżki kariery dostosowane do twojej specjalizacji technicznej.',
+      },
+      globalMobility: {
+        title: 'Globalna mobilność projektowa',
+        body: 'Krótkoterminowe międzynarodowe delegacje i transgraniczne możliwości współpracy technicznej.',
+      },
+    },
+  },
 } satisfies Translations;

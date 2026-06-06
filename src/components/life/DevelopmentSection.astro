@@ -1,0 +1,81 @@
+---
+import { en } from '@/i18n/locales/en';
+---
+
+<section class="blueprint-bg py-32">
+  <div class="container mx-auto px-6 md:px-8 max-w-7xl">
+    <div class="flex flex-col md:flex-row gap-16 items-center">
+
+      <!-- Left: content -->
+      <div class="w-full md:w-1/2 space-y-10">
+        <div>
+          <p
+            class="font-label text-xs uppercase tracking-[0.3em] text-secondary mb-4"
+            data-i18n="life.development.eyebrow"
+          >{en.life.development.eyebrow}</p>
+          <h2
+            class="font-headline font-black text-4xl md:text-5xl text-on-surface leading-[0.9] tracking-tight"
+            data-i18n="life.development.heading"
+          >{en.life.development.heading}</h2>
+        </div>
+
+        <ul class="space-y-8">
+          <!-- 01 Technical Mentorship -->
+          <li class="flex gap-6 group">
+            <span class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded bg-surface-container-high font-label text-primary font-bold text-sm group-hover:bg-primary group-hover:text-white transition-all duration-300">01</span>
+            <div>
+              <h3
+                class="font-headline font-bold text-lg mb-2 text-on-surface tracking-tight"
+                data-i18n="life.development.technicalMentorship.title"
+              >{en.life.development.technicalMentorship.title}</h3>
+              <p
+                class="text-on-surface-variant text-sm leading-relaxed"
+                data-i18n="life.development.technicalMentorship.body"
+              >{en.life.development.technicalMentorship.body}</p>
+            </div>
+          </li>
+
+          <!-- 02 Advanced Certification Support -->
+          <li class="flex gap-6 group">
+            <span class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded bg-surface-container-high font-label text-primary font-bold text-sm group-hover:bg-primary group-hover:text-white transition-all duration-300">02</span>
+            <div>
+              <h3
+                class="font-headline font-bold text-lg mb-2 text-on-surface tracking-tight"
+                data-i18n="life.development.certificationSupport.title"
+              >{en.life.development.certificationSupport.title}</h3>
+              <p
+                class="text-on-surface-variant text-sm leading-relaxed"
+                data-i18n="life.development.certificationSupport.body"
+              >{en.life.development.certificationSupport.body}</p>
+            </div>
+          </li>
+
+          <!-- 03 Global Project Mobility -->
+          <li class="flex gap-6 group">
+            <span class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded bg-surface-container-high font-label text-primary font-bold text-sm group-hover:bg-primary group-hover:text-white transition-all duration-300">03</span>
+            <div>
+              <h3
+                class="font-headline font-bold text-lg mb-2 text-on-surface tracking-tight"
+                data-i18n="life.development.globalMobility.title"
+              >{en.life.development.globalMobility.title}</h3>
+              <p
+                class="text-on-surface-variant text-sm leading-relaxed"
+                data-i18n="life.development.globalMobility.body"
+              >{en.life.development.globalMobility.body}</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Right: image -->
+      <div class="w-full md:w-1/2">
+        <img
+          src="https://images.pexels.com/photos/3912477/pexels-photo-3912477.jpeg?auto=compress&cs=tinysrgb&w=900"
+          alt="Engineers collaborating in a technical meeting"
+          class="rounded-xl shadow-xl w-full object-cover"
+        />
+      </div>
+
+    </div>
+  </div>
+</section>

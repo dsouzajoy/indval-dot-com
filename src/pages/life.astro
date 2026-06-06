@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LifeHero from '../components/life/LifeHero.astro';
+import AtmosphereSection from '../components/life/AtmosphereSection.astro';
+import DevelopmentSection from '../components/life/DevelopmentSection.astro';
+import PerksSection from '../components/life/PerksSection.astro';
+---
+
+<BaseLayout
+  title="Life at IndvalTech | Indvaltech Engineering Services"
+  description="Join a global team of elite engineers. Discover the culture, career development opportunities, and perks of working at IndvalTech."
+  ogImage="/images/hero-turbine.jpg"
+  showSplash={false}
+>
+  <LifeHero />
+  <AtmosphereSection />
+  <DevelopmentSection />
+  <PerksSection />
+</BaseLayout>

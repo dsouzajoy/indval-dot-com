@@ -1,0 +1,77 @@
+---
+import { en } from '@/i18n/locales/en';
+---
+
+<section class="py-32 bg-surface-container-lowest" style="background-image: radial-gradient(circle at 2px 2px, rgba(11, 71, 147, 0.12) 1.5px, transparent 0); background-size: 32px 32px;">
+  <div class="container mx-auto px-6 md:px-8 max-w-7xl">
+
+    <!-- Section header -->
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <h2
+        class="font-headline font-black text-4xl text-primary leading-[0.9] tracking-tight mb-2"
+        data-i18n="life.perks.heading"
+      >{en.life.perks.heading}</h2>
+      <p
+        class="text-primary/70 text-sm leading-relaxed"
+        data-i18n="life.perks.body"
+      >{en.life.perks.body}</p>
+    </div>
+
+    <!-- Perks grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+      <!-- Performance Incentives -->
+      <div class="p-10 bg-surface-container-lowest rounded-xl shadow-ambient-lg hover:-translate-y-1 transition-transform duration-300">
+        <span class="material-symbols-outlined text-secondary mb-4 block text-4xl" aria-hidden="true">trending_up</span>
+        <h3
+          class="font-headline font-bold text-base mb-3 text-on-surface tracking-tight"
+          data-i18n="life.perks.performanceIncentives.title"
+        >{en.life.perks.performanceIncentives.title}</h3>
+        <p
+          class="text-on-surface-variant text-xs leading-relaxed"
+          data-i18n="life.perks.performanceIncentives.body"
+        >{en.life.perks.performanceIncentives.body}</p>
+      </div>
+
+      <!-- Wellness & Safety -->
+      <div class="p-10 bg-surface-container-lowest rounded-xl shadow-ambient-lg hover:-translate-y-1 transition-transform duration-300">
+        <span class="material-symbols-outlined text-secondary mb-4 block text-4xl" aria-hidden="true">health_and_safety</span>
+        <h3
+          class="font-headline font-bold text-base mb-3 text-on-surface tracking-tight"
+          data-i18n="life.perks.wellnessSafety.title"
+        >{en.life.perks.wellnessSafety.title}</h2>
+        <p
+          class="text-on-surface-variant text-xs leading-relaxed"
+          data-i18n="life.perks.wellnessSafety.body"
+        >{en.life.perks.wellnessSafety.body}</p>
+      </div>
+
+      <!-- Growth Mapping -->
+      <div class="p-10 bg-surface-container-lowest rounded-xl shadow-ambient-lg hover:-translate-y-1 transition-transform duration-300">
+        <span class="material-symbols-outlined text-secondary mb-4 block text-4xl" aria-hidden="true">map</span>
+        <h3
+          class="font-headline font-bold text-base mb-3 text-on-surface tracking-tight"
+          data-i18n="life.perks.growthMapping.title"
+        >{en.life.perks.growthMapping.title}</h3>
+        <p
+          class="text-on-surface-variant text-xs leading-relaxed"
+          data-i18n="life.perks.growthMapping.body"
+        >{en.life.perks.growthMapping.body}</p>
+      </div>
+
+      <!-- Global Project Mobility -->
+      <div class="p-10 bg-surface-container-lowest rounded-xl shadow-ambient-lg hover:-translate-y-1 transition-transform duration-300">
+        <span class="material-symbols-outlined text-secondary mb-4 block text-4xl" aria-hidden="true">flight</span>
+        <h3
+          class="font-headline font-bold text-base mb-3 text-on-surface tracking-tight"
+          data-i18n="life.perks.globalMobility.title"
+        >{en.life.perks.globalMobility.title}</h3>
+        <p
+          class="text-on-surface-variant text-xs leading-relaxed"
+          data-i18n="life.perks.globalMobility.body"
+        >{en.life.perks.globalMobility.body}</p>
+      </div>
+
+    </div>
+  </div>
+</section>

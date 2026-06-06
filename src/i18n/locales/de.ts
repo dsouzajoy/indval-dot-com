@@ -173,4 +173,65 @@ export const de = {
       },
     },
   },
+  life: {
+    hero: {
+      eyebrow: 'Leben bei IndvalTech',
+      heading: 'Gestalte deine Zukunft',
+      body: 'Schließe dich einem globalen Team erstklassiger Ingenieure an, das die komplexesten Herausforderungen der Welt durch technische Meisterschaft und kollaborative Innovation löst.',
+      cta: 'Karriere erkunden',
+    },
+    atmosphere: {
+      eyebrow: 'Atmosphäre',
+      heading: 'Die IndvalTech Atmosphäre',
+      body: 'Wir fördern ein Umfeld, in dem Transparenz die Grundlage ist, technische Exzellenz die Währung und gegenseitiger Respekt das Fundament jedes Design-Reviews.',
+      precisionFirst: {
+        title: 'Präzision zuerst',
+        body: 'Jede Dezimalstelle zählt. Wir feiern die akribische Suche nach Genauigkeit in jedem Blueprint und jeder Codezeile.',
+      },
+      collaborativeIntelligence: {
+        title: 'Kollaborative Intelligenz',
+        body: 'Genie entsteht nicht im Vakuum. Unsere interdisziplinären Teams stellen sicher, dass vielfältiges Know-how jeden Durchbruch befeuert.',
+      },
+      ethicalInnovation: {
+        title: 'Ethische Innovation',
+        body: 'Wir bauen für morgen. Verantwortung gegenüber Gesellschaft und Umwelt ist fest in unserer Engineering-DNA verankert.',
+      },
+    },
+    development: {
+      eyebrow: 'Entwicklung',
+      heading: 'Kontinuierliche Engineering-Exzellenz',
+      technicalMentorship: {
+        title: 'Technisches Mentoring',
+        body: 'Direkter Zugang zu unseren Chefingenieuren für praxisnahe Projektbegleitung und Karrierecoaching.',
+      },
+      certificationSupport: {
+        title: 'Zertifizierungsunterstützung',
+        body: '100% Erstattung für Fachingenieurzertifizierungen und berufliche Mitgliedschaften.',
+      },
+      globalMobility: {
+        title: 'Globale Projektmobilität',
+        body: 'Möglichkeiten zur kurzfristigen und dauerhaften Versetzung zwischen unseren internationalen Designzentren.',
+      },
+    },
+    perks: {
+      heading: 'Entwickelt für Spitzenleistung',
+      body: 'Alles, was du für deine beste Arbeit brauchst.',
+      performanceIncentives: {
+        title: 'Leistungsanreize',
+        body: 'Wettbewerbsfähige Beteiligungen und vierteljährliche Projektabschlussboni.',
+      },
+      wellnessSafety: {
+        title: 'Wohlbefinden & Sicherheit',
+        body: 'Erstklassige Krankenversicherung einschließlich spezialisierter ergonomischer Beurteilungen.',
+      },
+      growthMapping: {
+        title: 'Karriereplanung',
+        body: 'Individuelle Karrierepfade, zugeschnitten auf deine technische Spezialisierung.',
+      },
+      globalMobility: {
+        title: 'Globale Projektmobilität',
+        body: 'Kurzfristige internationale Einsätze und grenzüberschreitende technische Zusammenarbeit.',
+      },
+    },
+  },
 } satisfies Translations;

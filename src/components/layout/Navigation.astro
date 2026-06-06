@@ -7,9 +7,16 @@ const beforeCompany = [
 ];
 
 const afterCompany = [
-  { label: en.nav.industries, href: '/404', i18nKey: 'nav.industries' },
-  { label: en.nav.services,   href: '/404', i18nKey: 'nav.services'   },
-  { label: en.nav.career,     href: '/404', i18nKey: 'nav.career'     },
+  { label: en.nav.services, href: '/404', i18nKey: 'nav.services' },
+  { label: en.nav.career,   href: '/404', i18nKey: 'nav.career'   },
+];
+
+const industriesItems = [
+  { label: en.industries.aerospace.title,  href: '/industries/aerospace',   i18nKey: 'industries.aerospace.title',  icon: 'flight'         },
+  { label: en.industries.automotive.title, href: '/industries/automotive',  i18nKey: 'industries.automotive.title', icon: 'directions_car' },
+  { label: en.industries.locomotive.title, href: '/industries/locomotive',  i18nKey: 'industries.locomotive.title', icon: 'train'          },
+  { label: en.industries.offHighway.title, href: '/industries/off-highway', i18nKey: 'industries.offHighway.title', icon: 'agriculture'    },
+  { label: en.industries.general.title,    href: '/industries/general',     i18nKey: 'industries.general.title',    icon: 'robot'          },
 ];
 ---
 <nav aria-label="Main navigation">
@@ -26,6 +33,43 @@ const afterCompany = [
         </a>
       </li>
     ))}
+
+    <!-- Industries dropdown -->
+    <li class="relative" id="industries-nav-item">
+      <button
+        id="industries-trigger"
+        aria-haspopup="true"
+        aria-expanded="false"
+        class="flex items-center gap-0.5 font-label text-sm uppercase tracking-wider text-on-surface-variant hover:text-secondary transition-colors duration-300 cursor-pointer"
+      >
+        <span data-i18n="nav.industries">{en.nav.industries}</span>
+        <span
+          id="industries-chevron"
+          class="material-symbols-outlined text-base leading-none transition-transform duration-200"
+          aria-hidden="true"
+        >expand_more</span>
+      </button>
+
+      <div
+        id="industries-dropdown"
+        role="menu"
+        aria-label="Industries menu"
+        class="absolute top-full left-1/2 -translate-x-1/2 w-64 pt-2 opacity-0 pointer-events-none translate-y-1 transition-all duration-200 ease-out z-50"
+      >
+        <div class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl shadow-ambient-lg overflow-hidden py-1.5">
+          {industriesItems.map(({ label, href, i18nKey, icon }) => (
+            <a
+              href={withBase(href)}
+              role="menuitem"
+              class="flex items-center gap-3 px-4 py-2.5 font-label text-sm uppercase tracking-wider text-on-surface-variant hover:text-secondary hover:bg-surface-container-low transition-colors duration-150"
+            >
+              <span class="material-symbols-outlined text-base leading-none shrink-0 text-secondary" aria-hidden="true">{icon}</span>
+              <span data-i18n={i18nKey}>{label}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </li>
 
     <!-- Company dropdown -->
     <li class="relative" id="company-nav-item">
@@ -87,6 +131,54 @@ const afterCompany = [
 </nav>
 
 <script>
+  // Industries dropdown
+  const industriesNavItem = document.getElementById('industries-nav-item')!;
+  const industriesTrigger = document.getElementById('industries-trigger')!;
+  const industriesDropdown = document.getElementById('industries-dropdown')!;
+  const industriesChevron = document.getElementById('industries-chevron')!;
+
+  let indOpenTimer: ReturnType<typeof setTimeout>;
+  let indCloseTimer: ReturnType<typeof setTimeout>;
+
+  function showIndustries() {
+    clearTimeout(indCloseTimer);
+    industriesDropdown.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-1');
+    industriesDropdown.classList.add('opacity-100', 'translate-y-0');
+    industriesTrigger.setAttribute('aria-expanded', 'true');
+    industriesChevron.style.transform = 'rotate(180deg)';
+  }
+
+  function hideIndustries() {
+    clearTimeout(indOpenTimer);
+    industriesDropdown.classList.add('opacity-0', 'pointer-events-none', 'translate-y-1');
+    industriesDropdown.classList.remove('opacity-100', 'translate-y-0');
+    industriesTrigger.setAttribute('aria-expanded', 'false');
+    industriesChevron.style.transform = '';
+  }
+
+  industriesNavItem.addEventListener('mouseenter', () => {
+    clearTimeout(indCloseTimer);
+    indOpenTimer = setTimeout(showIndustries, 150);
+  });
+
+  industriesNavItem.addEventListener('mouseleave', () => {
+    clearTimeout(indOpenTimer);
+    indCloseTimer = setTimeout(hideIndustries, 100);
+  });
+
+  industriesTrigger.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      industriesTrigger.getAttribute('aria-expanded') === 'true' ? hideIndustries() : showIndustries();
+    }
+    if (e.key === 'Escape') hideIndustries();
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!industriesNavItem.contains(e.target as Node)) hideIndustries();
+  });
+
+  // Company dropdown
   const navItem = document.getElementById('company-nav-item')!;
   const trigger = document.getElementById('company-trigger')!;
   const dropdown = document.getElementById('company-dropdown')!;

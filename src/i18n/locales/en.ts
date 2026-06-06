@@ -40,7 +40,7 @@ export const en = {
     heading: 'Multidisciplinary Engineering Ecosystem',
     description: 'End-to-end solutions designed for high-stakes environments where failure is not an option.',
     aerospace: {
-      title: 'Aerospace & Defense',
+      title: 'Aerospace',
       description: 'Precision structural optimization, fatigue analysis, and propulsion system integration for mission-critical avionics.',
     },
     automotive: {
@@ -93,7 +93,7 @@ export const en = {
     subscribeLabel: 'Subscribe',
     copyright: '© {year} Indvaltech Engineering. Precision Guaranteed.',
     solutions: {
-      aerospace: 'Aerospace & Defense',
+      aerospace: 'Aerospace',
       automotive: 'Automotive Systems',
       automation: 'Industrial Automation',
       qa: 'Quality Assurance',

@@ -20,10 +20,12 @@ const mobileNavLinks = [
   <div id="header-bar" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-8" style="transition: height 300ms ease;">
 
     <!-- Logo + Wordmark -->
-    <a href={withBase('/')} aria-label="Indvaltech home" class="flex items-center gap-2 shrink-0">
+    <a href={withBase('/')} aria-label="Indvaltech home" class="flex items-center gap-3 shrink-0">
       <img id="header-logo" src={withBase('/images/logo.png')} alt="Indvaltech" class="h-9 w-auto" style="transition: height 300ms ease;" />
-      <span id="header-wordmark" class="font-label font-bold tracking-tight leading-none text-lg" style="transition: font-size 300ms ease;">
-        <span class="text-secondary">Indval</span><span class="text-primary">Tech</span>
+      <span id="header-divider" class="w-px bg-slate-300/60 shrink-0" style="height: 2rem; transition: height 300ms ease;"></span>
+      <span id="header-wordmark" class="font-label tracking-tight leading-none flex flex-col">
+        <span id="header-wordmark-title" class="font-bold" style="transition: font-size 300ms ease, letter-spacing 300ms ease;"><span class="text-secondary">INDVAL</span><span class="text-primary">TECH</span></span>
+        <span id="header-wordmark-sub" class="font-medium text-slate-500 uppercase mt-0.5" style="transition: font-size 300ms ease, letter-spacing 300ms ease;">Engineering Excellence</span>
       </span>
     </a>
 
@@ -126,7 +128,9 @@ const mobileNavLinks = [
   const panel = document.getElementById('drawer-panel')!;
   const barEl = document.getElementById('header-bar')!;
   const logoEl = document.getElementById('header-logo')!;
-  const wordmarkEl = document.getElementById('header-wordmark')!;
+  const dividerEl = document.getElementById('header-divider')!;
+  const titleEl = document.getElementById('header-wordmark-title')!;
+  const subEl = document.getElementById('header-wordmark-sub')!;
 
   const DESKTOP_BP = 768;
 
@@ -135,7 +139,11 @@ const mobileNavLinks = [
     if (window.innerWidth >= DESKTOP_BP) {
       barEl.style.height = scrolled ? '4rem' : '6rem';
       logoEl.style.height = scrolled ? '2.25rem' : '4rem';
-      wordmarkEl.style.fontSize = scrolled ? '1.25rem' : '1.875rem';
+      dividerEl.style.height = scrolled ? '2rem' : '3.25rem';
+      titleEl.style.fontSize = scrolled ? '1.2rem' : '1.85rem';
+      titleEl.style.letterSpacing = scrolled ? '0.04em' : 'normal';
+      subEl.style.fontSize = scrolled ? '0.52rem' : '0.65rem';
+      subEl.style.letterSpacing = scrolled ? '0.11em' : '0.17em';
     }
   }
 

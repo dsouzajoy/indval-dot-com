@@ -8,6 +8,7 @@ export const en = {
     services: 'Services',
     career: 'Career',
     cta: 'Consult Experts',
+    contact: 'Contact',
     hamburgerOpen: 'Open navigation menu',
   },
   hero: {
@@ -230,6 +231,26 @@ export const en = {
         title: 'Global Project Mobility',
         body: 'Short-term international assignments and cross-border technical collaboration opportunities.',
       },
+    },
+  },
+  contact: {
+    hero: {
+      eyebrow: 'Global Engineering Partnership',
+      heading: 'Connect with Our Leadership',
+      body: 'Reach out to our executive team for strategic collaborations and high-stakes technical inquiries.',
+    },
+    leadership: {
+      eyebrow: 'Our Team',
+      heading: 'Executive Council',
+      emailLabel: 'Email',
+      linkedinLabel: 'LinkedIn',
+      viewDetails: 'View Details',
+    },
+    offices: {
+      eyebrow: 'Worldwide',
+      heading: 'Global Engineering Centers',
+      body: 'Visit our global headquarters and experience the frontier of engineering excellence. Our doors are open for technical audits and partner reviews.',
+      hqLabel: 'Headquarters',
     },
   },
   careers: {

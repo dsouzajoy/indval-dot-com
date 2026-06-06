@@ -10,6 +10,7 @@ export const pl = {
     services: 'Usługi',
     career: 'Kariera',
     cta: 'Skontaktuj się z ekspertami',
+    contact: 'Kontakt',
     hamburgerOpen: 'Otwórz menu nawigacji',
   },
   hero: {
@@ -232,6 +233,26 @@ export const pl = {
         title: 'Globalna mobilność projektowa',
         body: 'Krótkoterminowe międzynarodowe delegacje i transgraniczne możliwości współpracy technicznej.',
       },
+    },
+  },
+  contact: {
+    hero: {
+      eyebrow: 'Globalne partnerstwo inżynieryjne',
+      heading: 'Połącz się z naszym kierownictwem',
+      body: 'Skontaktuj się z naszym zespołem wykonawczym w sprawie strategicznych współpracy i zapytań technicznych wysokiej stawki.',
+    },
+    leadership: {
+      eyebrow: 'Nasz zespół',
+      heading: 'Rada Wykonawcza',
+      emailLabel: 'E-mail',
+      linkedinLabel: 'LinkedIn',
+      viewDetails: 'Zobacz szczegóły',
+    },
+    offices: {
+      eyebrow: 'Na całym świecie',
+      heading: 'Globalne Centra Inżynieryjne',
+      body: 'Odwiedź naszą globalną siedzibę i doświadcz granicy doskonałości inżynieryjnej. Nasze drzwi są otwarte na audyty techniczne i przeglądy partnerskie.',
+      hqLabel: 'Siedziba główna',
     },
   },
   careers: {

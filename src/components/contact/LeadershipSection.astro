@@ -1,0 +1,115 @@
+---
+import { en } from '@/i18n/locales/en';
+
+const { leadership } = en.contact;
+
+const executives = [
+  {
+    name: 'Dr Muralidhar Honnagirigowda',
+    category: 'Executive Council',
+    title: 'Chief Executive Officer',
+    email: 'muralidhara.h@indvaltech.com',
+    imagePlaceholder: true,
+  },
+  {
+    name: 'Gagan G Amin',
+    category: 'Strategy & Growth',
+    title: 'Business Development',
+    email: 'gagan.amin@indvaltech.com',
+    imagePlaceholder: true,
+  },
+  {
+    name: 'Harsha Vardhana',
+    category: 'Operations',
+    title: 'Head of Operation - GM',
+    email: 'harsha.v@indvaltech.com',
+    imagePlaceholder: true,
+  },
+];
+---
+
+<section class="pb-24 px-8 max-w-7xl mx-auto" aria-label="Executive leadership">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    {executives.map(({ name, category, title, email }) => (
+      <div class="group relative bg-surface-container-lowest overflow-hidden shadow-[0px_12px_32px_rgba(11,28,48,0.06)] border border-outline-variant/10 card-reveal-container">
+
+        <!-- Portrait placeholder (grayscale effect via CSS filter) -->
+        <div class="aspect-square relative overflow-hidden bg-surface-dim flex items-center justify-center">
+          <span
+            class="material-symbols-outlined text-on-surface-variant/20"
+            style="font-size: 9rem;"
+          >person</span>
+        </div>
+
+        <!-- Orange "View Details" bar — visible by default, fades out on hover -->
+        <div class="details-bar absolute bottom-0 left-0 w-full bg-secondary py-4 text-center">
+          <span
+            class="text-white font-label font-bold tracking-widest uppercase text-xs"
+            data-i18n="contact.leadership.viewDetails"
+          >{leadership.viewDetails}</span>
+        </div>
+
+        <!-- Hover reveal panel — slides up to cover full card -->
+        <div class="reveal-content absolute inset-0 bg-primary p-6 flex flex-col items-center justify-center gap-6">
+          <a
+            href={`mailto:${email}`}
+            class="flex items-center gap-3 text-white hover:text-secondary transition-colors duration-300 w-full justify-center"
+          >
+            <span class="material-symbols-outlined text-lg">mail</span>
+            <span class="font-label text-sm tracking-wide">{email}</span>
+          </a>
+          <a
+            href="https://www.linkedin.com/company/indvaltech"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-3 text-white hover:text-secondary transition-colors duration-300 w-full justify-center"
+          >
+            <svg class="w-5 h-5 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            <span
+              class="font-label text-sm tracking-wide"
+              data-i18n="contact.leadership.linkedinLabel"
+            >{leadership.linkedinLabel}</span>
+          </a>
+        </div>
+
+        <!-- Card text body — pb-16 reserves space for the orange bar -->
+        <div class="p-8 pb-16">
+          <div class="flex items-center gap-2 mb-2">
+            <div class="h-px w-8 bg-secondary"></div>
+            <span class="text-secondary font-label text-[10px] tracking-widest uppercase font-bold">{category}</span>
+          </div>
+          <h3 class="text-2xl font-headline font-bold text-primary mb-1">{name}</h3>
+          <p class="text-on-surface-variant font-label text-sm tracking-wide uppercase opacity-70">{title}</p>
+        </div>
+
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .reveal-content {
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .card-reveal-container:hover .reveal-content {
+    transform: translateY(0);
+  }
+
+  .details-bar {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .card-reveal-container:hover .details-bar {
+    transform: translateY(100%);
+  }
+
+  /* Mobile: disable hover panel, always show details bar */
+  @media (max-width: 767px) {
+    .reveal-content {
+      display: none;
+    }
+    .details-bar {
+      transform: none !important;
+    }
+  }
+</style>

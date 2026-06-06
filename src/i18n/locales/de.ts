@@ -10,6 +10,7 @@ export const de = {
     services: 'Leistungen',
     career: 'Karriere',
     cta: 'Experten kontaktieren',
+    contact: 'Kontakt',
     hamburgerOpen: 'Navigationsmenü öffnen',
   },
   hero: {
@@ -232,6 +233,26 @@ export const de = {
         title: 'Globale Projektmobilität',
         body: 'Kurzfristige internationale Einsätze und grenzüberschreitende technische Zusammenarbeit.',
       },
+    },
+  },
+  contact: {
+    hero: {
+      eyebrow: 'Globale Ingenieurpartnerschaft',
+      heading: 'Verbinden Sie sich mit unserer Führung',
+      body: 'Wenden Sie sich für strategische Kooperationen und hochwertige technische Anfragen an unser Führungsteam.',
+    },
+    leadership: {
+      eyebrow: 'Unser Team',
+      heading: 'Exekutivrat',
+      emailLabel: 'E-Mail',
+      linkedinLabel: 'LinkedIn',
+      viewDetails: 'Details anzeigen',
+    },
+    offices: {
+      eyebrow: 'Weltweit',
+      heading: 'Globale Ingenieurzentren',
+      body: 'Besuchen Sie unser globales Hauptquartier und erleben Sie die Spitze der Ingenieurexzellenz. Unsere Türen stehen für technische Audits und Partnerreviews offen.',
+      hqLabel: 'Hauptsitz',
     },
   },
   careers: {

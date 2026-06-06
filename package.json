@@ -8,6 +8,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "build:prod": "DEPLOY_TARGET=prod astro build",
+    "build:ghpages": "DEPLOY_TARGET=ghpages astro build",
     "preview": "astro preview",
     "astro": "astro"
   },

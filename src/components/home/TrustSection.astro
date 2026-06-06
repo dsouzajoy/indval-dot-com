@@ -1,12 +1,13 @@
 ---
 import { en } from '@/i18n/locales/en';
+import { withBase } from '@/lib/utils';
 
 const logos = [
-  { src: '/images/partners/air-india.svg', alt: 'Air India' },
-  { src: '/images/partners/ford.png',      alt: 'Ford' },
-  { src: '/images/partners/newag.png',     alt: 'Newag Group' },
-  { src: '/images/partners/caterpillar.png', alt: 'Caterpillar' },
-  { src: '/images/partners/siemens.png',   alt: 'Siemens' },
+  { src: withBase('/images/partners/air-india.svg'), alt: 'Air India' },
+  { src: withBase('/images/partners/ford.png'),      alt: 'Ford' },
+  { src: withBase('/images/partners/newag.png'),     alt: 'Newag Group' },
+  { src: withBase('/images/partners/caterpillar.png'), alt: 'Caterpillar' },
+  { src: withBase('/images/partners/siemens.png'),   alt: 'Siemens' },
 ];
 ---
 <section class="py-20 bg-surface-container-lowest" aria-label="Trusted clients">

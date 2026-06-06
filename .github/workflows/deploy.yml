@@ -19,6 +19,9 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      # Builds with the GitHub Pages base path (/indval-dot-com). See astro.config.mjs.
+      DEPLOY_TARGET: ghpages
     steps:
       - name: Checkout
         uses: actions/checkout@v4

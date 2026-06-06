@@ -1,5 +1,6 @@
 ---
 import { en } from '@/i18n/locales/en';
+import { withBase } from '@/lib/utils';
 ---
 <section id="services" class="py-20 md:py-24 px-4 sm:px-6 lg:px-8" aria-label="Services">
   <div class="max-w-7xl mx-auto">
@@ -26,7 +27,7 @@ import { en } from '@/i18n/locales/en';
       <!-- Aerospace & Defense — 8 cols -->
       <div class="md:col-span-8 group relative h-96 overflow-hidden rounded-xl bg-surface-container-high hover:shadow-2xl transition-all duration-500">
         <img
-          src="/images/industries/aerospace.jpg"
+          src={withBase('/images/industries/aerospace.jpg')}
           alt="Aerospace engine component"
           class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         />
@@ -52,7 +53,7 @@ import { en } from '@/i18n/locales/en';
       <!-- Automotive Systems — 4 cols -->
       <div class="md:col-span-4 group relative h-96 overflow-hidden rounded-xl bg-surface-container-high hover:shadow-2xl transition-all duration-500">
         <img
-          src="/images/industries/automotive.png"
+          src={withBase('/images/industries/automotive.png')}
           alt="Automotive engineering"
           class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         />
@@ -78,7 +79,7 @@ import { en } from '@/i18n/locales/en';
       <!-- Locomotive — 4 cols -->
       <div class="md:col-span-4 group relative h-96 overflow-hidden rounded-xl bg-surface-container-lowest border border-outline-variant/10 hover:shadow-2xl transition-all duration-500">
         <img
-          src="/images/industries/locomotive.png"
+          src={withBase('/images/industries/locomotive.png')}
           alt="Locomotive engineering"
           class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
         />
@@ -104,7 +105,7 @@ import { en } from '@/i18n/locales/en';
       <!-- Off Highway — 4 cols -->
       <div class="md:col-span-4 group relative h-96 overflow-hidden rounded-xl bg-surface-container-high hover:shadow-2xl transition-all duration-500">
         <img
-          src="/images/industries/off-highway.png"
+          src={withBase('/images/industries/off-highway.png')}
           alt="Off highway machinery"
           class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
         />
@@ -130,7 +131,7 @@ import { en } from '@/i18n/locales/en';
       <!-- General Engineering — 4 cols -->
       <div class="md:col-span-4 group relative h-96 overflow-hidden rounded-xl bg-primary-container hover:shadow-2xl transition-all duration-500">
         <img
-          src="/images/industries/general.png"
+          src={withBase('/images/industries/general.png')}
           alt="General engineering"
           class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
         />

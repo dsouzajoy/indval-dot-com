@@ -1,5 +1,6 @@
 ---
 import { en } from '@/i18n/locales/en';
+import { withBase } from '@/lib/utils';
 
 const solutions = [
   { label: en.footer.solutions.aerospace,  href: '/404', i18nKey: 'footer.solutions.aerospace'  },
@@ -25,7 +26,7 @@ const year = new Date().getFullYear();
 
       <!-- Brand column -->
       <div class="sm:col-span-2 lg:col-span-1">
-        <img src="/images/logo.png" alt="Indvaltech" class="h-14 w-auto mb-4 bg-white rounded-xl p-1.5" />
+        <img src={withBase('/images/logo.png')} alt="Indvaltech" class="h-14 w-auto mb-4 bg-white rounded-xl p-1.5" />
         <p class="text-slate-400 text-sm leading-relaxed max-w-xs" data-i18n="footer.brand">
           {en.footer.brand}
         </p>
@@ -39,7 +40,7 @@ const year = new Date().getFullYear();
         <ul class="flex flex-col gap-3 list-none m-0 p-0">
           {solutions.map(({ label, href, i18nKey }) => (
             <li>
-              <a href={href} data-i18n={i18nKey} class="text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-all duration-200 block">
+              <a href={withBase(href)} data-i18n={i18nKey} class="text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-all duration-200 block">
                 {label}
               </a>
             </li>
@@ -55,7 +56,7 @@ const year = new Date().getFullYear();
         <ul class="flex flex-col gap-3 list-none m-0 p-0">
           {company.map(({ label, href, i18nKey }) => (
             <li>
-              <a href={href} data-i18n={i18nKey} class="text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-all duration-200 block">
+              <a href={withBase(href)} data-i18n={i18nKey} class="text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-all duration-200 block">
                 {label}
               </a>
             </li>

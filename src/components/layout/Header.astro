@@ -2,6 +2,7 @@
 import Navigation from './Navigation.astro';
 import { LanguageSwitcher } from '../i18n/LanguageSwitcher';
 import { en } from '@/i18n/locales/en';
+import { withBase } from '@/lib/utils';
 
 const mobileNavLinks = [
   { label: en.nav.home,       href: '/',    i18nKey: 'nav.home'       },
@@ -19,8 +20,8 @@ const mobileNavLinks = [
   <div id="header-bar" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-8" style="transition: height 300ms ease;">
 
     <!-- Logo + Wordmark -->
-    <a href="/" aria-label="Indvaltech home" class="flex items-center gap-2 shrink-0">
-      <img id="header-logo" src="/images/logo.png" alt="Indvaltech" class="h-9 w-auto" style="transition: height 300ms ease;" />
+    <a href={withBase('/')} aria-label="Indvaltech home" class="flex items-center gap-2 shrink-0">
+      <img id="header-logo" src={withBase('/images/logo.png')} alt="Indvaltech" class="h-9 w-auto" style="transition: height 300ms ease;" />
       <span id="header-wordmark" class="font-label font-bold tracking-tight leading-none text-lg" style="transition: font-size 300ms ease;">
         <span class="text-secondary">Indval</span><span class="text-primary">Tech</span>
       </span>
@@ -35,7 +36,7 @@ const mobileNavLinks = [
     <div class="hidden md:flex items-center gap-3 shrink-0">
       <LanguageSwitcher client:load />
       <a
-        href="/404"
+        href={withBase('/404')}
         class="inline-flex items-center px-6 py-2.5 rounded-xl font-label text-sm font-bold uppercase tracking-widest text-white
                bg-gradient-to-r from-primary to-primary-container
                hover:shadow-ambient-lg active:scale-95 transition-all duration-200"
@@ -84,7 +85,7 @@ const mobileNavLinks = [
         {mobileNavLinks.map(({ label, href, i18nKey }) => (
           <li>
             <a
-              href={href}
+              href={withBase(href)}
               data-i18n={i18nKey}
               class="block px-3 py-2.5 rounded-lg font-label text-sm uppercase tracking-wider text-on-surface-variant hover:text-secondary hover:bg-surface-container-low transition-colors duration-200"
             >
@@ -102,7 +103,7 @@ const mobileNavLinks = [
 
     <div class="mt-4">
       <a
-        href="/404"
+        href={withBase('/404')}
         data-i18n="nav.cta"
         class="block w-full text-center px-6 py-3 rounded-xl font-label text-sm font-bold uppercase tracking-widest text-white
                bg-gradient-to-r from-primary to-primary-container"

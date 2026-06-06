@@ -1,5 +1,6 @@
 ---
 import { en } from '@/i18n/locales/en';
+import { withBase } from '@/lib/utils';
 
 const items = [
   { label: en.bottomNav.home,     icon: 'home',     href: '/',    active: true,  i18nKey: 'bottomNav.home'     },
@@ -15,7 +16,7 @@ const items = [
   <div class="flex justify-between items-center max-w-lg mx-auto">
     {items.map(({ label, icon, href, active, i18nKey }) => (
       <a
-        href={href}
+        href={withBase(href)}
         class:list={[
           'flex flex-col items-center gap-0.5 px-3 py-1 transition-colors duration-200',
           active ? 'text-primary' : 'text-on-surface-variant opacity-60',

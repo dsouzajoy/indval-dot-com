@@ -1,4 +1,6 @@
 ---
+import { withBase } from '@/lib/utils';
+
 interface Props {
   title: string;
   description: string;
@@ -7,6 +9,20 @@ interface Props {
 }
 
 const { title, description, canonicalURL, ogImage = '/images/og-default.webp' } = Astro.props;
+
+// Base-aware, absolute URL for social cards.
+const ogImageURL = new URL(withBase(ogImage), Astro.site).toString();
+
+// Base-aware font paths.
+const interFont = withBase('/fonts/inter-variable.woff2');
+const spaceGroteskFont = withBase('/fonts/space-grotesk-variable.woff2');
+const materialSymbolsFont = withBase('/fonts/material-symbols-outlined.woff2');
+
+const fontFaceCss = `
+@font-face{font-family:'Inter';src:url('${interFont}') format('woff2');font-weight:100 900;font-style:normal;font-display:swap;}
+@font-face{font-family:'Space Grotesk';src:url('${spaceGroteskFont}') format('woff2');font-weight:300 700;font-style:normal;font-display:swap;}
+@font-face{font-family:'Material Symbols Outlined';src:url('${materialSymbolsFont}') format('woff2');font-weight:100 700;font-style:normal;font-display:block;}
+`;
 ---
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,7 +33,7 @@ const { title, description, canonicalURL, ogImage = '/images/og-default.webp' } 
 <!-- Open Graph -->
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={ogImage} />
+<meta property="og:image" content={ogImageURL} />
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:type" content="website" />
 
@@ -25,14 +41,17 @@ const { title, description, canonicalURL, ogImage = '/images/og-default.webp' } 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
-<meta name="twitter:image" content={ogImage} />
+<meta name="twitter:image" content={ogImageURL} />
 
 <!-- TODO: add google-site-verification meta tag once client provides the Search Console token -->
 
-<!-- Font preload -->
-<link rel="preload" href="/fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="preload" href="/fonts/space-grotesk-variable.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="preload" href="/fonts/material-symbols-outlined.woff2" as="font" type="font/woff2" crossorigin />
+<!-- Font face declarations (base-aware) -->
+<style is:inline set:html={fontFaceCss}></style>
 
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<!-- Font preload -->
+<link rel="preload" href={interFont} as="font" type="font/woff2" crossorigin />
+<link rel="preload" href={spaceGroteskFont} as="font" type="font/woff2" crossorigin />
+<link rel="preload" href={materialSymbolsFont} as="font" type="font/woff2" crossorigin />
+
+<link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
 <meta name="generator" content={Astro.generator} />

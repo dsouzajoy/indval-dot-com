@@ -141,9 +141,9 @@ export const en = {
     leadership: {
       title: 'Aerospace Veteran Leadership',
       body: 'Our firm is architected and driven by an aerospace veteran with 25 years of cross-functional experience. This foundation of rigid precision and safety-first methodology informs every vertical of our service delivery.',
-      tag1: 'Aerospace',
-      tag2: 'Defense',
-      tag3: 'Precision Tech',
+      tag1: '25 Yrs Experience',
+      tag2: 'Safety-First',
+      tag3: 'Cross-Functional',
     },
     competences: {
       eyebrow: 'Engineered Intelligence',

@@ -143,9 +143,9 @@ export const de = {
     leadership: {
       title: 'Führung durch Luft- und Raumfahrtveteranen',
       body: 'Unser Unternehmen wird von einem Luft- und Raumfahrtveteranen mit 25 Jahren funktionsübergreifender Erfahrung geleitet. Dieses Fundament aus rigoroser Präzision und Sicherheitspriorität prägt jeden Bereich unserer Leistungserbringung.',
-      tag1: 'Luft- und Raumfahrt',
-      tag2: 'Verteidigung',
-      tag3: 'Präzisionstechnologie',
+      tag1: '25 J. Erfahrung',
+      tag2: 'Safety-First',
+      tag3: 'Interdisziplinär',
     },
     competences: {
       eyebrow: 'Engineered Intelligence',

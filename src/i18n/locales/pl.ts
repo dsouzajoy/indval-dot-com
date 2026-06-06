@@ -143,9 +143,9 @@ export const pl = {
     leadership: {
       title: 'Przywództwo weterana lotnictwa',
       body: 'Nasza firma jest zbudowana i kierowana przez weterana lotnictwa z 25-letnim doświadczeniem interdyscyplinarnym. Ten fundament rygorystycznej precyzji i metodologii bezpieczeństwa pierwszego priorytetu kształtuje każdy aspekt naszych usług.',
-      tag1: 'Lotnictwo',
-      tag2: 'Obronność',
-      tag3: 'Technologia precyzyjna',
+      tag1: '25 Lat doświadczenia',
+      tag2: 'Safety-First',
+      tag3: 'Wielofunkcyjny',
     },
     competences: {
       eyebrow: 'Engineered Intelligence',

@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CareersHero from '../components/careers/CareersHero.astro';
+import OpenPositionsSection from '../components/careers/OpenPositionsSection.astro';
+import ApplicationSection from '../components/careers/ApplicationSection.astro';
+---
+
+<BaseLayout
+  title="Careers | Indvaltech Engineering Services"
+  description="Join IndvalTech — open positions in BIW fixture design, robotic simulation, and engineering leadership."
+  showSplash={false}
+>
+  <CareersHero />
+  <OpenPositionsSection />
+  <ApplicationSection />
+</BaseLayout>

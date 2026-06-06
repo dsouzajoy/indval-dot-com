@@ -1,0 +1,162 @@
+---
+import { en } from '@/i18n/locales/en';
+
+const { positions } = en.careers;
+
+const jobs = [
+  {
+    levelKey: 'careers.positions.pos1.level',
+    expKey:   'careers.positions.pos1.exp',
+    titleKey: 'careers.positions.pos1.title',
+    qualKey:  'careers.positions.pos1.qualBody',
+    domLabelKey: 'careers.positions.pos1.domainLabel',
+    domBodyKey:  'careers.positions.pos1.domainBody',
+    r: [
+      { key: 'careers.positions.pos1.r1', text: positions.pos1.r1 },
+      { key: 'careers.positions.pos1.r2', text: positions.pos1.r2 },
+      { key: 'careers.positions.pos1.r3', text: positions.pos1.r3 },
+      { key: 'careers.positions.pos1.r4', text: positions.pos1.r4 },
+    ],
+    level:    positions.pos1.level,
+    exp:      positions.pos1.exp,
+    title:    positions.pos1.title,
+    qualBody: positions.pos1.qualBody,
+    domainLabel: positions.pos1.domainLabel,
+    domainBody:  positions.pos1.domainBody,
+  },
+  {
+    levelKey: 'careers.positions.pos2.level',
+    expKey:   'careers.positions.pos2.exp',
+    titleKey: 'careers.positions.pos2.title',
+    qualKey:  'careers.positions.pos2.qualBody',
+    domLabelKey: 'careers.positions.pos2.domainLabel',
+    domBodyKey:  'careers.positions.pos2.domainBody',
+    r: [
+      { key: 'careers.positions.pos2.r1', text: positions.pos2.r1 },
+      { key: 'careers.positions.pos2.r2', text: positions.pos2.r2 },
+      { key: 'careers.positions.pos2.r3', text: positions.pos2.r3 },
+      { key: 'careers.positions.pos2.r4', text: positions.pos2.r4 },
+    ],
+    level:    positions.pos2.level,
+    exp:      positions.pos2.exp,
+    title:    positions.pos2.title,
+    qualBody: positions.pos2.qualBody,
+    domainLabel: positions.pos2.domainLabel,
+    domainBody:  positions.pos2.domainBody,
+  },
+  {
+    levelKey: 'careers.positions.pos3.level',
+    expKey:   'careers.positions.pos3.exp',
+    titleKey: 'careers.positions.pos3.title',
+    qualKey:  'careers.positions.pos3.qualBody',
+    domLabelKey: 'careers.positions.pos3.domainLabel',
+    domBodyKey:  'careers.positions.pos3.domainBody',
+    r: [
+      { key: 'careers.positions.pos3.r1', text: positions.pos3.r1 },
+      { key: 'careers.positions.pos3.r2', text: positions.pos3.r2 },
+      { key: 'careers.positions.pos3.r3', text: positions.pos3.r3 },
+      { key: 'careers.positions.pos3.r4', text: positions.pos3.r4 },
+    ],
+    level:    positions.pos3.level,
+    exp:      positions.pos3.exp,
+    title:    positions.pos3.title,
+    qualBody: positions.pos3.qualBody,
+    domainLabel: positions.pos3.domainLabel,
+    domainBody:  positions.pos3.domainBody,
+  },
+];
+---
+
+<section id="open-positions" class="py-20 md:py-24 bg-surface scroll-mt-20">
+  <div class="max-w-7xl mx-auto px-6 md:px-8">
+    <!-- Section heading -->
+    <div class="mb-12 md:mb-16 space-y-4">
+      <h2
+        class="text-primary font-headline font-black text-3xl md:text-4xl tracking-tighter"
+        data-i18n="careers.positions.heading"
+      >
+        {en.careers.positions.heading}
+      </h2>
+      <div class="h-1 w-24 bg-secondary"></div>
+    </div>
+
+    <!-- Position cards -->
+    <div class="grid grid-cols-1 gap-8 md:gap-12">
+      {jobs.map((job) => (
+        <div class="group bg-surface-container-lowest rounded-xl p-6 md:p-12 shadow-ambient engineering-card-border transition-all duration-700">
+          <!-- Tags row -->
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span
+              class="bg-surface-container text-primary px-3 py-1 text-xs font-label uppercase font-bold tracking-widest"
+              data-i18n={job.levelKey}
+            >{job.level}</span>
+            <span
+              class="bg-surface-container-high text-on-surface-variant px-3 py-1 text-xs font-label uppercase font-bold tracking-widest"
+              data-i18n={job.expKey}
+            >{job.exp}</span>
+          </div>
+
+          <!-- Role title -->
+          <h3
+            class="text-primary font-headline font-extrabold text-2xl md:text-3xl mb-6"
+            data-i18n={job.titleKey}
+          >{job.title}</h3>
+
+          <!-- Qualifications + Domain grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-8">
+            <div>
+              <h4
+                class="font-label text-secondary text-xs font-bold uppercase tracking-widest mb-3"
+                data-i18n="careers.positions.qualifications"
+              >{en.careers.positions.qualifications}</h4>
+              <p class="text-on-surface-variant leading-relaxed text-sm md:text-base" data-i18n={job.qualKey}>{job.qualBody}</p>
+            </div>
+            <div>
+              <h4
+                class="font-label text-secondary text-xs font-bold uppercase tracking-widest mb-3"
+                data-i18n={job.domLabelKey}
+              >{job.domainLabel}</h4>
+              <p class="text-on-surface-variant leading-relaxed text-sm md:text-base" data-i18n={job.domBodyKey}>{job.domainBody}</p>
+            </div>
+          </div>
+
+          <!-- Responsibilities -->
+          <div class="space-y-3">
+            <h4
+              class="font-label text-on-surface text-xs font-black uppercase tracking-widest"
+              data-i18n="careers.positions.responsibilities"
+            >{en.careers.positions.responsibilities}</h4>
+            <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2 mt-2">
+              {job.r.map((resp) => (
+                <li class="flex gap-2 items-start text-on-surface-variant text-sm">
+                  <span class="material-symbols-outlined text-secondary text-lg shrink-0" aria-hidden="true">check_circle</span>
+                  <span data-i18n={resp.key}>{resp.text}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+          entry.target.classList.remove('opacity-0', 'translate-y-8');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.08 }
+  );
+
+  document.querySelectorAll('#open-positions .group').forEach((el) => {
+    el.classList.add('opacity-0', 'translate-y-8');
+    observer.observe(el);
+  });
+</script>

@@ -38,7 +38,7 @@ export function LanguageSwitcher() {
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-label={`Language: ${LANG_META[lang].label}`}
-        className="cursor-pointer flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-outline-variant/40 bg-surface-container-low hover:bg-surface-container transition-colors duration-200 font-label text-xs font-bold uppercase tracking-widest text-on-surface-variant hover:text-primary"
+        className="cursor-pointer flex items-center gap-1.5 px-3 py-1.5 rounded border border-outline-variant/40 bg-surface-container-low hover:bg-surface-container transition-colors duration-200 font-label text-xs font-bold uppercase tracking-widest text-on-surface-variant hover:text-primary"
       >
         <span className="text-base leading-none" aria-hidden="true">🌐</span>
         <span>{LANG_META[lang].code}</span>
@@ -54,7 +54,7 @@ export function LanguageSwitcher() {
         <ul
           role="listbox"
           aria-label="Select language"
-          className="absolute top-full right-0 mt-1.5 min-w-[7rem] bg-surface-container-lowest border border-outline-variant/30 rounded-xl shadow-ambient-lg overflow-hidden z-50"
+          className="absolute top-full right-0 mt-1.5 min-w-[7rem] bg-surface-container-lowest border border-outline-variant/30 rounded shadow-ambient-lg overflow-hidden z-50"
         >
           {others.map((l) => (
             <li key={l} role="option" aria-selected={false}>

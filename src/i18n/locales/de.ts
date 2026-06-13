@@ -124,6 +124,14 @@ export const de = {
       cta: 'Explore Capabilities',
     },
   },
+  techpub: {
+    hero: {
+      eyebrow: 'Capabilities',
+      heading: 'Technical Publication',
+      description: 'A specialist TechPub agency delivering precision documentation for aerospace, defence, automotive, and medical device sectors — built on DITA, ATA 100, S1000D, and ASD SX000i standards.',
+      cta: 'Explore Our Services',
+    },
+  },
   bottomNav: {
     home: 'Startseite',
     explore: 'Entdecken',

@@ -1,0 +1,276 @@
+---
+const services = [
+  {
+    label: 'Authoring & Illustration',
+    icon: 'draw',
+    description: 'Precision technical authoring and engineering illustration for complex aerospace and defence documentation.',
+  },
+  {
+    label: 'Legacy Data Conversion',
+    icon: 'history',
+    description: 'Migrate legacy technical publications into modern, structured formats without loss of fidelity or compliance.',
+  },
+  {
+    label: 'Digitization of Hard Copies',
+    icon: 'document_scanner',
+    description: 'Convert paper-based manuals and drawings into fully searchable, standards-compliant digital documentation.',
+  },
+  {
+    label: '2D and 3D Animations',
+    icon: 'animation',
+    description: 'Exploded view animations and 3D interactive graphics that make complex maintenance procedures easy to follow.',
+  },
+  {
+    label: 'eLearning Solutions',
+    icon: 'school',
+    description: 'Interactive eLearning modules built from existing technical publications for training and certification programmes.',
+  },
+  {
+    label: 'Data Validation',
+    icon: 'fact_check',
+    description: 'Rigorous validation of technical data against engineering drawings, parts lists, and regulatory standards.',
+  },
+  {
+    label: 'CBTs and WBTs',
+    icon: 'devices',
+    description: 'Computer-based and web-based training content developed directly from approved maintenance and operations data.',
+  },
+  {
+    label: 'Publication Management',
+    icon: 'manage_accounts',
+    description: 'End-to-end management of technical publication lifecycles including revision control, distribution, and configuration management.',
+  },
+  {
+    label: 'Publication Design',
+    icon: 'design_services',
+    description: 'Structured layout and design for technical documents aligned to ATA 100, S1000D, and customer-specific style guides.',
+  },
+  {
+    label: 'Translation & Localization',
+    icon: 'translate',
+    description: 'Certified technical translation and in-country localization across multiple languages for global fleets and operators.',
+  },
+  {
+    label: 'Digitization & Migration',
+    icon: 'cloud_sync',
+    description: 'Full migration of document sets from legacy systems to modern CMS and XML-based authoring environments.',
+  },
+  {
+    label: 'Content Management',
+    icon: 'inventory_2',
+    description: 'Structured content management using DITA and S1000D common source databases for single-source publishing.',
+  },
+  {
+    label: 'General Safety & Performance Requirements (GSPR)',
+    icon: 'health_and_safety',
+    description: 'Preparation and maintenance of GSPR documentation to meet EU machinery directive and product compliance requirements.',
+  },
+];
+
+const manualTypes = [
+  'Service Bulletins',
+  'Component Maintenance Manual',
+  'Illustrated Parts Catalog',
+  'Wiring Diagram Manual',
+  'Spare Parts List',
+  'Repair & Overhaul Manuals',
+  'Structure Repair Manual',
+  'Engine & Service Manual',
+  'User Guide',
+  'Pilot Guides & Handbooks',
+  'Service & Workshop Manual',
+  'Vehicle Fault Codes / DTC',
+  'Legacy Conversion / Archive',
+  'Language Translations',
+  'Works Operating and Maintenance Manuals',
+];
+
+const steps = [
+  {
+    number: '01',
+    title: 'Source Analysis',
+    description: 'Review and analyse all source data including legacy documents, engineering drawings, parts lists, and applicable regulatory standards.',
+  },
+  {
+    number: '02',
+    title: 'Preparation',
+    description: 'Structure content using DITA architecture; define deliverable formats, standards compliance (ATA 100 / S1000D), and review cycles.',
+  },
+  {
+    number: '03',
+    title: 'Production',
+    description: 'Author, illustrate, and validate technical content using specialist software with rigorous in-process quality checks at every stage.',
+  },
+  {
+    number: '04',
+    title: 'Delivery',
+    description: 'Publish final deliverables in agreed formats (PDF, XML, IETM) with full data handover, revision control, and long-term support.',
+  },
+];
+---
+
+<section
+  id="services"
+  class="bg-surface py-24 lg:py-32"
+  style="background-image: radial-gradient(circle, rgba(195,198,211,0.8) 1px, transparent 1px); background-size: 40px 40px;"
+>
+  <div class="max-w-7xl mx-auto px-8 lg:px-16 space-y-24">
+
+    <!-- Block A: Stat row -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+      {[
+        { value: '13+', label: 'Service Areas' },
+        { value: '15+', label: 'Document Types' },
+        { value: 'ATA 100 · S1000D', label: 'Global Standards' },
+      ].map((stat) => (
+        <div class="border-l-4 border-secondary pl-6">
+          <p class="font-headline font-black text-4xl text-primary">{stat.value}</p>
+          <p class="font-label text-xs uppercase tracking-widest text-on-surface-variant mt-1">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Block B: Services icon card grid -->
+    <div>
+      <div class="mb-10">
+        <p class="font-label text-sm uppercase tracking-widest text-secondary mb-3">Core Competencies</p>
+        <h2 class="font-headline text-4xl lg:text-5xl font-bold text-on-surface">
+          Our TechPub Services
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map((service) => (
+          <div class="group bg-surface-container-low rounded flex flex-col overflow-hidden border-b-2 border-transparent hover:border-secondary hover:bg-surface-container-high transition-all duration-300">
+            <div class="p-8 flex flex-col flex-grow">
+              <div class="flex items-start justify-between mb-3 gap-4">
+                <h3 class="font-headline font-bold text-xl text-on-surface">{service.label}</h3>
+                <span
+                  class="material-symbols-outlined text-primary text-4xl shrink-0"
+                  aria-hidden="true"
+                >{service.icon}</span>
+              </div>
+              <p class="text-on-surface-variant leading-relaxed text-sm flex-grow">{service.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Block C: Manual types pill cloud -->
+    <div>
+      <div class="mb-10">
+        <p class="font-label text-sm uppercase tracking-widest text-secondary mb-3">Documentation Range</p>
+        <h2 class="font-headline text-4xl lg:text-5xl font-bold text-on-surface">
+          Service Manuals We Produce
+        </h2>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        {manualTypes.map((type) => (
+          <span class="inline-flex items-center px-4 py-2 bg-surface-container rounded font-label text-sm text-on-surface-variant border border-outline-variant hover:border-secondary hover:text-primary transition-colors duration-200 cursor-default">
+            {type}
+          </span>
+        ))}
+      </div>
+    </div>
+
+    <!-- Block D: 4-step process -->
+    <div>
+      <div class="mb-10">
+        <p class="font-label text-sm uppercase tracking-widest text-secondary mb-3">How We Work</p>
+        <h2 class="font-headline text-4xl lg:text-5xl font-bold text-on-surface">
+          Our Process
+        </h2>
+      </div>
+      <!-- Desktop: horizontal stepper | Mobile: vertical stack -->
+      <div class="hidden lg:grid grid-cols-4 gap-0">
+        {steps.map((step, i) => (
+          <div class="relative pr-8">
+            <!-- Connector line (not on last item) -->
+            {i < steps.length - 1 && (
+              <div class="absolute top-5 left-10 right-0 h-px bg-outline-variant"></div>
+            )}
+            <div class="flex flex-col">
+              <div class="w-10 h-10 rounded-full bg-secondary text-white flex items-center justify-center font-headline font-bold text-sm mb-4 shrink-0 relative z-10">
+                {step.number}
+              </div>
+              <h3 class="font-headline font-bold text-lg text-on-surface mb-2">{step.title}</h3>
+              <p class="text-on-surface-variant text-sm leading-relaxed">{step.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <!-- Mobile: vertical stack -->
+      <div class="flex flex-col gap-8 lg:hidden">
+        {steps.map((step, i) => (
+          <div class="flex gap-5">
+            <div class="flex flex-col items-center shrink-0">
+              <div class="w-10 h-10 rounded-full bg-secondary text-white flex items-center justify-center font-headline font-bold text-sm shrink-0">
+                {step.number}
+              </div>
+              {i < steps.length - 1 && (
+                <div class="w-px flex-1 bg-outline-variant mt-3"></div>
+              )}
+            </div>
+            <div class="pb-4">
+              <h3 class="font-headline font-bold text-lg text-on-surface mb-2">{step.title}</h3>
+              <p class="text-on-surface-variant text-sm leading-relaxed">{step.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Block E: Image gallery -->
+    <div>
+      <div class="mb-10">
+        <p class="font-label text-sm uppercase tracking-widest text-secondary mb-3">Sample Output</p>
+        <h2 class="font-headline text-4xl lg:text-5xl font-bold text-on-surface">
+          Documentation Examples
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div>
+          <div class="rounded overflow-hidden shadow-ambient bg-surface-container-lowest">
+            <img
+              src="/images/techpub-cmm-example.png"
+              alt="Component Maintenance Manual example showing test procedures and equipment specifications"
+              class="w-full object-contain"
+              loading="lazy"
+            />
+          </div>
+          <p class="font-label text-sm text-on-surface-variant mt-3 text-center">Component Maintenance Manual — CMM</p>
+        </div>
+        <div>
+          <div class="rounded overflow-hidden shadow-ambient bg-surface-container-lowest">
+            <img
+              src="/images/techpub-ipc-example.png"
+              alt="Illustrated Parts Catalog showing part numbers, nomenclature, and assembly data"
+              class="w-full object-contain"
+              loading="lazy"
+            />
+          </div>
+          <p class="font-label text-sm text-on-surface-variant mt-3 text-center">Illustrated Parts Catalog — IPC</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Block F: CTA Banner -->
+<section class="bg-primary py-20">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16 text-center">
+    <h2 class="font-headline text-3xl lg:text-4xl font-bold text-white mb-4">
+      Ready to Elevate Your Technical Documentation?
+    </h2>
+    <p class="text-white/80 text-base mb-10 max-w-xl mx-auto leading-relaxed">
+      Partner with Indvaltech's specialist TechPub team to deliver precision documentation that meets global standards and keeps your operations running safely.
+    </p>
+    <a
+      href="/contact"
+      class="inline-block bg-secondary text-white px-10 py-4 rounded font-label text-sm font-bold uppercase tracking-widest hover:bg-secondary/90 hover:shadow-ambient-lg active:scale-95 transition-all duration-200 shadow-lg"
+    >
+      Get In Touch
+    </a>
+  </div>
+</section>

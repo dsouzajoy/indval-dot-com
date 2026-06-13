@@ -1,0 +1,234 @@
+---
+const defaultBullets = [
+  'Nonlinear analysis (Complex nonlinear problems including nonlinear contact, material properties and large deformations, buckling, creep, etc…)',
+  'Structural analysis (Code compliant analysis of civil and industrial structures.)',
+  'Pressure vessel analysis (ASME Section VIII Division 2)',
+  'Pipeline stress analysis (Welding stresses with safety assessments, ASME B31.3)',
+  'Thermo-mechanical simulations (Thermo-mechanical loads, expansion of materials, residual stresses)',
+];
+
+const tabs = [
+  {
+    label: 'Structural',
+    heading: 'Structural Analysis',
+    image: '/images/fea-capabilities.png',
+    bullets: defaultBullets,
+  },
+  {
+    label: 'Dynamic',
+    heading: 'Dynamic Analysis',
+    image: '/images/fea-dynamic.png',
+    bullets: [
+      'Multi-Body Dynamics (Complex mechanisms like landing gears and suspensions)',
+      'Normal modes (Natural frequencies and mode shapes, Complex eigenvalues, preloaded eigenvalues)',
+      'Frequency response analysis (Direct integration and mode based steady-state response analysis)',
+      'Acoustic and NVH analysis (Boundary element based acoustic analysis, fully acoustic analysis)',
+      'Random response analysis and Response spectrum analysis',
+      'Radiated power analysis',
+    ],
+  },
+  {
+    label: 'Crash',
+    heading: 'Crash Analysis',
+    image: '/images/fea-capabilities.png',
+    bullets: [
+      'Crash analysis (Complex structures like a vehicle, mobile phone, etc…)',
+      'Strain-rate dependent materials',
+      'Post-buckling effects',
+      'Explicit dynamic (Complex dynamic structures like crankshafts)',
+      'Blast simulations (soils, fluids and structures)',
+      'Drop test simulations',
+    ],
+  },
+  {
+    label: 'Fatigue',
+    heading: 'Fatigue Analysis',
+    image: '/images/fea-capabilities.png',
+    bullets: [
+      'Static analysis based fatigue (S-N curve, mean stress correction, residual stresses)',
+      'Vibrational fatigue (Based on random response analysis)',
+      'Thermomechanical fatigue (Power electronic thermo-mechanical analysis)',
+    ],
+  },
+  {
+    label: 'Composite Material',
+    heading: 'Composite Material Analysis',
+    image: '/images/fea-capabilities.png',
+    bullets: [
+      'Predictions of components made from high-performance materials',
+      'Inter and intra laminar damage modelling (Ply failure and delamination)',
+      'Multi-scale analysis (Larger structures with embedded domains)',
+      'Impact simulations on laminates (Stacked-shell approach)',
+      'Micromechanics (Homogenization and localization)',
+    ],
+  },
+  {
+    label: 'Bulk Material',
+    heading: 'Bulk Material Analysis',
+    image: '/images/fea-capabilities.png',
+    bullets: [
+      'Discrete element method for bulk analysis',
+      'Complex bulk material models',
+      'Conveyor and hopper analysis',
+      'Bulk material loading extraction',
+      'Wear analysis',
+    ],
+  },
+  {
+    label: 'Manufacturing',
+    heading: 'Manufacturing Analysis',
+    image: '/images/fea-capabilities.png',
+    bullets: [
+      'Injection molding (Simulation of flow, pack and warping stages. Optimization of cooling and molding parameters for higher productivity)',
+      'Forming (Analysis of deep drawing for single and multi-stage tools. Optimization of the die for the springback effect)',
+      'Casting (Gravitation, low and high-pressure casting processes)',
+    ],
+  },
+  {
+    label: 'Electromagnetic',
+    heading: 'Electromagnetic Analysis',
+    image: '/images/fea-capabilities.png',
+    bullets: [
+      'PMSM analysis (Concept design, Torque speed characteristics, Cogging torque, back EMF harmonic study, Id-Iq maps, Eddy current losses, NVH)',
+      'Induction motor analysis (Analysis of entire IM period, study of harmonics, starting analysis)',
+      'SMR motor analysis (Switch on-off angle optimization, losses calculation, current chopping techniques)',
+    ],
+  },
+  {
+    label: 'Numerical Optimization',
+    heading: 'Numerical Optimization Analysis',
+    image: '/images/fea-capabilities.png',
+    bullets: [
+      'Parametric optimization (Shape optimization, thickness optimization, composite optimization, material characterization)',
+      'Topology optimization (Complex design spaces, multi-objective and multi-constraint optimization, manufacturing constraints)',
+      'Topography and shape optimization (Bead optimization, metal sheet thickness optimization, shape optimization)',
+    ],
+  },
+];
+---
+
+<section id="capabilities" class="bg-surface py-30" style="background-image: radial-gradient(circle, rgba(195,198,211,0.8) 1px, transparent 1px); background-size: 40px 40px;">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+
+    <!-- Section heading -->
+    <h2 class="font-headline text-4xl lg:text-5xl font-bold text-on-surface mb-10">
+      Types of Simulations
+    </h2>
+
+    <!-- Tab bar -->
+    <div class="relative">
+      <!-- Right-edge fade mask -->
+      <div class="absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-surface to-transparent pointer-events-none z-10"></div>
+
+      <div id="tab-scroll-container" class="flex border-b border-outline-variant overflow-x-auto" style="scrollbar-width: none; -ms-overflow-style: none;">
+        {tabs.map((tab, i) => (
+          <button
+            data-tab={i}
+            class={`tab-btn font-label text-sm uppercase tracking-wider py-3 px-5 border-b-2 whitespace-nowrap transition-colors duration-200 shrink-0 cursor-pointer ${
+              i === 0
+                ? 'border-secondary text-primary font-bold'
+                : 'border-transparent text-on-surface-variant hover:text-primary'
+            }`}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <!-- Tab panels -->
+    <div class="relative mt-10">
+      {tabs.map((tab, i) => (
+        <div
+          data-panel={i}
+          class={`tab-panel grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center transition-opacity duration-150 ${
+            i === 0 ? 'relative opacity-100 pointer-events-auto' : 'absolute top-0 left-0 right-0 opacity-0 pointer-events-none'
+          }`}
+        >
+          <!-- Left: heading + bullets -->
+          <div class="space-y-6">
+            <h3 class="font-headline font-bold text-3xl text-on-surface">{tab.heading}</h3>
+            <ul class="space-y-4">
+              {tab.bullets.map((bullet) => (
+                <li class="flex gap-3 items-start">
+                  <span
+                    class="material-symbols-outlined text-secondary shrink-0 text-xl leading-relaxed"
+                    style="font-variation-settings: 'FILL' 1"
+                    aria-hidden="true"
+                  >check_circle</span>
+                  <span class="text-on-surface-variant leading-relaxed">{bullet}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Right: FEA image -->
+          <div>
+            <img
+              src={tab.image}
+              alt={`FEA ${tab.heading} visualization`}
+              class="w-full object-contain"
+              style="mix-blend-mode: multiply;"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const tabBtns = document.querySelectorAll<HTMLButtonElement>('.tab-btn');
+  const tabPanels = document.querySelectorAll<HTMLElement>('.tab-panel');
+
+  function activateTab(index: number) {
+    tabBtns.forEach((btn) => {
+      const isActive = Number(btn.dataset.tab) === index;
+      btn.classList.toggle('border-secondary', isActive);
+      btn.classList.toggle('text-primary', isActive);
+      btn.classList.toggle('font-bold', isActive);
+      btn.classList.toggle('border-transparent', !isActive);
+      btn.classList.toggle('text-on-surface-variant', !isActive);
+    });
+
+    tabPanels.forEach((panel, i) => {
+      const isActive = i === index;
+      panel.classList.toggle('relative', isActive);
+      panel.classList.toggle('opacity-100', isActive);
+      panel.classList.toggle('pointer-events-auto', isActive);
+      panel.classList.toggle('absolute', !isActive);
+      panel.classList.toggle('top-0', !isActive);
+      panel.classList.toggle('left-0', !isActive);
+      panel.classList.toggle('right-0', !isActive);
+      panel.classList.toggle('opacity-0', !isActive);
+      panel.classList.toggle('pointer-events-none', !isActive);
+    });
+  }
+
+  tabBtns.forEach((btn) => {
+    btn.addEventListener('click', () => activateTab(Number(btn.dataset.tab)));
+  });
+
+  // Scroll hint: reveal hidden tabs on first intersection
+  const tabScrollContainer = document.getElementById('tab-scroll-container');
+  if (tabScrollContainer) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          observer.disconnect();
+          setTimeout(() => {
+            tabScrollContainer.scrollTo({ left: tabScrollContainer.scrollWidth, behavior: 'smooth' });
+            setTimeout(() => {
+              tabScrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
+            }, 900);
+          }, 400);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    const section = document.getElementById('capabilities');
+    if (section) observer.observe(section);
+  }
+</script>

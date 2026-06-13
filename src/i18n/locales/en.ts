@@ -124,6 +124,14 @@ export const en = {
     reverseEngineering: { heading: 'Reverse Engineering' },
     technicalPublication: { heading: 'Technical Publication' },
   },
+  fea: {
+    hero: {
+      eyebrow: 'Engineering Analysis',
+      heading: 'Finite Element Analysis (FEA)',
+      description: 'Validate your designs before the first prototype. Our FEA services deliver structural insights that accelerate development and reduce costs.',
+      cta: 'Explore Capabilities',
+    },
+  },
   bottomNav: {
     home: 'Home',
     explore: 'Explore',

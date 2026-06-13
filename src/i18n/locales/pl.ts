@@ -314,4 +314,22 @@ export const pl = {
       cta: 'Wyślij aplikację e-mail',
     },
   },
+  capabilities: {
+    label: 'Kompetencje',
+    ourServices: 'Nasze usługi',
+    engineeringAnalysis: {
+      heading: 'Analiza inżynierska',
+      fea: 'Metoda Elementów Skończonych',
+      cfd: 'Obliczeniowa mechanika płynów',
+    },
+    manufacturing: { heading: 'Produkcja' },
+    biwTurnkey: { heading: 'BIW Rozwiązania pod klucz' },
+    mechanicalDesign: {
+      heading: 'Projektowanie mechaniczne',
+      pressToolDesign: 'Projektowanie narzędzi prasowych',
+      specialMachineDesign: 'Projektowanie i rozwój maszyn specjalnych',
+    },
+    reverseEngineering: { heading: 'Inżynieria odwrotna' },
+    technicalPublication: { heading: 'Publikacje techniczne' },
+  },
 } satisfies Translations;

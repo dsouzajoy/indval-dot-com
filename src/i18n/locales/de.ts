@@ -314,4 +314,22 @@ export const de = {
       cta: 'E-Mail-Bewerbung senden',
     },
   },
+  capabilities: {
+    label: 'Kompetenzen',
+    ourServices: 'Unsere Leistungen',
+    engineeringAnalysis: {
+      heading: 'Konstruktionsanalyse',
+      fea: 'Finite-Elemente-Analyse',
+      cfd: 'Strömungssimulation',
+    },
+    manufacturing: { heading: 'Fertigung' },
+    biwTurnkey: { heading: 'BIW Schlüsselfertige Lösungen' },
+    mechanicalDesign: {
+      heading: 'Mechanische Konstruktion',
+      pressToolDesign: 'Presswerkzeugkonstruktion',
+      specialMachineDesign: 'Sondermaschinenkonstruktion und -entwicklung',
+    },
+    reverseEngineering: { heading: 'Reverse Engineering' },
+    technicalPublication: { heading: 'Technische Dokumentation' },
+  },
 } satisfies Translations;

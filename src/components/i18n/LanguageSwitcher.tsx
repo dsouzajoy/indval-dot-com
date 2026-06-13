@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from 'react';
 import { useStore } from '@nanostores/react';
 import { langStore, SUPPORTED_LANGS, type Lang } from '@/i18n/store';
 
+const BETA_LANGS: Lang[] = ['de', 'pl'];
+
 const LANG_META: Record<Lang, { flag: string; code: string; label: string }> = {
   en: { flag: '🇬🇧', code: 'EN', label: 'English' },
   de: { flag: '🇩🇪', code: 'DE', label: 'Deutsch' },
@@ -62,6 +64,11 @@ export function LanguageSwitcher() {
               >
                 <span className="text-base leading-none" aria-hidden="true">{LANG_META[l].flag}</span>
                 <span>{LANG_META[l].code}</span>
+                {BETA_LANGS.includes(l) && (
+                  <span className="ml-auto text-[9px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded bg-secondary/10 text-secondary border border-secondary/20">
+                    Beta
+                  </span>
+                )}
               </button>
             </li>
           ))}

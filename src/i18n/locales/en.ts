@@ -106,6 +106,24 @@ export const en = {
       terms: 'Terms of Service',
     },
   },
+  capabilities: {
+    label: 'Capabilities',
+    ourServices: 'Our Services',
+    engineeringAnalysis: {
+      heading: 'Engineering Analysis',
+      fea: 'Finite Element Analysis',
+      cfd: 'Computational Fluid Dynamics',
+    },
+    manufacturing: { heading: 'Manufacturing' },
+    biwTurnkey: { heading: 'BIW Turnkey Solutions' },
+    mechanicalDesign: {
+      heading: 'Mechanical Design',
+      pressToolDesign: 'Press Tool Design',
+      specialMachineDesign: 'Special Machine Design and Development',
+    },
+    reverseEngineering: { heading: 'Reverse Engineering' },
+    technicalPublication: { heading: 'Technical Publication' },
+  },
   bottomNav: {
     home: 'Home',
     explore: 'Explore',

@@ -7,7 +7,6 @@ const beforeCompany = [
 ];
 
 const afterCompany = [
-  { label: en.nav.services, href: '/404',     i18nKey: 'nav.services' },
   { label: en.nav.career,   href: '/careers', i18nKey: 'nav.career'   },
   { label: en.nav.contact,  href: '/contact', i18nKey: 'nav.contact'  },
 ];
@@ -116,6 +115,23 @@ const industriesItems = [
       </div>
     </li>
 
+    <!-- Capabilities mega menu -->
+    <li id="capabilities-nav-item">
+      <button
+        id="capabilities-trigger"
+        aria-haspopup="true"
+        aria-expanded="false"
+        class="flex items-center gap-0.5 font-label text-sm uppercase tracking-wider text-on-surface-variant hover:text-secondary transition-colors duration-300 cursor-pointer"
+      >
+        <span data-i18n="capabilities.label">{en.capabilities.label}</span>
+        <span
+          id="capabilities-chevron"
+          class="material-symbols-outlined text-base leading-none transition-transform duration-200"
+          aria-hidden="true"
+        >expand_more</span>
+      </button>
+    </li>
+
     {afterCompany.map(({ label, href, i18nKey }) => (
       <li>
         <a
@@ -130,6 +146,114 @@ const industriesItems = [
 
   </ul>
 </nav>
+
+<!-- Capabilities mega menu: full-width, fixed below header -->
+<div
+  id="capabilities-dropdown"
+  role="menu"
+  aria-label="Capabilities menu"
+  class="fixed left-0 right-0 opacity-0 pointer-events-none -translate-y-2 transition-all duration-200 ease-out z-40 bg-surface shadow-ambient-lg"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 flex gap-28 items-start">
+
+    <!-- Left: Our Services -->
+    <div class="shrink-0 w-44 pt-1">
+      <p
+        class="text-5xl font-bold text-slate-500 leading-tight"
+        data-i18n="capabilities.ourServices"
+      >{en.capabilities.ourServices}</p>
+    </div>
+
+    <!-- Right: strict 3-column grid -->
+    <div class="flex-1 grid grid-cols-3 gap-x-10 gap-y-8">
+
+      <!-- Engineering Analysis: non-clickable heading + sub-links -->
+      <div class="flex flex-col gap-3">
+        <span
+          class="font-label text-sm uppercase tracking-wider font-bold text-on-surface cursor-default select-none"
+          data-i18n="capabilities.engineeringAnalysis.heading"
+        >{en.capabilities.engineeringAnalysis.heading}</span>
+        <div class="flex flex-col gap-4">
+          <a
+            href={withBase('/404')}
+            role="menuitem"
+            class="font-label text-sm text-on-surface-variant hover:text-secondary transition-colors duration-150"
+            data-i18n="capabilities.engineeringAnalysis.fea"
+          >{en.capabilities.engineeringAnalysis.fea}</a>
+          <a
+            href={withBase('/404')}
+            role="menuitem"
+            class="font-label text-sm text-on-surface-variant hover:text-secondary transition-colors duration-150"
+            data-i18n="capabilities.engineeringAnalysis.cfd"
+          >{en.capabilities.engineeringAnalysis.cfd}</a>
+        </div>
+      </div>
+
+      <!-- Manufacturing: clickable heading, no sub-links -->
+      <div class="flex flex-col gap-3">
+        <a
+          href={withBase('/404')}
+          role="menuitem"
+          class="font-label text-sm uppercase tracking-wider font-bold text-on-surface hover:text-secondary cursor-pointer transition-colors duration-150"
+          data-i18n="capabilities.manufacturing.heading"
+        >{en.capabilities.manufacturing.heading}</a>
+      </div>
+
+      <!-- BIW Turnkey Solutions: clickable heading, no sub-links -->
+      <div class="flex flex-col gap-3">
+        <a
+          href={withBase('/404')}
+          role="menuitem"
+          class="font-label text-sm uppercase tracking-wider font-bold text-on-surface hover:text-secondary cursor-pointer transition-colors duration-150"
+          data-i18n="capabilities.biwTurnkey.heading"
+        >{en.capabilities.biwTurnkey.heading}</a>
+      </div>
+
+      <!-- Mechanical Design: non-clickable heading + sub-links -->
+      <div class="flex flex-col gap-3">
+        <span
+          class="font-label text-sm uppercase tracking-wider font-bold text-on-surface cursor-default select-none"
+          data-i18n="capabilities.mechanicalDesign.heading"
+        >{en.capabilities.mechanicalDesign.heading}</span>
+        <div class="flex flex-col gap-4">
+          <a
+            href={withBase('/404')}
+            role="menuitem"
+            class="font-label text-sm text-on-surface-variant hover:text-secondary transition-colors duration-150"
+            data-i18n="capabilities.mechanicalDesign.pressToolDesign"
+          >{en.capabilities.mechanicalDesign.pressToolDesign}</a>
+          <a
+            href={withBase('/404')}
+            role="menuitem"
+            class="font-label text-sm text-on-surface-variant hover:text-secondary transition-colors duration-150"
+            data-i18n="capabilities.mechanicalDesign.specialMachineDesign"
+          >{en.capabilities.mechanicalDesign.specialMachineDesign}</a>
+        </div>
+      </div>
+
+      <!-- Reverse Engineering: clickable heading, no sub-links -->
+      <div class="flex flex-col gap-3">
+        <a
+          href={withBase('/404')}
+          role="menuitem"
+          class="font-label text-sm uppercase tracking-wider font-bold text-on-surface hover:text-secondary cursor-pointer transition-colors duration-150"
+          data-i18n="capabilities.reverseEngineering.heading"
+        >{en.capabilities.reverseEngineering.heading}</a>
+      </div>
+
+      <!-- Technical Publication: clickable heading, no sub-links -->
+      <div class="flex flex-col gap-3">
+        <a
+          href={withBase('/404')}
+          role="menuitem"
+          class="font-label text-sm uppercase tracking-wider font-bold text-on-surface hover:text-secondary cursor-pointer transition-colors duration-150"
+          data-i18n="capabilities.technicalPublication.heading"
+        >{en.capabilities.technicalPublication.heading}</a>
+      </div>
+
+    </div>
+  </div>
+</div>
 
 <script>
   // Industries dropdown
@@ -224,5 +348,64 @@ const industriesItems = [
 
   document.addEventListener('click', (e) => {
     if (!navItem.contains(e.target as Node)) hide();
+  });
+
+  // Capabilities mega menu
+  const capNavItem = document.getElementById('capabilities-nav-item')!;
+  const capTrigger = document.getElementById('capabilities-trigger')!;
+  const capDropdown = document.getElementById('capabilities-dropdown')!;
+  const capChevron = document.getElementById('capabilities-chevron')!;
+  const siteHeader = document.getElementById('site-header')!;
+
+  let capOpenTimer: ReturnType<typeof setTimeout>;
+  let capCloseTimer: ReturnType<typeof setTimeout>;
+
+  function showCap() {
+    clearTimeout(capCloseTimer);
+    capDropdown.style.top = siteHeader.getBoundingClientRect().bottom + 'px';
+    capDropdown.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-2');
+    capDropdown.classList.add('opacity-100', 'translate-y-0');
+    capTrigger.setAttribute('aria-expanded', 'true');
+    capChevron.style.transform = 'rotate(180deg)';
+    siteHeader.classList.remove('bg-surface/80', 'glass-nav');
+    siteHeader.classList.add('bg-surface');
+  }
+
+  function hideCap() {
+    clearTimeout(capOpenTimer);
+    capDropdown.classList.add('opacity-0', 'pointer-events-none', '-translate-y-2');
+    capDropdown.classList.remove('opacity-100', 'translate-y-0');
+    capTrigger.setAttribute('aria-expanded', 'false');
+    capChevron.style.transform = '';
+    siteHeader.classList.remove('bg-surface');
+    siteHeader.classList.add('bg-surface/80', 'glass-nav');
+  }
+
+  capNavItem.addEventListener('mouseenter', () => {
+    clearTimeout(capCloseTimer);
+    capOpenTimer = setTimeout(showCap, 150);
+  });
+
+  capNavItem.addEventListener('mouseleave', () => {
+    clearTimeout(capOpenTimer);
+    capCloseTimer = setTimeout(hideCap, 150);
+  });
+
+  // Bridge: keep menu open when mouse travels from nav item to fixed dropdown
+  capDropdown.addEventListener('mouseenter', () => clearTimeout(capCloseTimer));
+  capDropdown.addEventListener('mouseleave', () => {
+    capCloseTimer = setTimeout(hideCap, 100);
+  });
+
+  capTrigger.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      capTrigger.getAttribute('aria-expanded') === 'true' ? hideCap() : showCap();
+    }
+    if (e.key === 'Escape') hideCap();
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!capNavItem.contains(e.target as Node) && !capDropdown.contains(e.target as Node)) hideCap();
   });
 </script>

@@ -5,10 +5,9 @@ import { en } from '@/i18n/locales/en';
 import { withBase } from '@/lib/utils';
 
 const mobileNavLinks = [
-  { label: en.nav.home,     href: '/',        i18nKey: 'nav.home'     },
-  { label: en.nav.services, href: '/404',     i18nKey: 'nav.services' },
-  { label: en.nav.career,   href: '/careers', i18nKey: 'nav.career'   },
-  { label: en.nav.contact,  href: '/contact', i18nKey: 'nav.contact'  },
+  { label: en.nav.home,    href: '/',        i18nKey: 'nav.home'    },
+  { label: en.nav.career,  href: '/careers', i18nKey: 'nav.career'  },
+  { label: en.nav.contact, href: '/contact', i18nKey: 'nav.contact' },
 ];
 
 const mobileIndustriesItems = [
@@ -180,6 +179,76 @@ const mobileIndustriesItems = [
           </div>
         </li>
 
+        <!-- Capabilities accordion -->
+        <li>
+          <button
+            id="mobile-capabilities-trigger"
+            aria-expanded="false"
+            class="w-full flex items-center justify-between px-3 py-2.5 rounded-lg font-label text-sm uppercase tracking-wider text-on-surface-variant hover:text-secondary hover:bg-surface-container-low transition-colors duration-200"
+          >
+            <span data-i18n="capabilities.label">{en.capabilities.label}</span>
+            <span
+              id="mobile-capabilities-chevron"
+              class="material-symbols-outlined text-base leading-none transition-transform duration-200"
+              aria-hidden="true"
+            >expand_more</span>
+          </button>
+          <div
+            id="mobile-capabilities-submenu"
+            class="overflow-hidden transition-all duration-300 ease-in-out"
+            style="max-height: 0;"
+          >
+            <ul class="flex flex-col gap-0.5 mt-1 ml-3 pl-3 border-l-2 border-outline-variant/30 list-none m-0 p-0">
+              <li class="px-3 pt-2 pb-1 font-label text-xs uppercase tracking-wider text-on-surface font-bold cursor-default select-none" data-i18n="capabilities.engineeringAnalysis.heading">
+                {en.capabilities.engineeringAnalysis.heading}
+              </li>
+              <li>
+                <a href={withBase('/404')} class="flex items-center px-3 py-2 rounded-lg font-label text-sm uppercase tracking-wider text-on-surface-variant hover:text-secondary hover:bg-surface-container-low transition-colors duration-200" data-i18n="capabilities.engineeringAnalysis.fea">
+                  {en.capabilities.engineeringAnalysis.fea}
+                </a>
+              </li>
+              <li>
+                <a href={withBase('/404')} class="flex items-center px-3 py-2 rounded-lg font-label text-sm uppercase tracking-wider text-on-surface-variant hover:text-secondary hover:bg-surface-container-low transition-colors duration-200" data-i18n="capabilities.engineeringAnalysis.cfd">
+                  {en.capabilities.engineeringAnalysis.cfd}
+                </a>
+              </li>
+              <li>
+                <a href={withBase('/404')} class="flex items-center px-3 py-2 rounded-lg font-label text-sm uppercase tracking-wider text-on-surface-variant hover:text-secondary hover:bg-surface-container-low transition-colors duration-200" data-i18n="capabilities.manufacturing.heading">
+                  {en.capabilities.manufacturing.heading}
+                </a>
+              </li>
+              <li>
+                <a href={withBase('/404')} class="flex items-center px-3 py-2 rounded-lg font-label text-sm uppercase tracking-wider text-on-surface-variant hover:text-secondary hover:bg-surface-container-low transition-colors duration-200" data-i18n="capabilities.biwTurnkey.heading">
+                  {en.capabilities.biwTurnkey.heading}
+                </a>
+              </li>
+              <li class="px-3 pt-2 pb-1 font-label text-xs uppercase tracking-wider text-on-surface font-bold cursor-default select-none" data-i18n="capabilities.mechanicalDesign.heading">
+                {en.capabilities.mechanicalDesign.heading}
+              </li>
+              <li>
+                <a href={withBase('/404')} class="flex items-center px-3 py-2 rounded-lg font-label text-sm uppercase tracking-wider text-on-surface-variant hover:text-secondary hover:bg-surface-container-low transition-colors duration-200" data-i18n="capabilities.mechanicalDesign.pressToolDesign">
+                  {en.capabilities.mechanicalDesign.pressToolDesign}
+                </a>
+              </li>
+              <li>
+                <a href={withBase('/404')} class="flex items-center px-3 py-2 rounded-lg font-label text-sm uppercase tracking-wider text-on-surface-variant hover:text-secondary hover:bg-surface-container-low transition-colors duration-200" data-i18n="capabilities.mechanicalDesign.specialMachineDesign">
+                  {en.capabilities.mechanicalDesign.specialMachineDesign}
+                </a>
+              </li>
+              <li>
+                <a href={withBase('/404')} class="flex items-center px-3 py-2 rounded-lg font-label text-sm uppercase tracking-wider text-on-surface-variant hover:text-secondary hover:bg-surface-container-low transition-colors duration-200" data-i18n="capabilities.reverseEngineering.heading">
+                  {en.capabilities.reverseEngineering.heading}
+                </a>
+              </li>
+              <li>
+                <a href={withBase('/404')} class="flex items-center px-3 py-2 rounded-lg font-label text-sm uppercase tracking-wider text-on-surface-variant hover:text-secondary hover:bg-surface-container-low transition-colors duration-200" data-i18n="capabilities.technicalPublication.heading">
+                  {en.capabilities.technicalPublication.heading}
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+
         <!-- Remaining links -->
         {mobileNavLinks.slice(1).map(({ label, href, i18nKey }) => (
           <li>
@@ -280,6 +349,17 @@ const mobileIndustriesItems = [
     mobileIndustriesChevron.style.transform = isOpen ? '' : 'rotate(180deg)';
   });
 
+  const mobileCapabilitiesTrigger = document.getElementById('mobile-capabilities-trigger')!;
+  const mobileCapabilitiesSubmenu = document.getElementById('mobile-capabilities-submenu')!;
+  const mobileCapabilitiesChevron = document.getElementById('mobile-capabilities-chevron')!;
+
+  mobileCapabilitiesTrigger.addEventListener('click', () => {
+    const isOpen = mobileCapabilitiesTrigger.getAttribute('aria-expanded') === 'true';
+    mobileCapabilitiesSubmenu.style.maxHeight = isOpen ? '0' : mobileCapabilitiesSubmenu.scrollHeight + 'px';
+    mobileCapabilitiesTrigger.setAttribute('aria-expanded', String(!isOpen));
+    mobileCapabilitiesChevron.style.transform = isOpen ? '' : 'rotate(180deg)';
+  });
+
   function closeDrawer() {
     backdrop.classList.add('opacity-0');
     panel.classList.add('translate-x-full');
@@ -295,6 +375,10 @@ const mobileIndustriesItems = [
     mobileIndustriesSubmenu.style.maxHeight = '0';
     mobileIndustriesTrigger.setAttribute('aria-expanded', 'false');
     mobileIndustriesChevron.style.transform = '';
+    // Reset Capabilities accordion
+    mobileCapabilitiesSubmenu.style.maxHeight = '0';
+    mobileCapabilitiesTrigger.setAttribute('aria-expanded', 'false');
+    mobileCapabilitiesChevron.style.transform = '';
   }
 
   btn.addEventListener('click', () => {

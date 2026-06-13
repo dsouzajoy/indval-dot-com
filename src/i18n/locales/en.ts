@@ -140,6 +140,13 @@ export const en = {
       cta: 'Explore Capabilities',
     },
   },
+  manufacturing: {
+    hero: {
+      heading: 'Precision Manufacturing & Technical Integration',
+      description: 'From rapid prototyping to full-scale production, Indvaltech delivers forensic-level accuracy in custom manufacturing solutions. Our integrated approach ensures uncompromising quality across the global supply chain.',
+      cta: 'Explore Capabilities',
+    },
+  },
   bottomNav: {
     home: 'Home',
     explore: 'Explore',

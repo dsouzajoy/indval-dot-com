@@ -1,0 +1,85 @@
+---
+const capabilities = [
+  {
+    label: 'Machining',
+    icon: 'precision_manufacturing',
+    image: '/images/manufacturing-machining.jpg',
+    description: 'Specialized high-precision CNC machining solutions supported by advanced multi-axis facilities to meet complex engineering tolerances.',
+  },
+  {
+    label: 'Castings',
+    icon: 'format_paint',
+    image: '/images/manufacturing-castings.jpg',
+    description: 'Highly diversified range of investment and sand castings with intricate geometries.',
+  },
+  {
+    label: 'Sheet Metal',
+    icon: 'layers',
+    image: '/images/manufacturing-sheet-metal.jpg',
+    description: 'Custom fabrication and premium finish services including laser cutting and complex assembly.',
+  },
+  {
+    label: 'Kitting and Assemblies',
+    icon: 'inventory_2',
+    image: '/images/manufacturing-kitting.jpg',
+    description: 'End-to-end integration for complex sourcing needs, providing complete solutions from individual sub-components to full-scale mechanical assemblies.',
+  },
+  {
+    label: 'Assembly Tooling',
+    icon: 'handyman',
+    image: '/images/manufacturing-assembly-tooling.jpg',
+    description: 'Design and production of precision aerostructure assembly frames, jigs, and sub-assembly equipment optimized for industrial performance and safety standards.',
+  },
+  {
+    label: 'Rapid Prototyping',
+    icon: '3d_rotation',
+    image: '/images/manufacturing-rapid-prototyping.jpg',
+    description: 'Accelerated prototyping services utilizing advanced additive manufacturing and rapid tooling to validate designs and bridge the gap to production.',
+  },
+];
+---
+
+<section id="capabilities" class="bg-surface py-30" style="background-image: radial-gradient(circle, rgba(195,198,211,0.8) 1px, transparent 1px); background-size: 40px 40px;">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+
+    <!-- Section heading -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+      <div>
+        <p class="font-label text-sm uppercase tracking-widest text-secondary mb-3">Core Competencies</p>
+        <h2 class="font-headline text-4xl lg:text-5xl font-bold text-on-surface">
+          Our Manufacturing Capabilities
+        </h2>
+      </div>
+      <p class="text-sm text-on-surface-variant font-label max-w-xs md:text-right shrink-0">
+        Technical expertise across multi-material processes and precision engineering standards.
+      </p>
+    </div>
+
+    <!-- Bento card grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {capabilities.map((cap) => (
+        <div class="group bg-surface-container-low rounded flex flex-col overflow-hidden border-b-2 border-transparent hover:border-secondary hover:bg-surface-container-high transition-all duration-300">
+          <div class="aspect-video overflow-hidden">
+            <img
+              src={cap.image}
+              alt={cap.label}
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              loading="lazy"
+            />
+          </div>
+          <div class="p-8 flex flex-col flex-grow">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="font-headline font-bold text-xl text-on-surface">{cap.label}</h3>
+              <span
+                class="material-symbols-outlined text-primary text-4xl shrink-0"
+                aria-hidden="true"
+              >{cap.icon}</span>
+            </div>
+            <p class="text-on-surface-variant leading-relaxed text-sm flex-grow">{cap.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

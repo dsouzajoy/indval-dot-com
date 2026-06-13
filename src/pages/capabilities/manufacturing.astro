@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ManufacturingHero from '../../components/capabilities/manufacturing/ManufacturingHero.astro';
+import ManufacturingCapabilities from '../../components/capabilities/manufacturing/ManufacturingCapabilities.astro';
+---
+
+<BaseLayout
+  title="Manufacturing | Indvaltech"
+  description="From rapid prototyping to full-scale production, Indvaltech delivers forensic-level accuracy in custom manufacturing solutions."
+  ogImage="/images/manufacturing-hero.jpg"
+  showSplash={false}
+>
+  <ManufacturingHero />
+  <ManufacturingCapabilities />
+</BaseLayout>

@@ -229,28 +229,24 @@ const steps = [
         </h2>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div>
-          <div class="rounded overflow-hidden shadow-ambient bg-surface-container-lowest">
-            <img
-              src="/images/techpub-cmm-example.png"
-              alt="Component Maintenance Manual example showing test procedures and equipment specifications"
-              class="w-full object-contain"
-              loading="lazy"
-            />
+        {[
+          { src: '/images/techpub-pic20.png', alt: 'Component Maintenance Manual showing test procedures and equipment specifications', caption: 'Component Maintenance Manual — CMM' },
+          { src: '/images/techpub-pic21.png', alt: 'Illustrated Parts Catalog exploded view diagram with numbered part callouts', caption: 'IPC — Exploded View Diagram' },
+          { src: '/images/techpub-pic22.png', alt: 'Illustrated Parts Catalog data table with part numbers and nomenclature', caption: 'Illustrated Parts Catalog — IPC' },
+          { src: '/images/techpub-pic23.png', alt: 'Structural diagram showing aircraft component assembly breakdown', caption: 'IPC — Structural Assembly Diagram' },
+        ].map((item) => (
+          <div>
+            <div class="rounded overflow-hidden shadow-ambient bg-surface-container-lowest">
+              <img
+                src={item.src}
+                alt={item.alt}
+                class="w-full object-contain"
+                loading="lazy"
+              />
+            </div>
+            <p class="font-label text-sm text-on-surface-variant mt-3 text-center">{item.caption}</p>
           </div>
-          <p class="font-label text-sm text-on-surface-variant mt-3 text-center">Component Maintenance Manual — CMM</p>
-        </div>
-        <div>
-          <div class="rounded overflow-hidden shadow-ambient bg-surface-container-lowest">
-            <img
-              src="/images/techpub-ipc-example.png"
-              alt="Illustrated Parts Catalog showing part numbers, nomenclature, and assembly data"
-              class="w-full object-contain"
-              loading="lazy"
-            />
-          </div>
-          <p class="font-label text-sm text-on-surface-variant mt-3 text-center">Illustrated Parts Catalog — IPC</p>
-        </div>
+        ))}
       </div>
     </div>
 

@@ -155,6 +155,14 @@ export const en = {
       cta: 'Explore Our Services',
     },
   },
+  reverseEngineering: {
+    hero: {
+      eyebrow: 'Capabilities',
+      heading: 'Reverse Engineering Services',
+      description: 'Transforming physical components into accurate digital CAD models with high-precision 3D scanning and expert reconstruction for aerospace and automotive applications.',
+      cta: 'Explore Capabilities',
+    },
+  },
   bottomNav: {
     home: 'Home',
     explore: 'Explore',

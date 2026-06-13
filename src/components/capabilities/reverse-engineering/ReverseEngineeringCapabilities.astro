@@ -1,0 +1,147 @@
+---
+const valueProps = [
+  {
+    icon: 'precision_manufacturing',
+    label: 'Unmatched Accuracy',
+    description: 'Sub-millimetre scanning precision ensures every dimension is captured faithfully for downstream engineering use.',
+  },
+  {
+    icon: 'category',
+    label: 'Versatile Applications',
+    description: 'Aerospace, automotive, and industrial components of any geometry — from turbine blades to chassis brackets.',
+  },
+  {
+    icon: 'speed',
+    label: 'Faster Time to Market',
+    description: 'Streamlined scan-to-CAD pipelines reduce lead times and accelerate your product development cycle.',
+  },
+  {
+    icon: 'payments',
+    label: 'Cost-Effective',
+    description: 'Eliminate expensive re-tooling through accurate digital reconstruction of legacy or worn components.',
+  },
+  {
+    icon: 'engineering',
+    label: 'Expert Team',
+    description: 'Senior reverse-engineering specialists with deep sector-specific knowledge across aerospace and automotive.',
+  },
+  {
+    icon: 'settings_suggest',
+    label: 'End-to-End Service',
+    description: 'From initial scanning through to production-ready CAD delivery — a single point of accountability.',
+  },
+];
+
+const steps = [
+  {
+    number: '01',
+    icon: 'document_scanner',
+    title: '3D Scanning',
+    description: 'Capture complete surface geometry using high-precision laser or structured-light scanners.',
+  },
+  {
+    number: '02',
+    icon: 'filter_center_focus',
+    title: 'Data Processing',
+    description: 'Clean, align, and process raw point-cloud data into an accurate polygon mesh.',
+  },
+  {
+    number: '03',
+    icon: 'architecture',
+    title: 'Modelling & Refining',
+    description: 'Reconstruct precise parametric CAD surfaces from the validated mesh.',
+  },
+  {
+    number: '04',
+    icon: 'analytics',
+    title: 'Design Analysis',
+    description: 'Analyse the model against tolerances, material specifications, and original design intent.',
+  },
+  {
+    number: '05',
+    icon: 'biotech',
+    title: 'Prototyping & Testing',
+    description: 'Produce physical prototypes for fit-and-function validation before committing to production.',
+  },
+  {
+    number: '06',
+    icon: 'precision_manufacturing',
+    title: 'Manufacturing Ready',
+    description: 'Deliver production-grade CAD files and engineering drawings for direct manufacture.',
+  },
+];
+---
+
+<section
+  id="capabilities"
+  class="bg-surface py-24 lg:py-32"
+  style="background-image: radial-gradient(circle, rgba(195,198,211,0.8) 1px, transparent 1px); background-size: 40px 40px;"
+>
+  <div class="max-w-7xl mx-auto px-8 lg:px-16 space-y-24">
+
+    <!-- Block B: Definition + Image inside one card -->
+    <div>
+
+      <div class="bg-surface-container-lowest rounded border-l-4 border-secondary shadow-ambient overflow-hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-2">
+          <!-- Left: text -->
+          <div class="p-8 flex flex-col justify-center">
+            <h2 class="font-headline text-2xl font-bold text-on-surface mb-6">What is 3D Reverse Engineering?</h2>
+            <p class="text-on-surface-variant leading-relaxed text-sm mb-4">
+              Reverse engineering is the process of capturing the precise geometry of an existing physical component and reconstructing it as an accurate, parametric CAD model. Using high-resolution 3D scanning technology, every surface, curve, and dimension is digitised with sub-millimetre fidelity.
+            </p>
+            <p class="text-on-surface-variant leading-relaxed text-sm">
+              The resulting digital model can then be used for design analysis, tooling manufacture, legacy part replication, or as the foundation for further engineering optimisation — without relying on original drawings that may be incomplete, damaged, or simply unavailable.
+            </p>
+          </div>
+          <!-- Right: image -->
+          <div class="bg-surface-container-lowest flex items-center justify-center p-8">
+            <img
+              src="/images/reverse-engineering-component.png"
+              alt="Precision machined component being digitised into a 3D CAD model"
+              class="w-full object-contain"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Block C: 6-step process -->
+    <div>
+      <p class="font-label text-sm uppercase tracking-widest text-secondary mb-3">Operational Workflow</p>
+      <h2 class="font-headline text-4xl lg:text-5xl font-bold text-on-surface mb-10">Our End-to-End Process</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {steps.map((step) => (
+          <div class="group relative bg-surface-container-low rounded p-8 hover:-translate-y-1 transition-transform duration-300 overflow-hidden">
+            <p class="absolute font-headline font-black leading-none select-none pointer-events-none" style="top: 1rem; right: 1.5rem; font-size: 5rem; color: rgba(255, 103, 31, 0.15)">{step.number}</p>
+            <div class="bg-primary rounded p-3 inline-flex mb-4 relative">
+              <span class="material-symbols-outlined text-white text-3xl" aria-hidden="true">{step.icon}</span>
+            </div>
+            <h3 class="font-headline font-bold text-lg text-on-surface mb-2 relative">{step.title}</h3>
+            <p class="text-on-surface-variant text-sm leading-relaxed relative">{step.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Block D: CTA Banner -->
+<section class="bg-primary py-20">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16 text-center">
+    <h2 class="font-headline text-3xl lg:text-4xl font-bold text-white mb-4">
+      Bring Your Components Into the Digital World
+    </h2>
+    <p class="text-white/80 text-base mb-10 max-w-xl mx-auto leading-relaxed">
+      Ready to transform physical parts into precision CAD models? Talk to our reverse engineering specialists.
+    </p>
+    <a
+      href="/contact"
+      class="inline-block bg-secondary text-white px-10 py-4 rounded font-label text-sm font-bold uppercase tracking-widest hover:bg-secondary/90 hover:shadow-ambient-lg active:scale-95 transition-all duration-200 shadow-lg"
+    >
+      Get In Touch
+    </a>
+  </div>
+</section>

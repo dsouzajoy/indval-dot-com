@@ -1,0 +1,229 @@
+---
+const tabs = [
+  {
+    label: 'Fluid Flow',
+    heading: 'Fluid Flow Analysis',
+    image: '/images/cfd-capabilities.png',
+    bullets: [
+      'Advanced simulation of laminar, transitional, and turbulent flow regimes in complex geometries.',
+      'Velocity field analysis to optimize flow distribution, reduce pressure losses, and eliminate recirculation zones.',
+      'External and internal flow modeling for aerodynamic drag reduction and system efficiency improvements.',
+      'Applications: Piping networks, ventilation ducts, aerodynamic bodies, valve systems, and fluid distribution manifolds.',
+    ],
+  },
+  {
+    label: 'Heat Transfer',
+    heading: 'Heat Transfer Analysis',
+    image: '/images/cfd-capabilities.png',
+    bullets: [
+      'Comprehensive thermal analysis including conduction, convection, and radiation heat transfer mechanisms.',
+      'Conjugate heat transfer simulation to accurately predict temperature distribution in solid-fluid systems.',
+      'Transient thermal modeling to evaluate heating and cooling cycles, thermal inertia, and response times.',
+      'Applications: Thermal management systems, insulation design, process heating/cooling equipment, and temperature-sensitive components.',
+    ],
+  },
+  {
+    label: 'Multiphase Analysis',
+    heading: 'Multiphase Flow Analysis',
+    image: '/images/cfd-capabilities.png',
+    bullets: [
+      'Simulation of gas-liquid, liquid-liquid, and gas-solid flows using advanced multiphase modeling techniques.',
+      'Phase separation, mixing, and interface tracking for complex industrial processes.',
+      'Boiling, condensation, and evaporation phenomena in thermal systems.',
+      'Applications: Separators, reactors, steam systems, oil-water flow, spray processes, and cavitation analysis.',
+    ],
+  },
+  {
+    label: 'Aero & Hydrodynamics',
+    heading: 'Aero & Hydrodynamic Analysis',
+    image: '/images/cfd-capabilities.png',
+    bullets: [
+      'High-fidelity aerodynamic analysis for drag reduction, lift optimization, and stability assessment.',
+      'Hydrodynamic modeling of marine structures, offshore platforms, and water flow systems.',
+      'Wave loading, current effects, and fluid-structure interaction in maritime applications.',
+      'Applications: Vehicle aerodynamics, aircraft components, wind turbine blades, marine vessels, and offshore structures.',
+    ],
+  },
+  {
+    label: 'Battery & Electronics Cooling',
+    heading: 'Battery & Electronics Thermal Management',
+    image: '/images/cfd-capabilities.png',
+    bullets: [
+      'Thermal management design for battery packs, power electronics, and high-heat-density components.',
+      'Optimization of cooling strategies including air cooling, liquid cooling, and phase-change materials.',
+      'Hotspot identification and thermal uniformity analysis to prevent overheating and extend component life.',
+      'Applications: EV battery systems, data centers, power converters, LED lighting, and consumer electronics.',
+    ],
+  },
+  {
+    label: 'Mixing Analysis',
+    heading: 'Mixing & Blending Analysis',
+    image: '/images/cfd-capabilities.png',
+    bullets: [
+      'Simulation of fluid mixing, blending, and homogenization in stirred vessels and static mixers.',
+      'Species transport modeling to track concentration distributions and reaction progress.',
+      'Optimization of mixer geometry, impeller design, and operating conditions for improved efficiency.',
+      'Applications: Chemical reactors, mixing tanks, inline mixers, pharmaceutical processing, and water treatment systems.',
+    ],
+  },
+  {
+    label: 'HVAC & Ventilation',
+    heading: 'HVAC & Ventilation Analysis',
+    image: '/images/cfd-capabilities.png',
+    bullets: [
+      'Airflow distribution analysis to ensure comfort, air quality, and energy efficiency in buildings.',
+      'Temperature stratification and contaminant dispersion modeling for occupied spaces.',
+      'Optimization of duct routing, diffuser placement, and system balancing to meet design specifications.',
+      'Applications: Commercial buildings, cleanrooms, industrial facilities, data centers, and residential HVAC systems.',
+    ],
+  },
+  {
+    label: 'Pump & Turbomachinery',
+    heading: 'Pump & Turbomachinery Analysis',
+    image: '/images/cfd-capabilities.png',
+    bullets: [
+      'Performance prediction of pumps, compressors, turbines, and fans across operating conditions.',
+      'Internal flow analysis to identify losses, optimize blade geometry, and improve efficiency.',
+      'Cavitation prediction and mitigation in pumps and hydraulic systems.',
+      'Applications: Centrifugal and axial pumps, gas turbines, wind turbines, compressors, and hydraulic machinery.',
+    ],
+  },
+  {
+    label: 'Heat Exchanger Design',
+    heading: 'Heat Exchanger Design',
+    image: '/images/cfd-capabilities.png',
+    bullets: [
+      'Thermal and hydraulic design optimization for shell-and-tube, plate, and finned heat exchangers.',
+      'Performance evaluation including effectiveness, pressure drop, and fouling considerations.',
+      'Flow distribution analysis to ensure uniform heat transfer and prevent bypassing or dead zones.',
+      'Applications: Process heat recovery, HVAC equipment, power generation, refrigeration systems, and chemical processing.',
+    ],
+  },
+];
+---
+
+<section id="capabilities" class="bg-surface py-30" style="background-image: radial-gradient(circle, rgba(195,198,211,0.8) 1px, transparent 1px); background-size: 40px 40px;">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+
+    <!-- Section heading -->
+    <h2 class="font-headline text-4xl lg:text-5xl font-bold text-on-surface mb-10">
+      Types of Simulations
+    </h2>
+
+    <!-- Tab bar -->
+    <div class="relative">
+      <!-- Right-edge fade mask -->
+      <div class="absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-surface to-transparent pointer-events-none z-10"></div>
+
+      <div id="cfd-tab-scroll-container" class="flex border-b border-outline-variant overflow-x-auto" style="scrollbar-width: none; -ms-overflow-style: none;">
+        {tabs.map((tab, i) => (
+          <button
+            data-tab={i}
+            class={`cfd-tab-btn font-label text-sm uppercase tracking-wider py-3 px-5 border-b-2 whitespace-nowrap transition-colors duration-200 shrink-0 cursor-pointer ${
+              i === 0
+                ? 'border-secondary text-primary font-bold'
+                : 'border-transparent text-on-surface-variant hover:text-primary'
+            }`}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <!-- Tab panels -->
+    <div class="relative mt-10">
+      {tabs.map((tab, i) => (
+        <div
+          data-panel={i}
+          class={`cfd-tab-panel grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center transition-opacity duration-150 ${
+            i === 0 ? 'relative opacity-100 pointer-events-auto' : 'absolute top-0 left-0 right-0 opacity-0 pointer-events-none'
+          }`}
+        >
+          <!-- Left: heading + bullets -->
+          <div class="space-y-6">
+            <h3 class="font-headline font-bold text-3xl text-on-surface">{tab.heading}</h3>
+            <ul class="space-y-4">
+              {tab.bullets.map((bullet) => (
+                <li class="flex gap-3 items-start">
+                  <span
+                    class="material-symbols-outlined text-secondary shrink-0 text-xl leading-relaxed"
+                    style="font-variation-settings: 'FILL' 1"
+                    aria-hidden="true"
+                  >check_circle</span>
+                  <span class="text-on-surface-variant leading-relaxed">{bullet}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Right: CFD image -->
+          <div>
+            <img
+              src={tab.image}
+              alt={`CFD ${tab.heading} visualization`}
+              class="w-full object-contain"
+              style="mix-blend-mode: multiply;"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const tabBtns = document.querySelectorAll<HTMLButtonElement>('.cfd-tab-btn');
+  const tabPanels = document.querySelectorAll<HTMLElement>('.cfd-tab-panel');
+
+  function activateTab(index: number) {
+    tabBtns.forEach((btn) => {
+      const isActive = Number(btn.dataset.tab) === index;
+      btn.classList.toggle('border-secondary', isActive);
+      btn.classList.toggle('text-primary', isActive);
+      btn.classList.toggle('font-bold', isActive);
+      btn.classList.toggle('border-transparent', !isActive);
+      btn.classList.toggle('text-on-surface-variant', !isActive);
+    });
+
+    tabPanels.forEach((panel, i) => {
+      const isActive = i === index;
+      panel.classList.toggle('relative', isActive);
+      panel.classList.toggle('opacity-100', isActive);
+      panel.classList.toggle('pointer-events-auto', isActive);
+      panel.classList.toggle('absolute', !isActive);
+      panel.classList.toggle('top-0', !isActive);
+      panel.classList.toggle('left-0', !isActive);
+      panel.classList.toggle('right-0', !isActive);
+      panel.classList.toggle('opacity-0', !isActive);
+      panel.classList.toggle('pointer-events-none', !isActive);
+    });
+  }
+
+  tabBtns.forEach((btn) => {
+    btn.addEventListener('click', () => activateTab(Number(btn.dataset.tab)));
+  });
+
+  // Scroll hint on first intersection
+  const tabScrollContainer = document.getElementById('cfd-tab-scroll-container');
+  if (tabScrollContainer) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          observer.disconnect();
+          setTimeout(() => {
+            tabScrollContainer.scrollTo({ left: tabScrollContainer.scrollWidth, behavior: 'smooth' });
+            setTimeout(() => {
+              tabScrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
+            }, 900);
+          }, 400);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    const section = document.getElementById('capabilities');
+    if (section) observer.observe(section);
+  }
+</script>

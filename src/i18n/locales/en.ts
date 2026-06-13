@@ -132,6 +132,14 @@ export const en = {
       cta: 'Explore Capabilities',
     },
   },
+  cfd: {
+    hero: {
+      eyebrow: 'Engineering Analysis',
+      heading: 'Computational Fluid Dynamics (CFD)',
+      description: 'Harness the power of advanced Computational Fluid Dynamics simulations to build smarter designs, cut testing costs, and bring your products to market faster.',
+      cta: 'Explore Capabilities',
+    },
+  },
   bottomNav: {
     home: 'Home',
     explore: 'Explore',

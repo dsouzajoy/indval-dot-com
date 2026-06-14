@@ -35,7 +35,7 @@ const industriesItems = [
     ))}
 
     <!-- Industries dropdown -->
-    <li class="relative" id="industries-nav-item">
+    <li id="industries-nav-item">
       <button
         id="industries-trigger"
         aria-haspopup="true"
@@ -49,30 +49,10 @@ const industriesItems = [
           aria-hidden="true"
         >expand_more</span>
       </button>
-
-      <div
-        id="industries-dropdown"
-        role="menu"
-        aria-label="Industries menu"
-        class="absolute top-full left-1/2 -translate-x-1/2 w-64 pt-2 opacity-0 pointer-events-none translate-y-1 transition-all duration-200 ease-out z-50"
-      >
-        <div class="bg-white shadow-ambient-lg rounded py-2">
-          {industriesItems.map(({ label, href, i18nKey, icon }) => (
-            <a
-              href={withBase(href)}
-              role="menuitem"
-              class="group flex items-center gap-3 px-4 py-2.5 font-label text-sm uppercase tracking-wider text-on-surface-variant hover:text-secondary transition-colors duration-150"
-            >
-              <span class="material-symbols-outlined text-base leading-none shrink-0 text-on-surface-variant group-hover:text-secondary transition-colors duration-150" style="font-variation-settings: 'FILL' 0" aria-hidden="true">{icon}</span>
-              <span data-i18n={i18nKey}>{label}</span>
-            </a>
-          ))}
-        </div>
-      </div>
     </li>
 
     <!-- Company dropdown -->
-    <li class="relative" id="company-nav-item">
+    <li id="company-nav-item">
       <button
         id="company-trigger"
         aria-haspopup="true"
@@ -86,32 +66,6 @@ const industriesItems = [
           aria-hidden="true"
         >expand_more</span>
       </button>
-
-      <div
-        id="company-dropdown"
-        role="menu"
-        aria-label="Company menu"
-        class="absolute top-full left-1/2 -translate-x-1/2 w-56 pt-2 opacity-0 pointer-events-none translate-y-1 transition-all duration-200 ease-out z-50"
-      >
-        <div class="bg-white shadow-ambient-lg rounded py-2">
-          <a
-            href={withBase('/about')}
-            role="menuitem"
-            class="group flex items-center gap-3 px-4 py-2.5 font-label text-sm uppercase tracking-wider text-on-surface-variant hover:text-secondary transition-colors duration-150"
-          >
-            <span class="material-symbols-outlined text-base leading-none shrink-0 text-on-surface-variant group-hover:text-secondary transition-colors duration-150" aria-hidden="true">corporate_fare</span>
-            <span data-i18n="nav.aboutUs">{en.nav.aboutUs}</span>
-          </a>
-          <a
-            href={withBase('/life')}
-            role="menuitem"
-            class="group flex items-center gap-3 px-4 py-2.5 font-label text-sm uppercase tracking-wider text-on-surface-variant hover:text-secondary transition-colors duration-150"
-          >
-            <span class="material-symbols-outlined text-base leading-none shrink-0 text-on-surface-variant group-hover:text-secondary transition-colors duration-150" aria-hidden="true">people</span>
-            <span data-i18n="nav.lifeAtIndvaltech">{en.nav.lifeAtIndvaltech}</span>
-          </a>
-        </div>
-      </div>
     </li>
 
     <!-- Capabilities mega menu -->
@@ -145,6 +99,54 @@ const industriesItems = [
 
   </ul>
 </nav>
+
+<!-- Industries dropdown: fixed below header -->
+<div
+  id="industries-dropdown"
+  role="menu"
+  aria-label="Industries menu"
+  class="fixed -translate-x-1/2 w-64 opacity-0 pointer-events-none translate-y-1 transition-all duration-200 ease-out z-50"
+>
+  <div class="bg-surface shadow-ambient-lg py-2">
+    {industriesItems.map(({ label, href, i18nKey, icon }) => (
+      <a
+        href={withBase(href)}
+        role="menuitem"
+        class="group flex items-center gap-3 px-4 py-2.5 font-label text-sm uppercase tracking-wider text-on-surface-variant hover:text-secondary transition-colors duration-150"
+      >
+        <span class="material-symbols-outlined text-base leading-none shrink-0 text-on-surface-variant group-hover:text-secondary transition-colors duration-150" style="font-variation-settings: 'FILL' 0" aria-hidden="true">{icon}</span>
+        <span data-i18n={i18nKey}>{label}</span>
+      </a>
+    ))}
+  </div>
+</div>
+
+<!-- Company dropdown: fixed below header -->
+<div
+  id="company-dropdown"
+  role="menu"
+  aria-label="Company menu"
+  class="fixed -translate-x-1/2 w-56 opacity-0 pointer-events-none translate-y-1 transition-all duration-200 ease-out z-50"
+>
+  <div class="bg-surface shadow-ambient-lg py-2">
+    <a
+      href={withBase('/about')}
+      role="menuitem"
+      class="group flex items-center gap-3 px-4 py-2.5 font-label text-sm uppercase tracking-wider text-on-surface-variant hover:text-secondary transition-colors duration-150"
+    >
+      <span class="material-symbols-outlined text-base leading-none shrink-0 text-on-surface-variant group-hover:text-secondary transition-colors duration-150" aria-hidden="true">corporate_fare</span>
+      <span data-i18n="nav.aboutUs">{en.nav.aboutUs}</span>
+    </a>
+    <a
+      href={withBase('/life')}
+      role="menuitem"
+      class="group flex items-center gap-3 px-4 py-2.5 font-label text-sm uppercase tracking-wider text-on-surface-variant hover:text-secondary transition-colors duration-150"
+    >
+      <span class="material-symbols-outlined text-base leading-none shrink-0 text-on-surface-variant group-hover:text-secondary transition-colors duration-150" aria-hidden="true">people</span>
+      <span data-i18n="nav.lifeAtIndvaltech">{en.nav.lifeAtIndvaltech}</span>
+    </a>
+  </div>
+</div>
 
 <!-- Capabilities mega menu: full-width, fixed below header -->
 <div
@@ -268,6 +270,9 @@ const industriesItems = [
 
   function showIndustries() {
     clearTimeout(indCloseTimer);
+    const rect = industriesTrigger.getBoundingClientRect();
+    industriesDropdown.style.top = siteHeader.getBoundingClientRect().bottom + 'px';
+    industriesDropdown.style.left = (rect.left + rect.width / 2) + 'px';
     industriesDropdown.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-1');
     industriesDropdown.classList.add('opacity-100', 'translate-y-0');
     industriesTrigger.setAttribute('aria-expanded', 'true');
@@ -304,8 +309,11 @@ const industriesItems = [
     if (e.key === 'Escape') hideIndustries();
   });
 
+  industriesDropdown.addEventListener('mouseenter', () => clearTimeout(indCloseTimer));
+  industriesDropdown.addEventListener('mouseleave', () => { indCloseTimer = setTimeout(hideIndustries, 100); });
+
   document.addEventListener('click', (e) => {
-    if (!industriesNavItem.contains(e.target as Node)) hideIndustries();
+    if (!industriesNavItem.contains(e.target as Node) && !industriesDropdown.contains(e.target as Node)) hideIndustries();
   });
 
   // Company dropdown
@@ -319,6 +327,9 @@ const industriesItems = [
 
   function show() {
     clearTimeout(closeTimer);
+    const rect = trigger.getBoundingClientRect();
+    dropdown.style.top = siteHeader.getBoundingClientRect().bottom + 'px';
+    dropdown.style.left = (rect.left + rect.width / 2) + 'px';
     dropdown.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-1');
     dropdown.classList.add('opacity-100', 'translate-y-0');
     trigger.setAttribute('aria-expanded', 'true');
@@ -355,8 +366,11 @@ const industriesItems = [
     if (e.key === 'Escape') hide();
   });
 
+  dropdown.addEventListener('mouseenter', () => clearTimeout(closeTimer));
+  dropdown.addEventListener('mouseleave', () => { closeTimer = setTimeout(hide, 100); });
+
   document.addEventListener('click', (e) => {
-    if (!navItem.contains(e.target as Node)) hide();
+    if (!navItem.contains(e.target as Node) && !dropdown.contains(e.target as Node)) hide();
   });
 
   // Capabilities mega menu

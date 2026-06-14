@@ -1,0 +1,230 @@
+---
+const differentiators = [
+  'Digital-first engineering approach',
+  'Automotive BIW domain expertise',
+  'End-to-end from feasibility to line commissioning',
+  'Risk reduction through simulation before build',
+  'Single-point accountability across the full programme',
+];
+
+const pillars = [
+  {
+    icon: 'route',
+    title: 'Process Planning',
+    description: 'Transforming programme requirements into structured, executable manufacturing plans.',
+    items: [
+      'Planning & Feasibility Studies',
+      'Process Flow Definition',
+      'Cycle Time Analysis & Optimisation',
+      'Layout Development until Buy-off',
+      'Equipment Definition & Specifications',
+    ],
+    software: ['Microstation', 'FactoryCAD', 'AutoCAD'],
+  },
+  {
+    icon: 'memory',
+    title: 'Digital Manufacturing & Simulation',
+    description: 'Building and validating the production system in the digital twin before a single component is built.',
+    items: [
+      'Robotic Simulation',
+      'Digital Factory Planning',
+      'Process Simulation & Validation',
+      'Ergonomic & Safety Analysis',
+    ],
+    software: ['DS DELMIA', 'Technomatix Process Simulate'],
+  },
+  {
+    icon: 'factory',
+    title: 'Production System Development',
+    description: 'Designing the physical production system — from line layout to production-ready equipment drawings.',
+    items: [
+      'Production Line Planning & Layout Design',
+      'Equipment & Tooling Definition',
+      '3D Design & Finalization',
+    ],
+    software: ['DS CATIA', 'SolidWorks', 'FIDES'],
+  },
+  {
+    icon: 'rocket_launch',
+    title: 'Industrialization & Launch Support',
+    description: 'On-the-ground support from prototype builds through to full production ramp-up and commissioning.',
+    items: [
+      'Detailing of Manufacturing Equipment',
+      'Prototype & Pilot Build Support',
+      'Production Ramp-up Management',
+      'Line Commissioning Support',
+    ],
+    software: [],
+  },
+];
+
+const steps = [
+  {
+    number: '01',
+    icon: 'schema',
+    title: 'Feasibility & Planning',
+    description: 'Define scope, validate the manufacturing concept, and establish programme milestones before any engineering begins.',
+  },
+  {
+    number: '02',
+    icon: 'memory',
+    title: 'Digital Factory Setup',
+    description: 'Build the virtual production environment — line layouts, station definitions, and equipment geometry in the digital twin.',
+  },
+  {
+    number: '03',
+    icon: 'analytics',
+    title: 'Simulation & Validation',
+    description: 'Robotic reachability, cycle time simulation, ergonomic checks — all risks resolved before physical build.',
+  },
+  {
+    number: '04',
+    icon: 'factory',
+    title: 'Production System Design',
+    description: 'Full 3D equipment and tooling design with interference checks, BOM, and manufacturing drawings.',
+  },
+  {
+    number: '05',
+    icon: 'biotech',
+    title: 'Prototype & Pilot Build',
+    description: 'Support physical prototyping, pilot builds, and functional testing against production targets.',
+  },
+  {
+    number: '06',
+    icon: 'rocket_launch',
+    title: 'Launch & Commissioning',
+    description: 'Ramp-up management, line commissioning support, and handover to production operations.',
+  },
+];
+---
+
+<!-- Section 01 — Overview -->
+<section
+  id="capabilities"
+  class="bg-surface py-24 lg:py-32"
+  style="background-image: radial-gradient(circle, rgba(195,198,211,0.8) 1px, transparent 1px); background-size: 40px 40px;"
+>
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+
+    <div class="bg-surface-container-lowest rounded border-l-4 border-secondary shadow-ambient overflow-hidden">
+      <div class="grid grid-cols-1 lg:grid-cols-2">
+        <!-- Left: value-led explanation -->
+        <div class="p-8 lg:p-12 flex flex-col justify-center">
+          <h2 class="font-headline text-2xl font-bold text-on-surface mb-6">From engineering concept to production launch.</h2>
+          <p class="text-on-surface-variant leading-relaxed text-sm mb-4">
+            Our Advanced Manufacturing Engineering (AME) team acts as the bridge between product design and the production floor — transforming engineering concepts into efficient, scalable, and high-quality manufacturing systems for the automotive BIW sector.
+          </p>
+          <p class="text-on-surface-variant leading-relaxed text-sm">
+            We integrate digital engineering tools, process simulation, and advanced manufacturing methodologies to minimise programme risk and enhance operational efficiency from the earliest stages of a new vehicle launch.
+          </p>
+        </div>
+        <!-- Right: differentiators checklist -->
+        <div class="bg-surface-container-low p-8 lg:p-12 flex flex-col justify-center">
+          <p class="font-label text-xs uppercase tracking-widest text-secondary mb-6">What We Bring</p>
+          <ul class="space-y-4">
+            {differentiators.map((item) => (
+              <li class="flex items-start gap-3 text-sm text-on-surface-variant leading-relaxed">
+                <span class="material-symbols-outlined text-secondary text-base mt-0.5 shrink-0" aria-hidden="true">check_circle</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Section 02 — Service Pillars -->
+<section class="bg-surface-container-low py-24">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+    <div class="mb-12">
+      <p class="font-label text-sm uppercase tracking-widest text-secondary mb-3">01 — What We Deliver</p>
+      <h2 class="font-headline text-4xl lg:text-5xl font-bold text-on-surface">Our Four Service Pillars</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {pillars.map((pillar) => (
+        <div class="group bg-surface rounded border-b-2 border-transparent hover:border-secondary hover:bg-surface-container-high transition-all duration-300 hover:-translate-y-1 p-8 flex flex-col">
+          <!-- Icon -->
+          <div class="flex justify-center mb-6">
+            <span
+              class="material-symbols-outlined text-primary"
+              style="font-size: 3.5rem;"
+              aria-hidden="true"
+            >{pillar.icon}</span>
+          </div>
+          <!-- Title -->
+          <h3 class="font-headline font-bold text-xl text-on-surface mb-2 text-center">{pillar.title}</h3>
+          <!-- One-line description -->
+          <p class="text-on-surface-variant text-sm leading-relaxed text-center mb-6">{pillar.description}</p>
+          <!-- Bullet sub-items -->
+          <ul class="space-y-2 mb-6">
+            {pillar.items.map((item) => (
+              <li class="flex items-start gap-3 text-sm text-on-surface-variant leading-relaxed">
+                <span class="material-symbols-outlined text-secondary text-base mt-0.5 shrink-0" aria-hidden="true">check_circle</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <!-- Software tags -->
+          {pillar.software.length > 0 && (
+            <div class="mt-auto pt-4 border-t border-on-surface/10">
+              <p class="font-label text-xs uppercase tracking-widest text-on-surface-variant mb-3">Software Expertise</p>
+              <div class="flex flex-wrap gap-2">
+                {pillar.software.map((sw) => (
+                  <span class="bg-primary/10 text-primary text-xs font-label px-3 py-1 rounded-full">{sw}</span>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Section 03 — AME Delivery Workflow -->
+<section
+  class="bg-surface py-24"
+  style="background-image: radial-gradient(circle, rgba(195,198,211,0.8) 1px, transparent 1px); background-size: 40px 40px;"
+>
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+    <div class="mb-12">
+      <p class="font-label text-sm uppercase tracking-widest text-secondary mb-3">02 — Our Methodology</p>
+      <h2 class="font-headline text-4xl lg:text-5xl font-bold text-on-surface">AME Delivery Workflow</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {steps.map((step) => (
+        <div class="group relative bg-surface-container-low rounded p-8 hover:-translate-y-1 transition-transform duration-300 overflow-hidden">
+          <p class="absolute font-headline font-black leading-none select-none pointer-events-none" style="top: 1rem; right: 1.5rem; font-size: 5rem; color: rgba(255, 103, 31, 0.15)">{step.number}</p>
+          <div class="bg-primary rounded p-3 inline-flex mb-4 relative">
+            <span class="material-symbols-outlined text-white text-3xl" aria-hidden="true">{step.icon}</span>
+          </div>
+          <h3 class="font-headline font-bold text-lg text-on-surface mb-2 relative">{step.title}</h3>
+          <p class="text-on-surface-variant text-sm leading-relaxed relative">{step.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- CTA Banner -->
+<section class="bg-primary py-20">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16 text-center">
+    <h2 class="font-headline text-3xl lg:text-4xl font-bold text-white mb-4">
+      Build Your BIW Production System
+    </h2>
+    <p class="text-white/80 text-base mb-10 max-w-xl mx-auto leading-relaxed">
+      Connect with our AME specialists to plan, simulate, and launch your next production line.
+    </p>
+    <a
+      href="/contact"
+      class="inline-block bg-secondary text-white px-10 py-4 rounded font-label text-sm font-bold uppercase tracking-widest hover:bg-secondary/90 hover:shadow-ambient-lg active:scale-95 transition-all duration-200 shadow-lg"
+    >
+      Get In Touch
+    </a>
+  </div>
+</section>

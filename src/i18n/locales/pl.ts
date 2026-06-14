@@ -346,6 +346,14 @@ export const pl = {
       cta: 'Wyślij aplikację e-mail',
     },
   },
+  biwTurnkey: {
+    hero: {
+      eyebrow: 'Kompetencje',
+      heading: 'Rozwiązania BIW Turnkey',
+      description: 'Kompleksowe zaawansowane inżynierie produkcji — od planowania procesów, przez symulację cyfrową, po wsparcie uruchomienia produkcji seryjnej.',
+      cta: 'Odkryj nasze kompetencje',
+    },
+  },
   capabilities: {
     label: 'Kompetencje',
     ourServices: 'Nasze usługi',

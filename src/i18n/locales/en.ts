@@ -179,6 +179,14 @@ export const en = {
       cta: 'Explore Capabilities',
     },
   },
+  biwTurnkey: {
+    hero: {
+      eyebrow: 'Capabilities',
+      heading: 'BIW Turnkey Solutions',
+      description: 'End-to-end advanced manufacturing engineering — bridging product design and production through process planning, digital simulation, and industrialization support.',
+      cta: 'Explore Capabilities',
+    },
+  },
   bottomNav: {
     home: 'Home',
     explore: 'Explore',

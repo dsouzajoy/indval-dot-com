@@ -346,6 +346,14 @@ export const de = {
       cta: 'E-Mail-Bewerbung senden',
     },
   },
+  biwTurnkey: {
+    hero: {
+      eyebrow: 'Kompetenzen',
+      heading: 'BIW Turnkey-Lösungen',
+      description: 'Durchgängiges Advanced Manufacturing Engineering — von der Prozessplanung über die digitale Simulation bis zur Serienanlaufunterstützung für die Automobilindustrie.',
+      cta: 'Kompetenzen entdecken',
+    },
+  },
   capabilities: {
     label: 'Kompetenzen',
     ourServices: 'Unsere Leistungen',

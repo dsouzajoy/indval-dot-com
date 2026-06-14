@@ -393,6 +393,18 @@ export const en = {
       cta: 'Send Email Application',
     },
   },
+  aerospace: {
+    hero: {
+      eyebrow: 'Industry Focus',
+      heading: 'Aerospace Engineering',
+      description: 'Driving innovation for Aerospace OEMs and Tier 1 suppliers with robust engineering expertise across structures, systems, and digital solutions — from concept to certification.',
+      cta: 'Explore What We Do',
+    },
+    whatWeDo: {
+      eyebrow: 'Our Capabilities',
+      heading: 'What We Do',
+    },
+  },
 } as const;
 
 type DeepString<T> = {

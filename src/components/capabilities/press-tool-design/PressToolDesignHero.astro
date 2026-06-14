@@ -1,0 +1,63 @@
+---
+import { en } from '@/i18n/locales/en';
+---
+
+<section
+  class="relative min-h-screen flex items-center overflow-hidden"
+  aria-label="Press Tool Design & Engineering"
+>
+  <!-- Background image -->
+  <div class="absolute inset-0 z-0">
+    <img
+      src="/images/press-tool-design-hero.jpg"
+      alt=""
+      aria-hidden="true"
+      class="w-full h-full object-cover"
+      loading="eager"
+    />
+  </div>
+  <!-- Dark gradient overlay -->
+  <div class="absolute inset-0 bg-gradient-to-r from-on-surface/85 via-on-surface/65 to-on-surface/20 z-10"></div>
+
+  <div class="container mx-auto px-8 lg:px-16 relative z-20 py-24">
+    <div class="max-w-2xl space-y-8">
+
+      <!-- Eyebrow -->
+      <p class="font-label text-sm uppercase tracking-widest text-secondary" data-i18n="pressToolDesign.hero.eyebrow">
+        {en.pressToolDesign.hero.eyebrow}
+      </p>
+
+      <!-- Heading -->
+      <h1
+        class="font-headline text-5xl lg:text-7xl font-extrabold tracking-tighter text-white leading-tight"
+        data-i18n="pressToolDesign.hero.heading"
+      >{en.pressToolDesign.hero.heading}</h1>
+
+      <!-- Description with left-border accent -->
+      <p
+        class="text-xl text-white/90 font-light leading-relaxed border-l-4 border-secondary pl-8 max-w-xl"
+        data-i18n="pressToolDesign.hero.description"
+      >{en.pressToolDesign.hero.description}</p>
+
+      <!-- CTA -->
+      <div class="pt-2">
+        <a
+          href="#capabilities"
+          id="ptd-hero-cta"
+          class="inline-block bg-gradient-to-r from-secondary to-secondary/80 text-white px-8 py-4 rounded font-label text-sm font-bold uppercase tracking-widest hover:shadow-ambient-lg active:scale-95 transition-all duration-200 shadow-lg"
+          data-i18n="pressToolDesign.hero.cta"
+        >
+          {en.pressToolDesign.hero.cta}
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  document.getElementById('ptd-hero-cta')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    document.getElementById('capabilities')?.scrollIntoView({ behavior: 'smooth' });
+  });
+</script>

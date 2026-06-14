@@ -1,0 +1,220 @@
+---
+const toolingCards = [
+  {
+    label: 'Panel Checkers',
+    icon: 'architecture',
+    description: 'Precision inspection fixtures ensuring dimensional accuracy for body-in-white components.',
+  },
+  {
+    label: 'Draw Dies',
+    icon: 'change_history',
+    description: 'Engineered for deep-draw complexity with optimized material flow control.',
+  },
+  {
+    label: 'Fine Blanking',
+    icon: 'precision_manufacturing',
+    description: 'High-precision shearing for components requiring perfectly smooth edges.',
+  },
+  {
+    label: 'Forming Dies',
+    icon: 'polyline',
+    description: 'Sophisticated geometries achieved through advanced springback compensation.',
+  },
+  {
+    label: 'Blanking',
+    icon: 'content_cut',
+    description: 'Optimal nesting and blanking strategy to maximize material utilization.',
+  },
+  {
+    label: 'Trimming',
+    icon: 'auto_fix',
+    description: 'Clean cut-offs and waste removal designed for high-cycle longevity.',
+  },
+  {
+    label: 'Progressive Dies',
+    icon: 'reorder',
+    description: 'Multi-stage stamping for complex parts at high production speeds.',
+  },
+  {
+    label: 'Transfer Dies',
+    icon: 'move_down',
+    description: 'Integrated material handling for large, multi-stage components.',
+  },
+];
+
+const processSteps = [
+  {
+    number: '01',
+    heading: 'Simulation (Auto Form)',
+    description: 'Advanced FEA analysis to predict wrinkles, thinning, and springback before the first piece of steel is cut.',
+  },
+  {
+    number: '02',
+    heading: 'Die Layout & Planning',
+    description: 'Strategic sequencing of operations to ensure optimal part flow and machine uptime.',
+  },
+  {
+    number: '03',
+    heading: 'Solid Modeling',
+    description: 'Full 3D parametric modeling for interference checking and kinematic validation.',
+  },
+];
+
+const docCards = [
+  {
+    type: 'Output Type A',
+    heading: 'Manufacturing Drawings',
+    items: ['GD&T Compliant', 'Toleranced Detail Views', 'Assembly Stacks'],
+  },
+  {
+    type: 'Output Type B',
+    heading: 'Pattern Drawings',
+    items: ['Casting Allowance Planning', 'Core Box Detail', 'Draft Angle Optimization'],
+  },
+  {
+    type: 'Output Type C',
+    heading: 'Bill of Materials',
+    items: ['Heat Treatment Specs', 'Standard Part Catalogs', 'Procurement Ready'],
+  },
+];
+---
+
+<!-- Section 01 — Tooling Design & Validation -->
+<section
+  id="capabilities"
+  class="py-24 bg-surface"
+  style="background-image: radial-gradient(circle, rgba(195,198,211,0.8) 1px, transparent 1px); background-size: 40px 40px;"
+>
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+    <div class="mb-16">
+      <p class="font-label text-sm uppercase tracking-[0.3em] text-secondary mb-2">01 — Capabilities</p>
+      <h2 class="font-headline text-4xl lg:text-5xl font-extrabold tracking-tight text-primary">
+        Tooling Design & Validation
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      {toolingCards.map((card) => (
+        <div class="bg-surface-container-low p-8 rounded-lg group hover:bg-primary transition-all duration-500 cursor-default">
+          <div class="w-12 h-12 bg-primary/10 rounded flex items-center justify-center mb-6 group-hover:bg-white/20 transition-colors">
+            <span
+              class="material-symbols-outlined text-primary group-hover:text-white"
+              aria-hidden="true"
+            >{card.icon}</span>
+          </div>
+          <h3 class="font-headline text-xl font-bold text-on-surface mb-3 group-hover:text-white">
+            {card.label}
+          </h3>
+          <p class="text-on-surface-variant group-hover:text-white/80 leading-relaxed text-sm">
+            {card.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Section 02 — Die Layout & Simulation -->
+<section class="py-24 bg-on-surface">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+    <div class="flex flex-col lg:flex-row gap-16 items-center">
+
+      <!-- Left: numbered steps -->
+      <div class="lg:w-1/2">
+        <p class="font-label text-sm uppercase tracking-[0.3em] text-secondary mb-2">02 — Process Engineering</p>
+        <h2 class="font-headline text-4xl font-extrabold tracking-tight text-white mb-10">
+          Die Layout & Simulation
+        </h2>
+        <div class="space-y-8">
+          {processSteps.map((step) => (
+            <div class="flex gap-6 items-start group">
+              <div class="font-label text-3xl font-bold text-secondary/50 group-hover:text-secondary transition-colors shrink-0">
+                {step.number}
+              </div>
+              <div>
+                <h4 class="font-headline text-xl font-bold text-white mb-2">{step.heading}</h4>
+                <p class="text-white/60 leading-relaxed">{step.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Right: CAD image with overlay -->
+      <div class="lg:w-1/2 w-full">
+        <div class="relative rounded-lg overflow-hidden border border-white/10 shadow-ambient-lg">
+          <img
+            src="/images/press-tool-design-simulation.jpg"
+            alt="Technical CAD model of a complex die layout"
+            class="w-full h-[500px] object-cover"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-primary/20"></div>
+          <div class="absolute bottom-6 left-6 right-6 p-6 bg-on-surface/80 backdrop-blur-md rounded border border-white/5">
+            <div class="flex items-center gap-4">
+              <div class="p-3 bg-secondary rounded">
+                <span class="material-symbols-outlined text-white" aria-hidden="true">analytics</span>
+              </div>
+              <div>
+                <div class="text-white font-bold font-headline">Auto Form Validation</div>
+                <div class="text-white/50 text-xs font-label uppercase tracking-widest">FEA Accuracy: 99.8%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Section 03 — Detailing & Documentation -->
+<section class="py-24 bg-surface-container-low">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+    <div class="mb-16 max-w-xl">
+      <p class="font-label text-sm uppercase tracking-[0.3em] text-secondary mb-2">03 — Deliverables</p>
+      <h2 class="font-headline text-4xl font-extrabold tracking-tight text-primary">
+        Detailing & Documentation
+      </h2>
+      <p class="text-on-surface-variant mt-4 leading-relaxed">
+        Our technical outputs provide a comprehensive blueprint for manufacturing, ensuring seamless integration on the shop floor.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {docCards.map((card) => (
+        <div class="bg-surface p-10 rounded-lg border-l-4 border-primary shadow-ambient hover:shadow-ambient-lg transition-shadow">
+          <h4 class="font-label text-sm uppercase tracking-widest text-on-surface-variant mb-4">{card.type}</h4>
+          <h3 class="font-headline text-2xl font-bold text-primary mb-6">{card.heading}</h3>
+          <ul class="space-y-4">
+            {card.items.map((item) => (
+              <li class="flex items-center gap-3 text-on-surface-variant">
+                <span class="material-symbols-outlined text-secondary text-lg" aria-hidden="true">check_circle</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-24 bg-primary relative overflow-hidden">
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary-container/40 via-transparent to-transparent"></div>
+  <div class="max-w-7xl mx-auto px-8 lg:px-16 text-center relative z-10">
+    <h2 class="font-headline text-4xl md:text-5xl font-black text-white tracking-tighter mb-6">
+      Optimize Your Stamping Process
+    </h2>
+    <p class="text-xl text-white/70 max-w-2xl mx-auto mb-10">
+      Connect with our specialized tool engineering team to reduce lead times and enhance production reliability.
+    </p>
+    <a
+      href="/contact"
+      class="inline-block bg-secondary hover:bg-secondary/90 text-white px-12 py-5 rounded font-label font-bold uppercase tracking-widest text-sm transition-all hover:scale-105 active:scale-95 shadow-ambient-lg"
+    >
+      Consult Our Experts
+    </a>
+  </div>
+</section>

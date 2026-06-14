@@ -171,6 +171,14 @@ export const en = {
       cta: 'Explore Capabilities',
     },
   },
+  pressToolDesign: {
+    hero: {
+      eyebrow: 'Mechanical Design',
+      heading: 'Precision Press Tool Design & Engineering',
+      description: 'Custom-engineered tooling solutions for automotive, EV, and aerospace domains, backed by forensic precision and material expertise.',
+      cta: 'Explore Capabilities',
+    },
+  },
   bottomNav: {
     home: 'Home',
     explore: 'Explore',

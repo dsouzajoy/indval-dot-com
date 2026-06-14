@@ -40,18 +40,9 @@ const mobileIndustriesItems = [
       <Navigation />
     </div>
 
-    <!-- Desktop: Language Switcher + CTA -->
+    <!-- Desktop: Language Switcher -->
     <div class="hidden md:flex items-center gap-3 shrink-0">
       <LanguageSwitcher client:load />
-      <a
-        href={withBase('/404')}
-        class="inline-flex items-center px-6 py-2.5 rounded font-label text-sm font-bold uppercase tracking-widest text-white
-               bg-gradient-to-r from-primary to-primary-container
-               hover:shadow-ambient-lg active:scale-95 transition-all duration-200"
-        data-i18n="nav.cta"
-      >
-        {en.nav.cta}
-      </a>
     </div>
 
     <!-- Hamburger (mobile) -->
@@ -269,16 +260,6 @@ const mobileIndustriesItems = [
       <LanguageSwitcher client:load />
     </div>
 
-    <div class="mt-4">
-      <a
-        href={withBase('/404')}
-        data-i18n="nav.cta"
-        class="block w-full text-center px-6 py-3 rounded font-label text-sm font-bold uppercase tracking-widest text-white
-               bg-gradient-to-r from-primary to-primary-container"
-      >
-        {en.nav.cta}
-      </a>
-    </div>
   </div>
 </div>
 

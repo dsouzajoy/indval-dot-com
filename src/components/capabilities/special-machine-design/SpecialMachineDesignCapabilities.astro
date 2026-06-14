@@ -1,0 +1,174 @@
+---
+const applications = [
+  {
+    label: 'Industrial Automation Equipment',
+    icon: 'precision_manufacturing',
+    description: 'Custom-designed automated systems for high-volume production lines, integrating mechanical, pneumatic, and electronic subsystems into a single cohesive machine.',
+  },
+  {
+    label: 'Welding Automation Systems',
+    icon: 'bolt',
+    description: 'Purpose-built welding machines and fixtures engineered for consistent weld quality, precise torch positioning, and repeatable cycle times across automotive and industrial applications.',
+  },
+  {
+    label: 'Gantry Pick & Place Systems',
+    icon: 'control_camera',
+    description: 'Multi-axis gantry structures designed for high-speed, high-accuracy material handling — from lightweight assemblies to heavy industrial components.',
+  },
+  {
+    label: 'Automated Test Equipment',
+    icon: 'biotech',
+    description: 'Bespoke test rigs and automated functional testers engineered to validate production parts against precise performance, leak, and dimensional specifications.',
+  },
+  {
+    label: 'Casting & Sheet Metal Tooling',
+    icon: 'layers',
+    description: 'Specialised tooling machines for casting operations and sheet metal processing, designed for durability under high-cycle production conditions.',
+  },
+  {
+    label: 'Packaging & Processing Machines',
+    icon: 'inventory_2',
+    description: 'End-of-line packaging and in-process handling machines engineered to your throughput, footprint, and product-specific requirements.',
+  },
+];
+
+const steps = [
+  {
+    number: '01',
+    icon: 'lightbulb',
+    title: 'Conceptual Design',
+    description: 'Feasibility studies, machine layout concepts, and functional architecture definition — aligning engineering intent with production requirements from day one.',
+  },
+  {
+    number: '02',
+    icon: 'architecture',
+    title: '3D CAD Modelling',
+    description: 'Full parametric 3D machine model with motion studies, interference checks, and structural validation to confirm form, fit, and function before any metal is cut.',
+  },
+  {
+    number: '03',
+    icon: 'description',
+    title: '2D Detailing & BOM',
+    description: 'Complete manufacturing drawings with GD&T tolerancing, material callouts, and a structured bill of materials ready for procurement and fabrication.',
+  },
+  {
+    number: '04',
+    icon: 'fact_check',
+    title: 'Design Review & Sign-off',
+    description: 'Structured formal review against client specifications, applicable safety standards, and regulatory requirements — with documented sign-off at each milestone.',
+  },
+  {
+    number: '05',
+    icon: 'settings_suggest',
+    title: 'Prototyping & Validation',
+    description: 'Physical mockups and functional prototypes for fit-and-function testing, cycle simulation, and client acceptance before committing to full production build.',
+  },
+  {
+    number: '06',
+    icon: 'precision_manufacturing',
+    title: 'Production-Ready Delivery',
+    description: 'Final manufacturing package including drawings, BOM, assembly instructions, and operation documentation — handed off ready for build or supplier release.',
+  },
+];
+---
+
+<section
+  id="capabilities"
+  class="bg-surface py-24 lg:py-32"
+  style="background-image: radial-gradient(circle, rgba(195,198,211,0.8) 1px, transparent 1px); background-size: 40px 40px;"
+>
+  <div class="max-w-7xl mx-auto px-8 lg:px-16 space-y-24">
+
+    <!-- Block 1: Definition card -->
+    <div class="bg-surface-container-lowest rounded border-l-4 border-secondary shadow-ambient overflow-hidden">
+      <div class="grid grid-cols-1 lg:grid-cols-2">
+        <!-- Left: value-led explanation -->
+        <div class="p-8 lg:p-12 flex flex-col justify-center">
+          <h2 class="font-headline text-2xl font-bold text-on-surface mb-6">When standard machines can't meet your requirements, we engineer the machine itself.</h2>
+          <p class="text-on-surface-variant leading-relaxed text-sm mb-4">
+            A Special Purpose Machine (SPM) is a custom-built piece of production equipment designed specifically for a single manufacturing task that off-the-shelf machinery cannot perform. SPMs are engineered from the ground up around your component geometry, cycle time, throughput targets, and floor-space constraints.
+          </p>
+          <p class="text-on-surface-variant leading-relaxed text-sm">
+            Indvaltech delivers end-to-end SPM design — from initial concept through production-ready drawings — giving your build team a fully resolved package with no engineering gaps.
+          </p>
+        </div>
+        <!-- Right: key attributes -->
+        <div class="bg-surface-container-low p-8 lg:p-12 flex flex-col justify-center">
+          <p class="font-label text-xs uppercase tracking-widest text-secondary mb-6">What makes an SPM</p>
+          <ul class="space-y-4">
+            {[
+              'Custom-built for a single, defined production task',
+              'Non-standard — not available as an off-the-shelf solution',
+              'Designed for repeatability, throughput, and long service life',
+              'Integrates mechanical, pneumatic, electrical, and control systems',
+              'Built to client-specific tolerances and applicable safety standards',
+            ].map((attr) => (
+              <li class="flex items-start gap-3 text-sm text-on-surface-variant leading-relaxed">
+                <span class="material-symbols-outlined text-secondary text-base mt-0.5 shrink-0" aria-hidden="true">check_circle</span>
+                {attr}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Block 2: Application domains (icon-only bento grid) -->
+    <div>
+      <p class="font-label text-sm uppercase tracking-widest text-secondary mb-3">Application Domains</p>
+      <h2 class="font-headline text-4xl lg:text-5xl font-bold text-on-surface mb-10">Machines We Design</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {applications.map((app) => (
+          <div class="group bg-surface-container-low rounded flex flex-col overflow-hidden border-b-2 border-transparent hover:border-secondary hover:bg-surface-container-high transition-all duration-300 p-8 text-center hover:-translate-y-1">
+            <div class="flex justify-center mb-6">
+              <span
+                class="material-symbols-outlined text-primary"
+                style="font-size: 3.5rem;"
+                aria-hidden="true"
+              >{app.icon}</span>
+            </div>
+            <h3 class="font-headline font-bold text-lg text-on-surface mb-3">{app.label}</h3>
+            <p class="text-on-surface-variant leading-relaxed text-sm flex-grow">{app.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Block 3: 6-step design process -->
+    <div>
+      <p class="font-label text-sm uppercase tracking-widest text-secondary mb-3">Our Methodology</p>
+      <h2 class="font-headline text-4xl lg:text-5xl font-bold text-on-surface mb-10">End-to-End Design Process</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {steps.map((step) => (
+          <div class="group relative bg-surface-container-low rounded p-8 hover:-translate-y-1 transition-transform duration-300 overflow-hidden">
+            <p class="absolute font-headline font-black leading-none select-none pointer-events-none" style="top: 1rem; right: 1.5rem; font-size: 5rem; color: rgba(255, 103, 31, 0.15)">{step.number}</p>
+            <div class="bg-primary rounded p-3 inline-flex mb-4 relative">
+              <span class="material-symbols-outlined text-white text-3xl" aria-hidden="true">{step.icon}</span>
+            </div>
+            <h3 class="font-headline font-bold text-lg text-on-surface mb-2 relative">{step.title}</h3>
+            <p class="text-on-surface-variant text-sm leading-relaxed relative">{step.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA Banner -->
+<section class="bg-primary py-20">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16 text-center">
+    <h2 class="font-headline text-3xl lg:text-4xl font-bold text-white mb-4">
+      Ready to Engineer Your Custom Machine?
+    </h2>
+    <p class="text-white/80 text-base mb-10 max-w-xl mx-auto leading-relaxed">
+      Talk to our SPM design specialists about your production challenge. We'll take it from concept to production-ready drawings.
+    </p>
+    <a
+      href="/contact"
+      class="inline-block bg-secondary text-white px-10 py-4 rounded font-label text-sm font-bold uppercase tracking-widest hover:bg-secondary/90 hover:shadow-ambient-lg active:scale-95 transition-all duration-200 shadow-lg"
+    >
+      Get In Touch
+    </a>
+  </div>
+</section>

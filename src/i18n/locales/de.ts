@@ -132,6 +132,14 @@ export const de = {
       cta: 'Explore Our Services',
     },
   },
+  specialMachineDesign: {
+    hero: {
+      eyebrow: 'Mechanische Konstruktion',
+      heading: 'Sondermaschinenkonstruktion & -entwicklung',
+      description: 'End-to-End-Konstruktion kundenspezifischer Sondermaschinen — vom konzeptionellen Layout bis zu fertigungsreifen Zeichnungen — für Automatisierung, Schweißen, Handhabung und Prüfanwendungen.',
+      cta: 'Kompetenzen entdecken',
+    },
+  },
   bottomNav: {
     home: 'Startseite',
     explore: 'Entdecken',

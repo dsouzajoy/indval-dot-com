@@ -132,6 +132,14 @@ export const pl = {
       cta: 'Explore Our Services',
     },
   },
+  specialMachineDesign: {
+    hero: {
+      eyebrow: 'Projektowanie mechaniczne',
+      heading: 'Projektowanie i rozwój maszyn specjalnych',
+      description: 'Kompleksowe projektowanie niestandardowych maszyn specjalnych — od koncepcji po gotowe do produkcji rysunki — dla automatyzacji, spawania, obsługi i zastosowań testowych.',
+      cta: 'Poznaj możliwości',
+    },
+  },
   bottomNav: {
     home: 'Strona główna',
     explore: 'Odkryj',

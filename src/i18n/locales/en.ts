@@ -163,6 +163,14 @@ export const en = {
       cta: 'Explore Capabilities',
     },
   },
+  specialMachineDesign: {
+    hero: {
+      eyebrow: 'Mechanical Design',
+      heading: 'Special Machine Design & Development',
+      description: 'End-to-end design of custom special-purpose machines — from conceptual layout through production-ready drawings — engineered for automation, welding, handling, and test applications.',
+      cta: 'Explore Capabilities',
+    },
+  },
   bottomNav: {
     home: 'Home',
     explore: 'Explore',

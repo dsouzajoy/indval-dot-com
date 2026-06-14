@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactHero from '../components/contact/ContactHero.astro';
 import LeadershipSection from '../components/contact/LeadershipSection.astro';
-import OfficesSection from '../components/contact/OfficesSection.astro';
+import ContactFormMapSection from '../components/contact/ContactFormMapSection.astro';
 ---
 
 <BaseLayout
@@ -10,10 +10,10 @@ import OfficesSection from '../components/contact/OfficesSection.astro';
   description="Connect with IndvalTech's executive leadership team for strategic engineering partnerships and technical collaborations."
   showSplash={false}
 >
-  <!-- Blueprint grid wrapper — horizontal + vertical lines -->
+  <!-- Blueprint grid wrapper -->
   <div style="background-image: linear-gradient(to right, rgba(0,49,108,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,49,108,0.05) 1px, transparent 1px); background-size: 40px 40px;">
     <ContactHero />
     <LeadershipSection />
-    <OfficesSection />
   </div>
+  <ContactFormMapSection />
 </BaseLayout>

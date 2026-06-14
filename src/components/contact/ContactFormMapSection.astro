@@ -1,0 +1,239 @@
+---
+import { feature } from 'topojson-client';
+import { geoEquirectangular, geoPath } from 'd3-geo';
+import world from 'world-atlas/countries-110m.json';
+
+const land = feature(world as any, (world as any).objects.land);
+const projection = geoEquirectangular().scale(127.32).translate([400, 200]);
+const pathGen = geoPath(projection);
+const landPath = pathGen(land as any);
+---
+
+<section id="contact-form" class="flex flex-col md:flex-row" style="min-height: calc(100vh - 4rem);" aria-label="Contact form and global offices">
+
+  <!-- LEFT: Form Panel -->
+  <div class="w-full md:w-1/2 bg-surface-container-lowest flex flex-col justify-center px-8 md:px-16 py-16">
+
+    <h2 class="font-headline font-black text-4xl md:text-5xl leading-tight mb-12">
+      <span class="text-primary">Let's Build </span><span class="text-secondary">Something.</span>
+    </h2>
+
+    <form
+      action="mailto:info@indvaltech.com"
+      method="POST"
+      enctype="text/plain"
+      class="flex flex-col gap-8"
+    >
+      <!-- Full Name -->
+      <div class="flex flex-col gap-2">
+        <label class="font-label text-xs uppercase tracking-[0.2em] text-primary font-bold">Full Name</label>
+        <input
+          type="text"
+          name="Full Name"
+          placeholder="Full Name"
+          class="border-b-2 border-outline-variant/30 focus:border-primary bg-transparent py-3 w-full outline-none transition-colors duration-200 text-on-surface placeholder:text-on-surface-variant/40 font-sans text-base"
+        />
+      </div>
+
+      <!-- Work Email -->
+      <div class="flex flex-col gap-2">
+        <label class="font-label text-xs uppercase tracking-[0.2em] text-primary font-bold">Work Email</label>
+        <input
+          type="email"
+          name="Work Email"
+          placeholder="Work Email"
+          class="border-b-2 border-outline-variant/30 focus:border-primary bg-transparent py-3 w-full outline-none transition-colors duration-200 text-on-surface placeholder:text-on-surface-variant/40 font-sans text-base"
+        />
+      </div>
+
+      <!-- Technical Specifications -->
+      <div class="flex flex-col gap-2">
+        <label class="font-label text-xs uppercase tracking-[0.2em] text-primary font-bold">Technical Specifications</label>
+        <textarea
+          name="Technical Specifications"
+          placeholder="Scope of work or RFQ details…"
+          rows="4"
+          class="border-b-2 border-outline-variant/30 focus:border-primary bg-transparent py-3 w-full outline-none transition-colors duration-200 text-on-surface placeholder:text-on-surface-variant/40 font-sans text-base resize-none"
+        ></textarea>
+      </div>
+
+      <!-- Submit -->
+      <button
+        type="submit"
+        class="self-start inline-flex items-center gap-2 px-8 py-4 bg-primary text-white font-label font-bold uppercase tracking-wider hover:bg-primary-container transition-colors duration-200 mt-2"
+      >
+        SEND ENQUIRY →
+      </button>
+    </form>
+  </div>
+
+  <!-- RIGHT: Map + Address Panel -->
+  <div class="w-full md:w-1/2 bg-primary flex flex-col h-[450px] md:h-auto">
+
+    <!-- Decorative badge -->
+    <div class="px-8 pt-8 flex justify-end shrink-0">
+      <span class="text-secondary border border-secondary/40 text-xs font-label px-3 py-1 tracking-widest uppercase">
+        Reach Out Anytime
+      </span>
+    </div>
+
+    <!-- SVG World Map -->
+    <div class="flex-1 min-h-0 overflow-hidden">
+      <svg
+        viewBox="0 0 800 400"
+        preserveAspectRatio="xMidYMid slice"
+        class="w-full h-full"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
+        <defs>
+          <!-- Dot grid pattern -->
+          <pattern id="contact-dots" width="20" height="20" patternUnits="userSpaceOnUse">
+            <circle cx="10" cy="10" r="0.8" fill="rgba(255,255,255,0.07)" />
+          </pattern>
+        </defs>
+
+        <!-- Background -->
+        <rect width="800" height="400" fill="#00316c" />
+
+        <!-- Subtle lat/lon grid lines -->
+        <!-- Latitudes: 60°N y=67, 30°N y=133, 0° y=200, 30°S y=267, 60°S y=333 -->
+        <line x1="0" y1="67" x2="800" y2="67" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+        <line x1="0" y1="133" x2="800" y2="133" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+        <line x1="0" y1="200" x2="800" y2="200" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
+        <line x1="0" y1="267" x2="800" y2="267" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+        <!-- Longitudes: 120°W x=133, 60°W x=267, 0° x=400, 60°E x=533, 120°E x=667 -->
+        <line x1="133" y1="0" x2="133" y2="400" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+        <line x1="267" y1="0" x2="267" y2="400" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+        <line x1="400" y1="0" x2="400" y2="400" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
+        <line x1="533" y1="0" x2="533" y2="400" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+        <line x1="667" y1="0" x2="667" y2="400" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+
+        <!-- Dot grid overlay -->
+        <rect width="800" height="400" fill="url(#contact-dots)" />
+
+        <!-- ── CONTINENTS (Natural Earth 110m, equirectangular) ────────── -->
+        <path
+          d={landPath}
+          fill="rgba(11,71,147,0.5)"
+          stroke="rgba(255,255,255,0.18)"
+          stroke-width="0.5"
+        />
+
+        <!-- ── CONNECTION LINES ─────────────────────────────────────────── -->
+        <!-- Bangalore ↔ Valencia CA -->
+        <line x1="572" y1="171" x2="136" y2="123" stroke="rgba(255,103,31,0.18)" stroke-width="1" stroke-dasharray="5 5" />
+        <!-- Bangalore ↔ Wrocław -->
+        <line x1="572" y1="171" x2="438" y2="86" stroke="rgba(255,103,31,0.18)" stroke-width="1" stroke-dasharray="5 5" />
+        <!-- Valencia CA ↔ Wrocław -->
+        <line x1="136" y1="123" x2="438" y2="86" stroke="rgba(255,103,31,0.18)" stroke-width="1" stroke-dasharray="5 5" />
+
+        <!-- ── CITY MARKERS ─────────────────────────────────────────────── -->
+
+        <!-- Bangalore (77.6°E, 12.9°N) → SVG (572, 171) -->
+        <g>
+          <circle cx="572" cy="171" r="4" fill="none" stroke="#ff671f" stroke-opacity="0.6">
+            <animate attributeName="r" from="4" to="22" dur="2.5s" repeatCount="indefinite" />
+            <animate attributeName="stroke-opacity" from="0.6" to="0" dur="2.5s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="572" cy="171" r="4" fill="none" stroke="#ff671f" stroke-opacity="0.4">
+            <animate attributeName="r" from="4" to="22" dur="2.5s" begin="0.9s" repeatCount="indefinite" />
+            <animate attributeName="stroke-opacity" from="0.4" to="0" dur="2.5s" begin="0.9s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="572" cy="171" r="4" fill="#ff671f" />
+          <text x="582" y="168" fill="rgba(255,255,255,0.88)" font-size="9" font-family="Space Grotesk, sans-serif" letter-spacing="0.12em" font-weight="600">BANGALORE</text>
+        </g>
+
+        <!-- Valencia CA (118.6°W, 34.4°N) → SVG (136, 123) -->
+        <g>
+          <circle cx="136" cy="123" r="4" fill="none" stroke="#ff671f" stroke-opacity="0.6">
+            <animate attributeName="r" from="4" to="22" dur="2.5s" begin="0.4s" repeatCount="indefinite" />
+            <animate attributeName="stroke-opacity" from="0.6" to="0" dur="2.5s" begin="0.4s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="136" cy="123" r="4" fill="none" stroke="#ff671f" stroke-opacity="0.4">
+            <animate attributeName="r" from="4" to="22" dur="2.5s" begin="1.3s" repeatCount="indefinite" />
+            <animate attributeName="stroke-opacity" from="0.4" to="0" dur="2.5s" begin="1.3s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="136" cy="123" r="4" fill="#ff671f" />
+          <text x="126" y="116" fill="rgba(255,255,255,0.88)" font-size="9" font-family="Space Grotesk, sans-serif" letter-spacing="0.12em" font-weight="600" text-anchor="end">VALENCIA, CA</text>
+        </g>
+
+        <!-- Wrocław (17°E, 51.1°N) → SVG (438, 86) -->
+        <g>
+          <circle cx="438" cy="86" r="4" fill="none" stroke="#ff671f" stroke-opacity="0.6">
+            <animate attributeName="r" from="4" to="22" dur="2.5s" begin="0.8s" repeatCount="indefinite" />
+            <animate attributeName="stroke-opacity" from="0.6" to="0" dur="2.5s" begin="0.8s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="438" cy="86" r="4" fill="none" stroke="#ff671f" stroke-opacity="0.4">
+            <animate attributeName="r" from="4" to="22" dur="2.5s" begin="1.7s" repeatCount="indefinite" />
+            <animate attributeName="stroke-opacity" from="0.4" to="0" dur="2.5s" begin="1.7s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="438" cy="86" r="4" fill="#ff671f" />
+          <text x="448" y="83" fill="rgba(255,255,255,0.88)" font-size="9" font-family="Space Grotesk, sans-serif" letter-spacing="0.12em" font-weight="600">WROCŁAW</text>
+        </g>
+
+      </svg>
+    </div>
+
+    <!-- Address Grid (2×2) -->
+    <div class="grid grid-cols-2 shrink-0" style="background-color: #001a40;">
+
+      <!-- Divider line at top -->
+      <div class="col-span-2 h-px" style="background: rgba(255,255,255,0.08);"></div>
+
+      <!-- Cell 1: HQ Address -->
+      <div class="p-6 border-r border-b" style="border-color: rgba(255,255,255,0.08);">
+        <p class="text-secondary text-xs font-label uppercase tracking-widest mb-2">HQ — Bengaluru</p>
+        <p class="text-white text-xs leading-relaxed">
+          INDVAL TECHNOLOGIES Private Limited<br />
+          #181, 3rd Floor, Outer Ring Road<br />
+          Nagarbhavi BDA Complex, 2nd Stage<br />
+          Nagarbhavi, Bengaluru — 560072
+        </p>
+        <a
+          href="https://maps.app.goo.gl/AKYnrs1VYDsCrm786"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-1 text-secondary text-xs font-label uppercase tracking-wider mt-3 hover:opacity-80 transition-opacity duration-200"
+        >
+          View on Map →
+        </a>
+      </div>
+
+      <!-- Cell 2: Contact Email -->
+      <div class="p-6 border-b" style="border-color: rgba(255,255,255,0.08);">
+        <p class="text-secondary text-xs font-label uppercase tracking-widest mb-2">Contact</p>
+        <a
+          href="mailto:info@indvaltech.com"
+          class="text-white text-sm hover:text-secondary transition-colors duration-200 break-all"
+        >
+          info@indvaltech.com
+        </a>
+      </div>
+
+      <!-- Cell 3: USA -->
+      <div class="p-6 border-r" style="border-color: rgba(255,255,255,0.08);">
+        <p class="text-secondary text-xs font-label uppercase tracking-widest mb-2">USA — Valencia, CA</p>
+        <p class="text-white text-xs leading-relaxed">
+          Regent Indval Engineering Services LLC<br />
+          28110 W Harrison Parkway<br />
+          Valencia, CA 91355
+        </p>
+      </div>
+
+      <!-- Cell 4: Poland -->
+      <div class="p-6">
+        <p class="text-secondary text-xs font-label uppercase tracking-widest mb-2">Europe — Wrocław</p>
+        <p class="text-white text-xs leading-relaxed">
+          INDVAL TECHNOLOGIES Sp. z o.o.<br />
+          Ul. Marsz. Józefa Piłsudskiego 74/320<br />
+          50-020 Wrocław, Lower Silesia, Poland<br />
+          KRS: 0001238201 | NIP: 8971971294
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

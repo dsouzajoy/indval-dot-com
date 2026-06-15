@@ -7,6 +7,12 @@ const land = feature(world as any, (world as any).objects.land);
 const projection = geoEquirectangular().scale(127.32).translate([400, 200]);
 const pathGen = geoPath(projection);
 const landPath = pathGen(land as any);
+
+const phones = [
+  { display: '+91 8088887220', tel: '+918088887220' },
+  { display: '+48 71 707 91 33', tel: '+48717079133' },
+  { display: '+16615513080', tel: '+16615513080' },
+];
 ---
 
 <section id="contact-form" class="flex flex-col md:flex-row" style="min-height: calc(100vh - 4rem);" aria-label="Contact form and global offices">
@@ -200,15 +206,29 @@ const landPath = pathGen(land as any);
         </a>
       </div>
 
-      <!-- Cell 2: Contact Email -->
+      <!-- Cell 2: Contact -->
       <div class="p-6 border-b" style="border-color: rgba(255,255,255,0.08);">
-        <p class="text-secondary text-xs font-label uppercase tracking-widest mb-2">Contact</p>
-        <a
-          href="mailto:info@indvaltech.com"
-          class="text-white text-sm hover:text-secondary transition-colors duration-200 break-all"
-        >
-          info@indvaltech.com
-        </a>
+        <p class="text-secondary text-xs font-label uppercase tracking-widest mb-3">Contact</p>
+        <div class="flex flex-col gap-3">
+          <a
+            href="mailto:info@indvaltech.com"
+            class="inline-flex items-center gap-2 text-white text-xs hover:text-secondary transition-colors duration-200 break-all"
+          >
+            <span class="material-symbols-outlined text-secondary shrink-0" style="font-size: 1em;">mail</span>
+            <span>info@indvaltech.com</span>
+          </a>
+          <div class="flex flex-col gap-2">
+            {phones.map(({ display, tel }) => (
+              <a
+                href={`tel:${tel}`}
+                class="inline-flex items-center gap-2 text-white text-xs hover:text-secondary transition-colors duration-200"
+              >
+                <span class="material-symbols-outlined text-secondary shrink-0" style="font-size: 1em;">phone</span>
+                <span>{display}</span>
+              </a>
+            ))}
+          </div>
+        </div>
       </div>
 
       <!-- Cell 3: USA -->

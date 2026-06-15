@@ -1,5 +1,6 @@
 ---
 import { en } from '@/i18n/locales/en';
+import { withBase } from '@/lib/utils';
 
 const { leadership } = en.contact;
 
@@ -8,37 +9,47 @@ const executives = [
     name: 'Dr Muralidhar Honnagirigowda',
     category: 'Executive Council',
     title: 'Chief Executive Officer',
-    email: 'muralidhara.h@indvaltech.com',
-    imagePlaceholder: true,
+    email: 'Muralidhara.h@indvaltech.com',
+    linkedin: 'https://www.linkedin.com/in/muralidhara-honnagirigowda/',
   },
   {
     name: 'Gagan G Amin',
     category: 'Strategy & Growth',
     title: 'Business Development',
-    email: 'gagan.amin@indvaltech.com',
-    imagePlaceholder: true,
+    email: 'gagan.g@indvaltech.com',
+    image: '/images/leadership/gagan.png',
+    linkedin: 'https://www.linkedin.com/in/gagan-g-amin/',
   },
   {
     name: 'Harsha Vardhana',
     category: 'Operations',
     title: 'Head of Operation - GM',
-    email: 'harsha.v@indvaltech.com',
-    imagePlaceholder: true,
+    email: 'harsha@indvaltech.com',
+    image: '/images/leadership/harsha.png',
+    linkedin: 'https://www.linkedin.com/in/vardhana-m/',
   },
 ];
 ---
 
 <section class="pb-24 px-8 max-w-7xl mx-auto" aria-label="Executive leadership">
   <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-    {executives.map(({ name, category, title, email }) => (
+    {executives.map(({ name, category, title, email, image, linkedin }) => (
       <div class="group relative bg-surface-container-lowest overflow-hidden shadow-[0px_12px_32px_rgba(11,28,48,0.06)] border border-outline-variant/10 card-reveal-container">
 
-        <!-- Portrait placeholder (grayscale effect via CSS filter) -->
+        <!-- Portrait -->
         <div class="aspect-square relative overflow-hidden bg-surface-dim flex items-center justify-center">
-          <span
-            class="material-symbols-outlined text-on-surface-variant/20"
-            style="font-size: 9rem;"
-          >person</span>
+          {image ? (
+            <img
+              src={withBase(image)}
+              alt={name}
+              class="absolute inset-0 w-full h-full object-cover object-top"
+            />
+          ) : (
+            <span
+              class="material-symbols-outlined text-on-surface-variant/20"
+              style="font-size: 9rem;"
+            >person</span>
+          )}
         </div>
 
         <!-- Orange "View Details" bar — visible by default, fades out on hover -->
@@ -59,7 +70,7 @@ const executives = [
             <span class="font-label text-sm tracking-wide">{email}</span>
           </a>
           <a
-            href="https://www.linkedin.com/company/indvaltech"
+            href={linkedin}
             target="_blank"
             rel="noopener noreferrer"
             class="flex items-center gap-3 text-white hover:text-secondary transition-colors duration-300 w-full justify-center"

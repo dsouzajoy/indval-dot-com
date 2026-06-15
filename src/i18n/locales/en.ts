@@ -42,15 +42,15 @@ export const en = {
     description: 'End-to-end solutions designed for high-stakes environments where failure is not an option.',
     aerospace: {
       title: 'Aerospace',
-      description: 'Precision structural optimization, fatigue analysis, and propulsion system integration for mission-critical avionics.',
+      description: 'Delivering advanced engineering solutions for aerospace programs through design, analysis, product development, and manufacturing support. We help transform concepts into reliable, high-performance solutions with precision and efficiency.',
     },
     automotive: {
-      title: 'Automotive Systems',
-      description: 'EV chassis development, advanced thermal management, and ADAS sensor integration frameworks.',
+      title: 'Automotive',
+      description: 'Enabling next-generation mobility through innovative engineering services across product design, vehicle development, tooling, and manufacturing optimization. Our team supports faster development and improved product performance.',
     },
     locomotive: {
       title: 'Locomotive',
-      description: 'High-speed rail design and freight locomotive engine assembly optimization.',
+      description: 'Supporting rail and locomotive industries with engineering expertise in component development, system integration, structural design, and production support. We focus on dependable, efficient, and scalable engineering solutions.',
     },
     offHighway: {
       title: 'Off Highway',
@@ -58,7 +58,7 @@ export const en = {
     },
     general: {
       title: 'General Engineering',
-      description: 'Multidisciplinary technical solutions for advanced manufacturing and complex assembly lines.',
+      description: 'Providing multidisciplinary engineering services that convert ideas into practical and manufacturable solutions. From concept to execution, we help businesses improve productivity, quality, and operational excellence.',
     },
   },
   thought: {
@@ -95,7 +95,7 @@ export const en = {
     copyright: '© {year} Indvaltech Engineering. Precision Guaranteed.',
     solutions: {
       aerospace: 'Aerospace',
-      automotive: 'Automotive Systems',
+      automotive: 'Automotive',
       automation: 'Industrial Automation',
       qa: 'Quality Assurance',
     },

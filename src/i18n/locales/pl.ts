@@ -43,16 +43,16 @@ export const pl = {
     heading: 'Multidyscyplinarny ekosystem inżynieryjny',
     description: 'Kompleksowe rozwiązania dla środowisk wysokiego ryzyka, gdzie porażka nie wchodzi w grę.',
     aerospace: {
-      title: 'Lotnictwo i obrona',
-      description: 'Precyzyjna optymalizacja strukturalna, analiza zmęczeniowa i integracja układów napędowych dla krytycznej awioniki.',
+      title: 'Lotnictwo',
+      description: 'Dostarczamy zaawansowane rozwiązania inżynierskie dla programów lotniczych w zakresie projektowania, analizy, rozwoju produktu i wsparcia produkcji. Pomagamy przekształcać koncepcje w niezawodne, wysokowydajne rozwiązania z precyzją i efektywnością.',
     },
     automotive: {
-      title: 'Systemy motoryzacyjne',
-      description: 'Rozwój podwozia EV, zaawansowane zarządzanie cieplne i platformy integracji czujników ADAS.',
+      title: 'Motoryzacja',
+      description: 'Umożliwiamy mobilność nowej generacji dzięki innowacyjnym usługom inżynierskim w projektowaniu produktów, rozwoju pojazdów, narzędziowni i optymalizacji produkcji. Nasz zespół wspiera szybszy rozwój i lepszą wydajność produktów.',
     },
     locomotive: {
-      title: 'Pojazdy szynowe',
-      description: 'Projektowanie kolei dużych prędkości i optymalizacja montażu silników lokomotyw towarowych.',
+      title: 'Lokomotywa',
+      description: 'Wspieramy branżę kolejową i lokomotywową dzięki kompetencjom inżynierskim w rozwoju komponentów, integracji systemów, projektowaniu konstrukcji i wsparciu produkcji. Skupiamy się na niezawodnych, efektywnych i skalowalnych rozwiązaniach inżynierskich.',
     },
     offHighway: {
       title: 'Off-highway',
@@ -60,7 +60,7 @@ export const pl = {
     },
     general: {
       title: 'Inżynieria ogólna',
-      description: 'Multidyscyplinarne rozwiązania techniczne dla zaawansowanej produkcji i złożonych linii montażowych.',
+      description: 'Świadczymy multidyscyplinarne usługi inżynierskie, które przekształcają pomysły w praktyczne i możliwe do wytworzenia rozwiązania. Od koncepcji po realizację pomagamy firmom poprawiać produktywność, jakość i doskonałość operacyjną.',
     },
   },
   thought: {
@@ -96,8 +96,8 @@ export const pl = {
     subscribeLabel: 'Subskrybuj',
     copyright: '© {year} Indvaltech Engineering. Gwarantowana precyzja.',
     solutions: {
-      aerospace: 'Lotnictwo i obrona',
-      automotive: 'Systemy motoryzacyjne',
+      aerospace: 'Lotnictwo',
+      automotive: 'Motoryzacja',
       automation: 'Automatyzacja przemysłowa',
       qa: 'Zapewnienie jakości',
     },

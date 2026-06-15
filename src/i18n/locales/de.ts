@@ -43,16 +43,16 @@ export const de = {
     heading: 'Multidisziplinäres Engineering-Ökosystem',
     description: 'End-to-End-Lösungen für Hochrisikobereiche, in denen Versagen keine Option ist.',
     aerospace: {
-      title: 'Luft- und Raumfahrt & Verteidigung',
-      description: 'Präzise Strukturoptimierung, Ermüdungsanalyse und Antriebssystemintegration für missionskritische Avionik.',
+      title: 'Luft- und Raumfahrt',
+      description: 'Wir liefern fortschrittliche Engineering-Lösungen für Luft- und Raumfahrtprogramme in den Bereichen Konstruktion, Analyse, Produktentwicklung und Fertigungsunterstützung. Wir helfen dabei, Konzepte in zuverlässige, leistungsstarke Lösungen mit Präzision und Effizienz zu verwandeln.',
     },
     automotive: {
-      title: 'Automobiltechnik',
-      description: 'EV-Fahrwerkentwicklung, fortschrittliches Wärmemanagement und ADAS-Sensorintegrations-Frameworks.',
+      title: 'Automobil',
+      description: 'Wir ermöglichen Mobilität der nächsten Generation durch innovative Engineering-Dienstleistungen in Produktentwicklung, Fahrzeugentwicklung, Werkzeugbau und Fertigungsoptimierung. Unser Team unterstützt schnellere Entwicklung und verbesserte Produktleistung.',
     },
     locomotive: {
-      title: 'Schienenfahrzeuge',
-      description: 'Hochgeschwindigkeitsbahndesign und Optimierung der Güterlokomotivenmontagelinie.',
+      title: 'Lokomotive',
+      description: 'Wir unterstützen die Schienen- und Lokomotivindustrie mit Engineering-Kompetenz in Komponentenentwicklung, Systemintegration, Strukturdesign und Produktionsunterstützung. Unser Fokus liegt auf zuverlässigen, effizienten und skalierbaren Engineering-Lösungen.',
     },
     offHighway: {
       title: 'Off-Highway',
@@ -60,7 +60,7 @@ export const de = {
     },
     general: {
       title: 'Allgemeines Engineering',
-      description: 'Multidisziplinäre technische Lösungen für moderne Fertigung und komplexe Montageanlagen.',
+      description: 'Wir bieten multidisziplinäre Engineering-Dienstleistungen, die Ideen in praktische und fertigungsfähige Lösungen umsetzen. Vom Konzept bis zur Umsetzung helfen wir Unternehmen, Produktivität, Qualität und operative Exzellenz zu steigern.',
     },
   },
   thought: {
@@ -96,8 +96,8 @@ export const de = {
     subscribeLabel: 'Abonnieren',
     copyright: '© {year} Indvaltech Engineering. Präzision garantiert.',
     solutions: {
-      aerospace: 'Luft- und Raumfahrt & Verteidigung',
-      automotive: 'Automobiltechnik',
+      aerospace: 'Luft- und Raumfahrt',
+      automotive: 'Automobil',
       automation: 'Industrieautomation',
       qa: 'Qualitätssicherung',
     },

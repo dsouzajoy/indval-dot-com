@@ -85,6 +85,11 @@ export const pl = {
         description: 'Nasz zespół codziennie usprawnia procesy, dopracowuje przepływy pracy, zacieśnia harmonogramy i dostosowuje systemy, aby dotrzymywać każdego terminu i zadowalać każdego klienta.',
       },
     },
+    threeCs: {
+      competence: 'Kompetencja',
+      competitive: 'Konkurencyjność',
+      commitment: 'Potwierdzenie Zaangażowania',
+    },
   },
   qualityPolicy: {
     eyebrow: 'Standard doskonałości',

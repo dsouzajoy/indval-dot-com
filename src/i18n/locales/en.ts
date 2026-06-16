@@ -83,6 +83,11 @@ export const en = {
         description: 'Our team evolves processes daily, refining workflows, tightening schedules, and adapting systems to ensure every deadline is met and every client is satisfied.',
       },
     },
+    threeCs: {
+      competence: 'Competence',
+      competitive: 'Competitive',
+      commitment: 'Confirmation to the Commitment',
+    },
   },
   qualityPolicy: {
     eyebrow: 'Standard of Excellence',

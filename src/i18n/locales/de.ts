@@ -85,6 +85,11 @@ export const de = {
         description: 'Unser Team entwickelt Prozesse täglich weiter, verfeinert Arbeitsabläufe, strafft Zeitpläne und passt Systeme an, um jeden Termin zu halten und jeden Kunden zufriedenzustellen.',
       },
     },
+    threeCs: {
+      competence: 'Kompetenz',
+      competitive: 'Wettbewerbsfähig',
+      commitment: 'Bestätigung des Engagements',
+    },
   },
   qualityPolicy: {
     eyebrow: 'Exzellenzstandard',

@@ -77,4 +77,33 @@ const articles = [
     </div>
 
   </div>
+
+  <!-- 3 C's -->
+  <div class="max-w-7xl mx-auto mt-16 md:mt-24 grid grid-cols-1 sm:grid-cols-3 gap-6">
+    {[
+      { icon: 'psychology',  labelKey: 'thought.threeCs.competence',  label: en.thought.threeCs.competence  },
+      { icon: 'leaderboard', labelKey: 'thought.threeCs.competitive', label: en.thought.threeCs.competitive },
+      { icon: 'handshake',   labelKey: 'thought.threeCs.commitment',  label: en.thought.threeCs.commitment  },
+    ].map(({ icon, labelKey, label }) => (
+      <div class="relative flex items-center gap-5 py-5 px-6 bg-white rounded-xl border border-outline-variant/20 border-l-4 border-l-secondary shadow-[0_1px_4px_rgba(11,28,48,0.08)] overflow-hidden group hover:-translate-y-1 hover:shadow-[0_2px_8px_rgba(11,28,48,0.10)] transition-all duration-300">
+        <!-- decorative dots: right corner only -->
+        <div class="absolute inset-y-0 right-0 w-28 pointer-events-none" style="background-image: radial-gradient(circle, rgba(195,198,211,0.8) 1px, transparent 1px); background-size: 12px 12px; mask-image: linear-gradient(to right, transparent, black 60%); -webkit-mask-image: linear-gradient(to right, transparent, black 60%);"></div>
+        <!-- icon in tinted circle -->
+        <div class="shrink-0 p-3 bg-secondary/10 rounded-full group-hover:bg-secondary/20 transition-colors duration-300">
+          <span
+            class="material-symbols-outlined text-secondary"
+            style="font-size: 1.75rem; font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;"
+          >
+            {icon}
+          </span>
+        </div>
+        <p
+          class="font-label font-bold text-primary uppercase tracking-widest text-sm"
+          data-i18n={labelKey}
+        >
+          {label}
+        </p>
+      </div>
+    ))}
+  </div>
 </section>

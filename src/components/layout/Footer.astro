@@ -2,18 +2,23 @@
 import { en } from '@/i18n/locales/en';
 import { withBase } from '@/lib/utils';
 
-const solutions = [
-  { label: en.footer.solutions.aerospace,  href: '/404', i18nKey: 'footer.solutions.aerospace'  },
-  { label: en.footer.solutions.automotive, href: '/404', i18nKey: 'footer.solutions.automotive' },
-  { label: en.footer.solutions.automation, href: '/404', i18nKey: 'footer.solutions.automation' },
-  { label: en.footer.solutions.qa,         href: '/404', i18nKey: 'footer.solutions.qa'         },
+const industries = [
+  { label: en.industries.aerospace.title,  href: '/industries/aerospace',  i18nKey: 'industries.aerospace.title'  },
+  { label: en.industries.automotive.title, href: '/industries/automotive', i18nKey: 'industries.automotive.title' },
+  { label: en.industries.locomotive.title, href: '/industries/locomotive', i18nKey: 'industries.locomotive.title' },
+  { label: en.industries.offHighway.title, href: '/industries/off-highway', i18nKey: 'industries.offHighway.title' },
+  { label: en.industries.general.title,    href: '/industries/general',    i18nKey: 'industries.general.title'    },
 ];
 
-const company = [
-  { label: en.footer.company.pedigree, href: '/404', i18nKey: 'footer.company.pedigree' },
-  { label: en.footer.company.papers,   href: '/404', i18nKey: 'footer.company.papers'   },
-  { label: en.footer.company.privacy,  href: '/404', i18nKey: 'footer.company.privacy'  },
-  { label: en.footer.company.terms,    href: '/404', i18nKey: 'footer.company.terms'    },
+const services = [
+  { label: en.capabilities.engineeringAnalysis.fea,          href: '/capabilities/fea',                    i18nKey: 'capabilities.engineeringAnalysis.fea'          },
+  { label: en.capabilities.engineeringAnalysis.cfd,          href: '/capabilities/cfd',                    i18nKey: 'capabilities.engineeringAnalysis.cfd'          },
+  { label: en.capabilities.manufacturing.heading,            href: '/capabilities/manufacturing',          i18nKey: 'capabilities.manufacturing.heading'            },
+  { label: en.capabilities.biwTurnkey.heading,               href: '/capabilities/biw-turnkey-solutions',  i18nKey: 'capabilities.biwTurnkey.heading'               },
+  { label: en.capabilities.mechanicalDesign.pressToolDesign, href: '/capabilities/press-tool-design',      i18nKey: 'capabilities.mechanicalDesign.pressToolDesign' },
+  { label: en.capabilities.mechanicalDesign.specialMachineDesign, href: '/capabilities/special-machine-design', i18nKey: 'capabilities.mechanicalDesign.specialMachineDesign' },
+  { label: en.capabilities.reverseEngineering.heading,       href: '/capabilities/reverse-engineering',    i18nKey: 'capabilities.reverseEngineering.heading'       },
+  { label: en.capabilities.technicalPublication.heading,     href: '/capabilities/technical-publication',  i18nKey: 'capabilities.technicalPublication.heading'     },
 ];
 
 const year = new Date().getFullYear();
@@ -39,13 +44,13 @@ const year = new Date().getFullYear();
         </p>
       </div>
 
-      <!-- Solutions -->
+      <!-- Industries -->
       <div>
-        <h3 class="font-label text-xs font-bold uppercase tracking-widest text-secondary mb-5" data-i18n="footer.solutionsHeading">
-          {en.footer.solutionsHeading}
+        <h3 class="font-label text-xs font-bold uppercase tracking-widest text-secondary mb-5" data-i18n="footer.industriesHeading">
+          {en.footer.industriesHeading}
         </h3>
         <ul class="flex flex-col gap-3 list-none m-0 p-0">
-          {solutions.map(({ label, href, i18nKey }) => (
+          {industries.map(({ label, href, i18nKey }) => (
             <li>
               <a href={withBase(href)} data-i18n={i18nKey} class="text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-all duration-200 block">
                 {label}
@@ -55,13 +60,13 @@ const year = new Date().getFullYear();
         </ul>
       </div>
 
-      <!-- Company -->
+      <!-- Services -->
       <div>
-        <h3 class="font-label text-xs font-bold uppercase tracking-widest text-secondary mb-5" data-i18n="footer.companyHeading">
-          {en.footer.companyHeading}
+        <h3 class="font-label text-xs font-bold uppercase tracking-widest text-secondary mb-5" data-i18n="footer.servicesHeading">
+          {en.footer.servicesHeading}
         </h3>
         <ul class="flex flex-col gap-3 list-none m-0 p-0">
-          {company.map(({ label, href, i18nKey }) => (
+          {services.map(({ label, href, i18nKey }) => (
             <li>
               <a href={withBase(href)} data-i18n={i18nKey} class="text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-all duration-200 block">
                 {label}
@@ -71,36 +76,22 @@ const year = new Date().getFullYear();
         </ul>
       </div>
 
-      <!-- Newsletter -->
+      <!-- Get In Touch -->
       <div>
-        <h3 class="font-label text-xs font-bold uppercase tracking-widest text-secondary mb-5" data-i18n="footer.newsletterHeading">
-          {en.footer.newsletterHeading}
+        <h3 class="font-label text-xs font-bold uppercase tracking-widest text-secondary mb-5" data-i18n="footer.getInTouchHeading">
+          {en.footer.getInTouchHeading}
         </h3>
-        <p class="text-sm text-slate-400 mb-4 leading-relaxed" data-i18n="footer.newsletterDesc">
-          {en.footer.newsletterDesc}
+        <p class="text-sm text-slate-400 mb-6 leading-relaxed" data-i18n="footer.getInTouchDesc">
+          {en.footer.getInTouchDesc}
         </p>
-        <form onsubmit="return false;">
-          <!-- TODO: wire to email service (Formspree / ConvertKit / etc.) -->
-          <div class="flex">
-            <input
-              type="email"
-              placeholder={en.footer.emailPlaceholder}
-              autocomplete="email"
-              data-i18n-attr="placeholder:footer.emailPlaceholder"
-              class="flex-1 min-w-0 px-4 py-3 text-sm bg-white/10 text-white placeholder-white/40
-                     border-0 rounded-l focus:outline-none focus:ring-1 focus:ring-secondary/60
-                     transition-colors duration-200"
-            />
-            <button
-              type="submit"
-              class="px-4 py-3 bg-secondary rounded-r hover:bg-secondary/90 active:scale-95 transition-all duration-200"
-              aria-label={en.footer.subscribeLabel}
-              data-i18n-attr="aria-label:footer.subscribeLabel"
-            >
-              <span class="material-symbols-outlined text-white text-xl">send</span>
-            </button>
-          </div>
-        </form>
+        <a
+          href={withBase('/contact#contact-form')}
+          class="inline-flex items-center gap-2 px-6 py-3 bg-secondary text-white font-label font-bold text-sm uppercase tracking-wider hover:bg-secondary/90 transition-colors duration-200 rounded-[4px]"
+          data-i18n="footer.getInTouchCta"
+        >
+          {en.footer.getInTouchCta}
+          <span class="material-symbols-outlined text-base">arrow_forward</span>
+        </a>
       </div>
 
     </div>

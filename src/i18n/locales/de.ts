@@ -109,25 +109,12 @@ export const de = {
   },
   footer: {
     brand: 'Spezialisierte Engineering-Partner, die Präzisionslösungen für die anspruchsvollsten Industrien der Welt liefern.',
-    solutionsHeading: 'Lösungen',
-    companyHeading: 'Unternehmen',
-    newsletterHeading: 'Newsletter',
-    newsletterDesc: 'Technische Einblicke, vierteljährlich zugestellt.',
-    emailPlaceholder: 'Geschäftliche E-Mail',
-    subscribeLabel: 'Abonnieren',
+    industriesHeading: 'Branchen',
+    servicesHeading: 'Leistungen',
+    getInTouchHeading: 'Kontakt',
+    getInTouchDesc: 'Haben Sie ein Projekt? Lassen Sie uns sprechen.',
+    getInTouchCta: 'Kontaktieren',
     copyright: '© {year} Indvaltech Engineering. Präzision garantiert.',
-    solutions: {
-      aerospace: 'Luft- und Raumfahrt',
-      automotive: 'Automobil',
-      automation: 'Industrieautomation',
-      qa: 'Qualitätssicherung',
-    },
-    company: {
-      pedigree: 'Unsere Geschichte',
-      papers: 'Technische Publikationen',
-      privacy: 'Datenschutzrichtlinie',
-      terms: 'Nutzungsbedingungen',
-    },
   },
   fea: {
     hero: {

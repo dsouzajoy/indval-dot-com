@@ -96,7 +96,7 @@ export const en = {
     stat1Value: '3',
     stat1Label: 'Global Hubs',
     stat2Value: '24/7',
-    stat2Label: 'Logistics Support',
+    stat2Label: 'Engineering Support',
   },
   qualityPolicy: {
     eyebrow: 'Standard of Excellence',

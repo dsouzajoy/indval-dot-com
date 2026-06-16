@@ -86,6 +86,13 @@ export const pl = {
       },
     },
   },
+  qualityPolicy: {
+    eyebrow: 'Standard doskonałości',
+    heading: 'O polityce jakości',
+    quote: 'Zapewniamy satysfakcję klientów poprzez usługi zgodne z harmonogramami i utrzymywanie konkurencyjności kosztowej dzięki ciągłym ulepszeniom. My jako zespół i jako jednostki jesteśmy zobowiązani do skutecznego realizowania naszego celu, jakim jest zadowolenie klienta, poprzez ciągłe doskonalenie skuteczności systemu zarządzania jakością.',
+    badgeTitle: 'Inicjatywa Jakość Przede Wszystkim',
+    badgeSubtitle: 'Ramy zgodności ISO 9001:2015 i AS9100D',
+  },
   footer: {
     brand: 'Wyspecjalizowani partnerzy inżynieryjni dostarczający precyzyjne rozwiązania techniczne dla najbardziej wymagających branż na świecie.',
     solutionsHeading: 'Rozwiązania',

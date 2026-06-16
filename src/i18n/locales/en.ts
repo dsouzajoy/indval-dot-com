@@ -84,6 +84,13 @@ export const en = {
       },
     },
   },
+  qualityPolicy: {
+    eyebrow: 'Standard of Excellence',
+    heading: 'About Quality Policy',
+    quote: 'We ensure Customer satisfaction by services as per schedules and by maintaining cost competitiveness through continuous improvements. We as a team & as individual are duty bound to effectively function with our objective of customer satisfaction by continually improving the effectiveness of quality management system.',
+    badgeTitle: 'Quality First Initiative',
+    badgeSubtitle: 'ISO 9001:2015 & AS9100D Compliance Framework',
+  },
   footer: {
     brand: 'Specialized engineering partners providing precision technical solutions for the world\'s most demanding industries.',
     solutionsHeading: 'Solutions',

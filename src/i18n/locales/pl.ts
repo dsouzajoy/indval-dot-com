@@ -91,6 +91,15 @@ export const pl = {
       commitment: 'Potwierdzenie Zaangażowania',
     },
   },
+  globalReach: {
+    eyebrow: 'Globalne Operacje',
+    heading: 'Inżynieria bez granic.',
+    description: 'Z centrami na trzech kontynentach zapewniamy płynne wsparcie inżynieryjne wszędzie tam, gdzie działają nasi klienci — zgodnie z harmonogramem i bez kompromisów.',
+    stat1Value: '3',
+    stat1Label: 'Globalne Centra',
+    stat2Value: '24/7',
+    stat2Label: 'Wsparcie logistyczne',
+  },
   qualityPolicy: {
     eyebrow: 'Standard doskonałości',
     heading: 'O polityce jakości',

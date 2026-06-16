@@ -1,0 +1,109 @@
+---
+import { feature } from 'topojson-client';
+import { geoEquirectangular, geoPath } from 'd3-geo';
+import world from 'world-atlas/countries-110m.json';
+
+// 700×500 viewport — projection centred at [350, 250]
+// same scale (127.32) as contact map so continents look identical,
+// just re-centred to fill a taller, narrower column.
+//
+// Recalculated city SVG coords (scale=127.32, translate=[350,250]):
+//   Bangalore  (77.6°E, 12.9°N) → (523, 221)
+//   Valencia CA(118.6°W,34.4°N) → ( 87, 174)
+//   Wrocław    (17°E,   51.1°N) → (388, 136)
+
+const land = feature(world as any, (world as any).objects.land);
+const projection = geoEquirectangular().scale(127.32).translate([350, 250]);
+const pathGen = geoPath(projection);
+const landPath = pathGen(land as any);
+---
+
+<svg
+  viewBox="0 0 700 500"
+  preserveAspectRatio="xMidYMid meet"
+  class="w-full"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+>
+  <defs>
+    <pattern id="home-map-dots" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="0.8" fill="rgba(255,255,255,0.07)" />
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="700" height="500" fill="#00316c" />
+
+  <!-- Lat/lon grid lines (recalculated for translate=[350,250]) -->
+  <!-- 60°N y=117, 30°N y=183, 0° y=250, 30°S y=317, 60°S y=383 -->
+  <line x1="0" y1="117" x2="700" y2="117" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="0" y1="183" x2="700" y2="183" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="0" y1="250" x2="700" y2="250" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
+  <line x1="0" y1="317" x2="700" y2="317" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="0" y1="383" x2="700" y2="383" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <!-- 120°W x=83, 60°W x=217, 0° x=350, 60°E x=483, 120°E x=617 -->
+  <line x1="83"  y1="0" x2="83"  y2="500" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="217" y1="0" x2="217" y2="500" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="350" y1="0" x2="350" y2="500" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
+  <line x1="483" y1="0" x2="483" y2="500" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="617" y1="0" x2="617" y2="500" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+
+  <!-- Dot grid overlay -->
+  <rect width="700" height="500" fill="url(#home-map-dots)" />
+
+  <!-- Continents -->
+  <path
+    d={landPath}
+    fill="rgba(11,71,147,0.5)"
+    stroke="rgba(255,255,255,0.18)"
+    stroke-width="0.5"
+  />
+
+  <!-- Connection lines -->
+  <line x1="523" y1="221" x2="87"  y2="174" stroke="rgba(255,103,31,0.18)" stroke-width="1" stroke-dasharray="5 5" />
+  <line x1="523" y1="221" x2="388" y2="136" stroke="rgba(255,103,31,0.18)" stroke-width="1" stroke-dasharray="5 5" />
+  <line x1="87"  y1="174" x2="388" y2="136" stroke="rgba(255,103,31,0.18)" stroke-width="1" stroke-dasharray="5 5" />
+
+  <!-- Bangalore (77.6°E, 12.9°N) → (523, 221) -->
+  <g>
+    <circle cx="523" cy="221" r="4" fill="none" stroke="#ff671f" stroke-opacity="0.6">
+      <animate attributeName="r" from="4" to="22" dur="2.5s" repeatCount="indefinite" />
+      <animate attributeName="stroke-opacity" from="0.6" to="0" dur="2.5s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="523" cy="221" r="4" fill="none" stroke="#ff671f" stroke-opacity="0.4">
+      <animate attributeName="r" from="4" to="22" dur="2.5s" begin="0.9s" repeatCount="indefinite" />
+      <animate attributeName="stroke-opacity" from="0.4" to="0" dur="2.5s" begin="0.9s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="523" cy="221" r="4" fill="#ff671f" />
+    <text x="533" y="218" fill="rgba(255,255,255,0.88)" font-size="9" font-family="Space Grotesk, sans-serif" letter-spacing="0.12em" font-weight="600">BANGALORE</text>
+  </g>
+
+  <!-- Valencia CA (118.6°W, 34.4°N) → (87, 174) -->
+  <g>
+    <circle cx="87" cy="174" r="4" fill="none" stroke="#ff671f" stroke-opacity="0.6">
+      <animate attributeName="r" from="4" to="22" dur="2.5s" begin="0.4s" repeatCount="indefinite" />
+      <animate attributeName="stroke-opacity" from="0.6" to="0" dur="2.5s" begin="0.4s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="87" cy="174" r="4" fill="none" stroke="#ff671f" stroke-opacity="0.4">
+      <animate attributeName="r" from="4" to="22" dur="2.5s" begin="1.3s" repeatCount="indefinite" />
+      <animate attributeName="stroke-opacity" from="0.4" to="0" dur="2.5s" begin="1.3s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="87" cy="174" r="4" fill="#ff671f" />
+    <text x="97" y="167" fill="rgba(255,255,255,0.88)" font-size="9" font-family="Space Grotesk, sans-serif" letter-spacing="0.12em" font-weight="600">VALENCIA, CA</text>
+  </g>
+
+  <!-- Wrocław (17°E, 51.1°N) → (388, 136) -->
+  <g>
+    <circle cx="388" cy="136" r="4" fill="none" stroke="#ff671f" stroke-opacity="0.6">
+      <animate attributeName="r" from="4" to="22" dur="2.5s" begin="0.8s" repeatCount="indefinite" />
+      <animate attributeName="stroke-opacity" from="0.6" to="0" dur="2.5s" begin="0.8s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="388" cy="136" r="4" fill="none" stroke="#ff671f" stroke-opacity="0.4">
+      <animate attributeName="r" from="4" to="22" dur="2.5s" begin="1.7s" repeatCount="indefinite" />
+      <animate attributeName="stroke-opacity" from="0.4" to="0" dur="2.5s" begin="1.7s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="388" cy="136" r="4" fill="#ff671f" />
+    <text x="398" y="133" fill="rgba(255,255,255,0.88)" font-size="9" font-family="Space Grotesk, sans-serif" letter-spacing="0.12em" font-weight="600">WROCŁAW</text>
+  </g>
+
+</svg>

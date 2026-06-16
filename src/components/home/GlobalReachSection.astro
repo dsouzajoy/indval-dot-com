@@ -1,0 +1,73 @@
+---
+import { en } from '@/i18n/locales/en';
+import HomeWorldMap from './HomeWorldMap.astro';
+---
+
+<section class="bg-surface-container-low py-20 md:py-32 px-4 sm:px-6 lg:px-8" aria-label="Global reach">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+
+    <!-- Left: heading, description, stats -->
+    <div class="lg:col-span-5 flex flex-col justify-center">
+      <span
+        class="font-label text-secondary uppercase tracking-[0.3em] text-sm font-bold"
+        data-i18n="globalReach.eyebrow"
+      >
+        {en.globalReach.eyebrow}
+      </span>
+
+      <h2
+        class="font-sans font-black text-4xl lg:text-5xl text-primary leading-tight mt-4 mb-6"
+        data-i18n="globalReach.heading"
+      >
+        {en.globalReach.heading}
+      </h2>
+
+      <p
+        class="font-sans text-on-surface-variant text-base lg:text-lg leading-relaxed mb-10"
+        data-i18n="globalReach.description"
+      >
+        {en.globalReach.description}
+      </p>
+
+      <!-- Stats -->
+      <div class="grid grid-cols-2 gap-6">
+        <div class="bg-white rounded-[4px] border border-outline-variant/20 shadow-[0_1px_4px_rgba(11,28,48,0.08)] p-6">
+          <span
+            class="font-sans font-black text-4xl text-primary block"
+            data-i18n="globalReach.stat1Value"
+          >
+            {en.globalReach.stat1Value}
+          </span>
+          <div class="h-0.5 w-8 bg-secondary my-3"></div>
+          <p
+            class="font-label text-xs uppercase tracking-widest text-on-surface-variant font-bold"
+            data-i18n="globalReach.stat1Label"
+          >
+            {en.globalReach.stat1Label}
+          </p>
+        </div>
+        <div class="bg-white rounded-[4px] border border-outline-variant/20 shadow-[0_1px_4px_rgba(11,28,48,0.08)] p-6">
+          <span
+            class="font-sans font-black text-4xl text-primary block"
+            data-i18n="globalReach.stat2Value"
+          >
+            {en.globalReach.stat2Value}
+          </span>
+          <div class="h-0.5 w-8 bg-secondary my-3"></div>
+          <p
+            class="font-label text-xs uppercase tracking-widest text-on-surface-variant font-bold"
+            data-i18n="globalReach.stat2Label"
+          >
+            {en.globalReach.stat2Label}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: square map card with elevation -->
+    <div class="lg:col-span-7 rounded-[4px] overflow-hidden shadow-[0_8px_32px_rgba(11,28,48,0.18)]">
+      <HomeWorldMap />
+    </div>
+
+  </div>
+</section>

@@ -89,6 +89,15 @@ export const en = {
       commitment: 'Confirmation to the Commitment',
     },
   },
+  globalReach: {
+    eyebrow: 'Global Operations',
+    heading: 'Engineering Without Borders.',
+    description: 'With hubs across three continents, we deliver seamless engineering support wherever our clients operate, on schedule and without compromise.',
+    stat1Value: '3',
+    stat1Label: 'Global Hubs',
+    stat2Value: '24/7',
+    stat2Label: 'Logistics Support',
+  },
   qualityPolicy: {
     eyebrow: 'Standard of Excellence',
     heading: 'About Quality Policy',

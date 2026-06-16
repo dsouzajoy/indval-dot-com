@@ -91,6 +91,15 @@ export const de = {
       commitment: 'Bestätigung des Engagements',
     },
   },
+  globalReach: {
+    eyebrow: 'Globale Operationen',
+    heading: 'Engineering ohne Grenzen.',
+    description: 'Mit Standorten auf drei Kontinenten liefern wir nahtlose Engineering-Unterstützung, wo immer unsere Kunden tätig sind – termingerecht und ohne Kompromisse.',
+    stat1Value: '3',
+    stat1Label: 'Globale Standorte',
+    stat2Value: '24/7',
+    stat2Label: 'Logistik-Support',
+  },
   qualityPolicy: {
     eyebrow: 'Exzellenzstandard',
     heading: 'Über unsere Qualitätspolitik',

@@ -2,11 +2,15 @@
 import { withBase } from '@/lib/utils';
 ---
 <div id="splash" class="fixed inset-0 z-[200] flex items-center justify-center bg-surface">
-  <div id="splash-inner" style="display:flex; flex-direction:column; align-items:center; gap:1.25rem;">
-    <img src={withBase('/images/logo.png')} alt="Indvaltech" style="height:7rem; width:auto;" />
-    <span class="font-label font-bold text-4xl tracking-tight">
-      <span class="text-secondary">Indval</span><span class="text-primary">tech</span>
-    </span>
+  <div id="splash-inner" style="display:flex; align-items:center;">
+    <div class="inline-flex items-center gap-4">
+      <img src={withBase('/images/logo.png')} alt="Indvaltech" style="height:5rem; width:auto;" />
+      <span class="w-px bg-slate-300/60 shrink-0" style="height:3.5rem;"></span>
+      <span class="font-label tracking-tight leading-none flex flex-col">
+        <span class="text-2xl font-bold"><span class="text-secondary">INDVAL</span><span class="text-primary">TECH</span></span>
+        <span class="text-[0.55rem] font-medium text-slate-500 tracking-[0.12em] uppercase mt-0.5">Engineering Excellence</span>
+      </span>
+    </div>
   </div>
 </div>
 

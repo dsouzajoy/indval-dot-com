@@ -110,6 +110,7 @@ export const de = {
   footer: {
     brand: 'Spezialisierte Engineering-Partner, die Präzisionslösungen für die anspruchsvollsten Industrien der Welt liefern.',
     industriesHeading: 'Branchen',
+    companyHeading: 'Unternehmen',
     servicesHeading: 'Leistungen',
     getInTouchHeading: 'Kontakt',
     getInTouchDesc: 'Haben Sie ein Projekt? Lassen Sie uns sprechen.',

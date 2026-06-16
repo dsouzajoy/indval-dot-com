@@ -108,6 +108,7 @@ export const en = {
   footer: {
     brand: 'Specialized engineering partners providing precision technical solutions for the world\'s most demanding industries.',
     industriesHeading: 'Industries',
+    companyHeading: 'Company',
     servicesHeading: 'Services',
     getInTouchHeading: 'Get In Touch',
     getInTouchDesc: 'Have a project in mind? Let\'s talk.',

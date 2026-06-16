@@ -44,7 +44,7 @@ const year = new Date().getFullYear();
         </p>
       </div>
 
-      <!-- Industries -->
+      <!-- Industries + Company -->
       <div>
         <h3 class="font-label text-xs font-bold uppercase tracking-widest text-secondary mb-5" data-i18n="footer.industriesHeading">
           {en.footer.industriesHeading}
@@ -57,6 +57,22 @@ const year = new Date().getFullYear();
               </a>
             </li>
           ))}
+        </ul>
+
+        <h3 class="font-label text-xs font-bold uppercase tracking-widest text-secondary mt-8 mb-5" data-i18n="footer.companyHeading">
+          {en.footer.companyHeading}
+        </h3>
+        <ul class="flex flex-col gap-3 list-none m-0 p-0">
+          <li>
+            <a href={withBase('/about')} data-i18n="nav.aboutUs" class="text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-all duration-200 block">
+              {en.nav.aboutUs}
+            </a>
+          </li>
+          <li>
+            <a href={withBase('/careers')} data-i18n="nav.career" class="text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-all duration-200 block">
+              {en.nav.career}
+            </a>
+          </li>
         </ul>
       </div>
 
@@ -81,9 +97,16 @@ const year = new Date().getFullYear();
         <h3 class="font-label text-xs font-bold uppercase tracking-widest text-secondary mb-5" data-i18n="footer.getInTouchHeading">
           {en.footer.getInTouchHeading}
         </h3>
-        <p class="text-sm text-slate-400 mb-6 leading-relaxed" data-i18n="footer.getInTouchDesc">
-          {en.footer.getInTouchDesc}
-        </p>
+        <div class="flex flex-col gap-4 mb-6">
+          <div class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-secondary shrink-0 text-base mt-0.5" style="font-variation-settings: 'FILL' 1;">location_on</span>
+            <p class="text-sm text-slate-400 leading-relaxed">INDVAL TECHNOLOGIES PVT LTD #181, 3rd floor, Outer Ring Road, Nagarbhavi, Bengaluru — 560072</p>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-secondary shrink-0 text-base" style="font-variation-settings: 'FILL' 1;">mail</span>
+            <a href="mailto:info@indvaltech.com" class="text-sm text-slate-400 hover:text-white transition-colors duration-200">info@indvaltech.com</a>
+          </div>
+        </div>
         <a
           href={withBase('/contact#contact-form')}
           class="inline-flex items-center gap-2 px-6 py-3 bg-secondary text-white font-label font-bold text-sm uppercase tracking-wider hover:bg-secondary/90 transition-colors duration-200 rounded-[4px]"
@@ -99,7 +122,7 @@ const year = new Date().getFullYear();
 
   <!-- Bottom bar -->
   <div class="border-t border-white/5">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex justify-center">
       <p
         class="font-label text-[10px] uppercase tracking-widest text-slate-400"
         data-i18n="footer.copyright"
@@ -107,17 +130,6 @@ const year = new Date().getFullYear();
       >
         © {year} Indvaltech Engineering. Precision Guaranteed.
       </p>
-      <div class="flex items-center gap-6">
-        <a href="#" aria-label="Share" class="text-slate-400 hover:text-white transition-colors duration-200">
-          <span class="material-symbols-outlined text-lg">share</span>
-        </a>
-        <a href="#" aria-label="LinkedIn" class="text-slate-400 hover:text-white transition-colors duration-200">
-          <span class="material-symbols-outlined text-lg">hub</span>
-        </a>
-        <a href="#" aria-label="Website" class="text-slate-400 hover:text-white transition-colors duration-200">
-          <span class="material-symbols-outlined text-lg">public</span>
-        </a>
-      </div>
     </div>
   </div>
 

@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Coming Soon | Indvaltech Engineering Services"
+  description="This page is currently under construction. We're working hard to bring you this content soon."
+  showSplash={false}
+>
+  <section class="min-h-[calc(100vh-4rem)] bg-surface flex items-center justify-center px-8 py-24">
+    <div class="max-w-2xl mx-auto text-center">
+
+      <!-- Icon -->
+      <div class="flex justify-center mb-8">
+        <div class="bg-primary/10 rounded-full p-8">
+          <span
+            class="material-symbols-outlined text-primary"
+            style="font-size: 5rem; font-variation-settings: 'FILL' 1;"
+            aria-hidden="true"
+          >construction</span>
+        </div>
+      </div>
+
+      <!-- Label -->
+      <p class="font-label text-sm uppercase tracking-widest text-secondary mb-4">Coming Soon</p>
+
+      <!-- Title -->
+      <h1 class="font-headline text-4xl lg:text-5xl font-bold text-on-surface mb-6 leading-tight">
+        We're Building Something Great
+      </h1>
+
+      <!-- Body -->
+      <p class="text-on-surface-variant text-base leading-relaxed mb-4 max-w-lg mx-auto">
+        This section of our website is being crafted with care. Our team is working to bring you detailed information about this capability very soon.
+      </p>
+      <p class="text-on-surface-variant text-base leading-relaxed mb-12 max-w-lg mx-auto">
+        In the meantime, we'd love to hear from you. Tell us what you're looking for and we'll connect you with the right people on our team.
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="/"
+          class="inline-block bg-primary text-white px-10 py-4 rounded font-label text-sm font-bold uppercase tracking-widest hover:bg-primary/90 hover:shadow-ambient-lg active:scale-95 transition-all duration-200 shadow-lg"
+        >
+          Back to Home
+        </a>
+        <a
+          href="/contact#contact-form"
+          class="inline-block border border-primary text-primary px-10 py-4 rounded font-label text-sm font-bold uppercase tracking-widest hover:bg-primary/5 active:scale-95 transition-all duration-200"
+        >
+          Get In Touch
+        </a>
+      </div>
+
+    </div>
+  </section>
+</BaseLayout>

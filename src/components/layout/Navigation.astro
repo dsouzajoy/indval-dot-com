@@ -190,7 +190,7 @@ const industriesItems = [
         </div>
       </div>
 
-      <!-- Manufacturing: clickable heading, no sub-links -->
+      <!-- Manufacturing: clickable heading + Reverse Engineering sub-link -->
       <div class="flex flex-col gap-3">
         <a
           href={withBase('/capabilities/manufacturing')}
@@ -198,6 +198,14 @@ const industriesItems = [
           class="font-label text-sm uppercase tracking-wider font-bold text-on-surface hover:text-secondary cursor-pointer transition-colors duration-150"
           data-i18n="capabilities.manufacturing.heading"
         >{en.capabilities.manufacturing.heading}</a>
+        <div class="flex flex-col gap-4">
+          <a
+            href={withBase('/capabilities/reverse-engineering')}
+            role="menuitem"
+            class="font-label text-sm text-on-surface-variant hover:text-secondary transition-colors duration-150"
+            data-i18n="capabilities.reverseEngineering.heading"
+          >{en.capabilities.reverseEngineering.heading}</a>
+        </div>
       </div>
 
       <!-- BIW Turnkey Solutions: clickable heading, no sub-links -->
@@ -230,16 +238,6 @@ const industriesItems = [
             data-i18n="capabilities.mechanicalDesign.specialMachineDesign"
           >{en.capabilities.mechanicalDesign.specialMachineDesign}</a>
         </div>
-      </div>
-
-      <!-- Reverse Engineering: clickable heading, no sub-links -->
-      <div class="flex flex-col gap-3">
-        <a
-          href={withBase('/capabilities/reverse-engineering')}
-          role="menuitem"
-          class="font-label text-sm uppercase tracking-wider font-bold text-on-surface hover:text-secondary cursor-pointer transition-colors duration-150"
-          data-i18n="capabilities.reverseEngineering.heading"
-        >{en.capabilities.reverseEngineering.heading}</a>
       </div>
 
       <!-- Technical Publication: clickable heading, no sub-links -->

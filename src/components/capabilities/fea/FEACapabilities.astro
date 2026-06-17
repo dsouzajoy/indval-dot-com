@@ -1,4 +1,5 @@
 ---
+import { withBase } from '@/lib/utils';
 const defaultBullets = [
   'Nonlinear analysis (Complex nonlinear problems including nonlinear contact, material properties and large deformations, buckling, creep, etc…)',
   'Structural analysis (Code compliant analysis of civil and industrial structures.)',
@@ -165,7 +166,7 @@ const tabs = [
           <!-- Right: FEA image -->
           <div>
             <img
-              src={tab.image}
+              src={withBase(tab.image)}
               alt={`FEA ${tab.heading} visualization`}
               class="w-full object-contain"
               style="mix-blend-mode: multiply;"

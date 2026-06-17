@@ -1,4 +1,5 @@
 ---
+import { withBase } from '@/lib/utils';
 const toolingCards = [
   {
     label: 'Panel Checkers',
@@ -144,7 +145,7 @@ const docCards = [
       <div class="lg:w-1/2 w-full">
         <div class="relative rounded-lg overflow-hidden border border-white/10 shadow-ambient-lg">
           <img
-            src="/images/press-tool-design-simulation.jpg"
+            src={withBase('/images/press-tool-design-simulation.jpg')}
             alt="Technical CAD model of a complex die layout"
             class="w-full h-[500px] object-cover"
             loading="lazy"

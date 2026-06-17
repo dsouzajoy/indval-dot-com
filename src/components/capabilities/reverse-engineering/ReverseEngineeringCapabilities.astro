@@ -1,4 +1,5 @@
 ---
+import { withBase } from '@/lib/utils';
 const valueProps = [
   {
     icon: 'precision_manufacturing',
@@ -97,7 +98,7 @@ const steps = [
           <!-- Right: image -->
           <div class="bg-surface-container-lowest flex items-center justify-center p-8">
             <img
-              src="/images/reverse-engineering-component.png"
+              src={withBase('/images/reverse-engineering-component.png')}
               alt="Precision machined component being digitised into a 3D CAD model"
               class="w-full object-contain"
               loading="lazy"

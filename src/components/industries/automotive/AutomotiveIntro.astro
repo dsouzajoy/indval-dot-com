@@ -1,4 +1,5 @@
 ---
+import { withBase } from '@/lib/utils';
 ---
 
 <section class="pt-24 pb-0 px-8 max-w-7xl mx-auto text-center" aria-label="Automotive industry">
@@ -17,7 +18,7 @@
 
   <div class="mt-8 mx-auto max-w-[900px]">
     <img
-      src="/images/automotive-hero.png"
+      src={withBase('/images/automotive-hero.png')}
       alt="Automotive vehicle systems diagram showing cockpit, HVAC, seating, and exterior components"
       class="w-full object-contain"
       style="mix-blend-mode: multiply;"

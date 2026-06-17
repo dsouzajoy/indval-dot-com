@@ -1,5 +1,6 @@
 ---
 import { en } from '@/i18n/locales/en';
+import { withBase } from '@/lib/utils';
 ---
 
 <section
@@ -9,7 +10,7 @@ import { en } from '@/i18n/locales/en';
   <!-- Background image -->
   <div class="absolute inset-0 z-0">
     <img
-      src="/images/cfd-hero.jpg"
+      src={withBase('/images/cfd-hero.jpg')}
       alt=""
       aria-hidden="true"
       class="w-full h-full object-cover"

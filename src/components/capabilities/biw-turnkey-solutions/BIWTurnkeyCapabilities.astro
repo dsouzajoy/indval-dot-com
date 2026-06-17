@@ -1,4 +1,6 @@
 ---
+import { en } from '@/i18n/locales/en';
+
 const differentiators = [
   'Digital-first engineering approach',
   'Automotive BIW domain expertise',
@@ -8,50 +10,10 @@ const differentiators = [
 ];
 
 const pillars = [
-  {
-    icon: 'route',
-    title: 'Process Planning',
-    description: 'Transforming programme requirements into structured, executable manufacturing plans.',
-    items: [
-      'Planning & Feasibility Studies',
-      'Process Flow Definition',
-      'Cycle Time Analysis & Optimisation',
-      'Layout Development until Buy-off',
-      'Equipment Definition & Specifications',
-    ],
-  },
-  {
-    icon: 'memory',
-    title: 'Digital Manufacturing & Simulation',
-    description: 'Building and validating the production system in the digital twin before a single component is built.',
-    items: [
-      'Robotic Simulation',
-      'Digital Factory Planning',
-      'Process Simulation & Validation',
-      'Ergonomic & Safety Analysis',
-    ],
-  },
-  {
-    icon: 'factory',
-    title: 'Production System Development',
-    description: 'Designing the physical production system — from line layout to production-ready equipment drawings.',
-    items: [
-      'Production Line Planning & Layout Design',
-      'Equipment & Tooling Definition',
-      '3D Design & Finalization',
-    ],
-  },
-  {
-    icon: 'rocket_launch',
-    title: 'Industrialization & Launch Support',
-    description: 'On-the-ground support from prototype builds through to full production ramp-up and commissioning.',
-    items: [
-      'Detailing of Manufacturing Equipment',
-      'Prototype & Pilot Build Support',
-      'Production Ramp-up Management',
-      'Line Commissioning Support',
-    ],
-  },
+  { key: 'processPlan',     icon: 'route',         ...en.biwTurnkey.pillars.processPlan     },
+  { key: 'digitalMfg',     icon: 'memory',        ...en.biwTurnkey.pillars.digitalMfg      },
+  { key: 'productionDev',  icon: 'factory',       ...en.biwTurnkey.pillars.productionDev   },
+  { key: 'industrialization', icon: 'rocket_launch', ...en.biwTurnkey.pillars.industrialization },
 ];
 
 const steps = [
@@ -152,15 +114,15 @@ const steps = [
             >{pillar.icon}</span>
           </div>
           <!-- Title -->
-          <h3 class="font-headline font-bold text-xl text-on-surface mb-2 text-center">{pillar.title}</h3>
+          <h3 class="font-headline font-bold text-xl text-on-surface mb-2 text-center" data-i18n={`biwTurnkey.pillars.${pillar.key}.title`}>{pillar.title}</h3>
           <!-- One-line description -->
-          <p class="text-on-surface-variant text-sm leading-relaxed text-center mb-6">{pillar.description}</p>
+          <p class="text-on-surface-variant text-sm leading-relaxed text-center mb-6" data-i18n={`biwTurnkey.pillars.${pillar.key}.description`}>{pillar.description}</p>
           <!-- Bullet sub-items -->
           <ul class="space-y-2 mb-6">
-            {pillar.items.map((item) => (
+            {pillar.items.map((item, i) => (
               <li class="flex items-start gap-3 text-sm text-on-surface-variant leading-relaxed">
                 <span class="material-symbols-outlined text-secondary text-base mt-0.5 shrink-0" aria-hidden="true">check_circle</span>
-                {item}
+                <span data-i18n={`biwTurnkey.pillars.${pillar.key}.items.${i}`}>{item}</span>
               </li>
             ))}
           </ul>

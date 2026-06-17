@@ -9,7 +9,6 @@ const teamItems = [
   { key: 'about.competences.team.item5', label: en.about.competences.team.item5 },
 ];
 
-const certBadges = ['ISO 9001', 'TISAX', 'TUV NORD', 'DUNS'];
 ---
 
 <section
@@ -67,13 +66,6 @@ const certBadges = ['ISO 9001', 'TISAX', 'TUV NORD', 'DUNS'];
           class="text-on-surface-variant leading-relaxed"
           data-i18n="about.competences.qa.body"
         >{en.about.competences.qa.body}</p>
-        <div class="flex flex-wrap gap-2">
-          {certBadges.map((badge) => (
-            <div class="bg-surface-container-high px-3 py-1 text-[10px] font-label font-bold tracking-widest uppercase">
-              {badge}
-            </div>
-          ))}
-        </div>
       </div>
 
       <!-- Global Reach -->

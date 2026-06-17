@@ -19,7 +19,6 @@ const pillars = [
       'Layout Development until Buy-off',
       'Equipment Definition & Specifications',
     ],
-    software: ['Microstation', 'FactoryCAD', 'AutoCAD'],
   },
   {
     icon: 'memory',
@@ -31,7 +30,6 @@ const pillars = [
       'Process Simulation & Validation',
       'Ergonomic & Safety Analysis',
     ],
-    software: ['DS DELMIA', 'Technomatix Process Simulate'],
   },
   {
     icon: 'factory',
@@ -42,7 +40,6 @@ const pillars = [
       'Equipment & Tooling Definition',
       '3D Design & Finalization',
     ],
-    software: ['DS CATIA', 'SolidWorks', 'FIDES'],
   },
   {
     icon: 'rocket_launch',
@@ -54,7 +51,6 @@ const pillars = [
       'Production Ramp-up Management',
       'Line Commissioning Support',
     ],
-    software: [],
   },
 ];
 
@@ -168,17 +164,6 @@ const steps = [
               </li>
             ))}
           </ul>
-          <!-- Software tags -->
-          {pillar.software.length > 0 && (
-            <div class="mt-auto pt-4 border-t border-on-surface/10">
-              <p class="font-label text-xs uppercase tracking-widest text-on-surface-variant mb-3">Software Expertise</p>
-              <div class="flex flex-wrap gap-2">
-                {pillar.software.map((sw) => (
-                  <span class="bg-primary/10 text-primary text-xs font-label px-3 py-1 rounded-full">{sw}</span>
-                ))}
-              </div>
-            </div>
-          )}
         </div>
       ))}
     </div>

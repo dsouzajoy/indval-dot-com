@@ -428,9 +428,9 @@ export const de = {
     manufacturing: { heading: 'Fertigung' },
     biwTurnkey: { heading: 'BIW Schlüsselfertige Lösungen' },
     mechanicalDesign: {
-      heading: 'Mechanische Konstruktion',
-      pressToolDesign: 'Presswerkzeugkonstruktion',
-      specialMachineDesign: 'Sondermaschinenkonstruktion und -entwicklung',
+      heading: 'Engineering-Lösungen',
+      pressToolDesign: 'Stanzwerkzeugkonstruktion',
+      specialMachineDesign: 'Maschinenkonstruktion und -entwicklung',
     },
     reverseEngineering: { heading: 'Reverse Engineering' },
     technicalPublication: { heading: 'Technische Dokumentation' },

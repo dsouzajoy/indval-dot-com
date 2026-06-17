@@ -126,9 +126,9 @@ export const en = {
     manufacturing: { heading: 'Manufacturing' },
     biwTurnkey: { heading: 'BIW Turnkey Solutions' },
     mechanicalDesign: {
-      heading: 'Mechanical Design',
-      pressToolDesign: 'Press Tool Design',
-      specialMachineDesign: 'Special Machine Design and Development',
+      heading: 'Engineering Solutions',
+      pressToolDesign: 'Press Tool Die Design',
+      specialMachineDesign: 'Machine Design and Development',
     },
     reverseEngineering: { heading: 'Reverse Engineering' },
     technicalPublication: { heading: 'Technical Publication' },

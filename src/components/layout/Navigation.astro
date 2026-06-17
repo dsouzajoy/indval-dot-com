@@ -165,96 +165,58 @@ const industriesItems = [
       >{en.capabilities.ourServices}</p>
     </div>
 
-    <!-- Right: strict 3-column grid -->
-    <div class="flex-1 grid grid-cols-3 gap-x-10 gap-y-8">
+    <!-- Right: 3 independent flex columns (masonry) -->
+    <div class="flex-1 flex items-start gap-x-10">
 
-      <!-- Engineering Analysis: non-clickable heading + sub-links -->
-      <div class="flex flex-col gap-3">
-        <span
-          class="font-label text-sm uppercase tracking-wider font-bold text-on-surface cursor-default select-none"
-          data-i18n="capabilities.engineeringAnalysis.heading"
-        >{en.capabilities.engineeringAnalysis.heading}</span>
-        <div class="flex flex-col gap-4">
-          <a
-            href={withBase('/capabilities/fea')}
-            role="menuitem"
-            class="font-label text-sm text-on-surface-variant hover:text-secondary transition-colors duration-150"
-            data-i18n="capabilities.engineeringAnalysis.fea"
-          >{en.capabilities.engineeringAnalysis.fea}</a>
-          <a
-            href={withBase('/capabilities/cfd')}
-            role="menuitem"
-            class="font-label text-sm text-on-surface-variant hover:text-secondary transition-colors duration-150"
-            data-i18n="capabilities.engineeringAnalysis.cfd"
-          >{en.capabilities.engineeringAnalysis.cfd}</a>
+      <!-- Column 1: Engineering Analysis + Mechanical Design -->
+      <div class="flex-1 flex flex-col gap-8">
+        <div class="flex flex-col gap-3">
+          <span
+            class="font-label text-sm uppercase tracking-wider font-bold text-on-surface cursor-default select-none"
+            data-i18n="capabilities.engineeringAnalysis.heading"
+          >{en.capabilities.engineeringAnalysis.heading}</span>
+          <div class="flex flex-col gap-4">
+            <a href={withBase('/capabilities/fea')} role="menuitem" class="font-label text-sm text-on-surface-variant hover:text-secondary transition-colors duration-150" data-i18n="capabilities.engineeringAnalysis.fea">{en.capabilities.engineeringAnalysis.fea}</a>
+            <a href={withBase('/capabilities/cfd')} role="menuitem" class="font-label text-sm text-on-surface-variant hover:text-secondary transition-colors duration-150" data-i18n="capabilities.engineeringAnalysis.cfd">{en.capabilities.engineeringAnalysis.cfd}</a>
+          </div>
+        </div>
+        <div class="flex flex-col gap-3">
+          <span
+            class="font-label text-sm uppercase tracking-wider font-bold text-on-surface cursor-default select-none"
+            data-i18n="capabilities.mechanicalDesign.heading"
+          >{en.capabilities.mechanicalDesign.heading}</span>
+          <div class="flex flex-col gap-4">
+            <a href={withBase('/capabilities/press-tool-design')} role="menuitem" class="font-label text-sm text-on-surface-variant hover:text-secondary transition-colors duration-150" data-i18n="capabilities.mechanicalDesign.pressToolDesign">{en.capabilities.mechanicalDesign.pressToolDesign}</a>
+            <a href={withBase('/capabilities/special-machine-design')} role="menuitem" class="font-label text-sm text-on-surface-variant hover:text-secondary transition-colors duration-150" data-i18n="capabilities.mechanicalDesign.specialMachineDesign">{en.capabilities.mechanicalDesign.specialMachineDesign}</a>
+          </div>
         </div>
       </div>
 
-      <!-- Manufacturing: clickable heading + Reverse Engineering sub-link -->
-      <div class="flex flex-col gap-3">
-        <a
-          href={withBase('/capabilities/manufacturing')}
-          role="menuitem"
-          class="font-label text-sm uppercase tracking-wider font-bold text-on-surface hover:text-secondary cursor-pointer transition-colors duration-150"
-          data-i18n="capabilities.manufacturing.heading"
-        >{en.capabilities.manufacturing.heading}</a>
-        <div class="flex flex-col gap-4">
-          <a
-            href={withBase('/capabilities/reverse-engineering')}
-            role="menuitem"
-            class="font-label text-sm text-on-surface-variant hover:text-secondary transition-colors duration-150"
-            data-i18n="capabilities.reverseEngineering.heading"
-          >{en.capabilities.reverseEngineering.heading}</a>
+      <!-- Column 2: Manufacturing + Technical Publication -->
+      <div class="flex-1 flex flex-col gap-8">
+        <div class="flex flex-col gap-3">
+          <a href={withBase('/capabilities/manufacturing')} role="menuitem" class="font-label text-sm uppercase tracking-wider font-bold text-on-surface hover:text-secondary cursor-pointer transition-colors duration-150" data-i18n="capabilities.manufacturing.heading">{en.capabilities.manufacturing.heading}</a>
+          <div class="flex flex-col gap-4">
+            <a href={withBase('/capabilities/reverse-engineering')} role="menuitem" class="font-label text-sm text-on-surface-variant hover:text-secondary transition-colors duration-150" data-i18n="capabilities.reverseEngineering.heading">{en.capabilities.reverseEngineering.heading}</a>
+          </div>
+        </div>
+        <div class="flex flex-col gap-3">
+          <a href={withBase('/capabilities/technical-publication')} role="menuitem" class="font-label text-sm uppercase tracking-wider font-bold text-on-surface hover:text-secondary cursor-pointer transition-colors duration-150" data-i18n="capabilities.technicalPublication.heading">{en.capabilities.technicalPublication.heading}</a>
         </div>
       </div>
 
-      <!-- BIW Turnkey Solutions: clickable heading + sub-links -->
-      <div class="flex flex-col gap-3">
-        <a
-          href={withBase('/capabilities/biw-turnkey-solutions')}
-          role="menuitem"
-          class="font-label text-sm uppercase tracking-wider font-bold text-on-surface hover:text-secondary cursor-pointer transition-colors duration-150"
-          data-i18n="capabilities.biwTurnkey.heading"
-        >{en.capabilities.biwTurnkey.heading}</a>
-        <div class="flex flex-col gap-4">
-          <a href={withBase('/capabilities/biw-turnkey-solutions')} role="menuitem" class="font-label text-sm text-on-surface-variant hover:text-secondary transition-colors duration-150">System Layout 2D</a>
-          <a href={withBase('/capabilities/biw-turnkey-solutions')} role="menuitem" class="font-label text-sm text-on-surface-variant hover:text-secondary transition-colors duration-150">Process Planning &amp; Feasibility</a>
-          <a href={withBase('/capabilities/biw-turnkey-solutions')} role="menuitem" class="font-label text-sm text-on-surface-variant hover:text-secondary transition-colors duration-150">Mechanical Design (3D/2D)</a>
-          <a href={withBase('/capabilities/biw-turnkey-solutions')} role="menuitem" class="font-label text-sm text-on-surface-variant hover:text-secondary transition-colors duration-150">Robotic Simulation</a>
-          <a href={withBase('/capabilities/biw-turnkey-solutions')} role="menuitem" class="font-label text-sm text-on-surface-variant hover:text-secondary transition-colors duration-150">Offline Programming (OLP)</a>
+      <!-- Column 3: BIW Turnkey Solutions -->
+      <div class="flex-1 flex flex-col gap-8">
+        <div class="flex flex-col gap-3">
+          <a href={withBase('/capabilities/biw-turnkey-solutions')} role="menuitem" class="font-label text-sm uppercase tracking-wider font-bold text-on-surface hover:text-secondary cursor-pointer transition-colors duration-150" data-i18n="capabilities.biwTurnkey.heading">{en.capabilities.biwTurnkey.heading}</a>
+          <div class="flex flex-col gap-4">
+            <a href={withBase('/capabilities/biw-turnkey-solutions')} role="menuitem" class="font-label text-sm text-on-surface-variant hover:text-secondary transition-colors duration-150">System Layout 2D</a>
+            <a href={withBase('/capabilities/biw-turnkey-solutions')} role="menuitem" class="font-label text-sm text-on-surface-variant hover:text-secondary transition-colors duration-150">Process Planning &amp; Feasibility</a>
+            <a href={withBase('/capabilities/biw-turnkey-solutions')} role="menuitem" class="font-label text-sm text-on-surface-variant hover:text-secondary transition-colors duration-150">Mechanical Design (3D/2D)</a>
+            <a href={withBase('/capabilities/biw-turnkey-solutions')} role="menuitem" class="font-label text-sm text-on-surface-variant hover:text-secondary transition-colors duration-150">Robotic Simulation</a>
+            <a href={withBase('/capabilities/biw-turnkey-solutions')} role="menuitem" class="font-label text-sm text-on-surface-variant hover:text-secondary transition-colors duration-150">Offline Programming (OLP)</a>
+          </div>
         </div>
-      </div>
-
-      <!-- Mechanical Design: non-clickable heading + sub-links -->
-      <div class="flex flex-col gap-3">
-        <span
-          class="font-label text-sm uppercase tracking-wider font-bold text-on-surface cursor-default select-none"
-          data-i18n="capabilities.mechanicalDesign.heading"
-        >{en.capabilities.mechanicalDesign.heading}</span>
-        <div class="flex flex-col gap-4">
-          <a
-            href={withBase('/capabilities/press-tool-design')}
-            role="menuitem"
-            class="font-label text-sm text-on-surface-variant hover:text-secondary transition-colors duration-150"
-            data-i18n="capabilities.mechanicalDesign.pressToolDesign"
-          >{en.capabilities.mechanicalDesign.pressToolDesign}</a>
-          <a
-            href={withBase('/capabilities/special-machine-design')}
-            role="menuitem"
-            class="font-label text-sm text-on-surface-variant hover:text-secondary transition-colors duration-150"
-            data-i18n="capabilities.mechanicalDesign.specialMachineDesign"
-          >{en.capabilities.mechanicalDesign.specialMachineDesign}</a>
-        </div>
-      </div>
-
-      <!-- Technical Publication: clickable heading, no sub-links -->
-      <div class="flex flex-col gap-3">
-        <a
-          href={withBase('/capabilities/technical-publication')}
-          role="menuitem"
-          class="font-label text-sm uppercase tracking-wider font-bold text-on-surface hover:text-secondary cursor-pointer transition-colors duration-150"
-          data-i18n="capabilities.technicalPublication.heading"
-        >{en.capabilities.technicalPublication.heading}</a>
       </div>
 
     </div>

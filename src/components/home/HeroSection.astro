@@ -37,10 +37,10 @@ const slides = [
 
 <section
   id="hero-carousel"
-  class="relative min-h-[85vh] lg:min-h-[921px] w-full bg-slate-950 overflow-hidden"
+  class="relative min-h-[85vh] lg:min-h-[700px] xl:min-h-[800px] 2xl:min-h-[921px] w-full bg-slate-950 overflow-hidden"
   aria-label="Hero"
 >
-  <div class="relative h-full w-full min-h-[85vh] lg:min-h-[921px]">
+  <div class="relative h-full w-full min-h-[85vh] lg:min-h-[700px] xl:min-h-[800px] 2xl:min-h-[921px]">
     {slides.map((slide, i) => (
       <div class="carousel-item w-full h-full">
         <div class="absolute inset-0 bg-black/50 z-10"></div>
@@ -60,7 +60,7 @@ const slides = [
               {slide.eyebrow}
             </span>
             <h1
-              class="font-headline font-black text-5xl lg:text-8xl text-white leading-[0.9] tracking-tight mb-8"
+              class="font-headline font-black text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl text-white leading-[0.9] tracking-tight mb-8"
               data-i18n={`${slide.i18nPrefix}.heading`}
             >
               {slide.heading}

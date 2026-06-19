@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BusinessModelHero from '../components/business-model/BusinessModelHero.astro';
+import BusinessModelsSection from '../components/business-model/BusinessModelsSection.astro';
+import PartnershipModelsSection from '../components/business-model/PartnershipModelsSection.astro';
+import WhyChooseUsSection from '../components/business-model/WhyChooseUsSection.astro';
+import { withBase } from '../lib/utils';
+---
+
+<BaseLayout
+  title="Partnership & Business Model | Indvaltech Engineering Services"
+  description="Explore Indvaltech's flexible engagement and partnership models — Turnkey, Fixed-Cost, Time & Material, Offshore, Onshore, and Hybrid — designed to meet diverse project requirements."
+  showSplash={false}
+>
+  <BusinessModelHero />
+  <BusinessModelsSection />
+  <PartnershipModelsSection />
+  <WhyChooseUsSection />
+
+  <!-- CTA Banner -->
+  <section class="bg-primary py-20 px-8">
+    <div class="container mx-auto text-center max-w-3xl">
+      <h2 class="font-headline font-black text-4xl md:text-5xl text-white leading-[0.9] tracking-tight mb-4">
+        Let's Build Something Together
+      </h2>
+      <p class="text-white/80 text-lg leading-relaxed mb-10">
+        Ready to start your next project? Connect with our team to explore the right engagement model for your needs.
+      </p>
+      <a
+        href={withBase('/contact')}
+        class="inline-block bg-secondary text-white px-10 py-4 rounded font-label text-sm font-bold uppercase tracking-widest hover:bg-secondary/90 hover:shadow-ambient-lg active:scale-95 transition-all duration-200 shadow-lg"
+      >
+        Get In Touch
+      </a>
+    </div>
+  </section>
+</BaseLayout>

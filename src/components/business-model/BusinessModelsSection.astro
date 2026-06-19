@@ -1,0 +1,127 @@
+---
+import { en } from '@/i18n/locales/en';
+
+const bm = en.businessModel.businessModels;
+
+const models = [
+  {
+    colSpan: 'md:col-span-5',
+    bg: 'bg-primary-container',
+    textColor: 'text-white',
+    eyebrowColor: 'text-white/60',
+    iconColor: 'text-white opacity-90',
+    itemColor: 'text-white/80',
+    checkColor: 'text-secondary',
+    icon: 'construction',
+    eyebrow: bm.turnkey.eyebrow,
+    eyebrowKey: 'businessModel.businessModels.turnkey.eyebrow',
+    title: bm.turnkey.title,
+    titleKey: 'businessModel.businessModels.turnkey.title',
+    subtitle: bm.turnkey.subtitle,
+    subtitleKey: 'businessModel.businessModels.turnkey.subtitle',
+    items: [
+      { key: 'businessModel.businessModels.turnkey.item1', label: bm.turnkey.item1 },
+      { key: 'businessModel.businessModels.turnkey.item2', label: bm.turnkey.item2 },
+      { key: 'businessModel.businessModels.turnkey.item3', label: bm.turnkey.item3 },
+      { key: 'businessModel.businessModels.turnkey.item4', label: bm.turnkey.item4 },
+      { key: 'businessModel.businessModels.turnkey.item5', label: bm.turnkey.item5 },
+    ],
+  },
+  {
+    colSpan: 'md:col-span-4',
+    bg: 'bg-surface-container-low',
+    textColor: 'text-on-surface',
+    eyebrowColor: 'text-primary',
+    iconColor: 'text-primary opacity-90',
+    itemColor: 'text-on-surface-variant',
+    checkColor: 'text-secondary',
+    icon: 'price_check',
+    eyebrow: bm.fixedCost.eyebrow,
+    eyebrowKey: 'businessModel.businessModels.fixedCost.eyebrow',
+    title: bm.fixedCost.title,
+    titleKey: 'businessModel.businessModels.fixedCost.title',
+    subtitle: bm.fixedCost.subtitle,
+    subtitleKey: 'businessModel.businessModels.fixedCost.subtitle',
+    items: [
+      { key: 'businessModel.businessModels.fixedCost.item1', label: bm.fixedCost.item1 },
+      { key: 'businessModel.businessModels.fixedCost.item2', label: bm.fixedCost.item2 },
+      { key: 'businessModel.businessModels.fixedCost.item3', label: bm.fixedCost.item3 },
+      { key: 'businessModel.businessModels.fixedCost.item4', label: bm.fixedCost.item4 },
+      { key: 'businessModel.businessModels.fixedCost.item5', label: bm.fixedCost.item5 },
+    ],
+  },
+  {
+    colSpan: 'md:col-span-3',
+    bg: 'bg-secondary',
+    textColor: 'text-white',
+    eyebrowColor: 'text-white/60',
+    iconColor: 'text-white opacity-90',
+    itemColor: 'text-white/80',
+    checkColor: 'text-white',
+    icon: 'schedule',
+    eyebrow: bm.timeAndMaterial.eyebrow,
+    eyebrowKey: 'businessModel.businessModels.timeAndMaterial.eyebrow',
+    title: bm.timeAndMaterial.title,
+    titleKey: 'businessModel.businessModels.timeAndMaterial.title',
+    subtitle: bm.timeAndMaterial.subtitle,
+    subtitleKey: 'businessModel.businessModels.timeAndMaterial.subtitle',
+    items: [
+      { key: 'businessModel.businessModels.timeAndMaterial.item1', label: bm.timeAndMaterial.item1 },
+      { key: 'businessModel.businessModels.timeAndMaterial.item2', label: bm.timeAndMaterial.item2 },
+      { key: 'businessModel.businessModels.timeAndMaterial.item3', label: bm.timeAndMaterial.item3 },
+      { key: 'businessModel.businessModels.timeAndMaterial.item4', label: bm.timeAndMaterial.item4 },
+    ],
+  },
+];
+---
+
+<section class="relative overflow-hidden py-24 px-8 lg:px-16 bg-surface" aria-label="Business Models">
+  <!-- Dotted grid background -->
+  <div class="absolute inset-0 pointer-events-none" style="background-image: radial-gradient(circle, #c3c6d3 1.5px, transparent 1.5px); background-size: 40px 40px;"></div>
+
+  <div class="container mx-auto relative z-10">
+    <!-- Section header -->
+    <div class="mb-12">
+      <span
+        class="font-label text-secondary uppercase tracking-[0.3em] text-xs font-bold block mb-3"
+        data-i18n="businessModel.businessModels.eyebrow"
+      >{en.businessModel.businessModels.eyebrow}</span>
+      <h2
+        class="font-headline font-black text-4xl md:text-5xl text-primary leading-[0.9] tracking-tight"
+        data-i18n="businessModel.businessModels.heading"
+      >{en.businessModel.businessModels.heading}</h2>
+    </div>
+
+    <!-- Bento grid -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+      {models.map((m) => (
+        <div class={`${m.colSpan} ${m.bg} p-10 rounded relative overflow-hidden shadow-ambient`}>
+          <!-- Icon top-right -->
+          <div class="absolute top-8 right-8">
+            <span class={`material-symbols-outlined text-4xl ${m.iconColor}`} aria-hidden="true">{m.icon}</span>
+          </div>
+          <span
+            class={`font-label ${m.eyebrowColor} uppercase tracking-widest text-xs mb-4 block`}
+            data-i18n={m.eyebrowKey}
+          >{m.eyebrow}</span>
+          <h3
+            class={`font-headline text-2xl font-bold ${m.textColor} mb-3`}
+            data-i18n={m.titleKey}
+          >{m.title}</h3>
+          <p
+            class={`text-sm font-light leading-relaxed ${m.itemColor} mb-6 pr-8`}
+            data-i18n={m.subtitleKey}
+          >{m.subtitle}</p>
+          <ul class="space-y-2">
+            {m.items.map(({ key, label }) => (
+              <li class="flex items-start gap-2">
+                <span class={`material-symbols-outlined text-base mt-0.5 shrink-0 ${m.checkColor}`} aria-hidden="true">check_circle</span>
+                <span class={`text-sm ${m.itemColor}`} data-i18n={key}>{label}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,108 @@
+---
+import { en } from '@/i18n/locales/en';
+
+const pm = en.businessModel.partnershipModels;
+
+const models = [
+  {
+    icon: 'public',
+    title: pm.offshore.title,
+    titleKey: 'businessModel.partnershipModels.offshore.title',
+    subtitle: pm.offshore.subtitle,
+    subtitleKey: 'businessModel.partnershipModels.offshore.subtitle',
+    image: 'https://images.pexels.com/photos/3182773/pexels-photo-3182773.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop',
+    imageAlt: 'Global remote team collaborating across continents',
+    items: [
+      { key: 'businessModel.partnershipModels.offshore.item1', label: pm.offshore.item1 },
+      { key: 'businessModel.partnershipModels.offshore.item2', label: pm.offshore.item2 },
+      { key: 'businessModel.partnershipModels.offshore.item3', label: pm.offshore.item3 },
+      { key: 'businessModel.partnershipModels.offshore.item4', label: pm.offshore.item4 },
+    ],
+  },
+  {
+    icon: 'location_city',
+    title: pm.onshore.title,
+    titleKey: 'businessModel.partnershipModels.onshore.title',
+    subtitle: pm.onshore.subtitle,
+    subtitleKey: 'businessModel.partnershipModels.onshore.subtitle',
+    image: 'https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop',
+    imageAlt: 'Engineer with safety helmet on-site at an industrial facility',
+    items: [
+      { key: 'businessModel.partnershipModels.onshore.item1', label: pm.onshore.item1 },
+      { key: 'businessModel.partnershipModels.onshore.item2', label: pm.onshore.item2 },
+      { key: 'businessModel.partnershipModels.onshore.item3', label: pm.onshore.item3 },
+      { key: 'businessModel.partnershipModels.onshore.item4', label: pm.onshore.item4 },
+    ],
+  },
+  {
+    icon: 'merge',
+    title: pm.hybrid.title,
+    titleKey: 'businessModel.partnershipModels.hybrid.title',
+    subtitle: pm.hybrid.subtitle,
+    subtitleKey: 'businessModel.partnershipModels.hybrid.subtitle',
+    image: 'https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop',
+    imageAlt: 'Diverse international team working together in a modern office',
+    items: [
+      { key: 'businessModel.partnershipModels.hybrid.item1', label: pm.hybrid.item1 },
+      { key: 'businessModel.partnershipModels.hybrid.item2', label: pm.hybrid.item2 },
+      { key: 'businessModel.partnershipModels.hybrid.item3', label: pm.hybrid.item3 },
+      { key: 'businessModel.partnershipModels.hybrid.item4', label: pm.hybrid.item4 },
+    ],
+  },
+];
+---
+
+<section class="relative py-24 px-8 lg:px-16 bg-on-surface" aria-label="Partnership Models">
+  <div class="container mx-auto">
+    <!-- Section header -->
+    <div class="mb-12">
+      <span
+        class="font-label text-secondary uppercase tracking-[0.3em] text-xs font-bold block mb-3"
+        data-i18n="businessModel.partnershipModels.eyebrow"
+      >{en.businessModel.partnershipModels.eyebrow}</span>
+      <h2
+        class="font-headline font-black text-4xl md:text-5xl text-white leading-[0.9] tracking-tight"
+        data-i18n="businessModel.partnershipModels.heading"
+      >{en.businessModel.partnershipModels.heading}</h2>
+    </div>
+
+    <!-- Image cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {models.map((m) => (
+        <div class="relative h-[480px] overflow-hidden rounded group">
+          <!-- Background image -->
+          <img
+            src={m.image}
+            alt={m.imageAlt}
+            class="absolute inset-0 w-full h-full object-cover scale-105 group-hover:scale-110 transition-transform duration-700"
+            loading="lazy"
+          />
+          <!-- Gradient overlay -->
+          <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/85 to-primary/30"></div>
+          <!-- Content pinned to bottom -->
+          <div class="absolute inset-x-0 bottom-0 p-8">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="material-symbols-outlined text-secondary text-2xl" aria-hidden="true">{m.icon}</span>
+              <h3
+                class="font-headline text-2xl font-bold text-white"
+                data-i18n={m.titleKey}
+              >{m.title}</h3>
+            </div>
+            <p
+              class="text-white/80 text-sm leading-relaxed mb-5"
+              data-i18n={m.subtitleKey}
+            >{m.subtitle}</p>
+            <ul class="space-y-1.5">
+              {m.items.map(({ key, label }) => (
+                <li class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-secondary text-sm shrink-0" aria-hidden="true">check_circle</span>
+                  <span class="text-white/90 text-xs" data-i18n={key}>{label}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

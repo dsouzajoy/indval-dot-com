@@ -1,5 +1,6 @@
 ---
 import { en } from '@/i18n/locales/en';
+import BIWPillarLightbox from './BIWPillarLightbox.astro';
 
 const differentiators = [
   'Digital-first engineering approach',
@@ -10,10 +11,47 @@ const differentiators = [
 ];
 
 const pillars = [
-  { key: 'processPlan',     icon: 'route',         ...en.biwTurnkey.pillars.processPlan     },
-  { key: 'digitalMfg',     icon: 'memory',        ...en.biwTurnkey.pillars.digitalMfg      },
-  { key: 'productionDev',  icon: 'factory',       ...en.biwTurnkey.pillars.productionDev   },
-  { key: 'industrialization', icon: 'rocket_launch', ...en.biwTurnkey.pillars.industrialization },
+  {
+    key: 'processPlan',
+    icon: 'route',
+    ...en.biwTurnkey.pillars.processPlan,
+    images: [
+      { src: '/images/biw/process-planning/01.png' },
+      { src: '/images/biw/process-planning/02.png' },
+      { src: '/images/biw/process-planning/03.png' },
+    ],
+  },
+  {
+    key: 'digitalMfg',
+    icon: 'memory',
+    ...en.biwTurnkey.pillars.digitalMfg,
+    images: [
+      { src: '/images/biw/digital-manufacturing/01.png' },
+      { src: '/images/biw/digital-manufacturing/02.png' },
+      { src: '/images/biw/digital-manufacturing/03.png' },
+    ],
+  },
+  {
+    key: 'productionDev',
+    icon: 'factory',
+    ...en.biwTurnkey.pillars.productionDev,
+    images: [
+      { src: '/images/biw/production-development/01.png' },
+      { src: '/images/biw/production-development/02.png' },
+      { src: '/images/biw/production-development/03.png' },
+    ],
+  },
+  {
+    key: 'industrialization',
+    icon: 'rocket_launch',
+    ...en.biwTurnkey.pillars.industrialization,
+    images: [
+      { src: '/images/biw/industrialization/01.png' },
+      { src: '/images/biw/industrialization/02.png' },
+      { src: '/images/biw/industrialization/03.png' },
+      { src: '/images/biw/industrialization/04.png' },
+    ],
+  },
 ];
 
 const steps = [
@@ -103,8 +141,16 @@ const steps = [
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {pillars.map((pillar) => (
-        <div class="group bg-surface rounded border-b-2 border-transparent hover:border-secondary hover:bg-surface-container-high transition-all duration-300 hover:-translate-y-1 p-8 flex flex-col">
+      {pillars.map((pillar, i) => (
+        <div
+          class="group bg-surface rounded border-b-2 border-transparent hover:border-secondary hover:bg-surface-container-high transition-all duration-300 hover:-translate-y-1 p-8 flex flex-col cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary/50"
+          role="button"
+          tabindex="0"
+          data-pillar-index={i}
+          data-pillar-title={pillar.title}
+          data-pillar-icon={pillar.icon}
+          data-images={JSON.stringify(pillar.images)}
+        >
           <!-- Icon -->
           <div class="flex justify-center mb-6">
             <span
@@ -119,18 +165,25 @@ const steps = [
           <p class="text-on-surface-variant text-sm leading-relaxed text-center mb-6" data-i18n={`biwTurnkey.pillars.${pillar.key}.description`}>{pillar.description}</p>
           <!-- Bullet sub-items -->
           <ul class="space-y-2 mb-6">
-            {pillar.items.map((item, i) => (
+            {pillar.items.map((item, j) => (
               <li class="flex items-start gap-3 text-sm text-on-surface-variant leading-relaxed">
                 <span class="material-symbols-outlined text-secondary text-base mt-0.5 shrink-0" aria-hidden="true">check_circle</span>
-                <span data-i18n={`biwTurnkey.pillars.${pillar.key}.items.${i}`}>{item}</span>
+                <span data-i18n={`biwTurnkey.pillars.${pillar.key}.items.${j}`}>{item}</span>
               </li>
             ))}
           </ul>
+          <!-- View Gallery CTA -->
+          <div class="mt-auto pt-5 border-t border-outline-variant flex items-center gap-2 text-secondary text-xs font-label font-bold uppercase tracking-wider group-hover:gap-3 transition-all duration-200">
+            <span class="material-symbols-outlined text-base shrink-0" aria-hidden="true">photo_library</span>
+            View Gallery
+          </div>
         </div>
       ))}
     </div>
   </div>
 </section>
+
+<BIWPillarLightbox />
 
 <!-- Section 03 — AME Delivery Workflow -->
 <section

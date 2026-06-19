@@ -1,0 +1,107 @@
+---
+import { en } from '@/i18n/locales/en';
+import { withBase } from '@/lib/utils';
+
+const tags = [
+  { key: 'academia.hero.tag1', label: en.academia.hero.tag1 },
+  { key: 'academia.hero.tag2', label: en.academia.hero.tag2 },
+  { key: 'academia.hero.tag3', label: en.academia.hero.tag3 },
+];
+
+const cards = [
+  {
+    icon: 'school',
+    titleKey: 'academia.hero.card1Title',
+    bodyKey: 'academia.hero.card1Body',
+    title: en.academia.hero.card1Title,
+    body: en.academia.hero.card1Body,
+  },
+  {
+    icon: 'computer',
+    titleKey: 'academia.hero.card2Title',
+    bodyKey: 'academia.hero.card2Body',
+    title: en.academia.hero.card2Title,
+    body: en.academia.hero.card2Body,
+  },
+  {
+    icon: 'work',
+    titleKey: 'academia.hero.card3Title',
+    bodyKey: 'academia.hero.card3Body',
+    title: en.academia.hero.card3Title,
+    body: en.academia.hero.card3Body,
+  },
+];
+---
+
+<section
+  class="relative min-h-[700px] flex items-center overflow-hidden bg-primary"
+  aria-label="Indval Academia"
+>
+  <!-- Background image -->
+  <div class="absolute inset-0 z-0">
+    <img
+      class="w-full h-full object-cover opacity-60 scale-105"
+      src="https://images.pexels.com/photos/3862143/pexels-photo-3862143.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop"
+      alt="Engineers in aerospace flight simulator training"
+      loading="eager"
+    />
+  </div>
+  <!-- Dark gradient overlay -->
+  <div class="absolute inset-0 bg-gradient-to-br from-primary/80 to-primary-container/60"></div>
+  <!-- Blueprint dot grid -->
+  <div class="absolute inset-0" style="background-image: radial-gradient(circle, rgba(195,198,211,0.15) 1px, transparent 1px); background-size: 40px 40px;"></div>
+
+  <div class="container mx-auto px-8 lg:px-16 relative z-10 py-24">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+      <!-- Left: heading + body + tags -->
+      <div class="space-y-8">
+        <div class="space-y-4">
+          <span
+            class="font-label text-secondary uppercase tracking-[0.3em] text-sm font-bold block"
+            data-i18n="academia.hero.eyebrow"
+          >{en.academia.hero.eyebrow}</span>
+          <h1
+            class="font-headline text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tighter text-white leading-tight"
+            data-i18n="academia.hero.heading"
+          >{en.academia.hero.heading}</h1>
+        </div>
+
+        <p
+          class="text-xl text-white/90 font-light leading-relaxed border-l-4 border-secondary pl-8 max-w-xl"
+          data-i18n="academia.hero.body"
+        >{en.academia.hero.body}</p>
+
+        <div class="flex flex-wrap gap-4">
+          {tags.map(({ key, label }) => (
+            <span
+              class="bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-2 rounded text-xs font-label uppercase tracking-widest text-white"
+              data-i18n={key}
+            >{label}</span>
+          ))}
+        </div>
+      </div>
+
+      <!-- Right: glassmorphism card -->
+      <div class="bg-white/5 backdrop-blur-md border border-white/10 p-8 lg:p-10 rounded space-y-8">
+        <h2
+          class="font-headline text-3xl font-bold text-white"
+          data-i18n="academia.hero.cardHeading"
+        >{en.academia.hero.cardHeading}</h2>
+
+        <div class="grid grid-cols-1 gap-6">
+          {cards.map(({ icon, titleKey, bodyKey, title, body }) => (
+            <div class="flex gap-4">
+              <span class="material-symbols-outlined text-secondary shrink-0">{icon}</span>
+              <div>
+                <h3 class="text-white font-bold mb-1" data-i18n={titleKey}>{title}</h3>
+                <p class="text-white/70 text-sm leading-relaxed" data-i18n={bodyKey}>{body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

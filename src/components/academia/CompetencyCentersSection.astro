@@ -1,0 +1,81 @@
+---
+import { en } from '@/i18n/locales/en';
+
+const centers = [
+  {
+    icon: 'flight',
+    color: 'bg-secondary',
+    titleKey: 'academia.competencyCenters.aerospace.title',
+    durationKey: 'academia.competencyCenters.aerospace.duration',
+    title: en.academia.competencyCenters.aerospace.title,
+    duration: en.academia.competencyCenters.aerospace.duration,
+    weeks: en.academia.competencyCenters.aerospace.weeks,
+    icons: ['computer', 'design_services', 'construction', 'layers', 'psychology', 'work'],
+  },
+  {
+    icon: 'directions_car',
+    color: 'bg-primary',
+    titleKey: 'academia.competencyCenters.automotive.title',
+    durationKey: 'academia.competencyCenters.automotive.duration',
+    title: en.academia.competencyCenters.automotive.title,
+    duration: en.academia.competencyCenters.automotive.duration,
+    weeks: en.academia.competencyCenters.automotive.weeks,
+    icons: ['computer', 'widgets', 'build', 'straighten', 'psychology', 'work'],
+  },
+];
+---
+
+<section class="relative bg-surface-container-low py-24 px-8 overflow-hidden">
+  <!-- Blueprint dot overlay -->
+  <div class="absolute inset-0 pointer-events-none" style="background-image: radial-gradient(circle, rgba(195,198,211,0.12) 1px, transparent 1px); background-size: 32px 32px;"></div>
+
+  <div class="container mx-auto max-w-6xl relative z-10">
+    <!-- Heading -->
+    <div class="text-center mb-16 space-y-3">
+      <span
+        class="font-label text-secondary uppercase tracking-[0.3em] text-xs font-bold block"
+        data-i18n="academia.competencyCenters.eyebrow"
+      >{en.academia.competencyCenters.eyebrow}</span>
+      <h2
+        class="font-headline text-4xl md:text-5xl font-black tracking-tight text-on-surface"
+        data-i18n="academia.competencyCenters.heading"
+      >{en.academia.competencyCenters.heading}</h2>
+    </div>
+
+    <!-- Center cards -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      {centers.map(({ icon, color, titleKey, durationKey, title, duration, weeks, icons }) => (
+        <div class="bg-surface rounded overflow-hidden shadow-ambient-lg">
+          <!-- Card header -->
+          <div class={`${color} p-6 flex items-start gap-4`}>
+            <div class="w-12 h-12 rounded bg-white/10 flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-white text-2xl" style="font-variation-settings: 'FILL' 1">{icon}</span>
+            </div>
+            <div class="space-y-1">
+              <h3
+                class="font-headline text-xl font-bold text-white leading-tight"
+                data-i18n={titleKey}
+              >{title}</h3>
+              <span
+                class="inline-block bg-white/20 text-white text-xs font-label uppercase tracking-widest px-3 py-1 rounded-full"
+                data-i18n={durationKey}
+              >{duration}</span>
+            </div>
+          </div>
+
+          <!-- Curriculum list -->
+          <div class="p-6 space-y-3">
+            {weeks.map((week, i) => (
+              <div class="flex items-start gap-3">
+                <div class="shrink-0 w-7 h-7 rounded-full bg-secondary/10 flex items-center justify-center mt-0.5">
+                  <span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1">{icons[i]}</span>
+                </div>
+                <p class="text-on-surface-variant text-sm leading-relaxed">{week}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

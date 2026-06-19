@@ -12,6 +12,7 @@ export const de = {
     cta: 'Experten kontaktieren',
     contact: 'Kontakt',
     hamburgerOpen: 'Navigationsmenü öffnen',
+    academia: 'Indvaltech Academia',
   },
   hero: {
     slide1: {
@@ -540,6 +541,89 @@ export const de = {
       heading: 'Lassen Sie uns gemeinsam etwas aufbauen',
       body: 'Bereit, Ihr nächstes Projekt zu starten? Kontaktieren Sie unser Team, um das richtige Engagement-Modell zu erkunden.',
       button: 'Kontakt aufnehmen',
+    },
+  },
+  academia: {
+    hero: {
+      eyebrow: 'Knowledge & Growth',
+      heading: 'Indval Academia',
+      body: 'Bridging the gap between university graduates and industry-ready engineers through structured, domain-specific competency development.',
+      tag1: '3-Month Program',
+      tag2: 'Industry Ready',
+      tag3: 'CAD Expertise',
+      cardHeading: 'What You\'ll Gain',
+      card1Title: 'Structured Learning',
+      card1Body: 'Classroom instruction covering domain knowledge, design standards, and contemporary technologies.',
+      card2Title: 'CAD Tool Proficiency',
+      card2Body: 'Hands-on training in CATIA — modeling, visualization, detailing, and simulation.',
+      card3Title: 'Industry Placement',
+      card3Body: 'On-the-job training on real customer projects until you reach professional confidence.',
+    },
+    philosophy: {
+      eyebrow: 'Our Approach',
+      heading: 'Built on Industry–Academia Collaboration',
+      pillar1: {
+        title: 'Industry Partnership',
+        body: 'Strong partnerships between educational institutions and industry drive economic innovation and create job-ready professionals.',
+      },
+      pillar2: {
+        title: 'Competency-Driven Curriculum',
+        body: 'Specialized training aligned with current industry needs — covering terminology, components, design standards, and sector-specific technologies.',
+      },
+      pillar3: {
+        title: 'Real-World Application',
+        body: 'Engineers apply their skills on actual customer projects, receiving mentorship until they demonstrate professional expertise.',
+      },
+    },
+    pipeline: {
+      eyebrow: 'Training Pipeline',
+      heading: 'From Campus to Career in 3 Months',
+      step1: { title: 'Candidate Selection', body: 'Recruiting graduates who demonstrate strong analytical ability, quick learning capacity, and adaptability.' },
+      step2: { title: 'Domain Knowledge', body: 'Industry terminology, component details, core principles, and design standards specific to target sectors.' },
+      step3: { title: 'CAD Tools Training', body: 'Modeling, visualization, detailing, and analysis using contemporary software — primarily CATIA.' },
+      step4: { title: 'Professional Development', body: 'Presentation skills, effective communication, task prioritization, and time management.' },
+      step5: { title: 'Practical Application', body: 'On-the-job training within real project environments using actual customer inputs until professional confidence is achieved.' },
+    },
+    competencyCenters: {
+      eyebrow: 'Specialized Centers',
+      heading: 'Domain-Specific Competency Development',
+      aerospace: {
+        title: 'Aerospace Competency Development Center',
+        duration: '8-Week Program',
+        weeks: [
+          'Week 1: CATIA fundamentals and software orientation',
+          'Weeks 2–3: Aerospace design principles and methodology',
+          'Weeks 4–5: Structural components and load analysis',
+          'Weeks 6–7: Advanced assemblies and detailing standards',
+          'Throughout: Engineering soft skills development',
+          'Final phase: On-job training on live aerospace projects',
+        ],
+      },
+      automotive: {
+        title: 'Automotive Competency Development Center',
+        duration: '8-Week Program',
+        weeks: [
+          'Weeks 1–2: CATIA tools and parametric modeling',
+          'Weeks 2–3: Assembly design and product structure',
+          'Weeks 3–5: Automotive design methodology and tooling',
+          'Weeks 6–8: Technical detailing and GD&T standards',
+          'Throughout: Engineering soft skills development',
+          'Integrated: On-job training on live automotive projects',
+        ],
+      },
+    },
+    outcomes: {
+      eyebrow: 'Program Outcomes',
+      heading: 'Ready to Excel from Day One',
+      item1: { title: 'Increased Employability', body: 'Graduates are equipped with the exact skills top engineering firms demand.' },
+      item2: { title: 'Career Advancement', body: 'A structured foundation that accelerates your trajectory in aerospace or automotive engineering.' },
+      item3: { title: 'Enhanced Confidence', body: 'Real-project experience builds the professional confidence needed to perform from day one.' },
+      item4: { title: 'Solid Foundation', body: 'Deep domain knowledge and CAD proficiency that form a lasting base for your engineering career.' },
+    },
+    cta: {
+      heading: 'Ready to Join Indval Academia?',
+      body: 'Connect with our team to learn more about program eligibility, upcoming batches, and enrollment.',
+      button: 'Get In Touch',
     },
   },
 } satisfies Translations;

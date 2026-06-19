@@ -1,0 +1,71 @@
+---
+import { en } from '@/i18n/locales/en';
+
+const outcomes = [
+  {
+    icon: 'trending_up',
+    titleKey: 'academia.outcomes.item1.title',
+    bodyKey: 'academia.outcomes.item1.body',
+    title: en.academia.outcomes.item1.title,
+    body: en.academia.outcomes.item1.body,
+  },
+  {
+    icon: 'rocket_launch',
+    titleKey: 'academia.outcomes.item2.title',
+    bodyKey: 'academia.outcomes.item2.body',
+    title: en.academia.outcomes.item2.title,
+    body: en.academia.outcomes.item2.body,
+  },
+  {
+    icon: 'verified',
+    titleKey: 'academia.outcomes.item3.title',
+    bodyKey: 'academia.outcomes.item3.body',
+    title: en.academia.outcomes.item3.title,
+    body: en.academia.outcomes.item3.body,
+  },
+  {
+    icon: 'foundation',
+    titleKey: 'academia.outcomes.item4.title',
+    bodyKey: 'academia.outcomes.item4.body',
+    title: en.academia.outcomes.item4.title,
+    body: en.academia.outcomes.item4.body,
+  },
+];
+---
+
+<section class="bg-primary py-24 px-8">
+  <div class="container mx-auto max-w-6xl">
+    <!-- Heading -->
+    <div class="text-center mb-16 space-y-3">
+      <span
+        class="font-label text-secondary uppercase tracking-[0.3em] text-xs font-bold block"
+        data-i18n="academia.outcomes.eyebrow"
+      >{en.academia.outcomes.eyebrow}</span>
+      <h2
+        class="font-headline text-4xl md:text-5xl font-black tracking-tight text-white"
+        data-i18n="academia.outcomes.heading"
+      >{en.academia.outcomes.heading}</h2>
+    </div>
+
+    <!-- Outcome cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {outcomes.map(({ icon, titleKey, bodyKey, title, body }) => (
+        <div class="group bg-white/5 border border-white/10 p-8 rounded hover:bg-white/10 hover:-translate-y-1 transition-all duration-300 space-y-5">
+          <div class="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-secondary/30 transition-colors duration-300">
+            <span class="material-symbols-outlined text-white text-2xl" style="font-variation-settings: 'FILL' 1">{icon}</span>
+          </div>
+          <div class="space-y-2">
+            <h3
+              class="font-label text-sm uppercase tracking-widest font-bold text-white"
+              data-i18n={titleKey}
+            >{title}</h3>
+            <p
+              class="text-white/70 text-sm leading-relaxed"
+              data-i18n={bodyKey}
+            >{body}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

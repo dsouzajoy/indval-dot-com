@@ -1,0 +1,288 @@
+---
+import { en } from '@/i18n/locales/en';
+
+const NOTCH = 18; // chevron notch depth in px
+
+function chevronClip(hasLeft: boolean, hasRight: boolean): string {
+  if (hasLeft && hasRight)
+    return `polygon(0 0, calc(100% - ${NOTCH}px) 0, 100% 50%, calc(100% - ${NOTCH}px) 100%, 0 100%, ${NOTCH}px 50%)`;
+  if (hasLeft)
+    return `polygon(0 0, 100% 0, 100% 100%, 0 100%, ${NOTCH}px 50%)`;
+  if (hasRight)
+    return `polygon(0 0, calc(100% - ${NOTCH}px) 0, 100% 50%, calc(100% - ${NOTCH}px) 100%, 0 100%)`;
+  return 'polygon(0 0, 100% 0, 100% 100%, 0 100%)';
+}
+
+interface RawItem { label: string; span: number; empty?: true }
+interface RawTrack {
+  label: string;
+  icon: string;
+  colorClass: string;
+  items: RawItem[];
+  subLabel?: string;
+  subLabelStartPct?: number;
+  subLabelWidthPct?: number;
+}
+
+// 8-slot grid (each slot = 1 week). Total slots must sum to 8 per track.
+const rawTracks: RawTrack[] = [
+  {
+    label: 'Tool Training',
+    icon: 'build',
+    colorClass: 'bg-secondary',
+    items: [
+      { label: 'Part Design & Sketcher',       span: 1 },
+      { label: 'Assembly Design & Drafting',   span: 1 },
+      { label: 'Sheet Metal & Surface Design', span: 1 },
+      { label: 'Electrical Harness Design',    span: 1 },
+      { label: '', span: 4, empty: true },
+    ],
+  },
+  {
+    label: 'Specialisation',
+    icon: 'flight',
+    colorClass: 'bg-blue-700',
+    items: [
+      { label: 'Intro to Aircraft & Aerospace Design', span: 1 },
+      { label: 'Design Methodology',                   span: 1 },
+      { label: 'Secondary Structural Design',          span: 3 },
+      { label: 'Electrical Harness Design',            span: 3 },
+    ],
+  },
+  {
+    label: 'Soft Skills',
+    icon: 'psychology',
+    colorClass: 'bg-violet-700',
+    items: [
+      { label: '', span: 1, empty: true },
+      { label: 'Time Management',                    span: 1 },
+      { label: 'Effective Communication',             span: 1 },
+      { label: 'Analytical Skill & Decision Making', span: 1 },
+      { label: 'Version Control',                    span: 1 },
+      { label: 'Task Management',                    span: 1 },
+      { label: 'Risk Management',                    span: 1 },
+      { label: 'Quality Management',                 span: 1 },
+    ],
+    // Project Management bracket spans slots 5–8 (W5–W8) = starts at 50%, width 50%
+    subLabel: 'Project Management',
+    subLabelStartPct: 50,
+    subLabelWidthPct: 50,
+  },
+  {
+    label: 'Top up',
+    icon: 'workspace_premium',
+    colorClass: 'bg-emerald-700',
+    items: [
+      { label: '', span: 3, empty: true },
+      { label: 'Will be a part of real time project', span: 5 },
+    ],
+  },
+];
+
+// Pre-compute clip-path, z-index, and negative margin for each item
+const tracks = rawTracks.map((rawTrack) => {
+  const totalVisible = rawTrack.items.filter((i) => !i.empty).length;
+  let visibleRank = 0;
+  return {
+    ...rawTrack,
+    items: rawTrack.items.map((item, idx) => {
+      if (item.empty) {
+        return { ...item, clipPath: '', zIndex: 0 };
+      }
+      const myRank = visibleRank++;
+      return {
+        ...item,
+        hasLeft: true,
+        hasRight: true,
+        clipPath: chevronClip(true, true),
+        zIndex: totalVisible - myRank + 1,
+      };
+    }),
+  };
+});
+
+// Week markers: all 8, each slot = 12.5% of the timeline width
+const weekMarkers = [
+  { label: 'Week 1', pct: 0 },
+  { label: 'Week 2', pct: 12.5 },
+  { label: 'Week 3', pct: 25 },
+  { label: 'Week 4', pct: 37.5 },
+  { label: 'Week 5', pct: 50 },
+  { label: 'Week 6', pct: 62.5 },
+  { label: 'Week 7', pct: 75 },
+  { label: 'Week 8', pct: 87.5 },
+];
+---
+
+<section class="bg-on-surface py-24 px-4 sm:px-8">
+  <div class="container mx-auto max-w-7xl">
+
+    <!-- Heading -->
+    <div class="text-center mb-14 space-y-3">
+      <span
+        class="font-label text-secondary uppercase tracking-[0.3em] text-xs font-bold block"
+        data-i18n="academia.pipeline.eyebrow"
+      >{en.academia.pipeline.eyebrow}</span>
+      <h2
+        class="font-headline text-4xl md:text-5xl font-black tracking-tight text-white"
+        data-i18n="academia.pipeline.heading"
+      >{en.academia.pipeline.heading}</h2>
+    </div>
+
+    <!-- 5-step pipeline -->
+    <div class="relative mb-20">
+      <!-- Connecting line (desktop only) -->
+      <div class="hidden lg:block absolute top-10 left-[10%] right-[10%] h-px border-t-2 border-dashed border-white/20 z-0"></div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-4 relative z-10">
+        {[
+          { number: '01', icon: 'how_to_reg',   titleKey: 'academia.pipeline.step1.title', bodyKey: 'academia.pipeline.step1.body', title: en.academia.pipeline.step1.title, body: en.academia.pipeline.step1.body },
+          { number: '02', icon: 'auto_stories',  titleKey: 'academia.pipeline.step2.title', bodyKey: 'academia.pipeline.step2.body', title: en.academia.pipeline.step2.title, body: en.academia.pipeline.step2.body },
+          { number: '03', icon: 'computer',      titleKey: 'academia.pipeline.step3.title', bodyKey: 'academia.pipeline.step3.body', title: en.academia.pipeline.step3.title, body: en.academia.pipeline.step3.body },
+          { number: '04', icon: 'psychology',    titleKey: 'academia.pipeline.step4.title', bodyKey: 'academia.pipeline.step4.body', title: en.academia.pipeline.step4.title, body: en.academia.pipeline.step4.body },
+          { number: '05', icon: 'factory',       titleKey: 'academia.pipeline.step5.title', bodyKey: 'academia.pipeline.step5.body', title: en.academia.pipeline.step5.title, body: en.academia.pipeline.step5.body },
+        ].map(({ number, icon, titleKey, bodyKey, title, body }) => (
+          <div class="flex lg:flex-col items-start lg:items-center gap-5 lg:gap-4 lg:text-center">
+            <div class="shrink-0 flex flex-col items-center gap-4">
+              <div class="w-20 h-20 rounded-full bg-secondary flex items-center justify-center shadow-ambient-lg">
+                <span class="material-symbols-outlined text-white text-3xl" style="font-variation-settings: 'FILL' 1">{icon}</span>
+              </div>
+              <span class="font-headline text-4xl font-black text-white/20 leading-none">{number}</span>
+            </div>
+            <div class="space-y-2 lg:px-2">
+              <h3 class="font-label text-sm uppercase tracking-wider font-bold text-white" data-i18n={titleKey}>{title}</h3>
+              <p class="text-white/60 text-sm leading-relaxed" data-i18n={bodyKey}>{body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="flex items-center gap-4 mb-10">
+      <div class="flex-1 h-px bg-white/10"></div>
+      <span class="font-label text-xs uppercase tracking-widest text-white/30">8-Week Roadmap</span>
+      <div class="flex-1 h-px bg-white/10"></div>
+    </div>
+
+    <!-- Timeline: horizontally scrollable on mobile -->
+    <div class="overflow-x-auto pb-4">
+      <div class="min-w-[1040px]">
+
+        <!-- Fresher → Industry Ready progression -->
+        <div class="flex items-center mb-3">
+          <div class="w-36 shrink-0"></div>
+          <div class="flex-1 flex items-center justify-between">
+            <span class="inline-flex items-center gap-1.5 bg-secondary/20 border border-secondary/50 text-secondary text-[11px] font-label uppercase tracking-widest px-3 py-1.5 rounded">
+              <span class="material-symbols-outlined text-sm leading-none" style="font-variation-settings: 'FILL' 1">school</span>
+              Fresher
+            </span>
+            <span class="inline-flex items-center gap-1.5 bg-emerald-700/20 border border-emerald-600/50 text-emerald-400 text-[11px] font-label uppercase tracking-widest px-3 py-1.5 rounded">
+              Expert 2+ yrs exp
+              <span class="material-symbols-outlined text-sm leading-none" style="font-variation-settings: 'FILL' 1">verified</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- Week marker headers + track rows wrapped together so gridlines span full height -->
+        <div class="relative">
+
+          <!-- Full-height week gridlines (behind everything) -->
+          <div class="absolute inset-0 flex pointer-events-none" aria-hidden="true">
+            <div class="w-36 shrink-0"></div>
+            <div class="flex-1 relative">
+              {weekMarkers.map(({ pct }) => (
+                <div
+                  class="absolute top-0 bottom-0 w-px bg-white/10"
+                  style={`left: ${pct}%; transform: translateX(-50%);`}
+                ></div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Week marker headers -->
+          <div class="flex items-end mb-2 relative">
+            <div class="w-36 shrink-0"></div>
+            <div class="flex-1 relative h-8">
+              {weekMarkers.map(({ label, pct }) => (
+                <div
+                  class="absolute bottom-0 flex flex-col items-center"
+                  style={`left: ${pct + 6.25}%; transform: translateX(-50%);`}
+                >
+                  <span class="text-white/50 font-label text-[10px] font-bold uppercase tracking-wider whitespace-nowrap">{label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Track rows -->
+          <div class="flex flex-col gap-5 relative">
+          {tracks.map((track) => (
+            <div>
+              <!-- Main chevron row -->
+              <div class="flex items-stretch">
+
+                <!-- Row label -->
+                <div class="w-36 shrink-0 pr-3 flex items-center justify-end">
+                  <span class="font-label text-[11px] uppercase tracking-wider text-white/70 font-bold leading-tight text-right">{track.label}</span>
+                </div>
+
+                <!-- Chevron chain -->
+                <div class="flex-1 flex items-stretch h-12 gap-0.5" style="position: relative;">
+                  {track.items.map((item) =>
+                    item.empty ? (
+                      <div style={`flex: ${item.span} 0 0;`}></div>
+                    ) : (
+                      <div
+                        class={`${track.colorClass} flex items-center justify-center`}
+                        style={[
+                          `flex: ${item.span} 0 0;`,
+                          `clip-path: ${item.clipPath};`,
+                          `position: relative;`,
+                          `z-index: ${item.zIndex};`,
+                          `padding-left: ${item.hasLeft ? NOTCH + 6 : 6}px;`,
+                          `padding-right: ${item.hasRight ? NOTCH + 6 : 6}px;`,
+                        ].join(' ')}
+                      >
+                        <span class="text-white text-[10px] font-label leading-tight text-center line-clamp-2 select-none">{item.label}</span>
+                      </div>
+                    )
+                  )}
+                </div>
+              </div>
+
+              <!-- Sub-label (Project Management bracket) -->
+              {track.subLabel && (
+                <div class="flex items-stretch mt-0.5">
+                  <div class="w-36 shrink-0 pr-3"></div>
+                  <div class="flex-1 relative h-5">
+                    <div
+                      class="absolute inset-y-0 border border-orange-500/50 rounded flex items-center justify-center"
+                      style={`left: ${track.subLabelStartPct}%; width: ${track.subLabelWidthPct}%;`}
+                    >
+                      <span class="font-label text-[9px] uppercase tracking-[0.2em] text-orange-400 font-bold whitespace-nowrap">{track.subLabel}</span>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        </div><!-- end gridline wrapper -->
+
+      </div>
+    </div>
+
+    <!-- Duration badge -->
+    <div class="mt-10 flex justify-center">
+      <div class="inline-flex items-center gap-3 bg-white/5 border border-white/10 px-6 py-3 rounded-full">
+        <span class="material-symbols-outlined text-secondary text-xl">schedule</span>
+        <span class="font-label text-sm uppercase tracking-widest text-white/80">
+          Total Program Duration: <strong class="text-white">3 Months</strong>
+        </span>
+      </div>
+    </div>
+
+  </div>
+</section>

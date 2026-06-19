@@ -1,0 +1,73 @@
+---
+import { en } from '@/i18n/locales/en';
+
+const pillars = [
+  {
+    icon: 'handshake',
+    titleKey: 'academia.philosophy.pillar1.title',
+    bodyKey: 'academia.philosophy.pillar1.body',
+    title: en.academia.philosophy.pillar1.title,
+    body: en.academia.philosophy.pillar1.body,
+  },
+  {
+    icon: 'menu_book',
+    titleKey: 'academia.philosophy.pillar2.title',
+    bodyKey: 'academia.philosophy.pillar2.body',
+    title: en.academia.philosophy.pillar2.title,
+    body: en.academia.philosophy.pillar2.body,
+  },
+  {
+    icon: 'precision_manufacturing',
+    titleKey: 'academia.philosophy.pillar3.title',
+    bodyKey: 'academia.philosophy.pillar3.body',
+    title: en.academia.philosophy.pillar3.title,
+    body: en.academia.philosophy.pillar3.body,
+  },
+];
+---
+
+<section class="relative bg-surface py-24 px-8 overflow-hidden">
+  <!-- Blueprint dot overlay -->
+  <div class="absolute inset-0 pointer-events-none" style="background-image: radial-gradient(circle, rgba(195,198,211,0.12) 1px, transparent 1px); background-size: 32px 32px;"></div>
+
+  <div class="container mx-auto max-w-6xl relative z-10">
+    <!-- Heading -->
+    <div class="text-center mb-16 space-y-3">
+      <span
+        class="font-label text-secondary uppercase tracking-[0.3em] text-xs font-bold block"
+        data-i18n="academia.philosophy.eyebrow"
+      >{en.academia.philosophy.eyebrow}</span>
+      <h2
+        class="font-headline text-4xl md:text-5xl font-black tracking-tight text-on-surface"
+        data-i18n="academia.philosophy.heading"
+      >{en.academia.philosophy.heading}</h2>
+    </div>
+
+    <!-- Pillar cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {pillars.map(({ icon, titleKey, bodyKey, title, body }) => (
+        <div class="group relative bg-surface-container-low border-l-4 border-secondary p-8 hover:-translate-y-1 transition-transform duration-300">
+          <!-- Fading dot mask on right edge -->
+          <div class="absolute inset-y-0 right-0 w-16 pointer-events-none" style="background: linear-gradient(to left, var(--color-surface-container-low, #f8f9fa), transparent);"></div>
+
+          <div class="flex items-start gap-5">
+            <div class="shrink-0 w-10 h-10 rounded bg-secondary/10 flex items-center justify-center">
+              <span class="material-symbols-outlined text-secondary text-xl" style="font-variation-settings: 'FILL' 0">{icon}</span>
+            </div>
+            <div class="space-y-2">
+              <h3
+                class="font-label text-sm uppercase tracking-widest font-bold text-on-surface"
+                data-i18n={titleKey}
+              >{title}</h3>
+              <p
+                class="text-on-surface-variant text-sm leading-relaxed"
+                data-i18n={bodyKey}
+              >{body}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

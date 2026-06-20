@@ -15,7 +15,7 @@ const tabs = [
   {
     label: 'Heat Transfer',
     heading: 'Heat Transfer Analysis',
-    image: '/images/cfd-capabilities.png',
+    image: '/images/cfd-heat-transfer.png',
     bullets: [
       'Comprehensive thermal analysis including conduction, convection, and radiation heat transfer mechanisms.',
       'Conjugate heat transfer simulation to accurately predict temperature distribution in solid-fluid systems.',
@@ -26,7 +26,7 @@ const tabs = [
   {
     label: 'Multiphase Analysis',
     heading: 'Multiphase Flow Analysis',
-    image: '/images/cfd-capabilities.png',
+    image: '/images/cfd-multiphase-analysis.png',
     bullets: [
       'Simulation of gas-liquid, liquid-liquid, and gas-solid flows using advanced multiphase modeling techniques.',
       'Phase separation, mixing, and interface tracking for complex industrial processes.',
@@ -37,7 +37,7 @@ const tabs = [
   {
     label: 'Aero & Hydrodynamics',
     heading: 'Aero & Hydrodynamic Analysis',
-    image: '/images/cfd-capabilities.png',
+    image: '/images/cfd-aero-hydrodynamics.png',
     bullets: [
       'High-fidelity aerodynamic analysis for drag reduction, lift optimization, and stability assessment.',
       'Hydrodynamic modeling of marine structures, offshore platforms, and water flow systems.',
@@ -48,7 +48,7 @@ const tabs = [
   {
     label: 'Battery & Electronics Cooling',
     heading: 'Battery & Electronics Thermal Management',
-    image: '/images/cfd-capabilities.png',
+    image: '/images/cfd-battery-electronics-cooling.png',
     bullets: [
       'Thermal management design for battery packs, power electronics, and high-heat-density components.',
       'Optimization of cooling strategies including air cooling, liquid cooling, and phase-change materials.',
@@ -59,7 +59,8 @@ const tabs = [
   {
     label: 'Mixing Analysis',
     heading: 'Mixing & Blending Analysis',
-    image: '/images/cfd-capabilities.png',
+    image: '/images/cfd-mixing-analysis.png',
+    imageClass: 'w-2/3 mx-auto',
     bullets: [
       'Simulation of fluid mixing, blending, and homogenization in stirred vessels and static mixers.',
       'Species transport modeling to track concentration distributions and reaction progress.',
@@ -70,7 +71,7 @@ const tabs = [
   {
     label: 'HVAC & Ventilation',
     heading: 'HVAC & Ventilation Analysis',
-    image: '/images/cfd-capabilities.png',
+    image: '/images/cfd-hvac-ventilation.png',
     bullets: [
       'Airflow distribution analysis to ensure comfort, air quality, and energy efficiency in buildings.',
       'Temperature stratification and contaminant dispersion modeling for occupied spaces.',
@@ -81,7 +82,7 @@ const tabs = [
   {
     label: 'Pump & Turbomachinery',
     heading: 'Pump & Turbomachinery Analysis',
-    image: '/images/cfd-capabilities.png',
+    image: '/images/cfd-pump-turbomachinery.png',
     bullets: [
       'Performance prediction of pumps, compressors, turbines, and fans across operating conditions.',
       'Internal flow analysis to identify losses, optimize blade geometry, and improve efficiency.',
@@ -92,7 +93,8 @@ const tabs = [
   {
     label: 'Heat Exchanger Design',
     heading: 'Heat Exchanger Design',
-    image: '/images/cfd-capabilities.png',
+    image: '/images/cfd-heat-exchanger-design.png',
+    imageClass: 'w-2/3 mx-auto',
     bullets: [
       'Thermal and hydraulic design optimization for shell-and-tube, plate, and finned heat exchangers.',
       'Performance evaluation including effectiveness, pressure drop, and fouling considerations.',
@@ -163,7 +165,7 @@ const tabs = [
             <img
               src={withBase(tab.image)}
               alt={`CFD ${tab.heading} visualization`}
-              class="w-full object-contain"
+              class={`${tab.imageClass ?? 'w-full'} object-contain`}
               style="mix-blend-mode: multiply;"
               loading="lazy"
             />

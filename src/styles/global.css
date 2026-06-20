@@ -68,3 +68,56 @@ html[data-lang]:not([data-lang="en"]) [data-i18n-attr] {
   font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
   vertical-align: middle;
 }
+
+/* Physics button press — depth/Z-axis movement, not scale */
+.btn-press {
+  transform: translateY(-3px);
+  box-shadow: 0 3px 0 0 rgba(11, 28, 48, 0.25), 0 8px 20px rgba(11, 28, 48, 0.18);
+  transition: transform 180ms cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 180ms cubic-bezier(0.34, 1.56, 0.64, 1),
+              background-color 150ms ease;
+}
+.btn-press:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 0 0 rgba(11, 28, 48, 0.20), 0 14px 32px rgba(11, 28, 48, 0.22);
+}
+.btn-press:active {
+  transform: translateY(1px);
+  box-shadow: 0 0px 0 0 rgba(11, 28, 48, 0.0), 0 2px 6px rgba(11, 28, 48, 0.12);
+  transition-duration: 60ms;
+  transition-timing-function: ease-out;
+}
+
+/* Card CTAs — flat at rest, lifts on hover, presses on click */
+.btn-press-card {
+  transform: translateY(0);
+  transition: transform 200ms cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 200ms cubic-bezier(0.34, 1.56, 0.64, 1),
+              border-color 200ms ease,
+              background-color 200ms ease;
+}
+.btn-press-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 0 0 rgba(11, 28, 48, 0.12), 0 12px 28px rgba(11, 28, 48, 0.10);
+}
+.btn-press-card:active {
+  transform: translateY(1px);
+  box-shadow: 0 0px 0 0 rgba(11, 28, 48, 0.0), 0 2px 8px rgba(11, 28, 48, 0.08);
+  transition-duration: 60ms;
+  transition-timing-function: ease-out;
+}
+
+/* Icon buttons (lightbox controls) — subtle lift + micro scale */
+.btn-press-icon {
+  transform: translateY(0) scale(1);
+  transition: transform 180ms cubic-bezier(0.34, 1.56, 0.64, 1),
+              background-color 150ms ease;
+}
+.btn-press-icon:hover {
+  transform: translateY(-2px) scale(1.05);
+}
+.btn-press-icon:active {
+  transform: translateY(1px) scale(0.97);
+  transition-duration: 55ms;
+  transition-timing-function: ease-out;
+}

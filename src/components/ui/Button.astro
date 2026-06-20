@@ -8,11 +8,11 @@ interface Props {
 
 const { href, variant = 'primary', type = 'button', class: className } = Astro.props;
 
-const base = 'inline-flex items-center justify-center gap-2 px-8 py-4 rounded font-label font-bold text-sm uppercase tracking-wider transition-all duration-200 cursor-pointer';
+const base = 'inline-flex items-center justify-center gap-2 px-8 py-4 rounded font-label font-bold text-sm uppercase tracking-wider cursor-pointer';
 
 const variants = {
-  primary: 'bg-primary text-white hover:bg-primary-container active:scale-95',
-  ghost: 'border border-outline-variant/30 text-primary bg-transparent hover:bg-surface-container-low active:scale-95',
+  primary: 'bg-primary text-white hover:bg-primary-container btn-press',
+  ghost: 'border border-outline-variant/30 text-primary bg-transparent hover:bg-surface-container-low btn-press-icon',
 };
 
 const classes = [base, variants[variant], className].filter(Boolean).join(' ');

@@ -66,7 +66,8 @@ const tabs = [
   {
     label: 'Bulk Material',
     heading: 'Bulk Material Analysis',
-    image: '/images/fea-capabilities.png',
+    image: '/images/fea-bulk-material.png',
+    imageClass: 'w-2/3 mx-auto',
     bullets: [
       'Discrete element method for bulk analysis',
       'Complex bulk material models',
@@ -78,7 +79,7 @@ const tabs = [
   {
     label: 'Manufacturing',
     heading: 'Manufacturing Analysis',
-    image: '/images/fea-capabilities.png',
+    image: '/images/fea-manufacturing.png',
     bullets: [
       'Injection molding (Simulation of flow, pack and warping stages. Optimization of cooling and molding parameters for higher productivity)',
       'Forming (Analysis of deep drawing for single and multi-stage tools. Optimization of the die for the springback effect)',
@@ -88,7 +89,7 @@ const tabs = [
   {
     label: 'Electromagnetic',
     heading: 'Electromagnetic Analysis',
-    image: '/images/fea-capabilities.png',
+    image: '/images/fea-electromagnetic.png',
     bullets: [
       'PMSM analysis (Concept design, Torque speed characteristics, Cogging torque, back EMF harmonic study, Id-Iq maps, Eddy current losses, NVH)',
       'Induction motor analysis (Analysis of entire IM period, study of harmonics, starting analysis)',
@@ -98,7 +99,7 @@ const tabs = [
   {
     label: 'Numerical Optimization',
     heading: 'Numerical Optimization Analysis',
-    image: '/images/fea-capabilities.png',
+    image: '/images/fea-numerical-optimization.png',
     bullets: [
       'Parametric optimization (Shape optimization, thickness optimization, composite optimization, material characterization)',
       'Topology optimization (Complex design spaces, multi-objective and multi-constraint optimization, manufacturing constraints)',
@@ -168,7 +169,7 @@ const tabs = [
             <img
               src={withBase(tab.image)}
               alt={`FEA ${tab.heading} visualization`}
-              class="w-full object-contain"
+              class={`${tab.imageClass ?? 'w-full'} object-contain`}
               style="mix-blend-mode: multiply;"
               loading="lazy"
             />

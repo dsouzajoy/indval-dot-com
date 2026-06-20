@@ -1,40 +1,54 @@
 ---
+import { withBase } from '@/lib/utils';
 const capabilities = [
   {
+    id: 'machining',
     label: 'Machining',
     icon: 'precision_manufacturing',
     image: '/images/manufacturing-machining.jpg',
     description: 'Specialized high-precision CNC machining solutions supported by advanced multi-axis facilities to meet complex engineering tolerances.',
   },
   {
+    id: 'castings',
     label: 'Castings',
     icon: 'format_paint',
     image: '/images/manufacturing-castings.jpg',
     description: 'Highly diversified range of investment and sand castings with intricate geometries.',
   },
   {
+    id: 'sheet-metal',
     label: 'Sheet Metal',
     icon: 'layers',
     image: '/images/manufacturing-sheet-metal.jpg',
     description: 'Custom fabrication and premium finish services including laser cutting and complex assembly.',
   },
   {
+    id: 'kitting-and-assemblies',
     label: 'Kitting and Assemblies',
     icon: 'inventory_2',
     image: '/images/manufacturing-kitting.jpg',
     description: 'End-to-end integration for complex sourcing needs, providing complete solutions from individual sub-components to full-scale mechanical assemblies.',
   },
   {
+    id: 'assembly-tooling',
     label: 'Assembly Tooling',
     icon: 'handyman',
     image: '/images/manufacturing-assembly-tooling.jpg',
     description: 'Design and production of precision aerostructure assembly frames, jigs, and sub-assembly equipment optimized for industrial performance and safety standards.',
   },
   {
+    id: 'rapid-prototyping',
     label: 'Rapid Prototyping',
     icon: '3d_rotation',
     image: '/images/manufacturing-rapid-prototyping.jpg',
     description: 'Accelerated prototyping services utilizing advanced additive manufacturing and rapid tooling to validate designs and bridge the gap to production.',
+  },
+  {
+    id: 'reverse-engineering',
+    label: 'Reverse Engineering',
+    icon: 'manage_search',
+    image: '/images/reverse-engineering-hero.jpg',
+    description: 'Comprehensive dimensional analysis and CAD reconstruction from physical parts, enabling design validation, legacy part digitization, and engineering improvements.',
   },
 ];
 ---
@@ -58,10 +72,10 @@ const capabilities = [
     <!-- Bento card grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {capabilities.map((cap) => (
-        <div class="group bg-surface-container-low rounded flex flex-col overflow-hidden border-b-2 border-transparent hover:border-secondary hover:bg-surface-container-high transition-all duration-300">
+        <div id={cap.id} class="group bg-surface-container-low rounded flex flex-col overflow-hidden border-b-2 border-transparent hover:border-secondary hover:bg-surface-container-high transition-all duration-300">
           <div class="aspect-video overflow-hidden">
             <img
-              src={cap.image}
+              src={withBase(cap.image)}
               alt={cap.label}
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               loading="lazy"

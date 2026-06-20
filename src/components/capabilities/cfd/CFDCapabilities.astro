@@ -1,4 +1,5 @@
 ---
+import { withBase } from '@/lib/utils';
 const tabs = [
   {
     label: 'Fluid Flow',
@@ -160,7 +161,7 @@ const tabs = [
           <!-- Right: CFD image -->
           <div>
             <img
-              src={tab.image}
+              src={withBase(tab.image)}
               alt={`CFD ${tab.heading} visualization`}
               class="w-full object-contain"
               style="mix-blend-mode: multiply;"

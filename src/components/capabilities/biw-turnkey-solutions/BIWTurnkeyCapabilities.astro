@@ -1,5 +1,6 @@
 ---
 import { en } from '@/i18n/locales/en';
+import { withBase } from '@/lib/utils';
 import BIWPillarLightbox from './BIWPillarLightbox.astro';
 
 const differentiators = [
@@ -149,7 +150,7 @@ const steps = [
           data-pillar-index={i}
           data-pillar-title={pillar.title}
           data-pillar-icon={pillar.icon}
-          data-images={JSON.stringify(pillar.images)}
+          data-images={JSON.stringify(pillar.images.map(img => ({ ...img, src: withBase(img.src) })))}
         >
           <!-- Icon -->
           <div class="flex justify-center mb-6">

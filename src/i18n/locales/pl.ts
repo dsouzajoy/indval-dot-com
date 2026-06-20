@@ -40,6 +40,9 @@ export const pl = {
     years: 'Lata',
     employees: 'Pracownicy',
   },
+  certifications: {
+    verifiedLabel: 'Certyfikowane i Zweryfikowane',
+  },
   industries: {
     heading: 'Multidyscyplinarny ekosystem inżynieryjny',
     description: 'Kompleksowe rozwiązania dla środowisk wysokiego ryzyka, gdzie porażka nie wchodzi w grę.',

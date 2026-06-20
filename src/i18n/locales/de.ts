@@ -40,6 +40,9 @@ export const de = {
     years: 'Jahre',
     employees: 'Mitarbeiter',
   },
+  certifications: {
+    verifiedLabel: 'Zertifiziert & Verifiziert',
+  },
   industries: {
     heading: 'Multidisziplinäres Engineering-Ökosystem',
     description: 'End-to-End-Lösungen für Hochrisikobereiche, in denen Versagen keine Option ist.',

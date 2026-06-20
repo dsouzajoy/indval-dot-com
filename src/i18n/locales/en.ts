@@ -38,6 +38,9 @@ export const en = {
     years: 'Years',
     employees: 'Employees',
   },
+  certifications: {
+    verifiedLabel: 'Certified & Verified',
+  },
   industries: {
     heading: 'Multidisciplinary Engineering Ecosystem',
     description: 'End-to-end solutions designed for high-stakes environments where failure is not an option.',

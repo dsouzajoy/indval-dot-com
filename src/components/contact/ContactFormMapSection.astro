@@ -34,43 +34,127 @@ const phones = [
       <div class="flex flex-col gap-2">
         <label class="font-label text-xs uppercase tracking-[0.2em] text-primary font-bold">Full Name</label>
         <input
+          id="contact-name"
           type="text"
           name="Full Name"
-          placeholder="Full Name"
-          class="border-b-2 border-outline-variant/30 focus:border-primary bg-transparent py-3 w-full outline-none transition-colors duration-200 text-on-surface placeholder:text-on-surface-variant/40 font-sans text-base"
+          placeholder="e.g. Jane Smith"
+          class="border-b-2 border-outline-variant/30 focus:border-primary data-[invalid]:border-red-500 bg-transparent py-3 w-full outline-none transition-colors duration-200 text-on-surface placeholder:text-on-surface-variant/40 font-sans text-base"
         />
+        <p id="contact-name-error" class="hidden text-xs text-red-500 font-label mt-1"></p>
       </div>
 
       <!-- Work Email -->
       <div class="flex flex-col gap-2">
         <label class="font-label text-xs uppercase tracking-[0.2em] text-primary font-bold">Work Email</label>
         <input
+          id="contact-email"
           type="email"
           name="Work Email"
-          placeholder="Work Email"
-          class="border-b-2 border-outline-variant/30 focus:border-primary bg-transparent py-3 w-full outline-none transition-colors duration-200 text-on-surface placeholder:text-on-surface-variant/40 font-sans text-base"
+          placeholder="e.g. jane@company.com"
+          class="border-b-2 border-outline-variant/30 focus:border-primary data-[invalid]:border-red-500 bg-transparent py-3 w-full outline-none transition-colors duration-200 text-on-surface placeholder:text-on-surface-variant/40 font-sans text-base"
         />
+        <p id="contact-email-error" class="hidden text-xs text-red-500 font-label mt-1"></p>
       </div>
 
       <!-- Technical Specifications -->
       <div class="flex flex-col gap-2">
         <label class="font-label text-xs uppercase tracking-[0.2em] text-primary font-bold">Technical Specifications</label>
         <textarea
+          id="contact-specs"
           name="Technical Specifications"
           placeholder="Scope of work or RFQ details…"
           rows="4"
-          class="border-b-2 border-outline-variant/30 focus:border-primary bg-transparent py-3 w-full outline-none transition-colors duration-200 text-on-surface placeholder:text-on-surface-variant/40 font-sans text-base resize-none"
+          class="border-b-2 border-outline-variant/30 focus:border-primary data-[invalid]:border-red-500 bg-transparent py-3 w-full outline-none transition-colors duration-200 text-on-surface placeholder:text-on-surface-variant/40 font-sans text-base resize-none"
         ></textarea>
+        <p id="contact-specs-error" class="hidden text-xs text-red-500 font-label mt-1"></p>
       </div>
 
       <!-- Submit -->
       <button
+        id="contact-submit"
         type="submit"
         class="self-start inline-flex items-center gap-2 px-8 py-4 bg-primary text-white font-label font-bold uppercase tracking-wider hover:bg-primary-container transition-colors duration-200 mt-2"
       >
         SEND ENQUIRY →
       </button>
     </form>
+
+    <style>
+      @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        15%       { transform: translateX(-5px); }
+        30%       { transform: translateX(5px); }
+        45%       { transform: translateX(-4px); }
+        60%       { transform: translateX(4px); }
+        75%       { transform: translateX(-2px); }
+        90%       { transform: translateX(2px); }
+      }
+      .shake { animation: shake 0.4s ease-in-out; }
+    </style>
+
+    <script>
+      const nameInput  = document.getElementById('contact-name')  as HTMLInputElement;
+      const emailInput = document.getElementById('contact-email') as HTMLInputElement;
+      const specsInput = document.getElementById('contact-specs') as HTMLTextAreaElement;
+      const btn        = document.getElementById('contact-submit') as HTMLButtonElement;
+
+      const nameError  = document.getElementById('contact-name-error')  as HTMLParagraphElement;
+      const emailError = document.getElementById('contact-email-error') as HTMLParagraphElement;
+      const specsError = document.getElementById('contact-specs-error') as HTMLParagraphElement;
+
+      const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      let submitted = false;
+
+      function validateName()  { return nameInput.value.trim()  === '' ? 'Name is required.' : ''; }
+      function validateEmail() {
+        const v = emailInput.value.trim();
+        if (v === '') return 'Email is required.';
+        if (!EMAIL_RE.test(v)) return 'Please enter a valid email address (e.g. jane@company.com).';
+        return '';
+      }
+      function validateSpecs() { return specsInput.value.trim() === '' ? 'Technical specifications are required.' : ''; }
+
+      function applyError(el: HTMLParagraphElement, input: HTMLElement, msg: string) {
+        if (msg) {
+          el.textContent = msg;
+          el.classList.remove('hidden');
+          input.setAttribute('data-invalid', '');
+        } else {
+          el.textContent = '';
+          el.classList.add('hidden');
+          input.removeAttribute('data-invalid');
+        }
+      }
+
+      function validateAll() {
+        applyError(nameError,  nameInput,  validateName());
+        applyError(emailError, emailInput, validateEmail());
+        applyError(specsError, specsInput, validateSpecs());
+        return validateName() === '' && validateEmail() === '' && validateSpecs() === '';
+      }
+
+      function shake(el: HTMLElement) {
+        el.classList.remove('shake');
+        void el.offsetWidth; // reflow to allow re-triggering
+        el.classList.add('shake');
+        el.addEventListener('animationend', () => el.classList.remove('shake'), { once: true });
+      }
+
+      btn.addEventListener('click', (e) => {
+        submitted = true;
+        const valid = validateAll();
+        if (!valid) {
+          e.preventDefault();
+          [nameInput, emailInput, specsInput].forEach(f => {
+            if (f.hasAttribute('data-invalid')) shake(f);
+          });
+        }
+      });
+
+      [nameInput, emailInput, specsInput].forEach(f =>
+        f.addEventListener('input', () => { if (submitted) validateAll(); })
+      );
+    </script>
   </div>
 
   <!-- RIGHT: Map + Address Panel -->

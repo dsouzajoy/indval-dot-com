@@ -109,7 +109,7 @@ export const de = {
     heading: 'Über unsere Qualitätspolitik',
     quote: 'Wir gewährleisten die Kundenzufriedenheit durch Leistungen gemäß den vereinbarten Zeitplänen und durch die Aufrechterhaltung der Kostenwettbewerbsfähigkeit durch kontinuierliche Verbesserungen. Wir als Team und als Einzelperson sind verpflichtet, unser Ziel der Kundenzufriedenheit durch die kontinuierliche Verbesserung der Wirksamkeit des Qualitätsmanagementsystems zu erfüllen.',
     badgeTitle: 'Qualität zuerst Initiative',
-    badgeSubtitle: 'ISO 9001:2015 & AS9100D Compliance-Rahmen',
+    badgeSubtitle: 'ISO 9001:2015 Compliance-Rahmen',
   },
   footer: {
     brand: 'Spezialisierte Engineering-Partner, die Präzisionslösungen für die anspruchsvollsten Industrien der Welt liefern.',

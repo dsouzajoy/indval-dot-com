@@ -17,9 +17,10 @@ Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
   Header set Cache-Control "public, max-age=3600"
 </FilesMatch>
 
-# 301 Redirects — populate after URL audit (pending decision #2)
-# Redirect 301 /old-page.php /new-page
-# Redirect 301 /products.php /products
+# 301 Redirects
+RewriteEngine On
+RewriteCond %{QUERY_STRING} ^page_id=146$
+RewriteRule ^$ /contact/? [R=301,L]
 
 # Custom 404
 ErrorDocument 404 /404.html

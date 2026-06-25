@@ -41,6 +41,35 @@ DEPLOY_TARGET=ghpages npm run build  # GitHub Pages
 DEPLOY_TARGET=prod npm run build     # Production
 ```
 
+## Buttons & CTAs — ALWAYS use `<Button>`
+
+The `Button` component (`src/components/ui/Button.astro`) is the single source of truth for all CTA styling. Never hand-roll button classes from scratch.
+
+```astro
+---
+import Button from '@/components/ui/Button.astro';
+---
+
+<!-- Primary: navy fill — forms, nav actions, "Back to Home" -->
+<Button href="/contact" variant="primary">Contact Us</Button>
+
+<!-- Secondary: orange fill — hero sections, page-level CTAs, "Get In Touch" -->
+<Button href="/contact" variant="secondary">Get In Touch</Button>
+
+<!-- Ghost: navy outline — secondary actions alongside a primary CTA -->
+<Button href="/contact#contact-form" variant="ghost">Get In Touch</Button>
+
+<!-- Without href renders a <button> element (e.g. form submit) -->
+<Button type="submit" variant="primary">Send Enquiry</Button>
+```
+
+**When `<Button>` cannot be used** (e.g. an anchor inside a dark hero overlay with gradient styling), copy the exact base classes from `Button.astro` and add `btn-press`. Do not use `active:scale-95` or `transition-all` — the site uses a Y-axis lift press animation (`btn-press`) exclusively for all full-size CTAs.
+
+The three correct press utilities are:
+- `btn-press` — full-size buttons and CTAs
+- `btn-press-card` — clickable card containers
+- `btn-press-icon` — small icon controls (close, prev/next)
+
 ## i18n
 
 All user-facing strings go through `src/i18n/locales/en.ts`. Components import `{ en }` and also add `data-i18n="key.path"` attributes for runtime locale switching.

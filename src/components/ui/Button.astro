@@ -1,7 +1,7 @@
 ---
 interface Props {
   href?: string;
-  variant?: 'primary' | 'ghost';
+  variant?: 'primary' | 'secondary' | 'ghost';
   type?: 'button' | 'submit';
   class?: string;
 }
@@ -12,7 +12,8 @@ const base = 'inline-flex items-center justify-center gap-2 px-8 py-4 rounded fo
 
 const variants = {
   primary: 'bg-primary text-white hover:bg-primary-container btn-press',
-  ghost: 'border border-outline-variant/30 text-primary bg-transparent hover:bg-surface-container-low btn-press-icon',
+  secondary: 'bg-secondary text-white hover:bg-secondary/90 btn-press',
+  ghost: 'border border-outline-variant/30 text-primary bg-transparent hover:bg-surface-container-low btn-press',
 };
 
 const classes = [base, variants[variant], className].filter(Boolean).join(' ');

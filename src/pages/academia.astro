@@ -6,6 +6,7 @@ import ProgramPipelineSection from '../components/academia/ProgramPipelineSectio
 import CompetencyCentersSection from '../components/academia/CompetencyCentersSection.astro';
 import OutcomesSection from '../components/academia/OutcomesSection.astro';
 import { withBase } from '../lib/utils';
+import Button from '@/components/ui/Button.astro';
 ---
 
 <BaseLayout
@@ -28,12 +29,7 @@ import { withBase } from '../lib/utils';
       <p class="text-white/80 text-lg leading-relaxed mb-10">
         Connect with our team to learn more about program eligibility, upcoming batches, and enrollment.
       </p>
-      <a
-        href={withBase('/contact')}
-        class="inline-block bg-secondary text-white px-10 py-4 rounded font-label text-sm font-bold uppercase tracking-widest hover:bg-secondary/90 hover:shadow-ambient-lg active:scale-95 transition-all duration-200 shadow-lg"
-      >
-        Get In Touch
-      </a>
+      <Button href={withBase('/contact')} variant="secondary">Get In Touch</Button>
     </div>
   </section>
 </BaseLayout>

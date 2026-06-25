@@ -49,6 +49,7 @@ const capabilities = [
     icon: 'manage_search',
     image: '/images/reverse-engineering-hero.jpg',
     description: 'Comprehensive dimensional analysis and CAD reconstruction from physical parts, enabling design validation, legacy part digitization, and engineering improvements.',
+    href: '/capabilities/reverse-engineering',
   },
 ];
 ---
@@ -71,28 +72,35 @@ const capabilities = [
 
     <!-- Bento card grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {capabilities.map((cap) => (
-        <div id={cap.id} class="group bg-surface-container-low rounded flex flex-col overflow-hidden border-b-2 border-transparent hover:border-secondary hover:bg-surface-container-high transition-all duration-300">
-          <div class="aspect-video overflow-hidden">
-            <img
-              src={withBase(cap.image)}
-              alt={cap.label}
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              loading="lazy"
-            />
-          </div>
-          <div class="p-8 flex flex-col flex-grow">
-            <div class="flex items-center justify-between mb-3">
-              <h3 class="font-headline font-bold text-xl text-on-surface">{cap.label}</h3>
-              <span
-                class="material-symbols-outlined text-primary text-4xl shrink-0"
-                aria-hidden="true"
-              >{cap.icon}</span>
+      {capabilities.map((cap) => {
+        const Tag = cap.href ? 'a' : 'div';
+        return (
+          <Tag
+            id={cap.id}
+            href={cap.href ? withBase(cap.href) : undefined}
+            class="group bg-surface-container-low rounded flex flex-col overflow-hidden border-b-2 border-transparent hover:border-secondary hover:bg-surface-container-high transition-all duration-300"
+          >
+            <div class="aspect-video overflow-hidden">
+              <img
+                src={withBase(cap.image)}
+                alt={cap.label}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
             </div>
-            <p class="text-on-surface-variant leading-relaxed text-sm flex-grow">{cap.description}</p>
-          </div>
-        </div>
-      ))}
+            <div class="p-8 flex flex-col flex-grow">
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="font-headline font-bold text-xl text-on-surface">{cap.label}</h3>
+                <span
+                  class="material-symbols-outlined text-primary text-4xl shrink-0"
+                  aria-hidden="true"
+                >{cap.icon}</span>
+              </div>
+              <p class="text-on-surface-variant leading-relaxed text-sm flex-grow">{cap.description}</p>
+            </div>
+          </Tag>
+        );
+      })}
     </div>
 
   </div>

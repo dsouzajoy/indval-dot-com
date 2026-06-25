@@ -184,6 +184,14 @@ export const en = {
       cta: 'Explore Capabilities',
     },
   },
+  casting: {
+    hero: {
+      eyebrow: 'Manufacturing',
+      heading: 'Casting Services',
+      description: 'Highly diversified casted parts for low, medium, and high-volume production, spanning a few grams to several tons, in ferrous and non-ferrous materials, with in-house quality control and end-to-end finishing.',
+      cta: 'Explore Casting Processes',
+    },
+  },
   specialMachineDesign: {
     hero: {
       eyebrow: 'Mechanical Design',

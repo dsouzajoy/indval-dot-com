@@ -1,0 +1,138 @@
+---
+import CapabilityCard from '@/components/ui/CapabilityCard.astro';
+
+const whyPoints = [
+  {
+    icon: 'scale',
+    title: 'Full weight range',
+    description: 'Parts from a few grams up to several tons handled within the same facility.',
+  },
+  {
+    icon: 'category',
+    title: 'Broad material capability',
+    description: 'Ferrous and non-ferrous alloys including aluminium, iron, steel and copper-based materials.',
+  },
+  {
+    icon: 'science',
+    title: 'In-house quality labs',
+    description: 'On-site metallurgical testing ensures consistent material integrity across every batch.',
+  },
+  {
+    icon: 'tune',
+    title: 'End-to-end finishing',
+    description: 'Surface treatments, machining and comprehensive testing deliver ready-to-use parts.',
+  },
+];
+
+const processes = [
+  {
+    icon: 'compress',
+    label: 'Die Casting',
+    image: '/images/casting/die-casting.jpg',
+    description: 'Molten metal is injected under high pressure into precision steel dies, producing dimensionally accurate, high-volume parts with excellent surface finish. Best suited to aluminium and zinc components.',
+  },
+  {
+    icon: 'auto_fix_high',
+    label: 'Investment Casting',
+    image: '/images/casting/investment-casting.jpg',
+    description: 'Wax patterns are coated in ceramic shell, burned out, then filled with molten metal to achieve intricate geometries and tight tolerances. The preferred choice for aerospace, medical and complex structural parts.',
+  },
+  {
+    icon: 'layers',
+    label: 'Sand Casting',
+    image: '/images/casting/sand-casting.jpg',
+    description: 'Bonded sand molds are formed around a pattern, filled with molten metal and broken away after solidification. A versatile, cost-effective process for large and complex parts in virtually any metal.',
+  },
+  {
+    icon: 'rotate_right',
+    label: 'Centrifugal Casting',
+    image: '/images/casting/centrifugal-casting.jpg',
+    description: 'Molten metal is poured into a spinning mold; centrifugal force drives the metal outward, producing dense, porosity-free cylindrical parts such as pipes, rings and bushings.',
+  },
+  {
+    icon: 'blur_on',
+    label: 'Lost Foam Casting',
+    image: '/images/casting/lost-foam-casting.jpg',
+    description: 'Foam patterns embedded in unbonded sand are vaporized by the incoming molten metal, enabling highly complex, near-net-shape castings with minimal core work and reduced finishing.',
+  },
+];
+---
+
+<!-- Block 1: What is Casting -->
+<section
+  id="what-is-casting"
+  class="bg-surface py-24 lg:py-32"
+  style="background-image: radial-gradient(circle, rgba(195,198,211,0.8) 1px, transparent 1px); background-size: 40px 40px;"
+>
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+    <div class="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-16 items-start">
+      <!-- Left: text -->
+      <div>
+        <p class="font-label text-xs uppercase tracking-widest text-secondary mb-3">The process</p>
+        <h2 class="font-headline text-3xl lg:text-4xl font-bold text-primary tracking-tight mb-6 max-w-lg">What is metal casting?</h2>
+        <p class="text-on-surface-variant leading-relaxed mb-5">
+          Metal casting is a manufacturing process in which molten metal is poured or injected into a mold, allowed to solidify, and then removed to produce a shaped part. It is one of the oldest and most versatile forming processes, capable of producing components with <strong class="text-on-surface">complex internal geometries, large size ranges and a wide choice of alloys</strong> that would be difficult or uneconomical to machine from solid stock.
+        </p>
+        <p class="text-on-surface-variant leading-relaxed">
+          At Indval, our foundry capabilities span ferrous and non-ferrous materials, covering part weights from miniature precision components to large structural castings. With in-house laboratories for material integrity verification and full surface treatment and finishing services, we deliver ready-to-use cast parts that fit seamlessly into your manufacturing process, saving time and reducing downstream costs.
+        </p>
+      </div>
+      <!-- Right: Why it matters card -->
+      <div class="bg-surface-container-low border border-outline-variant rounded-2xl p-8 shadow-ambient">
+        <p class="font-label text-xs uppercase tracking-widest text-on-surface-variant mb-5">Why it matters</p>
+        <div class="flex flex-col gap-5">
+          {whyPoints.map((point) => (
+            <div class="flex gap-4 items-start">
+              <span class="material-symbols-outlined text-secondary text-2xl shrink-0" aria-hidden="true">{point.icon}</span>
+              <div>
+                <p class="font-headline font-bold text-sm text-primary mb-1">{point.title}</p>
+                <p class="text-on-surface-variant text-sm leading-relaxed">{point.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Block 2: Casting Processes -->
+<section id="casting-processes" class="bg-surface-container-low py-24 lg:py-32 border-t border-b border-outline-variant">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+    <div class="max-w-2xl mb-12">
+      <p class="font-label text-sm uppercase tracking-widest text-secondary mb-3">What we offer</p>
+      <h2 class="font-headline text-4xl lg:text-5xl font-bold text-on-surface mb-4">Casting Processes</h2>
+      <p class="text-on-surface-variant leading-relaxed">
+        Five proven casting methods under one roof, each matched to your part geometry, material, volume and tolerance requirements.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {processes.map((process) => (
+        <CapabilityCard
+          image={process.image}
+          label={process.label}
+          icon={process.icon}
+          description={process.description}
+        />
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Block 3: Get In Touch CTA -->
+<section class="bg-on-surface py-20">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16 text-center">
+    <h2 class="font-headline text-3xl lg:text-4xl font-bold text-white mb-4">
+      Ready to Cast Your Next Part?
+    </h2>
+    <p class="text-white/80 text-base mb-10 max-w-xl mx-auto leading-relaxed">
+      Share your drawing or specification and our engineers will respond with a scoped, costed quote within 24 hours.
+    </p>
+    <a
+      href="/contact#contact-form"
+      class="inline-flex items-center justify-center gap-2 bg-secondary text-white px-8 py-4 rounded font-label text-sm font-bold uppercase tracking-wider cursor-pointer hover:bg-secondary/90 btn-press"
+    >
+      Get In Touch
+    </a>
+  </div>
+</section>

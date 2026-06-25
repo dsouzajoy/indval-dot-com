@@ -1,0 +1,190 @@
+---
+import { en } from '@/i18n/locales/en';
+import { withBase } from '@/lib/utils';
+
+const benefits = [
+  { icon: 'inventory_2', title: en.kitting.explainer.benefit1Title, desc: en.kitting.explainer.benefit1Desc, i18nTitle: 'kitting.explainer.benefit1Title', i18nDesc: 'kitting.explainer.benefit1Desc' },
+  { icon: 'savings',     title: en.kitting.explainer.benefit2Title, desc: en.kitting.explainer.benefit2Desc, i18nTitle: 'kitting.explainer.benefit2Title', i18nDesc: 'kitting.explainer.benefit2Desc' },
+  { icon: 'verified',    title: en.kitting.explainer.benefit3Title, desc: en.kitting.explainer.benefit3Desc, i18nTitle: 'kitting.explainer.benefit3Title', i18nDesc: 'kitting.explainer.benefit3Desc' },
+  { icon: 'crop_free',   title: en.kitting.explainer.benefit4Title, desc: en.kitting.explainer.benefit4Desc, i18nTitle: 'kitting.explainer.benefit4Title', i18nDesc: 'kitting.explainer.benefit4Desc' },
+];
+
+const categories = [
+  {
+    num: '01',
+    labelKey: 'kitting.comparison.supplyChainLabel',
+    label: en.kitting.comparison.supplyChainLabel,
+    bom: [
+      { key: 'kitting.comparison.bomSupplyChain1', text: en.kitting.comparison.bomSupplyChain1 },
+      { key: 'kitting.comparison.bomSupplyChain2', text: en.kitting.comparison.bomSupplyChain2 },
+    ],
+    kit: [
+      { key: 'kitting.comparison.kitSupplyChain1', text: en.kitting.comparison.kitSupplyChain1 },
+      { key: 'kitting.comparison.kitSupplyChain2', text: en.kitting.comparison.kitSupplyChain2 },
+    ],
+  },
+  {
+    num: '02',
+    labelKey: 'kitting.comparison.costLabel',
+    label: en.kitting.comparison.costLabel,
+    bom: [
+      { key: 'kitting.comparison.bomCost1', text: en.kitting.comparison.bomCost1 },
+      { key: 'kitting.comparison.bomCost2', text: en.kitting.comparison.bomCost2 },
+      { key: 'kitting.comparison.bomCost3', text: en.kitting.comparison.bomCost3 },
+    ],
+    kit: [
+      { key: 'kitting.comparison.kitCost1', text: en.kitting.comparison.kitCost1 },
+      { key: 'kitting.comparison.kitCost2', text: en.kitting.comparison.kitCost2 },
+      { key: 'kitting.comparison.kitCost3', text: en.kitting.comparison.kitCost3 },
+    ],
+  },
+  {
+    num: '03',
+    labelKey: 'kitting.comparison.operationsLabel',
+    label: en.kitting.comparison.operationsLabel,
+    bom: [
+      { key: 'kitting.comparison.bomOps1', text: en.kitting.comparison.bomOps1 },
+      { key: 'kitting.comparison.bomOps2', text: en.kitting.comparison.bomOps2 },
+      { key: 'kitting.comparison.bomOps3', text: en.kitting.comparison.bomOps3 },
+    ],
+    kit: [
+      { key: 'kitting.comparison.kitOps1', text: en.kitting.comparison.kitOps1 },
+      { key: 'kitting.comparison.kitOps2', text: en.kitting.comparison.kitOps2 },
+      { key: 'kitting.comparison.kitOps3', text: en.kitting.comparison.kitOps3 },
+    ],
+  },
+];
+---
+
+<!-- Block 1: What is Kitting and Assembly -->
+<section
+  id="what-is-kitting"
+  class="bg-surface py-24 lg:py-32"
+  style="background-image: radial-gradient(circle, rgba(195,198,211,0.8) 1px, transparent 1px); background-size: 40px 40px;"
+>
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+    <div class="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-16 items-start">
+
+      <!-- Left: text -->
+      <div>
+        <p class="font-label text-xs uppercase tracking-widest text-secondary mb-3" data-i18n="kitting.explainer.eyebrow">{en.kitting.explainer.eyebrow}</p>
+        <h2 class="font-headline text-3xl lg:text-4xl font-bold text-primary tracking-tight mb-6 max-w-lg" data-i18n="kitting.explainer.heading">{en.kitting.explainer.heading}</h2>
+        <p class="text-on-surface-variant leading-relaxed mb-5" data-i18n="kitting.explainer.body1">{en.kitting.explainer.body1}</p>
+        <p class="text-on-surface-variant leading-relaxed" data-i18n="kitting.explainer.body2">{en.kitting.explainer.body2}</p>
+      </div>
+
+      <!-- Right: Why it matters card -->
+      <div class="bg-surface-container-low border border-outline-variant rounded-2xl p-8 shadow-ambient">
+        <p class="font-label text-xs uppercase tracking-widest text-on-surface-variant mb-5" data-i18n="kitting.explainer.whyItMatters">{en.kitting.explainer.whyItMatters}</p>
+        <div class="flex flex-col gap-5">
+          {benefits.map((b) => (
+            <div class="flex gap-4 items-start">
+              <span class="material-symbols-outlined text-secondary text-2xl shrink-0" aria-hidden="true">{b.icon}</span>
+              <div>
+                <p class="font-headline font-bold text-sm text-primary mb-1" data-i18n={b.i18nTitle}>{b.title}</p>
+                <p class="text-on-surface-variant text-sm leading-relaxed" data-i18n={b.i18nDesc}>{b.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Block 2: BOM vs Kit Comparison -->
+<section id="bom-vs-kit" class="bg-surface-container-low py-24 lg:py-32 border-t border-b border-outline-variant">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+
+    <!-- Section heading -->
+    <div class="max-w-2xl mb-12">
+      <p class="font-label text-sm uppercase tracking-widest text-secondary mb-3" data-i18n="kitting.comparison.eyebrow">{en.kitting.comparison.eyebrow}</p>
+      <h2 class="font-headline text-4xl lg:text-5xl font-bold text-on-surface mb-4" data-i18n="kitting.comparison.heading">{en.kitting.comparison.heading}</h2>
+      <p class="text-on-surface-variant leading-relaxed" data-i18n="kitting.comparison.description">{en.kitting.comparison.description}</p>
+    </div>
+
+    <!-- Comparison table -->
+    <div class="rounded-2xl overflow-hidden border border-outline-variant shadow-ambient">
+
+      <!-- Column headers -->
+      <div class="grid grid-cols-2">
+        <div class="bg-surface px-8 py-6 border-r border-outline-variant">
+          <p class="font-label text-xs uppercase tracking-widest text-on-surface-variant/60 mb-1" data-i18n="kitting.comparison.bomHeading">{en.kitting.comparison.bomHeading}</p>
+          <p class="font-headline font-semibold text-sm text-on-surface-variant" data-i18n="kitting.comparison.bomSubtitle">{en.kitting.comparison.bomSubtitle}</p>
+        </div>
+        <div class="bg-on-surface px-8 py-6">
+          <p class="font-label text-xs uppercase tracking-widest text-secondary/80 mb-1" data-i18n="kitting.comparison.kitHeading">{en.kitting.comparison.kitHeading}</p>
+          <p class="font-headline font-semibold text-sm text-white/70" data-i18n="kitting.comparison.kitSubtitle">{en.kitting.comparison.kitSubtitle}</p>
+        </div>
+      </div>
+
+      <!-- Category rows -->
+      {categories.map((cat) => (
+        <div class="grid grid-cols-2 border-t border-outline-variant">
+
+          <!-- BOM side -->
+          <div class="bg-surface px-8 py-8 border-r border-outline-variant">
+            <div class="flex items-center gap-2 mb-5">
+              <span class="font-label text-xs text-on-surface-variant/50 tabular-nums">{cat.num}</span>
+              <span class="font-headline font-bold text-sm text-on-surface" data-i18n={cat.labelKey}>{cat.label}</span>
+            </div>
+            <ul class="space-y-3">
+              {cat.bom.map((item) => (
+                <li class="flex gap-3 items-start">
+                  <span
+                    class="material-symbols-outlined text-red-400 text-base leading-5 shrink-0 mt-0.5"
+                    aria-hidden="true"
+                    style="font-variation-settings: 'FILL' 1"
+                  >cancel</span>
+                  <span class="text-sm text-on-surface-variant leading-relaxed" data-i18n={item.key}>{item.text}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Kit side -->
+          <div class="bg-on-surface px-8 py-8 border-t border-white/5">
+            <div class="flex items-center gap-2 mb-5">
+              <span class="font-label text-xs text-white/30 tabular-nums">{cat.num}</span>
+              <span class="font-headline font-bold text-sm text-white" data-i18n={cat.labelKey}>{cat.label}</span>
+            </div>
+            <ul class="space-y-3">
+              {cat.kit.map((item) => (
+                <li class="flex gap-3 items-start">
+                  <span
+                    class="material-symbols-outlined text-secondary text-base leading-5 shrink-0 mt-0.5"
+                    aria-hidden="true"
+                    style="font-variation-settings: 'FILL' 1"
+                  >check_circle</span>
+                  <span class="text-sm text-white/80 leading-relaxed" data-i18n={item.key}>{item.text}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+        </div>
+      ))}
+
+    </div>
+  </div>
+</section>
+
+<!-- Block 3: Get In Touch CTA -->
+<section class="bg-on-surface py-20">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16 text-center">
+    <h2 class="font-headline text-3xl lg:text-4xl font-bold text-white mb-4" data-i18n="kitting.cta.heading">
+      {en.kitting.cta.heading}
+    </h2>
+    <p class="text-white/80 text-base mb-10 max-w-xl mx-auto leading-relaxed" data-i18n="kitting.cta.body">
+      {en.kitting.cta.body}
+    </p>
+    <a
+      href={withBase('/contact#contact-form')}
+      class="inline-flex items-center justify-center gap-2 bg-secondary text-white px-8 py-4 rounded font-label text-sm font-bold uppercase tracking-wider cursor-pointer hover:bg-secondary/90 btn-press"
+      data-i18n="kitting.cta.button"
+    >
+      {en.kitting.cta.button}
+    </a>
+  </div>
+</section>

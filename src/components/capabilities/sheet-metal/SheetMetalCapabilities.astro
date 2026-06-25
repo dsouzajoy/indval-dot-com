@@ -1,0 +1,121 @@
+---
+import CapabilityCard from '@/components/ui/CapabilityCard.astro';
+import { withBase } from '@/lib/utils';
+
+const whyPoints = [
+  {
+    icon: 'layers',
+    title: 'Broad material range',
+    description: 'Cold-rolled steel, hot-rolled steel, stainless steel, galvanised steel, brass, aluminium and beryllium copper processed under one roof.',
+  },
+  {
+    icon: 'straighten',
+    title: 'Size flexibility',
+    description: 'From small precision brackets to large structural fabrications, with tolerance control from micron-level to moderate criticality.',
+  },
+  {
+    icon: 'format_paint',
+    title: 'End-to-end finishing',
+    description: 'Powder coating, painting, anodizing and screen printing applied in-house for ready-to-integrate parts.',
+  },
+  {
+    icon: 'inventory_2',
+    title: 'Volume scalability',
+    description: 'Low, medium and high volume runs supported with consistent quality and optimised packing for logistics efficiency.',
+  },
+];
+
+const services = [
+  {
+    icon: 'cut',
+    label: 'Sheet Metal Fabrication',
+    image: '/images/sheet-metal/sheet-metal-fabrication.jpg',
+    description: 'Laser cutting, waterjet, turret punching, plasma cutting, CNC bending, press brakes, and TIG/MIG/laser welding across low to high volumes with micron-level tolerance control.',
+  },
+  {
+    icon: 'precision_manufacturing',
+    label: 'Sheet Metal Stamping Design',
+    image: '/images/sheet-metal/sheet-metal-stamping.jpg',
+    description: 'Progressive stamping tools for complex 3D forms via piercing, bending, deep drawing, coining and blanking. Multi-tonnage presses handle steel, aluminium and copper to customer prints.',
+  },
+];
+---
+
+<!-- Block 1: What is Sheet Metal Fabrication -->
+<section
+  id="what-is-sheet-metal"
+  class="bg-surface py-24 lg:py-32"
+  style="background-image: radial-gradient(circle, rgba(195,198,211,0.8) 1px, transparent 1px); background-size: 40px 40px;"
+>
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+    <div class="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-16 items-start">
+      <!-- Left: text -->
+      <div>
+        <p class="font-label text-xs uppercase tracking-widest text-secondary mb-3">The process</p>
+        <h2 class="font-headline text-3xl lg:text-4xl font-bold text-primary tracking-tight mb-6 max-w-lg">What is sheet metal fabrication?</h2>
+        <p class="text-on-surface-variant leading-relaxed mb-5">
+          Sheet metal fabrication is the process of shaping flat metal sheets into functional parts and assemblies through cutting, bending, welding and finishing operations. It is one of the most versatile forming processes in modern manufacturing, capable of producing components ranging from small precision brackets to <strong class="text-on-surface">large structural enclosures across a wide range of materials and volumes</strong>.
+        </p>
+        <p class="text-on-surface-variant leading-relaxed">
+          At Indval, our sheet metal capabilities span cold-rolled and hot-rolled steel, stainless steel, galvanised steel, brass, aluminium and beryllium copper. We provide complete secondary operations including powder coating, painting, anodizing and screen printing, delivering ready-to-integrate parts that fit directly into your production line without additional downstream work.
+        </p>
+      </div>
+      <!-- Right: Why it matters card -->
+      <div class="bg-surface-container-low border border-outline-variant rounded-2xl p-8 shadow-ambient">
+        <p class="font-label text-xs uppercase tracking-widest text-on-surface-variant mb-5">Why it matters</p>
+        <div class="flex flex-col gap-5">
+          {whyPoints.map((point) => (
+            <div class="flex gap-4 items-start">
+              <span class="material-symbols-outlined text-secondary text-2xl shrink-0" aria-hidden="true">{point.icon}</span>
+              <div>
+                <p class="font-headline font-bold text-sm text-primary mb-1">{point.title}</p>
+                <p class="text-on-surface-variant text-sm leading-relaxed">{point.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Block 2: Services -->
+<section id="sheet-metal-services" class="bg-surface-container-low py-24 lg:py-32 border-t border-b border-outline-variant">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+    <div class="max-w-2xl mb-12">
+      <p class="font-label text-sm uppercase tracking-widest text-secondary mb-3">What we offer</p>
+      <h2 class="font-headline text-4xl lg:text-5xl font-bold text-on-surface mb-4">Our Services</h2>
+      <p class="text-on-surface-variant leading-relaxed">
+        Two core sheet metal disciplines delivered with advanced tooling, certified personnel and full in-house finishing.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {services.map((service) => (
+        <CapabilityCard
+          image={withBase(service.image)}
+          label={service.label}
+          icon={service.icon}
+          description={service.description}
+        />
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Block 3: Get In Touch CTA -->
+<section class="bg-on-surface py-20">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16 text-center">
+    <h2 class="font-headline text-3xl lg:text-4xl font-bold text-white mb-4">
+      Ready to Start Your Sheet Metal Project?
+    </h2>
+    <p class="text-white/80 text-base mb-10 max-w-xl mx-auto leading-relaxed">
+      Talk to our team about your fabrication or stamping requirements.
+    </p>
+    <a
+      href={withBase('/contact#contact-form')}
+      class="inline-flex items-center justify-center gap-2 bg-secondary text-white px-8 py-4 rounded font-label text-sm font-bold uppercase tracking-wider cursor-pointer hover:bg-secondary/90 btn-press"
+    >
+      Get In Touch
+    </a>
+  </div>
+</section>

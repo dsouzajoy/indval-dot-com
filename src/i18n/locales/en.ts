@@ -192,6 +192,14 @@ export const en = {
       cta: 'Explore Casting Processes',
     },
   },
+  sheetMetal: {
+    hero: {
+      eyebrow: 'Manufacturing',
+      heading: 'Sheet Metal Fabrication',
+      description: 'From laser cutting and CNC bending to complex welded assemblies, we manufacture precision sheet metal parts across steel, aluminium, stainless and copper alloys for low to high volume production.',
+      cta: 'Explore Capabilities',
+    },
+  },
   specialMachineDesign: {
     hero: {
       eyebrow: 'Mechanical Design',

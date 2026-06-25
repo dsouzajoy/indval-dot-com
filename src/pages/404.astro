@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="404 — Page Not Found | Indvaltech Engineering Services"
+  description="The page you're looking for doesn't exist."
+  showSplash={false}
+>
+  <section class="min-h-[calc(100vh-4rem)] bg-surface flex items-center justify-center px-8 py-24">
+    <div class="max-w-2xl mx-auto text-center">
+
+      <div class="flex justify-center mb-8">
+        <div class="bg-primary/10 rounded-full p-8">
+          <span
+            class="material-symbols-outlined text-primary"
+            style="font-size: 5rem; font-variation-settings: 'FILL' 1;"
+            aria-hidden="true"
+          >search_off</span>
+        </div>
+      </div>
+
+      <p class="font-label text-sm uppercase tracking-widest text-secondary mb-4">404 — Page Not Found</p>
+
+      <h1 class="font-headline text-4xl lg:text-5xl font-bold text-on-surface mb-6 leading-tight">
+        Looks Like You're Lost
+      </h1>
+
+      <p class="text-on-surface-variant text-base leading-relaxed mb-12 max-w-lg mx-auto">
+        The page you're looking for doesn't exist or may have been moved.
+        Head back to the homepage or reach out and we'll point you in the right direction.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="/"
+          class="inline-block bg-primary text-white px-10 py-4 rounded font-label text-sm font-bold uppercase tracking-widest hover:bg-primary/90 hover:shadow-ambient-lg active:scale-95 transition-all duration-200 shadow-lg"
+        >
+          Back to Home
+        </a>
+        <a
+          href="/contact#contact-form"
+          class="inline-block border border-primary text-primary px-10 py-4 rounded font-label text-sm font-bold uppercase tracking-widest hover:bg-primary/5 active:scale-95 transition-all duration-200"
+        >
+          Get In Touch
+        </a>
+      </div>
+
+    </div>
+  </section>
+</BaseLayout>

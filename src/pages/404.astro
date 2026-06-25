@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '@/components/ui/Button.astro';
+import { withBase } from '@/lib/utils';
 ---
 
 <BaseLayout
@@ -34,7 +35,7 @@ import Button from '@/components/ui/Button.astro';
 
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
         <Button href="/" variant="primary">Back to Home</Button>
-        <Button href="/contact#contact-form" variant="ghost">Get In Touch</Button>
+        <Button href={withBase('/contact#contact-form')} variant="ghost">Get In Touch</Button>
       </div>
 
     </div>

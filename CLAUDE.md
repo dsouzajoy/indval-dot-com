@@ -2,9 +2,9 @@
 
 Astro static site deployed to both GitHub Pages (`/indval-dot-com` subpath) and a production custom domain (`/`). The base path difference is the source of most environment-specific bugs.
 
-## Image & Asset Paths — ALWAYS use `withBase`
+## All Links & Asset Paths — ALWAYS use `withBase`
 
-Every `src` attribute on an `<img>` tag and every asset path that references `public/` must be wrapped with `withBase()`. Raw `/images/...` paths break on GitHub Pages because the site is served from a subpath.
+Every internal `href` and every asset `src` that references a root-relative path must be wrapped with `withBase()`. Raw `/...` paths break on GitHub Pages because the site is served from a subpath (`/indval-dot-com`).
 
 ```astro
 ---
@@ -12,14 +12,18 @@ import { withBase } from '@/lib/utils';
 ---
 
 <!-- Correct -->
+<a href={withBase('/contact#contact-form')}>Get In Touch</a>
+<Button href={withBase('/contact')} variant="secondary">Contact Us</Button>
 <img src={withBase('/images/my-image.png')} alt="..." />
 
 <!-- Wrong — breaks on GitHub Pages -->
+<a href="/contact#contact-form">Get In Touch</a>
 <img src="/images/my-image.png" alt="..." />
 ```
 
-This applies to:
-- `<img src={...}>` in templates
+This applies to **every** root-relative path in templates:
+- `<a href={...}>` and `<Button href={...}>` — all internal navigation links and CTAs
+- `<img src={...}>` — image tags
 - Image paths serialized to JSON (e.g. `data-*` attributes read by JS) — apply `withBase` **before** `JSON.stringify`
 - CSS `background-image` set via inline styles
 - Font and other asset paths in `<style>` blocks
@@ -48,16 +52,17 @@ The `Button` component (`src/components/ui/Button.astro`) is the single source o
 ```astro
 ---
 import Button from '@/components/ui/Button.astro';
+import { withBase } from '@/lib/utils';
 ---
 
 <!-- Primary: navy fill — forms, nav actions, "Back to Home" -->
-<Button href="/contact" variant="primary">Contact Us</Button>
+<Button href={withBase('/contact')} variant="primary">Contact Us</Button>
 
 <!-- Secondary: orange fill — hero sections, page-level CTAs, "Get In Touch" -->
-<Button href="/contact" variant="secondary">Get In Touch</Button>
+<Button href={withBase('/contact')} variant="secondary">Get In Touch</Button>
 
 <!-- Ghost: navy outline — secondary actions alongside a primary CTA -->
-<Button href="/contact#contact-form" variant="ghost">Get In Touch</Button>
+<Button href={withBase('/contact#contact-form')} variant="ghost">Get In Touch</Button>
 
 <!-- Without href renders a <button> element (e.g. form submit) -->
 <Button type="submit" variant="primary">Send Enquiry</Button>

@@ -1,5 +1,6 @@
 ---
 import { en } from '@/i18n/locales/en';
+import { withBase } from '@/lib/utils';
 
 const slides = [
   {
@@ -9,7 +10,7 @@ const slides = [
     cta:      en.hero.slide1.cta,
     href:     '/capabilities/biw-turnkey-solutions',
     i18nPrefix: 'hero.slide1',
-    img: 'https://images.pexels.com/photos/36692505/pexels-photo-36692505.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop',
+    img: '/images/pexels/hero-slide-1.jpeg',
     imgAlt: 'Female engineer with laptop overseeing a robotic arm in a manufacturing facility',
     gradient: 'from-primary/80 via-primary/30 to-black/10',
   },
@@ -21,7 +22,7 @@ const slides = [
     // cta: en.hero.slide2.cta,
     hideCta:  true,
     i18nPrefix: 'hero.slide2',
-    img: 'https://images.pexels.com/photos/32845690/pexels-photo-32845690.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop',
+    img: '/images/pexels/hero-slide-2.jpeg',
     imgAlt: 'Engineers in uniform collaborating on a tablet inside a manufacturing facility',
     gradient: 'from-black/70 via-black/20 to-black/10',
   },
@@ -32,7 +33,7 @@ const slides = [
     cta:      en.hero.slide3.cta,
     href:     '/careers',
     i18nPrefix: 'hero.slide3',
-    img: 'https://images.pexels.com/photos/31336021/pexels-photo-31336021.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop',
+    img: '/images/pexels/hero-slide-3.jpeg',
     imgAlt: 'Indian female factory worker in a textile manufacturing facility',
     gradient: 'from-primary/80 via-primary/30 to-black/10',
   },
@@ -50,7 +51,7 @@ const slides = [
         <div class="absolute inset-0 bg-black/50 z-10"></div>
         <div class={`absolute inset-0 bg-gradient-to-r ${slide.gradient} z-10`}></div>
         <img
-          src={slide.img}
+          src={withBase(slide.img)}
           alt={slide.imgAlt}
           class="w-full h-full object-cover"
           loading={i === 0 ? 'eager' : 'lazy'}

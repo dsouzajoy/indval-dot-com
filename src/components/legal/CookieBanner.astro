@@ -1,0 +1,64 @@
+---
+import { withBase } from '@/lib/utils';
+---
+
+<div
+  id="cookie-banner"
+  class="fixed bottom-0 left-0 right-0 z-50 bg-on-surface border-t border-white/10 hidden"
+  role="region"
+  aria-label="Cookie consent"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row sm:items-center gap-4">
+    <div class="flex-1 min-w-0">
+      <p class="text-sm text-slate-300 leading-relaxed">
+        We store your language preference in browser local storage. No tracking or advertising cookies are used.
+        <a href={withBase('/cookies')} class="text-secondary hover:text-secondary/80 underline underline-offset-2 transition-colors">Cookie Policy</a>
+        <span class="text-white/30 mx-1" aria-hidden="true">·</span>
+        <a href={withBase('/privacy')} class="text-secondary hover:text-secondary/80 underline underline-offset-2 transition-colors">Privacy Policy</a>
+      </p>
+    </div>
+    <div class="flex gap-3 shrink-0 items-center">
+      <a
+        href={withBase('/cookies')}
+        class="btn-press cursor-pointer px-4 py-2 text-sm font-label font-bold uppercase tracking-wider text-slate-300 border border-white/20 rounded hover:border-white/50 hover:text-white transition-colors duration-200"
+      >
+        View Cookie Policy
+      </a>
+      <button
+        id="cookie-accept"
+        class="btn-press cursor-pointer px-4 py-2 text-sm font-label font-bold uppercase tracking-wider bg-secondary text-white rounded hover:bg-secondary/90 transition-colors duration-200"
+      >
+        Accept
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const banner = document.getElementById('cookie-banner');
+
+  function showBanner() {
+    banner?.classList.remove('hidden');
+  }
+
+  function hideBanner() {
+    banner?.classList.add('hidden');
+  }
+
+  if (!localStorage.getItem('indval_consent')) {
+    showBanner();
+  }
+
+  document.getElementById('cookie-accept')?.addEventListener('click', () => {
+    localStorage.setItem('indval_consent', 'accepted');
+    hideBanner();
+    window.dispatchEvent(new Event('indval:consentGranted'));
+  });
+
+  window.addEventListener('indval:consentSet', () => hideBanner());
+
+  window.addEventListener('indval:showCookieBanner', () => {
+    localStorage.removeItem('indval_consent');
+    showBanner();
+  });
+</script>

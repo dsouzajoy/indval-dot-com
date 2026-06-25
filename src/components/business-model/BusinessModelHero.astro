@@ -1,5 +1,6 @@
 ---
 import { en } from '@/i18n/locales/en';
+import { withBase } from '@/lib/utils';
 
 const tags = [
   { key: 'businessModel.hero.tag1', label: en.businessModel.hero.tag1 },
@@ -40,7 +41,7 @@ const cards = [
   <div class="absolute inset-0 z-0">
     <img
       class="w-full h-full object-cover opacity-60 scale-105"
-      src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop"
+      src={withBase('/images/pexels/business-model-hero.jpeg')}
       alt="Business team collaborating in a modern workspace"
       loading="eager"
     />

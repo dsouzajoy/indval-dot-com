@@ -689,6 +689,14 @@ export const en = {
       button: 'Get In Touch',
     },
   },
+  legal: {
+    footer: {
+      privacy: 'Privacy Policy',
+      terms: 'Terms & Conditions',
+      cookies: 'Cookie Policy',
+      cookiePreferences: 'Cookie Preferences',
+    },
+  },
 } as const;
 
 type DeepString<T> = {

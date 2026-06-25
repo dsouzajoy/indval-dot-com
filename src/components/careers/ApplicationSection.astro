@@ -1,5 +1,6 @@
 ---
 import { en } from '@/i18n/locales/en';
+import { withBase } from '@/lib/utils';
 
 const { apply } = en.careers;
 ---
@@ -67,7 +68,7 @@ const { apply } = en.careers;
       <div class="relative hidden sm:block">
         <div class="rounded overflow-hidden shadow-ambient-lg relative z-10 aspect-square">
           <img
-            src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800"
+            src={withBase('/images/pexels/application-team.jpeg')}
             alt="Engineering team collaborating"
             class="w-full h-full object-cover"
             loading="lazy"

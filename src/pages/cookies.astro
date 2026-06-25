@@ -1,0 +1,150 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import LegalLayout from '@/components/legal/LegalLayout.astro';
+import { withBase } from '@/lib/utils';
+---
+
+<BaseLayout
+  title="Cookie Policy — Indval Technologies"
+  description="How IndvalTech uses browser storage and what data is stored on your device."
+>
+  <LegalLayout title="Cookie Policy" effectiveDate="25 June 2026">
+
+    <!-- Consent action panel -->
+    <div class="mb-10 rounded border border-outline-variant bg-surface-container-low p-6">
+      <p class="font-label text-xs font-bold uppercase tracking-widest text-secondary mb-2">Your Privacy Preference</p>
+      <p id="consent-status" class="text-sm text-on-surface-variant mb-5 leading-relaxed"></p>
+      <div class="flex gap-3 flex-wrap">
+        <button
+          id="page-cookie-decline"
+          class="btn-press cursor-pointer px-5 py-2.5 text-sm font-label font-bold uppercase tracking-wider text-on-surface border border-outline-variant rounded hover:border-on-surface-variant transition-colors duration-200"
+        >
+          Decline
+        </button>
+        <button
+          id="page-cookie-accept"
+          class="btn-press cursor-pointer px-5 py-2.5 text-sm font-label font-bold uppercase tracking-wider bg-secondary text-white rounded hover:bg-secondary/90 transition-colors duration-200"
+        >
+          Accept
+        </button>
+      </div>
+      <p id="consent-confirmed" class="hidden mt-4 text-sm text-on-surface-variant"></p>
+    </div>
+
+    <h2>1. Do We Use Cookies?</h2>
+    <p>
+      No. This website does not set HTTP cookies on your device. We use browser
+      <strong>Web Storage</strong> (localStorage and sessionStorage) for the limited purposes
+      described below. Unlike cookies, Web Storage data is never automatically transmitted to our
+      servers — it stays entirely within your browser.
+    </p>
+
+    <h2>2. What We Store and Why</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Storage</th>
+          <th>Purpose</th>
+          <th>Duration</th>
+          <th>Consent required</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>indval_consent</code></td>
+          <td>localStorage</td>
+          <td>Records whether you accepted or declined our storage notice, so we do not ask again on every visit.</td>
+          <td>Until you clear browser storage</td>
+          <td>No — strictly necessary to record your own consent decision</td>
+        </tr>
+        <tr>
+          <td><code>lang</code></td>
+          <td>localStorage</td>
+          <td>Remembers the display language you selected (English, German, or Polish) so the site opens in your preferred language on return visits.</td>
+          <td>Until you clear browser storage</td>
+          <td>Yes — only written after you click "Accept"</td>
+        </tr>
+        <tr>
+          <td><code>splashSeen</code></td>
+          <td>sessionStorage</td>
+          <td>Suppresses the intro animation on page reloads within the same browser tab, so it only plays once per session.</td>
+          <td>Until you close the browser tab</td>
+          <td>No — strictly necessary for UX continuity; cleared automatically</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>3. Third-Party Storage</h2>
+    <p>
+      We do not load analytics, advertising, or social media scripts that set their own cookies or
+      storage entries. Google Maps links on our contact page open in a new tab on Google's own
+      domain — any storage set there is governed by
+      <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's Privacy Policy</a>.
+    </p>
+
+    <h2>4. How to Clear or Manage Browser Storage</h2>
+    <p>You can clear all local and session storage for this site at any time:</p>
+    <ul>
+      <li><strong>Chrome / Edge:</strong> DevTools (F12) → Application → Storage → Clear site data</li>
+      <li><strong>Firefox:</strong> DevTools (F12) → Storage → Local Storage → right-click and delete</li>
+      <li><strong>Safari:</strong> Develop → Web Inspector → Storage → Local Storage</li>
+    </ul>
+    <p>
+      You can also change your consent preference at any time using the Accept / Decline panel at the
+      top of this page.
+    </p>
+
+    <h2>5. Changes to This Policy</h2>
+    <p>
+      If we introduce any new storage use, this page will be updated and the effective date above
+      revised. We encourage you to review it periodically.
+    </p>
+
+    <h2>6. Contact</h2>
+    <p>
+      For questions about our use of browser storage, contact us at
+      <a href="mailto:info@indvaltech.com">info@indvaltech.com</a>.
+      See our full <a href={withBase('/privacy')}>Privacy Policy</a> for details on how we handle
+      personal data more broadly.
+    </p>
+
+  </LegalLayout>
+</BaseLayout>
+
+<script>
+  const statusEl = document.getElementById('consent-status');
+  const confirmedEl = document.getElementById('consent-confirmed');
+  const acceptBtn = document.getElementById('page-cookie-accept');
+  const declineBtn = document.getElementById('page-cookie-decline');
+
+  function getStatusText(value: string | null): string {
+    if (value === 'accepted') return 'Current preference: Accepted — language preference is stored on your device.';
+    if (value === 'declined') return 'Current preference: Declined — only strictly necessary storage is used.';
+    return 'You have not yet made a choice. Select your preference below.';
+  }
+
+  if (statusEl) statusEl.textContent = getStatusText(localStorage.getItem('indval_consent'));
+
+  acceptBtn?.addEventListener('click', () => {
+    localStorage.setItem('indval_consent', 'accepted');
+    window.dispatchEvent(new Event('indval:consentGranted'));
+    window.dispatchEvent(new Event('indval:consentSet'));
+    if (statusEl) statusEl.textContent = getStatusText('accepted');
+    if (confirmedEl) {
+      confirmedEl.textContent = 'Saved — language preference will be remembered on return visits.';
+      confirmedEl.classList.remove('hidden');
+    }
+  });
+
+  declineBtn?.addEventListener('click', () => {
+    localStorage.setItem('indval_consent', 'declined');
+    window.dispatchEvent(new Event('indval:consentSet'));
+    if (statusEl) statusEl.textContent = getStatusText('declined');
+    if (confirmedEl) {
+      confirmedEl.textContent = 'Saved — language preference will not be stored.';
+      confirmedEl.classList.remove('hidden');
+    }
+  });
+</script>

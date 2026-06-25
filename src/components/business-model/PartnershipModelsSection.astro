@@ -1,5 +1,6 @@
 ---
 import { en } from '@/i18n/locales/en';
+import { withBase } from '@/lib/utils';
 
 const pm = en.businessModel.partnershipModels;
 
@@ -10,7 +11,7 @@ const models = [
     titleKey: 'businessModel.partnershipModels.offshore.title',
     subtitle: pm.offshore.subtitle,
     subtitleKey: 'businessModel.partnershipModels.offshore.subtitle',
-    image: 'https://images.pexels.com/photos/3182773/pexels-photo-3182773.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop',
+    image: '/images/pexels/partnership-team.jpeg',
     imageAlt: 'Global remote team collaborating across continents',
     items: [
       { key: 'businessModel.partnershipModels.offshore.item1', label: pm.offshore.item1 },
@@ -25,7 +26,7 @@ const models = [
     titleKey: 'businessModel.partnershipModels.onshore.title',
     subtitle: pm.onshore.subtitle,
     subtitleKey: 'businessModel.partnershipModels.onshore.subtitle',
-    image: 'https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop',
+    image: '/images/pexels/partnership-offshore.jpeg',
     imageAlt: 'Engineer with safety helmet on-site at an industrial facility',
     items: [
       { key: 'businessModel.partnershipModels.onshore.item1', label: pm.onshore.item1 },
@@ -40,7 +41,7 @@ const models = [
     titleKey: 'businessModel.partnershipModels.hybrid.title',
     subtitle: pm.hybrid.subtitle,
     subtitleKey: 'businessModel.partnershipModels.hybrid.subtitle',
-    image: 'https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop',
+    image: '/images/pexels/partnership-hybrid.jpeg',
     imageAlt: 'Diverse international team working together in a modern office',
     items: [
       { key: 'businessModel.partnershipModels.hybrid.item1', label: pm.hybrid.item1 },
@@ -72,7 +73,7 @@ const models = [
         <div class="relative h-[480px] overflow-hidden rounded group">
           <!-- Background image -->
           <img
-            src={m.image}
+            src={withBase(m.image)}
             alt={m.imageAlt}
             class="absolute inset-0 w-full h-full object-cover scale-105 group-hover:scale-110 transition-transform duration-700"
             loading="lazy"

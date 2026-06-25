@@ -1,5 +1,6 @@
 ---
 import { en } from '@/i18n/locales/en';
+import { withBase } from '@/lib/utils';
 ---
 
 <section class="blueprint-bg py-32">
@@ -70,7 +71,7 @@ import { en } from '@/i18n/locales/en';
       <!-- Right: image -->
       <div class="w-full md:w-1/2">
         <img
-          src="https://images.pexels.com/photos/3912477/pexels-photo-3912477.jpeg?auto=compress&cs=tinysrgb&w=900"
+          src={withBase('/images/pexels/development-team.jpeg')}
           alt="Engineers collaborating in a technical meeting"
           class="rounded shadow-xl w-full object-cover"
         />

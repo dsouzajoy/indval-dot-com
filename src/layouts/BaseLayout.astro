@@ -4,6 +4,7 @@ import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
 import Splash from '../components/layout/Splash.astro';
 import I18nRuntime from '../components/i18n/I18nRuntime.astro';
+import CookieBanner from '../components/legal/CookieBanner.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -47,6 +48,7 @@ const {
       <slot />
     </main>
     <Footer />
+    <CookieBanner />
     <I18nRuntime />
   </body>
 </html>

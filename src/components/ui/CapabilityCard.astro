@@ -1,0 +1,43 @@
+---
+import { withBase } from '@/lib/utils';
+
+interface Props {
+  image: string;
+  label: string;
+  icon: string;
+  description: string;
+  href?: string;
+  id?: string;
+}
+
+const { image, label, icon, description, href, id } = Astro.props;
+const Tag = href ? 'a' : 'div';
+---
+
+<Tag
+  id={id}
+  href={href ? withBase(href) : undefined}
+  class:list={[
+    'group bg-surface-container-low rounded flex flex-col overflow-hidden',
+    'border border-outline-variant border-b-2',
+    'hover:border-b-secondary hover:bg-surface-container-high',
+    'transition-all duration-300',
+    href && 'btn-press-card',
+  ]}
+>
+  <div class="aspect-video overflow-hidden">
+    <img
+      src={withBase(image)}
+      alt={label}
+      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+      loading="lazy"
+    />
+  </div>
+  <div class="p-8 flex flex-col flex-grow">
+    <div class="flex items-center justify-between mb-3">
+      <h3 class="font-headline font-bold text-xl text-on-surface">{label}</h3>
+      <span class="material-symbols-outlined text-primary text-4xl shrink-0" aria-hidden="true">{icon}</span>
+    </div>
+    <p class="text-on-surface-variant leading-relaxed text-sm flex-grow">{description}</p>
+  </div>
+</Tag>

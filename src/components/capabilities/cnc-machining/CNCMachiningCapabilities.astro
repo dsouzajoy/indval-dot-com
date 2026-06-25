@@ -1,0 +1,145 @@
+---
+import { withBase } from '@/lib/utils';
+import CapabilityCard from '@/components/ui/CapabilityCard.astro';
+
+const whyPoints = [
+  {
+    icon: 'straighten',
+    title: 'Tight tolerances',
+    description: 'Hold critical features to ±0.005mm, verified on CMM.',
+  },
+  {
+    icon: 'repeat',
+    title: 'Repeatable quality',
+    description: 'Identical results from the first part to series production.',
+  },
+  {
+    icon: 'deployed_code',
+    title: 'Complex geometry',
+    description: 'Up to 5-axis simultaneous machining of intricate forms.',
+  },
+  {
+    icon: 'category',
+    title: 'Material range',
+    description: 'Aluminium, titanium, steels, and engineering plastics.',
+  },
+];
+
+const services = [
+  {
+    icon: 'precision_manufacturing',
+    label: 'CNC Milling',
+    image: '/images/machining/cnc-milling.jpg',
+    description: 'Rotating multi-point cutters remove material from a fixed workpiece to produce flat faces, slots, pockets and complex 3D contours, with up to 5-axis simultaneous capability.',
+  },
+  {
+    icon: 'rotate_right',
+    label: 'CNC Turning',
+    image: '/images/machining/cnc-turning.jpg',
+    description: 'The workpiece rotates against a single-point tool to generate precise cylindrical features including shafts, bushings, pins and threaded components.',
+  },
+  {
+    icon: 'sync',
+    label: 'CNC Turn-Mill',
+    image: '/images/machining/cnc-turn-mill.jpg',
+    description: 'Turning and milling combined in a single setup, machining rotational and prismatic features together for complex parts in one cycle.',
+  },
+  {
+    icon: 'view_week',
+    label: 'CNC Horizontal Milling',
+    image: '/images/machining/cnc-horizontal-milling.jpg',
+    description: 'A horizontal spindle clears chips efficiently and supports heavier cuts — ideal for large, deep-pocket and high-volume production work.',
+  },
+  {
+    icon: 'vertical_align_center',
+    label: 'CNC Vertical Turning',
+    image: '/images/machining/cnc-vertical-turning.jpg',
+    description: 'A vertical lathe holds large, heavy-diameter parts on a rotating table for stable machining of flanges, hubs, rings and casings.',
+  },
+  {
+    icon: 'hardware',
+    label: 'Screw Machining',
+    image: '/images/machining/screw-machining.jpg',
+    description: 'High-speed automated turning of small, high-volume precision components such as pins, fittings and fasteners, produced direct from bar stock.',
+  },
+];
+---
+
+<!-- Block 1: What is CNC Precision Machining -->
+<section
+  id="capabilities"
+  class="bg-surface py-24 lg:py-32"
+  style="background-image: radial-gradient(circle, rgba(195,198,211,0.8) 1px, transparent 1px); background-size: 40px 40px;"
+>
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+    <div class="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-16 items-start">
+      <!-- Left: text -->
+      <div>
+        <p class="font-label text-xs uppercase tracking-widest text-secondary mb-3">The process</p>
+        <h2 class="font-headline text-3xl lg:text-4xl font-bold text-primary tracking-tight mb-6 max-w-lg">What is CNC precision machining?</h2>
+        <p class="text-on-surface-variant leading-relaxed mb-5">
+          CNC precision machining is a subtractive manufacturing process in which computer-controlled machines (CNC stands for <strong class="text-on-surface">Computer Numerical Control</strong>) cut highly accurate, detailed parts from solid stock. Material is removed from a metal, plastic or composite billet using tooling such as mills, lathes and routers, each move driven by exact digital instructions translated from your CAD drawing.
+        </p>
+        <p class="text-on-surface-variant leading-relaxed">
+          Because every cut follows the same programmed path, the process delivers consistent, repeatable quality across the first part and the ten-thousandth. That repeatability is why precision machining is essential to aerospace, automotive, medical and electronics work, where tight tolerances and complex geometry leave no margin for variation.
+        </p>
+      </div>
+      <!-- Right: Why it matters card -->
+      <div class="bg-surface-container-low border border-outline-variant rounded-2xl p-8 shadow-ambient">
+        <p class="font-label text-xs uppercase tracking-widest text-on-surface-variant mb-5">Why it matters</p>
+        <div class="flex flex-col gap-5">
+          {whyPoints.map((point) => (
+            <div class="flex gap-4 items-start">
+              <span class="material-symbols-outlined text-secondary text-2xl shrink-0" aria-hidden="true">{point.icon}</span>
+              <div>
+                <p class="font-headline font-bold text-sm text-primary mb-1">{point.title}</p>
+                <p class="text-on-surface-variant text-sm leading-relaxed">{point.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Block 2: CNC Machining Services -->
+<section class="bg-surface-container-low py-24 lg:py-32 border-t border-b border-outline-variant">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+    <div class="max-w-2xl mb-12">
+      <p class="font-label text-sm uppercase tracking-widest text-secondary mb-3">What we offer</p>
+      <h2 class="font-headline text-4xl lg:text-5xl font-bold text-on-surface mb-4">CNC Machining Services</h2>
+      <p class="text-on-surface-variant leading-relaxed">
+        A complete range of milling and turning processes under one roof — matched to the geometry, volume and tolerance of your part.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {services.map((service) => (
+        <CapabilityCard
+          image={service.image}
+          label={service.label}
+          icon={service.icon}
+          description={service.description}
+        />
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Block 3: Get In Touch CTA -->
+<section class="bg-on-surface py-20">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16 text-center">
+    <h2 class="font-headline text-3xl lg:text-4xl font-bold text-white mb-4">
+      Ready to Machine Your Next Part?
+    </h2>
+    <p class="text-white/80 text-base mb-10 max-w-xl mx-auto leading-relaxed">
+      Send your drawing and a dedicated engineer will respond with a costed, scoped quote within 24 hours.
+    </p>
+    <a
+      href="/contact#contact-form"
+      class="inline-flex items-center justify-center gap-2 bg-secondary text-white px-8 py-4 rounded font-label text-sm font-bold uppercase tracking-wider cursor-pointer hover:bg-secondary/90 btn-press"
+    >
+      Get In Touch
+    </a>
+  </div>
+</section>

@@ -70,6 +70,16 @@ The three correct press utilities are:
 - `btn-press-card` — clickable card containers
 - `btn-press-icon` — small icon controls (close, prev/next)
 
+## Copy & Content Style
+
+Never use em dashes (`—`) in any user-facing copy. Rephrase the sentence instead:
+
+- To introduce examples: use "including", "such as", or a colon
+- To add a qualifier or range: fold it into the sentence with "from", "covering", "with", etc.
+- To insert a parenthetical: use parentheses
+
+This applies to all copy in components, i18n locale files (`en.ts`, etc.), and meta descriptions.
+
 ## i18n
 
 All user-facing strings go through `src/i18n/locales/en.ts`. Components import `{ en }` and also add `data-i18n="key.path"` attributes for runtime locale switching.

@@ -437,6 +437,7 @@ export const pl = {
       specialMachineDesign: 'Projektowanie i rozwój maszyn',
     },
     reverseEngineering: { heading: 'Inżynieria odwrotna' },
+    cncMachining: { hero: { heading: 'CNC Machining Services' } },
     technicalPublication: { heading: 'Publikacje techniczne' },
   },
   businessModel: {

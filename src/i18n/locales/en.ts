@@ -176,6 +176,14 @@ export const en = {
       cta: 'Explore Capabilities',
     },
   },
+  cncMachining: {
+    hero: {
+      eyebrow: 'Manufacturing',
+      heading: 'CNC Machining Services',
+      description: 'Multi-axis CNC milling and turning across aluminium, titanium, steel and engineering plastics, covering everything from first-article prototypes to certified series production.',
+      cta: 'Explore Capabilities',
+    },
+  },
   specialMachineDesign: {
     hero: {
       eyebrow: 'Mechanical Design',

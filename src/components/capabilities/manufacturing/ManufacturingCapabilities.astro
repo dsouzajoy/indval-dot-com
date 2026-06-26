@@ -1,12 +1,19 @@
 ---
 import { withBase } from '@/lib/utils';
 import CapabilityCard from '@/components/ui/CapabilityCard.astro';
+import mfgMachiningImg from '@/assets/images/manufacturing-machining.jpg';
+import mfgCastingsImg from '@/assets/images/manufacturing-castings.jpg';
+import mfgSheetMetalImg from '@/assets/images/manufacturing-sheet-metal.jpg';
+import mfgKittingImg from '@/assets/images/manufacturing-kitting.jpg';
+import mfgAssemblyToolingImg from '@/assets/images/manufacturing-assembly-tooling.jpg';
+import mfgRapidPrototypingImg from '@/assets/images/manufacturing-rapid-prototyping.jpg';
+import reHeroImg from '@/assets/images/reverse-engineering-hero.jpg';
 const capabilities = [
   {
     id: 'machining',
     label: 'Machining',
     icon: 'precision_manufacturing',
-    image: '/images/manufacturing-machining.jpg',
+    image: mfgMachiningImg,
     description: 'Specialized high-precision CNC machining solutions supported by advanced multi-axis facilities to meet complex engineering tolerances.',
     href: '/capabilities/cnc-machining',
   },
@@ -14,7 +21,7 @@ const capabilities = [
     id: 'castings',
     label: 'Castings',
     icon: 'format_paint',
-    image: '/images/manufacturing-castings.jpg',
+    image: mfgCastingsImg,
     description: 'Highly diversified range of investment and sand castings with intricate geometries.',
     href: '/capabilities/casting',
   },
@@ -22,7 +29,7 @@ const capabilities = [
     id: 'sheet-metal',
     label: 'Sheet Metal',
     icon: 'layers',
-    image: '/images/manufacturing-sheet-metal.jpg',
+    image: mfgSheetMetalImg,
     description: 'Custom fabrication and premium finish services including laser cutting and complex assembly.',
     href: '/capabilities/sheet-metal',
   },
@@ -30,7 +37,7 @@ const capabilities = [
     id: 'kitting-and-assemblies',
     label: 'Kitting and Assemblies',
     icon: 'inventory_2',
-    image: '/images/manufacturing-kitting.jpg',
+    image: mfgKittingImg,
     description: 'End-to-end integration for complex sourcing needs, providing complete solutions from individual sub-components to full-scale mechanical assemblies.',
     href: '/capabilities/kitting-and-assembly',
   },
@@ -38,21 +45,21 @@ const capabilities = [
     id: 'assembly-tooling',
     label: 'Assembly Tooling',
     icon: 'handyman',
-    image: '/images/manufacturing-assembly-tooling.jpg',
+    image: mfgAssemblyToolingImg,
     description: 'Design and production of precision aerostructure assembly frames, jigs, and sub-assembly equipment optimized for industrial performance and safety standards.',
   },
   {
     id: 'rapid-prototyping',
     label: 'Rapid Prototyping',
     icon: '3d_rotation',
-    image: '/images/manufacturing-rapid-prototyping.jpg',
+    image: mfgRapidPrototypingImg,
     description: 'Accelerated prototyping services utilizing advanced additive manufacturing and rapid tooling to validate designs and bridge the gap to production.',
   },
   {
     id: 'reverse-engineering',
     label: 'Reverse Engineering',
     icon: 'manage_search',
-    image: '/images/reverse-engineering-hero.jpg',
+    image: reHeroImg,
     description: 'Comprehensive dimensional analysis and CAD reconstruction from physical parts, enabling design validation, legacy part digitization, and engineering improvements.',
     href: '/capabilities/reverse-engineering',
   },

@@ -1,5 +1,5 @@
 ---
-import BaseHead from '../components/seo/BaseHead.astro';
+import BaseHead, { type BreadcrumbItem } from '../components/seo/BaseHead.astro';
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
 import Splash from '../components/layout/Splash.astro';
@@ -13,6 +13,7 @@ interface Props {
   canonicalURL?: string;
   ogImage?: string;
   showSplash?: boolean;
+  breadcrumbs?: BreadcrumbItem[];
 }
 
 const {
@@ -21,6 +22,7 @@ const {
   canonicalURL = new URL(Astro.url.pathname, Astro.site).toString(),
   ogImage,
   showSplash = false,
+  breadcrumbs,
 } = Astro.props;
 ---
 <!doctype html>
@@ -39,6 +41,7 @@ const {
       description={description}
       canonicalURL={canonicalURL}
       ogImage={ogImage}
+      breadcrumbs={breadcrumbs}
     />
   </head>
   <body class="min-h-screen flex flex-col font-sans bg-surface text-on-surface">

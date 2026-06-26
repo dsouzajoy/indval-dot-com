@@ -1,14 +1,59 @@
 ---
 import { withBase } from '@/lib/utils';
 
+export interface BreadcrumbItem {
+  name: string;
+  href: string;
+}
+
 interface Props {
   title: string;
   description: string;
   canonicalURL: string;
   ogImage?: string;
+  breadcrumbs?: BreadcrumbItem[];
 }
 
-const { title, description, canonicalURL, ogImage = '/images/og-default.webp' } = Astro.props;
+const { title, description, canonicalURL, ogImage = '/images/og-default.webp', breadcrumbs } = Astro.props;
+
+const siteOrigin = Astro.site ? new URL('/', Astro.site).href.replace(/\/$/, '') : 'https://www.indvaltech.com';
+const logoUrl = new URL(withBase('/images/logo.png'), Astro.site).toString();
+
+const schemaGraph: object[] = [
+  {
+    '@type': 'WebSite',
+    '@id': `${siteOrigin}/#website`,
+    name: 'Indvaltech',
+    url: `${siteOrigin}/`,
+  },
+  {
+    '@type': 'Organization',
+    '@id': `${siteOrigin}/#organization`,
+    name: 'Indval Technologies',
+    url: `${siteOrigin}/`,
+    logo: {
+      '@type': 'ImageObject',
+      url: logoUrl,
+    },
+  },
+];
+
+if (breadcrumbs && breadcrumbs.length > 0) {
+  schemaGraph.push({
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteOrigin}/` },
+      ...breadcrumbs.map((crumb, i) => ({
+        '@type': 'ListItem',
+        position: i + 2,
+        name: crumb.name,
+        item: new URL(withBase(crumb.href), Astro.site).toString(),
+      })),
+    ],
+  });
+}
+
+const schemaJson = JSON.stringify({ '@context': 'https://schema.org', '@graph': schemaGraph });
 
 // Base-aware, absolute URL for social cards.
 const ogImageURL = new URL(withBase(ogImage), Astro.site).toString();
@@ -55,3 +100,6 @@ const fontFaceCss = `
 
 <link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
 <meta name="generator" content={Astro.generator} />
+
+<!-- Structured data -->
+<script type="application/ld+json" set:html={schemaJson} />

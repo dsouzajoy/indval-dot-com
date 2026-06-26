@@ -35,7 +35,7 @@ import { withBase } from '@/lib/utils';
       </p>
 
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <Button href="/" variant="primary">Back to Home</Button>
+        <Button href={withBase('/')} variant="primary">Back to Home</Button>
         <Button href={withBase('/contact#contact-form')} variant="ghost">Get In Touch</Button>
       </div>
 

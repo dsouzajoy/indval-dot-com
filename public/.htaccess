@@ -19,8 +19,24 @@ Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
 
 # 301 Redirects
 RewriteEngine On
+
+# Canonical domain: redirect non-www to www
+RewriteCond %{HTTP_HOST} ^indvaltech\.com$ [NC]
+RewriteRule ^(.*)$ https://www.indvaltech.com/$1 [R=301,L]
 RewriteCond %{QUERY_STRING} ^page_id=146$
 RewriteRule ^$ /contact/? [R=301,L]
+
+RewriteCond %{QUERY_STRING} ^page_id=199$
+RewriteRule ^$ /industries/automotive/? [R=301,L]
+
+RewriteCond %{QUERY_STRING} ^page_id=2077$
+RewriteRule ^$ /industries/aerospace/? [R=301,L]
+
+RewriteCond %{QUERY_STRING} ^page_id=2085$
+RewriteRule ^$ /capabilities/fea/? [R=301,L]
+
+RewriteCond %{QUERY_STRING} ^page_id=203$
+RewriteRule ^$ /? [R=301,L]
 
 # Custom 404
 ErrorDocument 404 /404.html

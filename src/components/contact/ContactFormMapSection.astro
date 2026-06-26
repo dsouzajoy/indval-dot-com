@@ -25,9 +25,7 @@ const phones = [
     </h2>
 
     <form
-      action="mailto:info@indvaltech.com"
-      method="POST"
-      enctype="text/plain"
+      id="contact-form-mail"
       class="flex flex-col gap-8"
     >
       <!-- Full Name -->
@@ -93,6 +91,39 @@ const phones = [
     </style>
 
     <script>
+      const contactForm = document.getElementById('contact-form-mail') as HTMLFormElement;
+
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        if (!validateAll()) return;
+
+        const name = nameInput.value.trim();
+        const email = emailInput.value.trim();
+        const specs = specsInput.value.trim();
+
+        const subject = encodeURIComponent("Enquiry about your services");
+
+        const body = encodeURIComponent(`Hi,
+
+Here are my details:
+
+Name: ${name}
+
+Email: ${email}
+
+Project / Requirement:
+${specs}
+
+Looking forward to hearing from you about this enquiry and exploring the next steps.
+
+Thanks,
+${name}
+        `);
+
+        window.location.href = `mailto:info@indvaltech.com?subject=${subject}&body=${body}`;
+      });
+
       const nameInput  = document.getElementById('contact-name')  as HTMLInputElement;
       const emailInput = document.getElementById('contact-email') as HTMLInputElement;
       const specsInput = document.getElementById('contact-specs') as HTMLTextAreaElement;

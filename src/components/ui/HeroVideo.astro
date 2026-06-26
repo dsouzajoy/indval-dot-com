@@ -1,0 +1,39 @@
+---
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  videoSrc: string;
+  poster: ImageMetadata;
+  class?: string;
+}
+
+const {
+  videoSrc,
+  poster,
+  class: wrapperClass = 'absolute inset-0 z-0',
+} = Astro.props;
+---
+
+<div class:list={[wrapperClass, 'overflow-hidden']}>
+  <video
+    class="hero-video absolute inset-0 w-full h-full object-cover"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto"
+    poster={poster.src}
+    aria-hidden="true"
+  >
+    <source src={videoSrc} type="video/mp4" />
+  </video>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLVideoElement>('video.hero-video').forEach((video) => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      video.pause();
+      video.removeAttribute('autoplay');
+    }
+  });
+</script>

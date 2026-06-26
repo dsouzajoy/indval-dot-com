@@ -1,17 +1,15 @@
 ---
 import { en } from '@/i18n/locales/en';
-import HeroImage from '@/components/ui/HeroImage.astro';
-import { getLQIP } from '@/lib/lqip';
-import heroImg from '@/assets/images/manufacturing-hero.jpg';
-
-const placeholder = await getLQIP('src/assets/images/manufacturing-hero.jpg');
+import HeroVideo from '@/components/ui/HeroVideo.astro';
+import heroVideo from '@/assets/videos/biw-hero-video.mp4';
+import heroPoster from '@/assets/images/manufacturing-hero.jpg';
 ---
 
 <section
   class="relative min-h-screen flex items-center overflow-hidden"
   aria-label="BIW Turnkey Solutions"
 >
-  <HeroImage src={heroImg} {placeholder} alt="" />
+  <HeroVideo videoSrc={heroVideo} poster={heroPoster} />
   <!-- Dark gradient overlay -->
   <div class="absolute inset-0 bg-gradient-to-r from-on-surface/85 via-on-surface/65 to-on-surface/20 z-10"></div>
 

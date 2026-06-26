@@ -1,0 +1,168 @@
+---
+---
+
+<div
+  id="cd-lightbox"
+  class="hidden fixed inset-0 z-[9999] bg-white/95 backdrop-blur-sm flex flex-col"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Diagram gallery"
+>
+  <!-- Top bar -->
+  <div class="flex items-center gap-3 px-5 py-4 bg-surface-container-low shrink-0 border-b border-outline-variant">
+    <span id="cd-lb-icon" class="material-symbols-outlined text-secondary shrink-0" style="font-size: 1.5rem" aria-hidden="true"></span>
+    <span id="cd-lb-title" class="font-headline font-bold text-primary text-base flex-1 truncate"></span>
+    <span id="cd-lb-counter" class="text-on-surface-variant text-sm font-label tabular-nums mr-3 shrink-0"></span>
+    <button
+      id="cd-lb-close"
+      class="flex items-center justify-center w-9 h-9 text-on-surface-variant hover:text-primary hover:bg-surface-container rounded-full shrink-0 focus:outline-none focus:ring-2 focus:ring-primary/30 btn-press-icon"
+      aria-label="Close gallery"
+    >
+      <span class="material-symbols-outlined text-2xl" aria-hidden="true">close</span>
+    </button>
+  </div>
+
+  <!-- Image area -->
+  <div class="flex-1 relative flex items-center justify-center overflow-hidden min-h-0">
+    <button
+      id="cd-lb-prev"
+      class="absolute left-3 md:left-5 z-10 flex items-center justify-center w-11 h-11 bg-surface-container hover:bg-surface-container-high text-on-surface rounded-full focus:outline-none focus:ring-2 focus:ring-primary/30 disabled:opacity-30 disabled:pointer-events-none btn-press-icon"
+      aria-label="Previous image"
+    >
+      <span class="material-symbols-outlined text-2xl" aria-hidden="true">chevron_left</span>
+    </button>
+
+    <div class="w-full h-full flex items-center justify-center px-16 md:px-24 py-6">
+      <img
+        id="cd-lb-image"
+        src=""
+        alt=""
+        class="max-h-full max-w-full object-contain"
+        style="transition: opacity 200ms ease;"
+      />
+    </div>
+
+    <button
+      id="cd-lb-next"
+      class="absolute right-3 md:right-5 z-10 flex items-center justify-center w-11 h-11 bg-surface-container hover:bg-surface-container-high text-on-surface rounded-full focus:outline-none focus:ring-2 focus:ring-primary/30 disabled:opacity-30 disabled:pointer-events-none btn-press-icon"
+      aria-label="Next image"
+    >
+      <span class="material-symbols-outlined text-2xl" aria-hidden="true">chevron_right</span>
+    </button>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="shrink-0 py-5 flex flex-col items-center">
+    <div id="cd-lb-dots" class="flex items-center gap-2"></div>
+  </div>
+</div>
+
+<script>
+  interface LbImage { src: string; title?: string; }
+
+  const lightbox  = document.getElementById('cd-lightbox')!;
+  const lbIcon    = document.getElementById('cd-lb-icon')!;
+  const lbTitle   = document.getElementById('cd-lb-title')!;
+  const lbCounter = document.getElementById('cd-lb-counter')!;
+  const lbClose   = document.getElementById('cd-lb-close') as HTMLButtonElement;
+  const lbPrev    = document.getElementById('cd-lb-prev') as HTMLButtonElement;
+  const lbNext    = document.getElementById('cd-lb-next') as HTMLButtonElement;
+  const lbImage   = document.getElementById('cd-lb-image') as HTMLImageElement;
+  const lbDots    = document.getElementById('cd-lb-dots')!;
+
+  let images: LbImage[] = [];
+  let currentIndex = 0;
+
+  function syncDots() {
+    lbDots.querySelectorAll('button').forEach((btn, i) => {
+      btn.className = `w-2 h-2 rounded-full transition-all duration-200 focus:outline-none ${
+        i === currentIndex
+          ? 'bg-secondary scale-125'
+          : 'bg-on-surface/25 hover:bg-on-surface/50'
+      }`;
+    });
+  }
+
+  function buildDots() {
+    lbDots.innerHTML = '';
+    images.forEach((_, i) => {
+      const btn = document.createElement('button');
+      btn.setAttribute('aria-label', `Go to image ${i + 1}`);
+      btn.addEventListener('click', () => goTo(i));
+      lbDots.appendChild(btn);
+    });
+    syncDots();
+  }
+
+  function updateUI() {
+    lbCounter.textContent = `${currentIndex + 1} / ${images.length}`;
+    lbPrev.disabled = currentIndex === 0;
+    lbNext.disabled = currentIndex === images.length - 1;
+    syncDots();
+  }
+
+  function goTo(index: number) {
+    if (index < 0 || index >= images.length) return;
+    lbImage.style.opacity = '0';
+    setTimeout(() => {
+      currentIndex = index;
+      lbImage.src = images[index].src;
+      lbImage.alt = images[index].title ?? '';
+      lbTitle.textContent = images[index].title ?? '';
+      lbImage.style.opacity = '1';
+      updateUI();
+    }, 200);
+  }
+
+  function openLightbox(title: string, icon: string, imgs: LbImage[]) {
+    images = imgs;
+    currentIndex = 0;
+    lbIcon.textContent = icon;
+    lbTitle.textContent = title;
+    lbImage.src = imgs[0].src;
+    lbImage.alt = '';
+    lbImage.style.opacity = '1';
+    buildDots();
+    updateUI();
+    lightbox.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    lbClose.focus();
+  }
+
+  function closeLightbox() {
+    lightbox.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+
+  lbClose.addEventListener('click', closeLightbox);
+  lbPrev.addEventListener('click', () => goTo(currentIndex - 1));
+  lbNext.addEventListener('click', () => goTo(currentIndex + 1));
+
+  document.addEventListener('keydown', (e) => {
+    if (lightbox.classList.contains('hidden')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') goTo(currentIndex - 1);
+    if (e.key === 'ArrowRight') goTo(currentIndex + 1);
+  });
+
+  let touchStartX = 0;
+  lightbox.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  lightbox.addEventListener('touchend', (e) => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 50) goTo(dx < 0 ? currentIndex + 1 : currentIndex - 1);
+  }, { passive: true });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll<HTMLElement>('[data-diagram-index]').forEach((card) => {
+      card.addEventListener('click', () => {
+        const title = card.dataset.diagramTitle ?? '';
+        const icon  = card.dataset.diagramIcon  ?? '';
+        const imgs: LbImage[] = JSON.parse(card.dataset.images ?? '[]');
+        openLightbox(title, icon, imgs);
+      });
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
+      });
+    });
+  });
+</script>

@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CompositeDesignHero from '../../components/capabilities/composite-design/CompositeDesignHero.astro';
+import CompositeDesignProcess from '../../components/capabilities/composite-design/CompositeDesignProcess.astro';
+import CompositeDesignDiagrams from '../../components/capabilities/composite-design/CompositeDesignDiagrams.astro';
+import CompositeDesignCTA from '../../components/capabilities/composite-design/CompositeDesignCTA.astro';
+---
+
+<BaseLayout
+  title="Composite Design Solutions | Indvaltech"
+  description="End-to-end composite plug and mould development for aerospace, automotive and advanced manufacturing. From Class A surface to a production-ready mould."
+  ogImage="/images/composite-design-hero.jpg"
+  showSplash={false}
+  breadcrumbs={[{ name: 'Composite Design Solutions', href: '/capabilities/composite-design' }]}
+>
+  <CompositeDesignHero />
+  <CompositeDesignProcess />
+  <CompositeDesignDiagrams />
+  <CompositeDesignCTA />
+</BaseLayout>

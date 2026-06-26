@@ -769,6 +769,13 @@ export const en = {
       button: 'Get In Touch',
     },
   },
+  compositeDesign: {
+    hero: {
+      heading: 'Composite tooling, engineered end-to-end.',
+      description: 'From Class A surface to a production-ready mould, Indvaltech owns every stage of plug and mould development for aerospace, automotive and advanced manufacturing.',
+      cta: 'See the process',
+    },
+  },
   legal: {
     footer: {
       privacy: 'Privacy Policy',

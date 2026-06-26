@@ -1,0 +1,197 @@
+---
+import { Image } from 'astro:assets';
+import img01 from '@/assets/images/composite-design/requirements-and-data-input.png';
+import img02 from '@/assets/images/composite-design/class-a-surface.png';
+import img03 from '@/assets/images/composite-design/plug-design.png';
+import img04 from '@/assets/images/composite-design/plug-engineering.png';
+import img05 from '@/assets/images/composite-design/plug-manufacturing.png';
+import img06 from '@/assets/images/composite-design/mould-design.png';
+import img07 from '@/assets/images/composite-design/mould-engineering.png';
+import img08 from '@/assets/images/composite-design/mould-manufacturing-and-assembly.png';
+
+const steps = [
+  {
+    n: '01',
+    title: 'Requirements & Data Input',
+    icon: 'fact_check',
+    accent: '#00316c',
+    image: img01,
+    items: [
+      'Part function & performance',
+      'Material & process selection',
+      'Regulations & standards',
+      'CAD data & styling surface',
+      'Tolerances & draft',
+      'Tooling concept',
+    ],
+  },
+  {
+    n: '02',
+    title: 'Class A Surface',
+    icon: 'gesture',
+    accent: '#00316c',
+    image: img02,
+    items: [
+      'Create / import Class A',
+      'Surface quality check',
+      'Continuity (G2)',
+      'Diagnostics & repair',
+    ],
+  },
+  {
+    n: '03',
+    title: 'Plug Design',
+    icon: 'draw',
+    accent: '#ff671f',
+    image: img03,
+    items: [
+      'Apply draft (typically 1 to 2 deg)',
+      'Add machining allowance',
+      'Consider shrinkage',
+      'Check symmetry & fairness',
+      'Add lifting / handling points',
+    ],
+  },
+  {
+    n: '04',
+    title: 'Plug Engineering',
+    icon: 'settings',
+    accent: '#ff671f',
+    image: img04,
+    items: [
+      'Add reference axis, planes',
+      'Construction & datums',
+      'Drilling points',
+      'Boss / rib design',
+      'CNC machining strategy',
+    ],
+  },
+  {
+    n: '05',
+    title: 'Plug Manufacturing',
+    icon: 'precision_manufacturing',
+    accent: '#ff671f',
+    image: img05,
+    items: [
+      'CNC machining (foam / wood)',
+      'Manual sanding & finishing',
+      'Apply sealing coat',
+      'Surface inspection',
+    ],
+  },
+  {
+    n: '06',
+    title: 'Mould Design',
+    icon: 'deployed_code',
+    accent: '#0b4793',
+    image: img06,
+    items: [
+      'Create mould (female) from plug',
+      'Define parting line',
+      'Core & cavity design',
+      'Add flanges, stiffeners',
+      'Add locators, clamps',
+      'Vacuum channels / breathers',
+      'Resin inlet / trap / drain',
+    ],
+  },
+  {
+    n: '07',
+    title: 'Mould Engineering',
+    icon: 'engineering',
+    accent: '#0b4793',
+    image: img07,
+    items: [
+      'Detail mould components',
+      'Cooling / heating lines (if req.)',
+      'Fasteners & inserts',
+      'BOM & drawings',
+      'Manufacturing plan',
+    ],
+  },
+  {
+    n: '08',
+    title: 'Mould Manufacturing & Assembly',
+    icon: 'build',
+    accent: '#0b4793',
+    image: img08,
+    items: [
+      'CNC machining',
+      'Surface treatment / polish',
+      'Fit & assembly',
+      'Trial & inspection',
+    ],
+  },
+];
+---
+
+<section id="process" class="bg-white">
+  <div class="max-w-5xl mx-auto px-8 lg:px-16 py-20">
+
+    <span class="font-label text-sm font-bold uppercase tracking-widest text-secondary">Process</span>
+    <h2 class="font-headline text-4xl lg:text-5xl font-extrabold tracking-tighter text-primary mt-3 mb-3">
+      The eight-stage workflow
+    </h2>
+    <p class="text-lg text-on-surface-variant mb-12 max-w-xl">
+      A documented path from input data to inspected tool, every tolerance, datum and parting line traceable.
+    </p>
+
+    <div class="flex flex-col gap-0">
+      {steps.map((step, i) => (
+        <div class="flex gap-6">
+
+          <!-- Step indicator column -->
+          <div class="flex flex-col items-center flex-none w-12">
+            <div
+              class="w-12 h-12 rounded-full flex items-center justify-center font-label font-bold text-base text-white shrink-0"
+              style={`background-color: ${step.accent};`}
+            >
+              {step.n}
+            </div>
+            {i < steps.length - 1 && (
+              <div class="w-0.5 flex-1 mt-1 mb-1" style={`background-color: ${step.accent}30;`}></div>
+            )}
+          </div>
+
+          <!-- Card -->
+          <div class="flex-1 bg-surface-container-lowest border border-outline-variant rounded-md p-6 mb-5 flex gap-6 items-start">
+
+            <!-- Left: header + bullets -->
+            <div class="flex-1 min-w-0">
+              <div class="flex flex-wrap items-center gap-3 mb-4">
+                <span
+                  class="material-symbols-outlined text-2xl leading-none"
+                  style={`color: ${step.accent};`}
+                  aria-hidden="true"
+                >{step.icon}</span>
+                <h3 class="font-headline text-xl font-bold text-primary">{step.title}</h3>
+              </div>
+              <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2">
+                {step.items.map((item) => (
+                  <li class="flex gap-2 text-sm text-on-surface-variant leading-snug">
+                    <span class="text-secondary font-bold shrink-0" aria-hidden="true">›</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <!-- Right: image (if available) -->
+            {step.image && (
+              <div class="shrink-0 w-48 h-36 bg-white rounded overflow-hidden flex items-center justify-center p-2">
+                <Image
+                  src={step.image}
+                  alt={step.title}
+                  class="w-auto h-full object-contain"
+                />
+              </div>
+            )}
+
+          </div>
+
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

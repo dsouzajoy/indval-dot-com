@@ -1,6 +1,8 @@
 ---
 import CapabilityCard from '@/components/ui/CapabilityCard.astro';
 import { withBase } from '@/lib/utils';
+import smFabImg from '@/assets/images/sheet-metal/sheet-metal-fabrication.jpg';
+import smStampImg from '@/assets/images/sheet-metal/sheet-metal-stamping.jpg';
 
 const whyPoints = [
   {
@@ -29,13 +31,13 @@ const services = [
   {
     icon: 'cut',
     label: 'Sheet Metal Fabrication',
-    image: '/images/sheet-metal/sheet-metal-fabrication.jpg',
+    image: smFabImg,
     description: 'Laser cutting, waterjet, turret punching, plasma cutting, CNC bending, press brakes, and TIG/MIG/laser welding across low to high volumes with micron-level tolerance control.',
   },
   {
     icon: 'precision_manufacturing',
     label: 'Sheet Metal Stamping Design',
-    image: '/images/sheet-metal/sheet-metal-stamping.jpg',
+    image: smStampImg,
     description: 'Progressive stamping tools for complex 3D forms via piercing, bending, deep drawing, coining and blanking. Multi-tonnage presses handle steel, aluminium and copper to customer prints.',
   },
 ];
@@ -92,7 +94,7 @@ const services = [
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       {services.map((service) => (
         <CapabilityCard
-          image={withBase(service.image)}
+          image={service.image}
           label={service.label}
           icon={service.icon}
           description={service.description}

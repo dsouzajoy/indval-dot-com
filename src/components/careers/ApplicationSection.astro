@@ -1,6 +1,7 @@
 ---
 import { en } from '@/i18n/locales/en';
-import { withBase } from '@/lib/utils';
+import { Image } from 'astro:assets';
+import appTeamImg from '@/assets/images/pexels/application-team.jpeg';
 
 const { apply } = en.careers;
 ---
@@ -67,11 +68,14 @@ const { apply } = en.careers;
       <!-- Right: image with decorative blobs (hidden on small mobile, shown md+) -->
       <div class="relative hidden sm:block">
         <div class="rounded overflow-hidden shadow-ambient-lg relative z-10 aspect-square">
-          <img
-            src={withBase('/images/pexels/application-team.jpeg')}
+          <Image
+            src={appTeamImg}
             alt="Engineering team collaborating"
-            class="w-full h-full object-cover"
+            format="avif"
+            quality={80}
+            width={900}
             loading="lazy"
+            class="w-full h-full object-cover"
           />
         </div>
         <!-- Decorative blurred circles -->

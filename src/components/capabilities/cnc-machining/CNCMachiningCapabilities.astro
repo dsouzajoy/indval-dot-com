@@ -1,6 +1,12 @@
 ---
 import { withBase } from '@/lib/utils';
 import CapabilityCard from '@/components/ui/CapabilityCard.astro';
+import cncMillingImg from '@/assets/images/machining/cnc-milling.jpg';
+import cncTurningImg from '@/assets/images/machining/cnc-turning.jpg';
+import cncTurnMillImg from '@/assets/images/machining/cnc-turn-mill.jpg';
+import cncHorizontalImg from '@/assets/images/machining/cnc-horizontal-milling.jpg';
+import cncVerticalImg from '@/assets/images/machining/cnc-vertical-turning.jpg';
+import screwMachiningImg from '@/assets/images/machining/screw-machining.jpg';
 
 const whyPoints = [
   {
@@ -29,37 +35,37 @@ const services = [
   {
     icon: 'precision_manufacturing',
     label: 'CNC Milling',
-    image: '/images/machining/cnc-milling.jpg',
+    image: cncMillingImg,
     description: 'Rotating multi-point cutters remove material from a fixed workpiece to produce flat faces, slots, pockets and complex 3D contours, with up to 5-axis simultaneous capability.',
   },
   {
     icon: 'rotate_right',
     label: 'CNC Turning',
-    image: '/images/machining/cnc-turning.jpg',
+    image: cncTurningImg,
     description: 'The workpiece rotates against a single-point tool to generate precise cylindrical features including shafts, bushings, pins and threaded components.',
   },
   {
     icon: 'sync',
     label: 'CNC Turn-Mill',
-    image: '/images/machining/cnc-turn-mill.jpg',
+    image: cncTurnMillImg,
     description: 'Turning and milling combined in a single setup, machining rotational and prismatic features together for complex parts in one cycle.',
   },
   {
     icon: 'view_week',
     label: 'CNC Horizontal Milling',
-    image: '/images/machining/cnc-horizontal-milling.jpg',
+    image: cncHorizontalImg,
     description: 'A horizontal spindle clears chips efficiently and supports heavier cuts — ideal for large, deep-pocket and high-volume production work.',
   },
   {
     icon: 'vertical_align_center',
     label: 'CNC Vertical Turning',
-    image: '/images/machining/cnc-vertical-turning.jpg',
+    image: cncVerticalImg,
     description: 'A vertical lathe holds large, heavy-diameter parts on a rotating table for stable machining of flanges, hubs, rings and casings.',
   },
   {
     icon: 'hardware',
     label: 'Screw Machining',
-    image: '/images/machining/screw-machining.jpg',
+    image: screwMachiningImg,
     description: 'High-speed automated turning of small, high-volume precision components such as pins, fittings and fasteners, produced direct from bar stock.',
   },
 ];

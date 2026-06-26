@@ -1,10 +1,20 @@
 ---
+import { Image } from 'astro:assets';
 import { withBase } from '@/lib/utils';
+import cfdFluidFlowImg from '@/assets/images/cfd-capabilities.png';
+import cfdHeatTransferImg from '@/assets/images/cfd-heat-transfer.png';
+import cfdMultiphaseImg from '@/assets/images/cfd-multiphase-analysis.png';
+import cfdAeroHydroImg from '@/assets/images/cfd-aero-hydrodynamics.png';
+import cfdBatteryElectronicsImg from '@/assets/images/cfd-battery-electronics-cooling.png';
+import cfdMixingImg from '@/assets/images/cfd-mixing-analysis.png';
+import cfdHvacImg from '@/assets/images/cfd-hvac-ventilation.png';
+import cfdPumpImg from '@/assets/images/cfd-pump-turbomachinery.png';
+import cfdHeatExchangerImg from '@/assets/images/cfd-heat-exchanger-design.png';
 const tabs = [
   {
     label: 'Fluid Flow',
     heading: 'Fluid Flow Analysis',
-    image: '/images/cfd-capabilities.png',
+    image: cfdFluidFlowImg,
     bullets: [
       'Advanced simulation of laminar, transitional, and turbulent flow regimes in complex geometries.',
       'Velocity field analysis to optimize flow distribution, reduce pressure losses, and eliminate recirculation zones.',
@@ -15,7 +25,7 @@ const tabs = [
   {
     label: 'Heat Transfer',
     heading: 'Heat Transfer Analysis',
-    image: '/images/cfd-heat-transfer.png',
+    image: cfdHeatTransferImg,
     bullets: [
       'Comprehensive thermal analysis including conduction, convection, and radiation heat transfer mechanisms.',
       'Conjugate heat transfer simulation to accurately predict temperature distribution in solid-fluid systems.',
@@ -26,7 +36,7 @@ const tabs = [
   {
     label: 'Multiphase Analysis',
     heading: 'Multiphase Flow Analysis',
-    image: '/images/cfd-multiphase-analysis.png',
+    image: cfdMultiphaseImg,
     bullets: [
       'Simulation of gas-liquid, liquid-liquid, and gas-solid flows using advanced multiphase modeling techniques.',
       'Phase separation, mixing, and interface tracking for complex industrial processes.',
@@ -37,7 +47,7 @@ const tabs = [
   {
     label: 'Aero & Hydrodynamics',
     heading: 'Aero & Hydrodynamic Analysis',
-    image: '/images/cfd-aero-hydrodynamics.png',
+    image: cfdAeroHydroImg,
     bullets: [
       'High-fidelity aerodynamic analysis for drag reduction, lift optimization, and stability assessment.',
       'Hydrodynamic modeling of marine structures, offshore platforms, and water flow systems.',
@@ -48,7 +58,7 @@ const tabs = [
   {
     label: 'Battery & Electronics Cooling',
     heading: 'Battery & Electronics Thermal Management',
-    image: '/images/cfd-battery-electronics-cooling.png',
+    image: cfdBatteryElectronicsImg,
     bullets: [
       'Thermal management design for battery packs, power electronics, and high-heat-density components.',
       'Optimization of cooling strategies including air cooling, liquid cooling, and phase-change materials.',
@@ -59,7 +69,7 @@ const tabs = [
   {
     label: 'Mixing Analysis',
     heading: 'Mixing & Blending Analysis',
-    image: '/images/cfd-mixing-analysis.png',
+    image: cfdMixingImg,
     imageClass: 'w-2/3 mx-auto',
     bullets: [
       'Simulation of fluid mixing, blending, and homogenization in stirred vessels and static mixers.',
@@ -71,7 +81,7 @@ const tabs = [
   {
     label: 'HVAC & Ventilation',
     heading: 'HVAC & Ventilation Analysis',
-    image: '/images/cfd-hvac-ventilation.png',
+    image: cfdHvacImg,
     bullets: [
       'Airflow distribution analysis to ensure comfort, air quality, and energy efficiency in buildings.',
       'Temperature stratification and contaminant dispersion modeling for occupied spaces.',
@@ -82,7 +92,7 @@ const tabs = [
   {
     label: 'Pump & Turbomachinery',
     heading: 'Pump & Turbomachinery Analysis',
-    image: '/images/cfd-pump-turbomachinery.png',
+    image: cfdPumpImg,
     bullets: [
       'Performance prediction of pumps, compressors, turbines, and fans across operating conditions.',
       'Internal flow analysis to identify losses, optimize blade geometry, and improve efficiency.',
@@ -93,7 +103,7 @@ const tabs = [
   {
     label: 'Heat Exchanger Design',
     heading: 'Heat Exchanger Design',
-    image: '/images/cfd-heat-exchanger-design.png',
+    image: cfdHeatExchangerImg,
     imageClass: 'w-2/3 mx-auto',
     bullets: [
       'Thermal and hydraulic design optimization for shell-and-tube, plate, and finned heat exchangers.',
@@ -162,9 +172,12 @@ const tabs = [
 
           <!-- Right: CFD image -->
           <div>
-            <img
-              src={withBase(tab.image)}
+            <Image
+              src={tab.image}
               alt={`CFD ${tab.heading} visualization`}
+              format="avif"
+              quality={80}
+              width={1200}
               class={`${tab.imageClass ?? 'w-full'} object-contain`}
               style="mix-blend-mode: multiply;"
               loading="lazy"

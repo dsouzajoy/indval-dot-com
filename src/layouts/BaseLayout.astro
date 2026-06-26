@@ -14,6 +14,7 @@ interface Props {
   ogImage?: string;
   showSplash?: boolean;
   breadcrumbs?: BreadcrumbItem[];
+  noindex?: boolean;
 }
 
 const {
@@ -23,6 +24,7 @@ const {
   ogImage,
   showSplash = false,
   breadcrumbs,
+  noindex = false,
 } = Astro.props;
 ---
 <!doctype html>
@@ -42,6 +44,7 @@ const {
       canonicalURL={canonicalURL}
       ogImage={ogImage}
       breadcrumbs={breadcrumbs}
+      noindex={noindex}
     />
   </head>
   <body class="min-h-screen flex flex-col font-sans bg-surface text-on-surface">

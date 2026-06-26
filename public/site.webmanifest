@@ -1,0 +1,12 @@
+{
+  "name": "Indval Technologies",
+  "short_name": "Indvaltech",
+  "description": "Precision engineering services across aerospace, automotive, and industrial sectors.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#f8f9ff",
+  "theme_color": "#00316c",
+  "icons": [
+    { "src": "/images/logo.png", "type": "image/png", "sizes": "any" }
+  ]
+}

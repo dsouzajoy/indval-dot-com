@@ -2,7 +2,9 @@
 import Navigation from './Navigation.astro';
 import { LanguageSwitcher } from '../i18n/LanguageSwitcher';
 import { en } from '@/i18n/locales/en';
+import { Image } from 'astro:assets';
 import { withBase } from '@/lib/utils';
+import logoImg from '@/assets/images/logo.png';
 
 const mobileNavLinks = [
   { label: en.nav.home,    href: '/',        i18nKey: 'nav.home'    },
@@ -27,7 +29,7 @@ const mobileIndustriesItems = [
 
     <!-- Logo + Wordmark -->
     <a href={withBase('/')} aria-label="Indvaltech home" class="flex items-center gap-3 shrink-0">
-      <img id="header-logo" src={withBase('/images/logo.png')} alt="Indvaltech" class="h-9 w-auto" style="transition: height 300ms ease;" />
+      <Image src={logoImg} id="header-logo" alt="Indvaltech" format="avif" loading="eager" class="h-9 w-auto" style="transition: height 300ms ease;" />
       <span id="header-divider" class="w-px bg-slate-300/60 shrink-0" style="height: 2rem; transition: height 300ms ease;"></span>
       <span id="header-wordmark" class="font-label tracking-tight leading-none flex flex-col">
         <span id="header-wordmark-title" class="font-bold" style="transition: font-size 300ms ease, letter-spacing 300ms ease;"><span class="text-secondary">INDVAL</span><span class="text-primary">TECH</span></span>

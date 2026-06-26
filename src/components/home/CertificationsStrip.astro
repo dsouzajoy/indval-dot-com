@@ -1,11 +1,14 @@
 ---
-import { withBase } from '@/lib/utils';
+import { Image } from 'astro:assets';
 import { en } from '@/i18n/locales/en';
+import certIsoQualityImg from '@/assets/images/cert-iso-quality.png';
+import certIsoInfosecImg from '@/assets/images/cert-iso-infosec.png';
+import certDunsImg from '@/assets/images/cert-duns.png';
 
 const certs = [
-  { src: withBase('/images/cert-iso-quality.png'), alt: 'ISO 9001 Quality Management Certified',    imgClass: 'h-36 w-36'           },
-  { src: withBase('/images/cert-iso-infosec.png'), alt: 'ISO 27001 Information Security Certified', imgClass: 'h-40 w-40'           },
-  { src: withBase('/images/cert-duns.png'),        alt: 'Dun & Bradstreet D-U-N-S Registered',      imgClass: 'h-48 w-48'           },
+  { src: certIsoQualityImg, alt: 'ISO 9001 Quality Management Certified',    imgClass: 'h-36 w-36' },
+  { src: certIsoInfosecImg, alt: 'ISO 27001 Information Security Certified', imgClass: 'h-40 w-40' },
+  { src: certDunsImg,       alt: 'Dun & Bradstreet D-U-N-S Registered',      imgClass: 'h-48 w-48' },
 ];
 ---
 
@@ -13,10 +16,13 @@ const certs = [
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center gap-6">
     <p class="font-label text-sm uppercase tracking-[0.25em] text-slate-400" data-i18n="certifications.verifiedLabel">{en.certifications.verifiedLabel}</p>
     <div class="flex flex-wrap justify-center items-center gap-10 md:gap-16">
-      {certs.map(({ src, alt, label, imgClass }) => (
-        <img
+      {certs.map(({ src, alt, imgClass }) => (
+        <Image
           src={src}
           alt={alt}
+          format="avif"
+          quality={80}
+          width={200}
           class={`object-contain opacity-90 hover:opacity-100 transition-opacity duration-200 ${imgClass}`}
           loading="lazy"
         />

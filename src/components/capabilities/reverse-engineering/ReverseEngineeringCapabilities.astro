@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 import { withBase } from '@/lib/utils';
+import reComponentImg from '@/assets/images/reverse-engineering-component.png';
 const valueProps = [
   {
     icon: 'precision_manufacturing',
@@ -97,9 +99,12 @@ const steps = [
           </div>
           <!-- Right: image -->
           <div class="bg-surface-container-lowest flex items-center justify-center p-8">
-            <img
-              src={withBase('/images/reverse-engineering-component.png')}
+            <Image
+              src={reComponentImg}
               alt="Precision machined component being digitised into a 3D CAD model"
+              format="avif"
+              quality={80}
+              width={900}
               class="w-full object-contain"
               loading="lazy"
             />

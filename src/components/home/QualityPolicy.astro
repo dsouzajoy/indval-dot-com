@@ -1,13 +1,18 @@
 ---
+import { Image } from 'astro:assets';
 import { en } from '@/i18n/locales/en';
-import { withBase } from '@/lib/utils';
+import manufacturingHeroImg from '@/assets/images/manufacturing-hero.jpg';
 ---
 <section class="relative bg-primary blueprint-bg overflow-hidden py-20 md:py-24 xl:py-32 px-4 sm:px-6 lg:px-8" aria-label="Quality policy">
   <div class="absolute inset-0 opacity-[0.15] pointer-events-none">
-    <img
-      src={withBase('/images/manufacturing-hero.jpg')}
+    <Image
+      src={manufacturingHeroImg}
       alt=""
       aria-hidden="true"
+      format="avif"
+      quality={60}
+      width={1920}
+      loading="lazy"
       class="w-full h-full object-cover grayscale mix-blend-overlay"
     />
   </div>

@@ -1,6 +1,16 @@
 ---
 import { en } from '@/i18n/locales/en';
-import { withBase } from '@/lib/utils';
+import HeroImage from '@/components/ui/HeroImage.astro';
+import { getLQIP } from '@/lib/lqip';
+import slide1Img from '@/assets/images/pexels/hero-slide-1.jpeg';
+import slide2Img from '@/assets/images/pexels/hero-slide-2.jpeg';
+import slide3Img from '@/assets/images/pexels/hero-slide-3.jpeg';
+
+const [ph1, ph2, ph3] = await Promise.all([
+  getLQIP('src/assets/images/pexels/hero-slide-1.jpeg'),
+  getLQIP('src/assets/images/pexels/hero-slide-2.jpeg'),
+  getLQIP('src/assets/images/pexels/hero-slide-3.jpeg'),
+]);
 
 const slides = [
   {
@@ -10,7 +20,8 @@ const slides = [
     cta:      en.hero.slide1.cta,
     href:     '/capabilities/biw-turnkey-solutions',
     i18nPrefix: 'hero.slide1',
-    img: '/images/pexels/hero-slide-1.jpeg',
+    img: slide1Img,
+    placeholder: ph1,
     imgAlt: 'Female engineer with laptop overseeing a robotic arm in a manufacturing facility',
     gradient: 'from-primary/80 via-primary/30 to-black/10',
   },
@@ -22,7 +33,8 @@ const slides = [
     // cta: en.hero.slide2.cta,
     hideCta:  true,
     i18nPrefix: 'hero.slide2',
-    img: '/images/pexels/hero-slide-2.jpeg',
+    img: slide2Img,
+    placeholder: ph2,
     imgAlt: 'Engineers in uniform collaborating on a tablet inside a manufacturing facility',
     gradient: 'from-black/70 via-black/20 to-black/10',
   },
@@ -33,7 +45,8 @@ const slides = [
     cta:      en.hero.slide3.cta,
     href:     '/careers',
     i18nPrefix: 'hero.slide3',
-    img: '/images/pexels/hero-slide-3.jpeg',
+    img: slide3Img,
+    placeholder: ph3,
     imgAlt: 'Indian female factory worker in a textile manufacturing facility',
     gradient: 'from-primary/80 via-primary/30 to-black/10',
   },
@@ -50,12 +63,7 @@ const slides = [
       <div class="carousel-item w-full h-full">
         <div class="absolute inset-0 bg-black/50 z-10"></div>
         <div class={`absolute inset-0 bg-gradient-to-r ${slide.gradient} z-10`}></div>
-        <img
-          src={withBase(slide.img)}
-          alt={slide.imgAlt}
-          class="w-full h-full object-cover"
-          loading={i === 0 ? 'eager' : 'lazy'}
-        />
+        <HeroImage src={slide.img} placeholder={slide.placeholder} alt={slide.imgAlt} />
         <div class="absolute inset-0 z-20 flex items-center px-8 max-w-screen-2xl mx-auto">
           <div class="max-w-2xl">
             <span

@@ -1,6 +1,9 @@
 ---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 import { en } from '@/i18n/locales/en';
-import { withBase } from '@/lib/utils';
+import gaganImg from '@/assets/images/leadership/gagan.png';
+import harshaImg from '@/assets/images/leadership/harsha.png';
 
 const { leadership } = en.contact;
 
@@ -17,7 +20,7 @@ const executives = [
     category: 'Strategy & Growth',
     title: 'Business Development',
     email: 'gagan.g@indvaltech.com',
-    image: '/images/leadership/gagan.png',
+    image: gaganImg as ImageMetadata,
     linkedin: 'https://www.linkedin.com/in/gagan-g-amin/',
   },
   {
@@ -25,7 +28,7 @@ const executives = [
     category: 'Operations',
     title: 'Head of Operation - GM',
     email: 'harsha@indvaltech.com',
-    image: '/images/leadership/harsha.png',
+    image: harshaImg as ImageMetadata,
     linkedin: 'https://www.linkedin.com/in/vardhana-m/',
   },
 ];
@@ -39,9 +42,13 @@ const executives = [
         <!-- Portrait -->
         <div class="aspect-square relative overflow-hidden bg-surface-dim flex items-center justify-center">
           {image ? (
-            <img
-              src={withBase(image)}
+            <Image
+              src={image}
               alt={name}
+              format="avif"
+              quality={80}
+              width={600}
+              loading="lazy"
               class="absolute inset-0 w-full h-full object-cover object-top"
             />
           ) : (

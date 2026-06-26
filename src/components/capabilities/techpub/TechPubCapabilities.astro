@@ -1,5 +1,16 @@
 ---
+import { Image } from 'astro:assets';
 import { withBase } from '@/lib/utils';
+import techpub20Img from '@/assets/images/techpub-pic20.png';
+import techpub21Img from '@/assets/images/techpub-pic21.png';
+import techpub22Img from '@/assets/images/techpub-pic22.png';
+import techpub23Img from '@/assets/images/techpub-pic23.png';
+const galleryItems = [
+  { src: techpub20Img, alt: 'Component Maintenance Manual showing test procedures and equipment specifications', caption: 'Component Maintenance Manual — CMM' },
+  { src: techpub21Img, alt: 'Illustrated Parts Catalog exploded view diagram with numbered part callouts', caption: 'IPC — Exploded View Diagram' },
+  { src: techpub22Img, alt: 'Illustrated Parts Catalog data table with part numbers and nomenclature', caption: 'Illustrated Parts Catalog — IPC' },
+  { src: techpub23Img, alt: 'Structural diagram showing aircraft component assembly breakdown', caption: 'IPC — Structural Assembly Diagram' },
+];
 const services = [
   {
     label: 'Authoring & Illustration',
@@ -230,17 +241,15 @@ const steps = [
         </h2>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {[
-          { src: '/images/techpub-pic20.png', alt: 'Component Maintenance Manual showing test procedures and equipment specifications', caption: 'Component Maintenance Manual — CMM' },
-          { src: '/images/techpub-pic21.png', alt: 'Illustrated Parts Catalog exploded view diagram with numbered part callouts', caption: 'IPC — Exploded View Diagram' },
-          { src: '/images/techpub-pic22.png', alt: 'Illustrated Parts Catalog data table with part numbers and nomenclature', caption: 'Illustrated Parts Catalog — IPC' },
-          { src: '/images/techpub-pic23.png', alt: 'Structural diagram showing aircraft component assembly breakdown', caption: 'IPC — Structural Assembly Diagram' },
-        ].map((item) => (
+        {galleryItems.map((item) => (
           <div>
             <div class="rounded overflow-hidden shadow-ambient bg-surface-container-lowest">
-              <img
-                src={withBase(item.src)}
+              <Image
+                src={item.src}
                 alt={item.alt}
+                format="avif"
+                quality={80}
+                width={800}
                 class="w-full object-contain"
                 loading="lazy"
               />

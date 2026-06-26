@@ -1,22 +1,17 @@
 ---
 import { en } from '@/i18n/locales/en';
-import { withBase } from '@/lib/utils';
+import HeroImage from '@/components/ui/HeroImage.astro';
+import { getLQIP } from '@/lib/lqip';
+import heroImg from '@/assets/images/press-tool-design-hero.jpg';
+
+const placeholder = await getLQIP('src/assets/images/press-tool-design-hero.jpg');
 ---
 
 <section
   class="relative min-h-screen flex items-center overflow-hidden"
   aria-label="Press Tool Design & Engineering"
 >
-  <!-- Background image -->
-  <div class="absolute inset-0 z-0">
-    <img
-      src={withBase('/images/press-tool-design-hero.jpg')}
-      alt=""
-      aria-hidden="true"
-      class="w-full h-full object-cover"
-      loading="eager"
-    />
-  </div>
+  <HeroImage src={heroImg} {placeholder} alt="" />
   <!-- Dark gradient overlay -->
   <div class="absolute inset-0 bg-gradient-to-r from-on-surface/85 via-on-surface/65 to-on-surface/20 z-10"></div>
 

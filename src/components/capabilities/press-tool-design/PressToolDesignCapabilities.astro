@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 import { withBase } from '@/lib/utils';
+import pressToolSimImg from '@/assets/images/press-tool-design-simulation.jpg';
 const toolingCards = [
   {
     label: 'Panel Checkers',
@@ -144,9 +146,12 @@ const docCards = [
       <!-- Right: CAD image with overlay -->
       <div class="lg:w-1/2 w-full">
         <div class="relative rounded-lg overflow-hidden border border-white/10 shadow-ambient-lg">
-          <img
-            src={withBase('/images/press-tool-design-simulation.jpg')}
+          <Image
+            src={pressToolSimImg}
             alt="Technical CAD model of a complex die layout"
+            format="avif"
+            quality={80}
+            width={1200}
             class="w-full h-[500px] object-cover"
             loading="lazy"
           />

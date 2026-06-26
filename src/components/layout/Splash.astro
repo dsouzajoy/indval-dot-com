@@ -1,10 +1,11 @@
 ---
-import { withBase } from '@/lib/utils';
+import { Image } from 'astro:assets';
+import logoImg from '@/assets/images/logo.png';
 ---
 <div id="splash" class="fixed inset-0 z-[200] flex items-center justify-center bg-surface">
   <div id="splash-inner" style="display:flex; align-items:center;">
     <div class="inline-flex items-center gap-4">
-      <img src={withBase('/images/logo.png')} alt="Indvaltech" style="height:4rem; width:auto;" />
+      <Image src={logoImg} alt="Indvaltech" format="avif" loading="eager" style="height:4rem; width:auto;" />
       <span class="w-px bg-slate-300/60 shrink-0" style="height:3.25rem;"></span>
       <span class="font-label tracking-tight leading-none flex flex-col">
         <span class="font-bold" style="font-size:1.85rem; letter-spacing:normal;"><span class="text-secondary">INDVAL</span><span class="text-primary">TECH</span></span>

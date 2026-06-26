@@ -1,7 +1,37 @@
 ---
 import { en } from '@/i18n/locales/en';
 import { withBase } from '@/lib/utils';
+import { getImage } from 'astro:assets';
 import BIWPillarLightbox from './BIWPillarLightbox.astro';
+import pp01Raw from '@/assets/images/biw/process-planning/01.png';
+import pp02Raw from '@/assets/images/biw/process-planning/02.png';
+import pp03Raw from '@/assets/images/biw/process-planning/03.png';
+import dm01Raw from '@/assets/images/biw/digital-manufacturing/01.png';
+import dm02Raw from '@/assets/images/biw/digital-manufacturing/02.png';
+import dm03Raw from '@/assets/images/biw/digital-manufacturing/03.png';
+import pd01Raw from '@/assets/images/biw/production-development/01.png';
+import pd02Raw from '@/assets/images/biw/production-development/02.png';
+import pd03Raw from '@/assets/images/biw/production-development/03.png';
+import ind01Raw from '@/assets/images/biw/industrialization/01.png';
+import ind02Raw from '@/assets/images/biw/industrialization/02.png';
+import ind03Raw from '@/assets/images/biw/industrialization/03.png';
+import ind04Raw from '@/assets/images/biw/industrialization/04.png';
+
+const [pp01, pp02, pp03, dm01, dm02, dm03, pd01, pd02, pd03, ind01, ind02, ind03, ind04] = await Promise.all([
+  getImage({ src: pp01Raw, format: 'avif' }),
+  getImage({ src: pp02Raw, format: 'avif' }),
+  getImage({ src: pp03Raw, format: 'avif' }),
+  getImage({ src: dm01Raw, format: 'avif' }),
+  getImage({ src: dm02Raw, format: 'avif' }),
+  getImage({ src: dm03Raw, format: 'avif' }),
+  getImage({ src: pd01Raw, format: 'avif' }),
+  getImage({ src: pd02Raw, format: 'avif' }),
+  getImage({ src: pd03Raw, format: 'avif' }),
+  getImage({ src: ind01Raw, format: 'avif' }),
+  getImage({ src: ind02Raw, format: 'avif' }),
+  getImage({ src: ind03Raw, format: 'avif' }),
+  getImage({ src: ind04Raw, format: 'avif' }),
+]);
 
 const differentiators = [
   'Digital-first engineering approach',
@@ -16,42 +46,25 @@ const pillars = [
     key: 'processPlan',
     icon: 'route',
     ...en.biwTurnkey.pillars.processPlan,
-    images: [
-      { src: '/images/biw/process-planning/01.png' },
-      { src: '/images/biw/process-planning/02.png' },
-      { src: '/images/biw/process-planning/03.png' },
-    ],
+    images: [{ src: pp01.src }, { src: pp02.src }, { src: pp03.src }],
   },
   {
     key: 'digitalMfg',
     icon: 'memory',
     ...en.biwTurnkey.pillars.digitalMfg,
-    images: [
-      { src: '/images/biw/digital-manufacturing/01.png' },
-      { src: '/images/biw/digital-manufacturing/02.png' },
-      { src: '/images/biw/digital-manufacturing/03.png' },
-    ],
+    images: [{ src: dm01.src }, { src: dm02.src }, { src: dm03.src }],
   },
   {
     key: 'productionDev',
     icon: 'factory',
     ...en.biwTurnkey.pillars.productionDev,
-    images: [
-      { src: '/images/biw/production-development/01.png' },
-      { src: '/images/biw/production-development/02.png' },
-      { src: '/images/biw/production-development/03.png' },
-    ],
+    images: [{ src: pd01.src }, { src: pd02.src }, { src: pd03.src }],
   },
   {
     key: 'industrialization',
     icon: 'rocket_launch',
     ...en.biwTurnkey.pillars.industrialization,
-    images: [
-      { src: '/images/biw/industrialization/01.png' },
-      { src: '/images/biw/industrialization/02.png' },
-      { src: '/images/biw/industrialization/03.png' },
-      { src: '/images/biw/industrialization/04.png' },
-    ],
+    images: [{ src: ind01.src }, { src: ind02.src }, { src: ind03.src }, { src: ind04.src }],
   },
 ];
 
@@ -150,7 +163,7 @@ const steps = [
           data-pillar-index={i}
           data-pillar-title={pillar.title}
           data-pillar-icon={pillar.icon}
-          data-images={JSON.stringify(pillar.images.map(img => ({ ...img, src: withBase(img.src) })))}
+          data-images={JSON.stringify(pillar.images)}
         >
           <!-- Icon -->
           <div class="flex justify-center mb-6">

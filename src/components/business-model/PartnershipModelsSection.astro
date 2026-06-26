@@ -1,6 +1,9 @@
 ---
+import { Image } from 'astro:assets';
 import { en } from '@/i18n/locales/en';
-import { withBase } from '@/lib/utils';
+import partnershipTeamImg from '@/assets/images/pexels/partnership-team.jpeg';
+import partnershipOffshoreImg from '@/assets/images/pexels/partnership-offshore.jpeg';
+import partnershipHybridImg from '@/assets/images/pexels/partnership-hybrid.jpeg';
 
 const pm = en.businessModel.partnershipModels;
 
@@ -11,7 +14,7 @@ const models = [
     titleKey: 'businessModel.partnershipModels.offshore.title',
     subtitle: pm.offshore.subtitle,
     subtitleKey: 'businessModel.partnershipModels.offshore.subtitle',
-    image: '/images/pexels/partnership-team.jpeg',
+    image: partnershipTeamImg,
     imageAlt: 'Global remote team collaborating across continents',
     items: [
       { key: 'businessModel.partnershipModels.offshore.item1', label: pm.offshore.item1 },
@@ -26,7 +29,7 @@ const models = [
     titleKey: 'businessModel.partnershipModels.onshore.title',
     subtitle: pm.onshore.subtitle,
     subtitleKey: 'businessModel.partnershipModels.onshore.subtitle',
-    image: '/images/pexels/partnership-offshore.jpeg',
+    image: partnershipOffshoreImg,
     imageAlt: 'Engineer with safety helmet on-site at an industrial facility',
     items: [
       { key: 'businessModel.partnershipModels.onshore.item1', label: pm.onshore.item1 },
@@ -41,7 +44,7 @@ const models = [
     titleKey: 'businessModel.partnershipModels.hybrid.title',
     subtitle: pm.hybrid.subtitle,
     subtitleKey: 'businessModel.partnershipModels.hybrid.subtitle',
-    image: '/images/pexels/partnership-hybrid.jpeg',
+    image: partnershipHybridImg,
     imageAlt: 'Diverse international team working together in a modern office',
     items: [
       { key: 'businessModel.partnershipModels.hybrid.item1', label: pm.hybrid.item1 },
@@ -72,11 +75,14 @@ const models = [
       {models.map((m) => (
         <div class="relative h-[480px] overflow-hidden rounded group">
           <!-- Background image -->
-          <img
-            src={withBase(m.image)}
+          <Image
+            src={m.image}
             alt={m.imageAlt}
-            class="absolute inset-0 w-full h-full object-cover scale-105 group-hover:scale-110 transition-transform duration-700"
+            format="avif"
+            quality={80}
+            width={800}
             loading="lazy"
+            class="absolute inset-0 w-full h-full object-cover scale-105 group-hover:scale-110 transition-transform duration-700"
           />
           <!-- Gradient overlay -->
           <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/85 to-primary/30"></div>

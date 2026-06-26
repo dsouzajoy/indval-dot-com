@@ -1,6 +1,7 @@
 ---
 import { en } from '@/i18n/locales/en';
-import { withBase } from '@/lib/utils';
+import { Image } from 'astro:assets';
+import devTeamImg from '@/assets/images/pexels/development-team.jpeg';
 ---
 
 <section class="blueprint-bg py-32">
@@ -70,9 +71,13 @@ import { withBase } from '@/lib/utils';
 
       <!-- Right: image -->
       <div class="w-full md:w-1/2">
-        <img
-          src={withBase('/images/pexels/development-team.jpeg')}
+        <Image
+          src={devTeamImg}
           alt="Engineers collaborating in a technical meeting"
+          format="avif"
+          quality={80}
+          width={900}
+          loading="lazy"
           class="rounded shadow-xl w-full object-cover"
         />
       </div>

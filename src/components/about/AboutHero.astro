@@ -1,6 +1,10 @@
 ---
 import { en } from '@/i18n/locales/en';
-import { withBase } from '@/lib/utils';
+import HeroImage from '@/components/ui/HeroImage.astro';
+import { getLQIP } from '@/lib/lqip';
+import heroImg from '@/assets/images/pexels/about-hero.jpeg';
+
+const placeholder = await getLQIP('src/assets/images/pexels/about-hero.jpeg');
 
 const services = [
   { icon: 'architecture',           titleKey: 'about.hero.service1Title', bodyKey: 'about.hero.service1Body', title: en.about.hero.service1Title, body: en.about.hero.service1Body },
@@ -19,15 +23,7 @@ const tags = [
   class="relative min-h-[700px] flex items-center overflow-hidden bg-primary"
   aria-label="Who we are"
 >
-  <!-- Background image -->
-  <div class="absolute inset-0 z-0">
-    <img
-      class="w-full h-full object-cover opacity-60 scale-105"
-      src={withBase('/images/pexels/about-hero.jpeg')}
-      alt="High-tech industrial engineering laboratory"
-      loading="eager"
-    />
-  </div>
+  <HeroImage src={heroImg} {placeholder} alt="High-tech industrial engineering laboratory" imageClass="opacity-60 scale-105" />
   <!-- Dark gradient overlay -->
   <div class="absolute inset-0 bg-gradient-to-br from-primary/70 to-primary-container/60"></div>
   <!-- Blueprint dot grid -->

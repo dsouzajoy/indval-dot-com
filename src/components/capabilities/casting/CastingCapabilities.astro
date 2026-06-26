@@ -1,6 +1,11 @@
 ---
 import CapabilityCard from '@/components/ui/CapabilityCard.astro';
 import { withBase } from '@/lib/utils';
+import dieCastingImg from '@/assets/images/casting/die-casting.jpg';
+import investmentCastingImg from '@/assets/images/casting/investment-casting.jpg';
+import sandCastingImg from '@/assets/images/casting/sand-casting.jpg';
+import centrifugalCastingImg from '@/assets/images/casting/centrifugal-casting.jpg';
+import lostFoamCastingImg from '@/assets/images/casting/lost-foam-casting.jpg';
 
 const whyPoints = [
   {
@@ -29,31 +34,31 @@ const processes = [
   {
     icon: 'compress',
     label: 'Die Casting',
-    image: '/images/casting/die-casting.jpg',
+    image: dieCastingImg,
     description: 'Molten metal is injected under high pressure into precision steel dies, producing dimensionally accurate, high-volume parts with excellent surface finish. Best suited to aluminium and zinc components.',
   },
   {
     icon: 'auto_fix_high',
     label: 'Investment Casting',
-    image: '/images/casting/investment-casting.jpg',
+    image: investmentCastingImg,
     description: 'Wax patterns are coated in ceramic shell, burned out, then filled with molten metal to achieve intricate geometries and tight tolerances. The preferred choice for aerospace, medical and complex structural parts.',
   },
   {
     icon: 'layers',
     label: 'Sand Casting',
-    image: '/images/casting/sand-casting.jpg',
+    image: sandCastingImg,
     description: 'Bonded sand molds are formed around a pattern, filled with molten metal and broken away after solidification. A versatile, cost-effective process for large and complex parts in virtually any metal.',
   },
   {
     icon: 'rotate_right',
     label: 'Centrifugal Casting',
-    image: '/images/casting/centrifugal-casting.jpg',
+    image: centrifugalCastingImg,
     description: 'Molten metal is poured into a spinning mold; centrifugal force drives the metal outward, producing dense, porosity-free cylindrical parts such as pipes, rings and bushings.',
   },
   {
     icon: 'blur_on',
     label: 'Lost Foam Casting',
-    image: '/images/casting/lost-foam-casting.jpg',
+    image: lostFoamCastingImg,
     description: 'Foam patterns embedded in unbonded sand are vaporized by the incoming molten metal, enabling highly complex, near-net-shape castings with minimal core work and reduced finishing.',
   },
 ];

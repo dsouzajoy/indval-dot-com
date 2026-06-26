@@ -1,0 +1,58 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+
+interface Props {
+  src: ImageMetadata;
+  placeholder: string;
+  alt: string;
+  class?: string;
+  // Extra classes applied on top of w-full h-full object-cover (e.g. "opacity-60 scale-105")
+  imageClass?: string;
+}
+
+const {
+  src,
+  placeholder,
+  alt,
+  class: wrapperClass = 'absolute inset-0 z-0',
+  imageClass = '',
+} = Astro.props;
+---
+
+<div class:list={[wrapperClass, 'overflow-hidden']}>
+  <img
+    src={placeholder}
+    alt=""
+    aria-hidden="true"
+    class:list={['hero-lqip absolute inset-0 w-full h-full object-cover scale-110 transition-opacity duration-700', imageClass]}
+    style="filter: blur(20px);"
+  />
+  <Image
+    src={src}
+    alt={alt}
+    format="avif"
+    quality={80}
+    width={1920}
+    loading="eager"
+    fetchpriority="high"
+    decoding="async"
+    class:list={['hero-full absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-700', imageClass]}
+  />
+</div>
+
+<script>
+  document.querySelectorAll<HTMLImageElement>('img.hero-full').forEach((img) => {
+    const lqip = img.previousElementSibling as HTMLElement | null;
+    function reveal() {
+      img.classList.remove('opacity-0');
+      lqip?.classList.add('opacity-0');
+      setTimeout(() => lqip?.remove(), 700);
+    }
+    if (img.complete && img.naturalWidth > 0) {
+      reveal();
+    } else {
+      img.addEventListener('load', reveal, { once: true });
+    }
+  });
+</script>

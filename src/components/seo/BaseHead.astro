@@ -12,9 +12,10 @@ interface Props {
   canonicalURL: string;
   ogImage?: string;
   breadcrumbs?: BreadcrumbItem[];
+  noindex?: boolean;
 }
 
-const { title, description, canonicalURL, ogImage = '/images/og-default.webp', breadcrumbs } = Astro.props;
+const { title, description, canonicalURL, ogImage = '/images/hero-turbine.jpg', breadcrumbs, noindex = false } = Astro.props;
 
 const siteOrigin = Astro.site ? new URL('/', Astro.site).href.replace(/\/$/, '') : 'https://www.indvaltech.com';
 const logoUrl = new URL(withBase('/images/logo.png'), Astro.site).toString();
@@ -73,12 +74,16 @@ const fontFaceCss = `
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>{title}</title>
 <meta name="description" content={description} />
+{noindex && <meta name="robots" content="noindex, follow" />}
 <link rel="canonical" href={canonicalURL} />
 
 <!-- Open Graph -->
+<meta property="og:site_name" content="Indvaltech" />
+<meta property="og:locale" content="en_US" />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={ogImageURL} />
+<meta property="og:image:alt" content={title} />
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:type" content="website" />
 
@@ -87,8 +92,14 @@ const fontFaceCss = `
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={ogImageURL} />
+<meta name="twitter:image:alt" content={title} />
 
 <!-- TODO: add google-site-verification meta tag once client provides the Search Console token -->
+
+<!-- Device / PWA -->
+<meta name="theme-color" content="#00316c" />
+<link rel="apple-touch-icon" href={withBase('/images/logo.png')} />
+<link rel="manifest" href={withBase('/site.webmanifest')} />
 
 <!-- Font face declarations (base-aware) -->
 <style is:inline set:html={fontFaceCss}></style>

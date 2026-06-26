@@ -1,6 +1,10 @@
 ---
 import { en } from '@/i18n/locales/en';
-import { withBase } from '@/lib/utils';
+import HeroImage from '@/components/ui/HeroImage.astro';
+import { getLQIP } from '@/lib/lqip';
+import heroImg from '@/assets/images/pexels/academia-hero.jpeg';
+
+const placeholder = await getLQIP('src/assets/images/pexels/academia-hero.jpeg');
 
 const tags = [
   { key: 'academia.hero.tag1', label: en.academia.hero.tag1 },
@@ -37,15 +41,7 @@ const cards = [
   class="relative min-h-[700px] flex items-center overflow-hidden bg-primary"
   aria-label="Indval Academia"
 >
-  <!-- Background image -->
-  <div class="absolute inset-0 z-0">
-    <img
-      class="w-full h-full object-cover opacity-60 scale-105"
-      src={withBase('/images/pexels/academia-hero.jpeg')}
-      alt="Engineers in aerospace flight simulator training"
-      loading="eager"
-    />
-  </div>
+  <HeroImage src={heroImg} {placeholder} alt="Engineers in aerospace flight simulator training" imageClass="opacity-60 scale-105" />
   <!-- Dark gradient overlay -->
   <div class="absolute inset-0 bg-gradient-to-br from-primary/80 to-primary-container/60"></div>
   <!-- Blueprint dot grid -->

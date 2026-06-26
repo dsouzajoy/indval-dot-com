@@ -1,5 +1,15 @@
 ---
+import { Image } from 'astro:assets';
 import { withBase } from '@/lib/utils';
+import feaCapabilitiesImg from '@/assets/images/fea-capabilities.png';
+import feaDynamicImg from '@/assets/images/fea-dynamic.png';
+import feaCrashImg from '@/assets/images/fea-crash.png';
+import feaFatigueImg from '@/assets/images/fea-fatigue.png';
+import feaCompositeImg from '@/assets/images/fea-composite.png';
+import feaBulkMaterialImg from '@/assets/images/fea-bulk-material.png';
+import feaManufacturingImg from '@/assets/images/fea-manufacturing.png';
+import feaElectromagneticImg from '@/assets/images/fea-electromagnetic.png';
+import feaNumericalOptimizationImg from '@/assets/images/fea-numerical-optimization.png';
 const defaultBullets = [
   'Nonlinear analysis (Complex nonlinear problems including nonlinear contact, material properties and large deformations, buckling, creep, etc…)',
   'Structural analysis (Code compliant analysis of civil and industrial structures.)',
@@ -12,13 +22,13 @@ const tabs = [
   {
     label: 'Structural',
     heading: 'Structural Analysis',
-    image: '/images/fea-capabilities.png',
+    image: feaCapabilitiesImg,
     bullets: defaultBullets,
   },
   {
     label: 'Dynamic',
     heading: 'Dynamic Analysis',
-    image: '/images/fea-dynamic.png',
+    image: feaDynamicImg,
     bullets: [
       'Multi-Body Dynamics (Complex mechanisms like landing gears and suspensions)',
       'Normal modes (Natural frequencies and mode shapes, Complex eigenvalues, preloaded eigenvalues)',
@@ -31,7 +41,7 @@ const tabs = [
   {
     label: 'Crash',
     heading: 'Crash Analysis',
-    image: '/images/fea-crash.png',
+    image: feaCrashImg,
     bullets: [
       'Crash analysis (Complex structures like a vehicle, mobile phone, etc…)',
       'Strain-rate dependent materials',
@@ -44,7 +54,7 @@ const tabs = [
   {
     label: 'Fatigue',
     heading: 'Fatigue Analysis',
-    image: '/images/fea-fatigue.png',
+    image: feaFatigueImg,
     bullets: [
       'Static analysis based fatigue (S-N curve, mean stress correction, residual stresses)',
       'Vibrational fatigue (Based on random response analysis)',
@@ -54,7 +64,7 @@ const tabs = [
   {
     label: 'Composite Material',
     heading: 'Composite Material Analysis',
-    image: '/images/fea-composite.png',
+    image: feaCompositeImg,
     bullets: [
       'Predictions of components made from high-performance materials',
       'Inter and intra laminar damage modelling (Ply failure and delamination)',
@@ -66,7 +76,7 @@ const tabs = [
   {
     label: 'Bulk Material',
     heading: 'Bulk Material Analysis',
-    image: '/images/fea-bulk-material.png',
+    image: feaBulkMaterialImg,
     imageClass: 'w-2/3 mx-auto',
     bullets: [
       'Discrete element method for bulk analysis',
@@ -79,7 +89,7 @@ const tabs = [
   {
     label: 'Manufacturing',
     heading: 'Manufacturing Analysis',
-    image: '/images/fea-manufacturing.png',
+    image: feaManufacturingImg,
     bullets: [
       'Injection molding (Simulation of flow, pack and warping stages. Optimization of cooling and molding parameters for higher productivity)',
       'Forming (Analysis of deep drawing for single and multi-stage tools. Optimization of the die for the springback effect)',
@@ -89,7 +99,7 @@ const tabs = [
   {
     label: 'Electromagnetic',
     heading: 'Electromagnetic Analysis',
-    image: '/images/fea-electromagnetic.png',
+    image: feaElectromagneticImg,
     bullets: [
       'PMSM analysis (Concept design, Torque speed characteristics, Cogging torque, back EMF harmonic study, Id-Iq maps, Eddy current losses, NVH)',
       'Induction motor analysis (Analysis of entire IM period, study of harmonics, starting analysis)',
@@ -99,7 +109,7 @@ const tabs = [
   {
     label: 'Numerical Optimization',
     heading: 'Numerical Optimization Analysis',
-    image: '/images/fea-numerical-optimization.png',
+    image: feaNumericalOptimizationImg,
     bullets: [
       'Parametric optimization (Shape optimization, thickness optimization, composite optimization, material characterization)',
       'Topology optimization (Complex design spaces, multi-objective and multi-constraint optimization, manufacturing constraints)',
@@ -166,9 +176,12 @@ const tabs = [
 
           <!-- Right: FEA image -->
           <div>
-            <img
-              src={withBase(tab.image)}
+            <Image
+              src={tab.image}
               alt={`FEA ${tab.heading} visualization`}
+              format="avif"
+              quality={80}
+              width={1200}
               class={`${tab.imageClass ?? 'w-full'} object-contain`}
               style="mix-blend-mode: multiply;"
               loading="lazy"

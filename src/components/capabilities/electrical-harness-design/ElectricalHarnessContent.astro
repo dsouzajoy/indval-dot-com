@@ -1,0 +1,370 @@
+---
+import { Image, getImage } from 'astro:assets';
+import Button from '@/components/ui/Button.astro';
+import { withBase } from '@/lib/utils';
+
+import introImg from '@/assets/images/electrical-harness/intro.jpg';
+import stageArchImg from '@/assets/images/electrical-harness/stage-architecture.jpg';
+import stageRoutingImg from '@/assets/images/electrical-harness/stage-routing.jpg';
+import stagePackagingImg from '@/assets/images/electrical-harness/stage-packaging.jpg';
+import stageValidationImg from '@/assets/images/electrical-harness/stage-validation.jpg';
+import stageDocImg from '@/assets/images/electrical-harness/stage-documentation.jpg';
+
+const stageBgs = await Promise.all(
+  [stageArchImg, stageRoutingImg, stagePackagingImg, stageValidationImg, stageDocImg].map(
+    (src) => getImage({ src, format: 'avif', quality: 100, width: 800 })
+  )
+);
+
+const stages = [
+  { stage: 'Stage 01', title: 'Architecture',  desc: 'System definition, schematics and power distribution.',     img: stageArchImg,       alt: 'Electrical wiring schematic on paper' },
+  { stage: 'Stage 02', title: '3D routing',    desc: 'Bundle routing, splices and connector placement.',          img: stageRoutingImg,    alt: 'Engineer working at CAD workstation' },
+  { stage: 'Stage 03', title: 'Packaging',     desc: 'Clearance, bend radius and weight optimization.',          img: stagePackagingImg,  alt: 'Wiring harness in automotive compartment' },
+  { stage: 'Stage 04', title: 'Validation',    desc: 'DMU checks, clash detection and continuity verification.', img: stageValidationImg, alt: 'Engineer performing quality validation' },
+  { stage: 'Stage 05', title: 'Documentation', desc: 'Flattening, BOM, wire lists and assembly drawings.',       img: stageDocImg,        alt: 'Technical blueprint and engineering drawings' },
+];
+---
+
+<!-- INTRO -->
+<section class="bg-surface">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16 py-20 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <div>
+      <p class="font-label font-bold text-sm uppercase tracking-widest text-secondary">The capability</p>
+      <h2 class="mt-2 text-3xl lg:text-4xl font-bold leading-tight tracking-tight text-primary">
+        Intelligent 3D harness models, built for complex systems
+      </h2>
+      <p class="mt-6 text-lg leading-relaxed text-on-surface-variant">
+        Our engineering team delivers accurate, standards-compliant electrical routing, harness installation, integration and manufacturing documentation to support complex electrical systems throughout the product development lifecycle.
+      </p>
+      <p class="mt-5 text-lg leading-relaxed text-on-surface-variant">
+        Using industry-leading electrical design and CAD platforms, we develop intelligent 3D harness models that improve design quality, reduce development time, optimize packaging and streamline manufacturing processes.
+      </p>
+    </div>
+    <div class="rounded overflow-hidden shadow-lg aspect-[4/3]">
+      <Image
+        src={introImg}
+        alt="Engineer working on automotive wiring harness"
+        format="avif"
+        quality={100}
+        width={800}
+        height={600}
+        loading="lazy"
+        class="w-full h-full object-cover"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="bg-surface-low">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16 py-20">
+    <div class="mb-11">
+      <p class="font-label font-bold text-sm uppercase tracking-widest text-secondary">What we do</p>
+      <h2 class="mt-2 text-3xl lg:text-4xl font-bold tracking-tight text-primary">Electrical harness design services</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Card 01 -->
+      <div class="bg-white border border-outline rounded p-8 hover:-translate-y-1 hover:shadow-xl transition-all duration-200">
+        <span class="material-symbols-outlined text-secondary" style="font-size: 38px;">hub</span>
+        <h3 class="mt-4 mb-1 text-xl font-semibold text-primary">Electrical architecture development</h3>
+        <p class="font-label text-[11px] font-bold tracking-widest uppercase text-on-surface-variant mb-4">01</p>
+        <ul class="flex flex-col gap-2.5">
+          {[
+            'Electrical system definition and planning',
+            'Wiring schematic development',
+            'Network architecture design',
+            'Connector and equipment integration',
+            'Power distribution design',
+            'Interface management and validation',
+          ].map((item) => (
+            <li class="flex gap-2.5 text-sm leading-snug text-on-surface-variant">
+              <span class="material-symbols-outlined text-secondary shrink-0" style="font-size: 18px;">check_small</span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Card 02 -->
+      <div class="bg-white border border-outline rounded p-8 hover:-translate-y-1 hover:shadow-xl transition-all duration-200">
+        <span class="material-symbols-outlined text-secondary" style="font-size: 38px;">polyline</span>
+        <h3 class="mt-4 mb-1 text-xl font-semibold text-primary">3D harness design and routing</h3>
+        <p class="font-label text-[11px] font-bold tracking-widest uppercase text-on-surface-variant mb-4">02</p>
+        <ul class="flex flex-col gap-2.5">
+          {[
+            'Complete electrical harness routing',
+            'Bundle segment creation and optimization',
+            'Branch point and splice design',
+            'Connector placement and validation',
+            'Space claim analysis',
+            'Installation verification',
+          ].map((item) => (
+            <li class="flex gap-2.5 text-sm leading-snug text-on-surface-variant">
+              <span class="material-symbols-outlined text-secondary shrink-0" style="font-size: 18px;">check_small</span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Card 03 -->
+      <div class="bg-white border border-outline rounded p-8 hover:-translate-y-1 hover:shadow-xl transition-all duration-200">
+        <span class="material-symbols-outlined text-secondary" style="font-size: 38px;">view_in_ar</span>
+        <h3 class="mt-4 mb-1 text-xl font-semibold text-primary">Harness packaging and integration</h3>
+        <p class="font-label text-[11px] font-bold tracking-widest uppercase text-on-surface-variant mb-4">03</p>
+        <ul class="flex flex-col gap-2.5">
+          {[
+            'Structural integration analysis',
+            'Routing through vehicle, aircraft and equipment compartments',
+            'Bend radius verification',
+            'Clearance and interference analysis',
+            'Weight and length optimization',
+            'Serviceability assessment',
+          ].map((item) => (
+            <li class="flex gap-2.5 text-sm leading-snug text-on-surface-variant">
+              <span class="material-symbols-outlined text-secondary shrink-0" style="font-size: 18px;">check_small</span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Card 04 -->
+      <div class="bg-white border border-outline rounded p-8 hover:-translate-y-1 hover:shadow-xl transition-all duration-200">
+        <span class="material-symbols-outlined text-secondary" style="font-size: 38px;">description</span>
+        <h3 class="mt-4 mb-1 text-xl font-semibold text-primary">Manufacturing documentation</h3>
+        <p class="font-label text-[11px] font-bold tracking-widest uppercase text-on-surface-variant mb-4">04</p>
+        <ul class="flex flex-col gap-2.5">
+          {[
+            'Harness flattening and formboard creation',
+            'Wire lists and connectivity reports',
+            'Bill of Materials (BOM)',
+            'Manufacturing and assembly drawings',
+            'Installation documentation',
+            'Maintenance support documentation',
+          ].map((item) => (
+            <li class="flex gap-2.5 text-sm leading-snug text-on-surface-variant">
+              <span class="material-symbols-outlined text-secondary shrink-0" style="font-size: 18px;">check_small</span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Card 05 -->
+      <div class="bg-white border border-outline rounded p-8 hover:-translate-y-1 hover:shadow-xl transition-all duration-200">
+        <span class="material-symbols-outlined text-secondary" style="font-size: 38px;">fact_check</span>
+        <h3 class="mt-4 mb-1 text-xl font-semibold text-primary">Design validation and optimization</h3>
+        <p class="font-label text-[11px] font-bold tracking-widest uppercase text-on-surface-variant mb-4">05</p>
+        <ul class="flex flex-col gap-2.5">
+          {[
+            'Digital mock-up (DMU) validation',
+            'Clash and interference checking',
+            'Routing optimization',
+            'Electrical continuity verification',
+            'Design-for-manufacturing (DFM) support',
+          ].map((item) => (
+            <li class="flex gap-2.5 text-sm leading-snug text-on-surface-variant">
+              <span class="material-symbols-outlined text-secondary shrink-0" style="font-size: 18px;">check_small</span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Card 06 — dark CTA card -->
+      <div class="bg-on-surface rounded p-8 relative overflow-hidden flex flex-col justify-between">
+        <div
+          class="absolute inset-0 opacity-60"
+          style="background-image: radial-gradient(rgba(255,255,255,0.05) 1.5px, transparent 1.5px); background-size: 28px 28px;"
+        ></div>
+        <div class="relative">
+          <span class="material-symbols-outlined text-secondary" style="font-size: 38px;">support_agent</span>
+          <h3 class="mt-4 mb-2 text-[22px] font-bold text-white leading-snug">
+            End-to-end harness development support
+          </h3>
+          <p class="text-sm leading-relaxed text-white/75">
+            From architecture to formboard, one accountable engineering team across the full lifecycle.
+          </p>
+        </div>
+        <div class="relative mt-6">
+          <Button href={withBase('/contact#contact-form')} variant="secondary">Talk to an engineer</Button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS — horizontal accordion -->
+<section id="process" class="bg-surface">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16 py-20">
+    <div class="mb-11">
+      <p class="font-label font-bold text-sm uppercase tracking-widest text-secondary">How it flows</p>
+      <h2 class="mt-2 text-3xl lg:text-4xl font-bold tracking-tight text-primary">Architecture to formboard, in five stages</h2>
+    </div>
+
+    <!-- Desktop accordion -->
+    <div id="harness-stages" class="hidden lg:flex h-[420px] rounded overflow-hidden border border-outline">
+      {stages.map(({ stage, title, desc }, i) => (
+        <div
+          data-harness-stage={i}
+          class:list={[
+            'relative overflow-hidden cursor-pointer transition-all duration-[600ms] ease-in-out select-none',
+            i === 0 ? 'flex-[5]' : 'flex-1',
+            i > 0 ? 'border-l border-outline' : '',
+          ]}
+        >
+          <!-- Background image — grayscale applied here only, not to text -->
+          <div
+            data-harness-bg={i}
+            class:list={[
+              'absolute inset-0 transition-[filter] duration-[600ms]',
+              i === 0 ? 'grayscale-0' : 'grayscale',
+            ]}
+            style={`background-image: url('${stageBgs[i].src}'); background-size: cover; background-position: center;`}
+          ></div>
+          <!-- Dark overlay for legibility -->
+          <div class="absolute inset-0 bg-gradient-to-t from-on-surface/95 via-on-surface/60 to-on-surface/30"></div>
+
+          <!-- Active content (visible when expanded) -->
+          <div
+            data-harness-active-content={i}
+            class:list={[
+              'absolute inset-0 flex flex-col justify-end p-6 transition-opacity duration-300',
+              i === 0 ? 'opacity-100' : 'opacity-0 pointer-events-none',
+            ]}
+          >
+            <p class="font-label text-sm font-bold tracking-widest uppercase mb-2 text-secondary">{stage}</p>
+            <h4 class="text-2xl font-bold text-white mb-3">{title}</h4>
+            <p class="text-base leading-relaxed text-white/85 max-w-xs">{desc}</p>
+          </div>
+
+          <!-- Collapsed label (visible when narrow) -->
+          <div
+            data-harness-collapsed-label={i}
+            class:list={[
+              'absolute inset-0 flex items-center justify-center transition-opacity duration-300',
+              i === 0 ? 'opacity-0 pointer-events-none' : 'opacity-100',
+            ]}
+          >
+            <span class="[writing-mode:vertical-rl] rotate-180 font-bold text-[11px] font-bold tracking-widest uppercase text-white whitespace-nowrap">
+              {stage} — {title}
+            </span>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Mobile: stacked cards -->
+    <div class="flex flex-col gap-4 lg:hidden">
+      {stages.map(({ stage, title, desc, img, alt }, i) => (
+        <div class="rounded overflow-hidden border border-outline">
+          <div class="relative h-48">
+            <Image
+              src={img}
+              alt={alt}
+              format="avif"
+              quality={100}
+              width={800}
+              height={400}
+              loading="lazy"
+              class="w-full h-full object-cover"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-on-surface/70 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 p-4">
+              <p class="font-label text-[11px] font-bold tracking-widest uppercase text-secondary">{stage}</p>
+              <h4 class="text-lg font-bold text-white">{title}</h4>
+            </div>
+          </div>
+          <div class="p-5 bg-surface">
+            <p class="text-sm leading-relaxed text-on-surface-variant">{desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section
+  id="why"
+  class="relative bg-on-surface overflow-hidden"
+>
+  <div
+    class="absolute inset-0"
+    style="background-image: radial-gradient(rgba(255,255,255,0.04) 1.5px, transparent 1.5px); background-size: 32px 32px;"
+  ></div>
+  <div class="absolute inset-0" style="background: linear-gradient(160deg, rgba(0,49,108,0.15) 0%, rgba(11,28,48,0.4) 100%);"></div>
+  <div class="relative max-w-7xl mx-auto px-8 lg:px-16 py-20">
+    <div class="mb-11">
+      <p class="font-label font-bold text-sm uppercase tracking-widest text-secondary">Why choose us</p>
+      <h2 class="mt-2 text-3xl lg:text-4xl font-bold tracking-tight text-white">Engineering you can certify against</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+      {[
+        { icon: 'engineering', text: 'Experienced electrical harness design engineers' },
+        { icon: 'dvr',         text: 'Multi-CAD and multi-platform expertise' },
+        { icon: 'flight',      text: 'Aerospace and automotive industry experience' },
+        { icon: 'timeline',    text: 'End-to-end harness development support' },
+        { icon: 'description', text: 'High-quality manufacturing documentation' },
+        { icon: 'verified',    text: 'Standards-compliant engineering deliverables' },
+      ].map(({ icon, text }) => (
+        <div class="flex gap-3.5 items-start bg-white/5 border border-white/10 rounded p-5">
+          <span class="material-symbols-outlined text-secondary shrink-0" style="font-size: 24px;">{icon}</span>
+          <span class="text-[15.5px] leading-relaxed text-white/90">{text}</span>
+        </div>
+      ))}
+
+      <!-- Full-width accent row -->
+      <div class="lg:col-span-3 flex gap-4 items-center bg-secondary/10 border border-secondary/30 rounded px-6 py-5">
+        <span class="material-symbols-outlined text-secondary shrink-0" style="font-size: 26px;">shield</span>
+        <span class="text-base leading-relaxed text-white font-medium">
+          A relentless focus on reliability, safety and performance, engineered into every harness we deliver.
+        </span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  const panels = document.querySelectorAll<HTMLElement>('[data-harness-stage]');
+  const bgs = document.querySelectorAll<HTMLElement>('[data-harness-bg]');
+  const activeContents = document.querySelectorAll<HTMLElement>('[data-harness-active-content]');
+  const collapsedLabels = document.querySelectorAll<HTMLElement>('[data-harness-collapsed-label]');
+
+  function setActive(idx: number) {
+    panels.forEach((panel, i) => {
+      const isActive = i === idx;
+
+      // Toggle panel width
+      panel.classList.toggle('flex-[5]', isActive);
+      panel.classList.toggle('flex-1', !isActive);
+
+      // Toggle grayscale on the bg div only — keeps text unaffected
+      bgs[i].classList.toggle('grayscale-0', isActive);
+      bgs[i].classList.toggle('grayscale', !isActive);
+
+      // Toggle content visibility
+      activeContents[i].classList.toggle('opacity-100', isActive);
+      activeContents[i].classList.toggle('opacity-0', !isActive);
+      activeContents[i].classList.toggle('pointer-events-none', !isActive);
+
+      collapsedLabels[i].classList.toggle('opacity-0', isActive);
+      collapsedLabels[i].classList.toggle('pointer-events-none', isActive);
+      collapsedLabels[i].classList.toggle('opacity-100', !isActive);
+    });
+  }
+
+  let debounce: ReturnType<typeof setTimeout>;
+
+  panels.forEach((panel, i) => {
+    panel.addEventListener('mouseenter', () => {
+      clearTimeout(debounce);
+      debounce = setTimeout(() => setActive(i), 200);
+    });
+  });
+</script>

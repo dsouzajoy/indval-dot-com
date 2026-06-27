@@ -1,0 +1,59 @@
+---
+import { en } from '@/i18n/locales/en';
+import HeroImage from '@/components/ui/HeroImage.astro';
+import { getLQIP } from '@/lib/lqip';
+import { withBase } from '@/lib/utils';
+import heroImg from '@/assets/images/electrical-harness-hero.jpg';
+
+const placeholder = await getLQIP('src/assets/images/electrical-harness-hero.jpg');
+
+const base = 'inline-flex items-center justify-center gap-2 px-8 py-4 rounded font-label font-bold text-sm uppercase tracking-wider cursor-pointer';
+const secondary = 'bg-secondary text-white hover:bg-secondary/90 btn-press';
+---
+
+<section
+  class="relative min-h-screen flex items-center overflow-hidden"
+  aria-label="Electrical Harness Design"
+>
+  <HeroImage src={heroImg} {placeholder} alt="" />
+  <div class="absolute inset-0 bg-gradient-to-r from-on-surface/85 via-on-surface/65 to-on-surface/20 z-10"></div>
+
+  <div class="container mx-auto px-8 lg:px-16 relative z-20 py-24">
+    <div class="max-w-2xl space-y-8">
+
+      <p
+        class="font-label text-sm font-bold uppercase tracking-widest text-secondary"
+        data-i18n="electricalHarness.hero.eyebrow"
+      >{en.electricalHarness.hero.eyebrow}</p>
+
+      <h1
+        class="font-headline text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tighter text-white leading-tight"
+        data-i18n="electricalHarness.hero.heading"
+      >{en.electricalHarness.hero.heading}</h1>
+
+      <p
+        class="text-xl text-white/90 font-light leading-relaxed border-l-4 border-secondary pl-8 max-w-xl"
+        data-i18n="electricalHarness.hero.description"
+      >{en.electricalHarness.hero.description}</p>
+
+      <div class="pt-2">
+        <a
+          href="#services"
+          id="harness-hero-cta"
+          class={`${base} ${secondary}`}
+          data-i18n="electricalHarness.hero.cta"
+        >
+          {en.electricalHarness.hero.cta}
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  document.getElementById('harness-hero-cta')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+  });
+</script>

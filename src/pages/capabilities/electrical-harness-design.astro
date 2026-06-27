@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ElectricalHarnessHero from '../../components/capabilities/electrical-harness-design/ElectricalHarnessHero.astro';
+import ElectricalHarnessContent from '../../components/capabilities/electrical-harness-design/ElectricalHarnessContent.astro';
+import ElectricalHarnessCTA from '../../components/capabilities/electrical-harness-design/ElectricalHarnessCTA.astro';
+---
+
+<BaseLayout
+  title="Electrical Harness Design | Indvaltech"
+  description="Precision electrical harness design for aerospace, automotive, defense, EV and advanced mobility. Standards-compliant routing, packaging and manufacturing documentation."
+  ogImage="/images/electrical-harness-hero.jpg"
+  showSplash={false}
+  breadcrumbs={[{ name: 'Electrical Harness Design', href: '/capabilities/electrical-harness-design' }]}
+>
+  <ElectricalHarnessHero />
+  <ElectricalHarnessContent />
+  <ElectricalHarnessCTA />
+</BaseLayout>

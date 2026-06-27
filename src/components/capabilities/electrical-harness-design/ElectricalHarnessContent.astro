@@ -360,11 +360,23 @@ const stages = [
   }
 
   let debounce: ReturnType<typeof setTimeout>;
+  let userInteracted = false;
 
   panels.forEach((panel, i) => {
     panel.addEventListener('mouseenter', () => {
+      userInteracted = true;
       clearTimeout(debounce);
       debounce = setTimeout(() => setActive(i), 200);
     });
   });
+
+  // Auto-demo: peek at panel 2 then return to panel 1 to show the hover interaction
+  setTimeout(() => {
+    if (userInteracted) return;
+    setActive(1);
+    setTimeout(() => {
+      if (userInteracted) return;
+      setActive(0);
+    }, 1200);
+  }, 1800);
 </script>

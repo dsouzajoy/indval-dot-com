@@ -1,0 +1,53 @@
+---
+import { en } from '@/i18n/locales/en';
+import HeroImage from '@/components/ui/HeroImage.astro';
+import { getLQIP } from '@/lib/lqip';
+import heroImg from '@/assets/images/mro-hero.jpg';
+
+const placeholder = await getLQIP('src/assets/images/mro-hero.jpg');
+
+const base = 'inline-flex items-center justify-center gap-2 px-8 py-4 rounded font-label font-bold text-sm uppercase tracking-wider cursor-pointer';
+const secondary = 'bg-secondary text-white hover:bg-secondary/90 btn-press';
+---
+
+<section
+  class="relative min-h-screen flex items-center overflow-hidden"
+  aria-label="MRO Services"
+>
+  <HeroImage src={heroImg} {placeholder} alt="" />
+  <div class="absolute inset-0 bg-gradient-to-r from-on-surface/85 via-on-surface/65 to-on-surface/20 z-10"></div>
+
+  <div class="container mx-auto px-8 lg:px-16 relative z-20 py-24">
+    <div class="max-w-2xl space-y-8">
+
+      <h1
+        class="font-headline text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tighter text-white leading-tight"
+        data-i18n="mroServices.hero.heading"
+      >{en.mroServices.hero.heading}</h1>
+
+      <p
+        class="text-xl text-white/90 font-light leading-relaxed border-l-4 border-secondary pl-8 max-w-xl"
+        data-i18n="mroServices.hero.description"
+      >{en.mroServices.hero.description}</p>
+
+      <div class="pt-2">
+        <a
+          href="#capabilities"
+          id="mro-hero-cta"
+          class={`${base} ${secondary}`}
+          data-i18n="mroServices.hero.cta"
+        >
+          {en.mroServices.hero.cta}
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  document.getElementById('mro-hero-cta')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    document.getElementById('capabilities')?.scrollIntoView({ behavior: 'smooth' });
+  });
+</script>

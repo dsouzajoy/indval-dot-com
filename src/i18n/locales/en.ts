@@ -136,6 +136,8 @@ export const en = {
     },
     reverseEngineering: { heading: 'Reverse Engineering' },
     technicalPublication: { heading: 'Technical Publication' },
+    electricalHarnessDesign: { heading: 'Electrical Harness Design' },
+    mroServices: { heading: 'MRO Services' },
   },
   fea: {
     hero: {
@@ -774,6 +776,21 @@ export const en = {
       heading: 'Composite tooling, engineered end-to-end.',
       description: 'From Class A surface to a production-ready mould, Indvaltech owns every stage of plug and mould development for aerospace, automotive and advanced manufacturing.',
       cta: 'See the process',
+    },
+  },
+  electricalHarness: {
+    hero: {
+      eyebrow: 'Aerospace · Automotive · Defense · EV',
+      heading: 'Electrical harness design, routed for production.',
+      description: 'Precision wiring solutions for aerospace, automotive, defense, EV, rail, industrial equipment and advanced mobility systems. Standards-compliant routing, integration and manufacturing documentation across the full product lifecycle.',
+      cta: 'Explore Services',
+    },
+  },
+  mroServices: {
+    hero: {
+      heading: 'MRO Engineering for the World\'s Most Demanding Aviation Programs',
+      description: 'From airframe maintenance and engine overhauls to structural repairs, component teardowns, and fleet-wide modifications. Indvaltech brings engineering precision to every stage of the MRO lifecycle.',
+      cta: 'Explore Services',
     },
   },
   legal: {

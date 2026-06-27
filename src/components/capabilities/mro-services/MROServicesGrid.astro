@@ -1,0 +1,95 @@
+---
+const services = [
+  {
+    icon: 'verified',
+    title: 'Engineering Verification and Validation',
+    description: 'Independent review of designs, repairs and modifications against airworthiness requirements, confirming every change is substantiated before it reaches the aircraft.',
+  },
+  {
+    icon: 'architecture',
+    title: 'Remastering',
+    description: 'Re-creation of legacy 2D drawings and obsolete data into clean, parametric 3D models and controlled, manufacturable drawing packages.',
+  },
+  {
+    icon: 'build',
+    title: 'Repair Instruction',
+    description: 'Development of structural and component repair instructions, SRM-aligned, with the full engineering substantiation behind each disposition.',
+  },
+  {
+    icon: 'engineering',
+    title: 'Engineering Authorization',
+    description: 'Preparation and disposition of engineering authorizations for non-conformances, deviations and in-service findings.',
+  },
+  {
+    icon: 'description',
+    title: 'Supplements, Addendums and Service Bulletins',
+    description: 'Authoring of manual supplements, addendums and service bulletins that keep technical publications current and compliant.',
+  },
+  {
+    icon: 'tips_and_updates',
+    title: 'Design Improvement',
+    description: 'Reliability- and cost-driven design changes that extend component life and reduce the maintenance burden in service.',
+  },
+  {
+    icon: 'flight_takeoff',
+    title: 'Airworthiness Documentation Support',
+    description: 'Compilation of substantiation packages and compliance records supporting certification and continued airworthiness.',
+  },
+  {
+    icon: 'inventory',
+    title: 'ERP Entry',
+    description: 'Creation of work instructions, stock codes and bills of material: structured, validated data ready for production planning.',
+  },
+  {
+    icon: 'analytics',
+    title: 'Design Validation through Engineering Analysis',
+    description: 'Structural, fatigue and thermal analysis (FEA) to validate repairs and modifications before they are implemented.',
+  },
+  {
+    icon: 'balance',
+    title: 'Weight and Balance Report',
+    description: 'Calculation and reporting of weight and balance impact for modifications, repairs and configuration changes.',
+  },
+];
+---
+
+<section class="bg-surface py-20">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+
+    <!-- Section header -->
+    <div class="mb-12 max-w-2xl">
+      <p class="font-label text-sm font-bold uppercase tracking-widest text-secondary mb-3">MRO Solutions</p>
+      <h2 class="font-headline text-3xl lg:text-4xl font-bold text-primary leading-tight mb-4">
+        Ten engineering services across the maintenance lifecycle
+      </h2>
+      <p class="text-on-surface-variant leading-relaxed">
+        Each engagement is owned end-to-end by a dedicated engineer and delivered with full substantiation and traceability, ready for your quality and airworthiness review.
+      </p>
+    </div>
+
+    <!-- Services grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      {services.map((service, i) => (
+        <div class="bg-surface-container-low border border-outline-variant/40 rounded-2xl p-7 flex flex-col gap-4">
+          <div class="flex items-start justify-between">
+            <div class="bg-primary/10 rounded-xl p-2.5 inline-flex">
+              <span
+                class="material-symbols-outlined text-primary"
+                style="font-size: 22px; font-variation-settings: 'FILL' 0, 'wght' 300"
+                aria-hidden="true"
+              >{service.icon}</span>
+            </div>
+            <span class="font-label text-sm font-semibold text-on-surface-variant/40">
+              {String(i + 1).padStart(2, '0')}
+            </span>
+          </div>
+          <div>
+            <h3 class="font-headline font-bold text-base text-primary mb-2 leading-snug">{service.title}</h3>
+            <p class="text-sm text-on-surface-variant leading-relaxed">{service.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

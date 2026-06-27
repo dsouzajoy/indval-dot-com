@@ -1,0 +1,274 @@
+---
+import { Image } from 'astro:assets';
+import { withBase } from '@/lib/utils';
+import mroAircraftsImg from '@/assets/images/mro-tab-aircrafts.jpg';
+import mroAeroEnginesImg from '@/assets/images/mro-tab-aero-engines.jpg';
+import mroComponentsImg from '@/assets/images/mro-tab-components.jpg';
+import mroRepairImg from '@/assets/images/mro-tab-repair.jpg';
+import mroModificationsImg from '@/assets/images/mro-tab-modifications.jpg';
+
+const tabs = [
+  {
+    label: 'Aircrafts',
+    heading: 'Aircraft MRO Engineering',
+    image: mroAircraftsImg,
+    bullets: [
+      'Engineering support for scheduled and unscheduled maintenance, including structural analysis and systems troubleshooting.',
+      'Development of maintenance task cards, work instructions and service bulletins aligned with OEM and regulatory requirements.',
+      'Structural repairs and damage assessment: SRM interpretation, repair substantiation and concession support.',
+      'Digital MRO enablement through paperless maintenance, digital twins and predictive analytics.',
+      'Fleet analytics to optimize maintenance intervals and aircraft availability.',
+    ],
+  },
+  {
+    label: 'Aero Engines',
+    heading: 'Aero Engine MRO Engineering',
+    image: mroAeroEnginesImg,
+    bullets: [
+      'Engine component and module engineering support across fan, compressor, turbine and combustor.',
+      'Engine health monitoring (EHM) and condition-based maintenance analytics.',
+      'Shop visit optimization through data-driven teardown analysis and scope optimization.',
+      'Repair development support, including repair substantiation and lifecycle extension.',
+      'Collaboration with OEMs and MROs on service bulletin embodiment and configuration management.',
+    ],
+  },
+  {
+    label: 'Components',
+    heading: 'Component MRO Engineering',
+    image: mroComponentsImg,
+    bullets: [
+      'Component teardown, inspection and repair engineering support.',
+      'Failure analysis and root cause investigation (RCA).',
+      'Design and validation of alternate repairs and DER-supported modifications.',
+      'Digital traceability for component history, lifecycle tracking and compliance reporting.',
+      'Technical documentation and maintenance manual authoring.',
+    ],
+  },
+  {
+    label: 'Repair',
+    heading: 'Repair Engineering',
+    image: mroRepairImg,
+    bullets: [
+      'Engineering substantiation for structural, engine and component repairs.',
+      'Development of repairs outside SRM / repair manuals with regulatory coordination (FAA, EASA, CAAS, DGCA).',
+      'Finite element analysis (FEA), fatigue and damage tolerance analysis.',
+      'Material engineering support for advanced alloys and composites, including repair reusability and life-extension strategies.',
+      'Support across repair capability development and the OEM approval process.',
+    ],
+  },
+  {
+    label: 'Modifications & Upgrades',
+    heading: 'Modifications and Upgrades',
+    image: mroModificationsImg,
+    bullets: [
+      'Engineering for STC development, cabin retrofits, avionics upgrades and structural modifications for Passenger-to-Freighter (P2F) conversions.',
+      'System integration and certification support.',
+      'Electrical load analysis, wiring design and equipment installation design.',
+      'Program management support for multi-aircraft and fleet-wide upgrades.',
+      'Digital validation and configuration control across modification programs.',
+    ],
+  },
+];
+---
+
+<section id="capabilities" class="bg-surface py-30" style="background-image: radial-gradient(circle, rgba(195,198,211,0.8) 1px, transparent 1px); background-size: 40px 40px;">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+
+    <!-- Section heading -->
+    <h2 class="font-headline text-4xl lg:text-5xl font-bold text-on-surface mb-10">
+      Our MRO Focus Areas
+    </h2>
+
+    <!-- Tab bar -->
+    <div class="relative">
+      <!-- Right-edge fade mask -->
+      <div class="absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-surface to-transparent pointer-events-none z-10"></div>
+
+      <div id="mro-tab-scroll-container" class="flex border-b border-outline-variant overflow-x-auto" style="scrollbar-width: none; -ms-overflow-style: none;">
+        {tabs.map((tab, i) => (
+          <button
+            data-tab={i}
+            class={`mro-tab-btn font-label text-sm uppercase tracking-wider py-3 px-5 border-b-2 whitespace-nowrap transition-colors duration-200 shrink-0 cursor-pointer ${
+              i === 0
+                ? 'border-secondary text-primary font-bold'
+                : 'border-transparent text-on-surface-variant hover:text-primary'
+            }`}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <!-- Tab panels -->
+    <div class="relative mt-10">
+      {tabs.map((tab, i) => (
+        <div
+          data-panel={i}
+          class={`mro-tab-panel grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center transition-opacity duration-150 ${
+            i === 0 ? 'relative opacity-100 pointer-events-auto' : 'absolute top-0 left-0 right-0 opacity-0 pointer-events-none'
+          }`}
+        >
+          <!-- Left: heading + bullets -->
+          <div class="space-y-6">
+            <h3 class="font-headline font-bold text-3xl text-on-surface">{tab.heading}</h3>
+            <ul class="space-y-4">
+              {tab.bullets.map((bullet) => (
+                <li class="flex gap-3 items-start">
+                  <span
+                    class="material-symbols-outlined text-secondary shrink-0 text-xl leading-relaxed"
+                    style="font-variation-settings: 'FILL' 1"
+                    aria-hidden="true"
+                  >check_circle</span>
+                  <span class="text-on-surface-variant leading-relaxed">{bullet}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Right: photo -->
+          <div class="aspect-video rounded overflow-hidden">
+            <Image
+              src={tab.image}
+              alt={tab.heading}
+              format="avif"
+              quality={100}
+              width={1200}
+              height={675}
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const tabBtns = document.querySelectorAll<HTMLButtonElement>('.mro-tab-btn');
+  const tabPanels = document.querySelectorAll<HTMLElement>('.mro-tab-panel');
+
+  function activateTab(index: number) {
+    tabBtns.forEach((btn) => {
+      const isActive = Number(btn.dataset.tab) === index;
+      btn.classList.toggle('border-secondary', isActive);
+      btn.classList.toggle('text-primary', isActive);
+      btn.classList.toggle('font-bold', isActive);
+      btn.classList.toggle('border-transparent', !isActive);
+      btn.classList.toggle('text-on-surface-variant', !isActive);
+    });
+
+    tabPanels.forEach((panel, i) => {
+      const isActive = i === index;
+      panel.classList.toggle('relative', isActive);
+      panel.classList.toggle('opacity-100', isActive);
+      panel.classList.toggle('pointer-events-auto', isActive);
+      panel.classList.toggle('absolute', !isActive);
+      panel.classList.toggle('top-0', !isActive);
+      panel.classList.toggle('left-0', !isActive);
+      panel.classList.toggle('right-0', !isActive);
+      panel.classList.toggle('opacity-0', !isActive);
+      panel.classList.toggle('pointer-events-none', !isActive);
+    });
+  }
+
+  tabBtns.forEach((btn) => {
+    btn.addEventListener('click', () => activateTab(Number(btn.dataset.tab)));
+  });
+
+  // Scroll hint on first intersection
+  const tabScrollContainer = document.getElementById('mro-tab-scroll-container');
+  if (tabScrollContainer) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          observer.disconnect();
+          setTimeout(() => {
+            tabScrollContainer.scrollTo({ left: tabScrollContainer.scrollWidth, behavior: 'smooth' });
+            setTimeout(() => {
+              tabScrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
+            }, 900);
+          }, 400);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    const section = document.getElementById('capabilities');
+    if (section) observer.observe(section);
+  }
+</script>
+
+<!-- Why Indvaltech -->
+<section class="bg-surface-container-low py-20">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <p class="font-label text-sm font-bold uppercase tracking-widest text-secondary mb-3">Why Indvaltech</p>
+      <h2 class="font-headline text-3xl lg:text-4xl font-bold text-primary">
+        Substantiation you can hand straight to the regulator
+      </h2>
+    </div>
+
+    <!-- Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <div class="bg-surface-container-lowest rounded p-8">
+        <span
+          class="material-symbols-outlined text-secondary mb-5 block"
+          style="font-size: 28px; font-variation-settings: 'FILL' 0, 'wght' 300"
+          aria-hidden="true"
+        >rule</span>
+        <h3 class="font-headline font-bold text-base text-secondary mb-3">Traceable to the requirement</h3>
+        <p class="text-sm text-on-surface-variant leading-relaxed">
+          Every output is linked back to the spec, regulation or repair manual it satisfies, auditable end-to-end.
+        </p>
+      </div>
+
+      <div class="bg-surface-container-lowest rounded p-8">
+        <span
+          class="material-symbols-outlined text-secondary mb-5 block"
+          style="font-size: 28px; font-variation-settings: 'FILL' 0, 'wght' 300"
+          aria-hidden="true"
+        >engineering</span>
+        <h3 class="font-headline font-bold text-base text-secondary mb-3">Dedicated MRO engineers</h3>
+        <p class="text-sm text-on-surface-variant leading-relaxed">
+          Trade-fluent teams who speak SRM, PPAP, DER/DAR and first-article, with no translation layer.
+        </p>
+      </div>
+
+      <div class="bg-surface-container-lowest rounded p-8">
+        <span
+          class="material-symbols-outlined text-secondary mb-5 block"
+          style="font-size: 28px; font-variation-settings: 'FILL' 0, 'wght' 300"
+          aria-hidden="true"
+        >schedule</span>
+        <h3 class="font-headline font-bold text-base text-secondary mb-3">On schedule, on AOG</h3>
+        <p class="text-sm text-on-surface-variant leading-relaxed">
+          Scoped timelines you can plan against, with expedited turnaround for aircraft-on-ground events.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA Banner -->
+<section class="bg-on-surface py-20">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16 text-center">
+    <h2 class="font-headline text-3xl lg:text-4xl font-bold text-white mb-4">
+      Need engineering support for your MRO program?
+    </h2>
+    <p class="text-white/80 text-base mb-10 max-w-xl mx-auto leading-relaxed">
+      Connect with our MRO team to discuss repair substantiation, overhaul documentation, modifications, or digital MRO solutions for your fleet.
+    </p>
+    <a
+      href={withBase('/contact#contact-form')}
+      class="inline-flex items-center justify-center gap-2 bg-secondary text-white px-8 py-4 rounded font-label text-sm font-bold uppercase tracking-wider cursor-pointer hover:bg-secondary/90 btn-press"
+    >
+      Get In Touch
+    </a>
+  </div>
+</section>

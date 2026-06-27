@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import MROServicesHero from '../../components/capabilities/mro-services/MROServicesHero.astro';
+import MROServicesGrid from '../../components/capabilities/mro-services/MROServicesGrid.astro';
+import MROServicesCapabilities from '../../components/capabilities/mro-services/MROServicesCapabilities.astro';
+---
+
+<BaseLayout
+  title="MRO Services | Indvaltech"
+  description="Engineering-led MRO support across airframe maintenance, engine overhauls, component teardowns, structural repairs, and fleet-wide modifications."
+  ogImage="/images/mro-hero.jpg"
+  showSplash={false}
+  breadcrumbs={[{ name: 'MRO Services', href: '/capabilities/mro-services' }]}
+>
+  <MROServicesHero />
+  <MROServicesGrid />
+  <MROServicesCapabilities />
+</BaseLayout>

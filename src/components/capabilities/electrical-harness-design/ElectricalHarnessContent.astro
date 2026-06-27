@@ -385,14 +385,5 @@ const stages = [
     });
   });
 
-  // Auto-demo on load: peek at panel 2 to hint at the interaction, then start autoplay
-  setTimeout(() => {
-    currentIdx = 1;
-    setActive(1);
-    setTimeout(() => {
-      setActive(0);
-      currentIdx = 0;
-      startAutoplay();
-    }, 1200);
-  }, 1800);
+  startAutoplay();
 </script>

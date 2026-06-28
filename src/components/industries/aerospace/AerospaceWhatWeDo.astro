@@ -190,8 +190,8 @@ import { withBase } from '@/lib/utils';
         <span class="font-label text-base font-semibold text-on-surface leading-snug">Computational Fluid Dynamics</span>
       </a>
 
-      <!-- Cabin Interior (unclickable) -->
-      <div class="bg-white border border-outline-variant rounded-lg p-8 flex flex-col items-start gap-4">
+      <!-- Cabin Interior (linkable) -->
+      <a href={withBase('/capabilities/cabin-interior')} class="bg-white border border-outline-variant rounded-lg p-8 flex flex-col items-start gap-4 hover:border-secondary btn-press-card cursor-pointer">
         <div class="w-16 h-16">
           <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <defs>
@@ -231,7 +231,7 @@ import { withBase } from '@/lib/utils';
           </svg>
         </div>
         <span class="font-label text-base font-semibold text-on-surface leading-snug">Cabin Interior</span>
-      </div>
+      </a>
 
       <!-- Wire Harness Design EHI — adapted from automotive Wire Harnessing (unclickable) -->
       <div class="bg-white border border-outline-variant rounded-lg p-8 flex flex-col items-start gap-4">

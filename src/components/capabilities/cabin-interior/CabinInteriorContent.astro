@@ -1,0 +1,428 @@
+---
+import { Image } from 'astro:assets';
+import { withBase } from '@/lib/utils';
+
+import introImg from '@/assets/images/cabin-interior/intro.jpg';
+import tabStructuresImg from '@/assets/images/cabin-interior/tab-structures.jpg';
+import tabWaterWasteImg from '@/assets/images/cabin-interior/tab-water-waste.jpg';
+import tabOxygenImg from '@/assets/images/cabin-interior/tab-oxygen.jpg';
+import tabSeatingImg from '@/assets/images/cabin-interior/tab-seating.jpg';
+import tabGalleyImg from '@/assets/images/cabin-interior/tab-galley.jpg';
+import tabLightingImg from '@/assets/images/cabin-interior/tab-lighting.jpg';
+
+const tabs = [
+  {
+    label: 'Aircraft Interiors Structures',
+    heading: 'Aircraft Interiors Structures',
+    image: tabStructuresImg,
+    bullets: [
+      'Mechanical Design and Development',
+      'Stress Analysis',
+      'Weight CG analysis, Flammability analysis',
+      'Assembly and Manufacturing drawings',
+      'Layout creation, Design to Cost',
+      'Engineering Change Management',
+      'Product Enhancement Support',
+      'Conversion From Passenger to Freighter',
+      'Certification Support',
+    ],
+  },
+  {
+    label: 'Water & Waste Systems',
+    heading: 'Water & Waste Systems',
+    image: tabWaterWasteImg,
+    bullets: [
+      'System Detail Design and Development',
+      'Stress Analysis',
+      'Retrofit support',
+      'Installation Design',
+      'Harness Design',
+      'Weight and Cost Optimization',
+      'Engineering Change management',
+      'Testing Support',
+      'Certification Support',
+    ],
+  },
+  {
+    label: 'Oxygen System',
+    heading: 'Oxygen System',
+    image: tabOxygenImg,
+    bullets: [
+      'Reliability and Maintainability',
+      'System Design',
+      'Testing support',
+    ],
+  },
+  {
+    label: 'Aircraft Seating',
+    heading: 'Aircraft Seating',
+    image: tabSeatingImg,
+    bullets: [
+      'Seating Design and Development',
+      'Floor Layout Design',
+      'FEA Analysis',
+      'Electromechanical Control Units',
+      'Harness Design and Routing',
+      'Manufacturing Support',
+    ],
+  },
+  {
+    label: 'Galley',
+    heading: 'Galley',
+    image: tabGalleyImg,
+    bullets: [
+      'Detail Design and Development',
+      'Retrofit Support',
+      'Installation Design',
+      'Harness Design',
+      'Assembly and Manufacturing Drawings',
+      'Manufacturing Support',
+      'Testing Support',
+      'Certification Support',
+    ],
+  },
+];
+
+const industries = [
+  {
+    num: '01',
+    title: 'Commercial Aviation',
+    desc: 'Narrow-body, wide-body, and regional aircraft cabin interior programs.',
+    image: tabStructuresImg,
+    alt: 'Commercial aircraft cabin interior',
+  },
+  {
+    num: '02',
+    title: 'Business & VIP Aviation',
+    desc: 'Premium and executive cabin design and development solutions.',
+    image: tabSeatingImg,
+    alt: 'Business class aircraft interior',
+  },
+  {
+    num: '03',
+    title: 'Military Aviation',
+    desc: 'Mission-specific cabin modifications and defense interior systems.',
+    image: tabWaterWasteImg,
+    alt: 'Military aircraft interior',
+  },
+  {
+    num: '04',
+    title: 'Advanced Air Mobility (AAM)',
+    desc: 'Next-generation eVTOL and urban air mobility cabin solutions.',
+    image: tabLightingImg,
+    alt: 'Advanced air mobility cabin interior',
+  },
+  {
+    num: '05',
+    title: 'MRO & Cabin Retrofit',
+    desc: 'Aircraft modernization, cabin refurbishment, and interior upgrade projects.',
+    image: tabGalleyImg,
+    alt: 'Aircraft cabin refurbishment',
+  },
+];
+
+const whyUs = [
+  {
+    icon: 'engineering',
+    title: 'Aerospace Domain Expertise',
+    desc: 'Experienced engineers with extensive aircraft interior development knowledge.',
+  },
+  {
+    icon: 'route',
+    title: 'End-to-End Engineering Support',
+    desc: 'From concept design through certification and production support.',
+  },
+  {
+    icon: 'groups',
+    title: 'Multi-Disciplinary Engineering Team',
+    desc: 'Mechanical, electrical, stress, manufacturing, and technical publication specialists working together.',
+  },
+  {
+    icon: 'verified',
+    title: 'Quality & Compliance',
+    desc: 'Engineering deliverables developed to meet stringent aerospace standards.',
+  },
+  {
+    icon: 'public',
+    title: 'Cost-Effective Global Delivery',
+    desc: 'Flexible engagement models tailored to customer program requirements.',
+  },
+  {
+    icon: 'workspace_premium',
+    title: 'Proven Engineering Excellence',
+    desc: 'Reliable support for complex aerospace development and cabin modernization programs.',
+  },
+];
+---
+
+<!-- INTRO -->
+<section class="bg-surface">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16 py-20 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <div>
+      <p class="font-label font-bold text-sm uppercase tracking-widest text-secondary">The capability</p>
+      <h2 class="mt-2 text-3xl lg:text-4xl font-bold leading-tight tracking-tight text-primary">
+        Full-lifecycle cabin interior engineering
+      </h2>
+      <p class="mt-6 text-lg leading-relaxed text-on-surface-variant">
+        Our multidisciplinary team supports OEMs, Tier-1 suppliers, airlines, completion centers, and MRO organizations across the entire interior program: concept development, detailed design, structural and stress analysis, certification support, manufacturing engineering, and cabin modernization.
+      </p>
+      <p class="mt-5 text-lg leading-relaxed text-on-surface-variant">
+        The result: passenger-centric cabin environments that improve comfort, optimize space utilization, lift operational efficiency, and reinforce brand identity, all delivered to stringent aerospace standards.
+      </p>
+    </div>
+    <div class="rounded overflow-hidden shadow-lg aspect-[4/3]">
+      <Image
+        src={introImg}
+        alt="Aircraft cabin interior engineering"
+        format="avif"
+        quality={100}
+        width={800}
+        height={600}
+        loading="lazy"
+        class="w-full h-full object-cover"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- CABIN INTERIOR SOLUTIONS (TABS) -->
+<section id="capabilities" class="bg-surface py-30" style="background-image: radial-gradient(circle, rgba(195,198,211,0.8) 1px, transparent 1px); background-size: 40px 40px;">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+
+    <h2 class="font-headline text-4xl lg:text-5xl font-bold text-on-surface mb-10">
+      Cabin interior solutions
+    </h2>
+
+    <!-- Tab bar -->
+    <div class="relative">
+      <div class="absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-surface to-transparent pointer-events-none z-10"></div>
+      <div id="ci-tab-scroll-container" class="flex border-b border-outline-variant overflow-x-auto" style="scrollbar-width: none; -ms-overflow-style: none;">
+        {tabs.map((tab, i) => (
+          <button
+            data-tab={i}
+            class={`ci-tab-btn font-label text-sm uppercase tracking-wider py-3 px-5 border-b-2 whitespace-nowrap transition-colors duration-200 shrink-0 cursor-pointer ${
+              i === 0
+                ? 'border-secondary text-primary font-bold'
+                : 'border-transparent text-on-surface-variant hover:text-primary'
+            }`}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <!-- Tab panels -->
+    <div class="relative mt-10">
+      {tabs.map((tab, i) => (
+        <div
+          data-panel={i}
+          class={`ci-tab-panel grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center transition-opacity duration-150 ${
+            i === 0 ? 'relative opacity-100 pointer-events-auto' : 'absolute top-0 left-0 right-0 opacity-0 pointer-events-none'
+          }`}
+        >
+          <div class="space-y-6">
+            <h3 class="font-headline font-bold text-3xl text-on-surface">{tab.heading}</h3>
+            <ul class="space-y-4">
+              {tab.bullets.map((bullet) => (
+                <li class="flex gap-3 items-start">
+                  <span
+                    class="material-symbols-outlined text-secondary shrink-0 text-xl leading-relaxed"
+                    style="font-variation-settings: 'FILL' 1"
+                    aria-hidden="true"
+                  >check_circle</span>
+                  <span class="text-on-surface-variant leading-relaxed">{bullet}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="rounded overflow-hidden aspect-video">
+            <Image
+              src={tab.image}
+              alt={`${tab.heading} cabin interior`}
+              format="avif"
+              quality={100}
+              width={1200}
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const ciTabBtns = document.querySelectorAll<HTMLButtonElement>('.ci-tab-btn');
+  const ciTabPanels = document.querySelectorAll<HTMLElement>('.ci-tab-panel');
+
+  function activateCiTab(index: number) {
+    ciTabBtns.forEach((btn) => {
+      const isActive = Number(btn.dataset.tab) === index;
+      btn.classList.toggle('border-secondary', isActive);
+      btn.classList.toggle('text-primary', isActive);
+      btn.classList.toggle('font-bold', isActive);
+      btn.classList.toggle('border-transparent', !isActive);
+      btn.classList.toggle('text-on-surface-variant', !isActive);
+    });
+
+    ciTabPanels.forEach((panel, i) => {
+      const isActive = i === index;
+      panel.classList.toggle('relative', isActive);
+      panel.classList.toggle('opacity-100', isActive);
+      panel.classList.toggle('pointer-events-auto', isActive);
+      panel.classList.toggle('absolute', !isActive);
+      panel.classList.toggle('top-0', !isActive);
+      panel.classList.toggle('left-0', !isActive);
+      panel.classList.toggle('right-0', !isActive);
+      panel.classList.toggle('opacity-0', !isActive);
+      panel.classList.toggle('pointer-events-none', !isActive);
+    });
+  }
+
+  ciTabBtns.forEach((btn) => {
+    btn.addEventListener('click', () => activateCiTab(Number(btn.dataset.tab)));
+  });
+
+  const ciTabScrollContainer = document.getElementById('ci-tab-scroll-container');
+  if (ciTabScrollContainer) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          observer.disconnect();
+          setTimeout(() => {
+            ciTabScrollContainer.scrollTo({ left: ciTabScrollContainer.scrollWidth, behavior: 'smooth' });
+            setTimeout(() => {
+              ciTabScrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
+            }, 900);
+          }, 400);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    const section = document.getElementById('capabilities');
+    if (section) observer.observe(section);
+  }
+</script>
+
+<!-- INDUSTRIES WE SERVE -->
+<section class="bg-surface-container-low py-24">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+    <div class="mb-14">
+      <p class="font-label font-bold text-sm uppercase tracking-widest text-secondary">Who we work with</p>
+      <h2 class="mt-2 text-3xl lg:text-4xl font-bold tracking-tight text-primary">Industries we serve</h2>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <!-- Left: numbered list -->
+      <ul class="space-y-1">
+        {industries.map(({ num, title, desc }, i) => (
+          <li
+            data-industry={i}
+            class={`ci-industry-item flex gap-5 items-start py-5 px-4 rounded cursor-default transition-all duration-300 ${i === 0 ? 'bg-surface shadow-sm' : ''}`}
+          >
+            <span class={`font-headline text-5xl font-black leading-none tabular-nums shrink-0 transition-colors duration-300 ${i === 0 ? 'text-secondary' : 'text-outline'}`}>{num}</span>
+            <div class="pt-1">
+              <h3 class={`text-lg font-bold tracking-tight transition-colors duration-300 ${i === 0 ? 'text-primary' : 'text-on-surface-variant'}`}>{title}</h3>
+              <p class={`text-sm leading-relaxed mt-1 transition-colors duration-300 ${i === 0 ? 'text-on-surface-variant' : 'text-on-surface-variant/60'}`}>{desc}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+
+      <!-- Right: image swap panel -->
+      <div class="relative aspect-[4/3] rounded overflow-hidden shadow-xl">
+        {industries.map(({ image, alt }, i) => (
+          <Image
+            data-industry-img={i}
+            src={image}
+            alt={alt}
+            format="avif"
+            quality={100}
+            width={900}
+            class={`ci-industry-img absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${i === 0 ? 'opacity-100' : 'opacity-0'}`}
+            loading="lazy"
+          />
+        ))}
+        <div class="absolute inset-0 bg-gradient-to-t from-on-surface/30 to-transparent pointer-events-none"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const industryItems = document.querySelectorAll<HTMLElement>('.ci-industry-item');
+  const industryImgs = document.querySelectorAll<HTMLElement>('.ci-industry-img');
+
+  function activateIndustry(idx: number) {
+    industryItems.forEach((item, i) => {
+      const isActive = i === idx;
+      item.classList.toggle('bg-surface', isActive);
+      item.classList.toggle('shadow-sm', isActive);
+      const num = item.querySelector('span');
+      if (num) {
+        num.classList.toggle('text-secondary', isActive);
+        num.classList.toggle('text-outline', !isActive);
+      }
+      const h3 = item.querySelector('h3');
+      if (h3) {
+        h3.classList.toggle('text-primary', isActive);
+        h3.classList.toggle('text-on-surface-variant', !isActive);
+      }
+      const p = item.querySelector('p');
+      if (p) {
+        p.classList.toggle('text-on-surface-variant', isActive);
+        p.classList.toggle('text-on-surface-variant/70', !isActive);
+      }
+    });
+    industryImgs.forEach((img, i) => {
+      img.classList.toggle('opacity-100', i === idx);
+      img.classList.toggle('opacity-0', i !== idx);
+    });
+  }
+
+  industryItems.forEach((item, i) => {
+    item.addEventListener('mouseenter', () => activateIndustry(i));
+  });
+</script>
+
+<!-- WHY CHOOSE US -->
+<section class="relative bg-on-surface overflow-hidden">
+  <div class="absolute inset-0" style="background-image: radial-gradient(rgba(255,255,255,0.04) 1.5px, transparent 1.5px); background-size: 32px 32px;"></div>
+  <div class="absolute inset-0" style="background: linear-gradient(160deg, rgba(0,49,108,0.15) 0%, rgba(11,28,48,0.4) 100%);"></div>
+  <div class="relative max-w-7xl mx-auto px-8 lg:px-16 py-20">
+    <div class="mb-11">
+      <p class="font-label font-bold text-sm uppercase tracking-widest text-secondary">Why choose us</p>
+      <h2 class="mt-2 text-3xl lg:text-4xl font-bold tracking-tight text-white">Engineering you can certify against</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      {whyUs.map(({ icon, title, desc }) => (
+        <div class="flex flex-col gap-3 bg-white/5 border border-white/10 rounded p-6">
+          <span class="material-symbols-outlined text-secondary shrink-0" style="font-size: 32px; font-variation-settings: 'FILL' 1">{icon}</span>
+          <h3 class="text-base font-semibold text-white">{title}</h3>
+          <p class="text-sm leading-relaxed text-white/70">{desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- GET IN TOUCH -->
+<section class="bg-on-surface py-20">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16 text-center">
+    <h2 class="font-headline text-3xl lg:text-4xl font-bold text-white mb-4">
+      Ready to elevate your cabin program?
+    </h2>
+    <p class="text-white/80 text-base mb-10 max-w-xl mx-auto leading-relaxed">
+      Talk to our cabin interior specialists about your design, certification, or modernization requirements. We support programs from concept through series production.
+    </p>
+    <a
+      href={withBase('/contact#contact-form')}
+      class="inline-flex items-center justify-center gap-2 bg-secondary text-white px-8 py-4 rounded font-label text-sm font-bold uppercase tracking-wider cursor-pointer hover:bg-secondary/90 btn-press"
+    >
+      Get In Touch
+    </a>
+  </div>
+</section>

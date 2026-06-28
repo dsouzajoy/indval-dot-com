@@ -495,6 +495,7 @@ export const de = {
     reverseEngineering: { heading: 'Reverse Engineering' },
     cncMachining: { hero: { heading: 'CNC Machining Services' } },
     technicalPublication: { heading: 'Technische Dokumentation' },
+    cabinInterior: { heading: 'Cabin Interior' },
   },
   businessModel: {
     hero: {
@@ -684,6 +685,14 @@ export const de = {
       heading: 'Ready to Join Indval Academia?',
       body: 'Connect with our team to learn more about program eligibility, upcoming batches, and enrollment.',
       button: 'Get In Touch',
+    },
+  },
+  cabinInterior: {
+    hero: {
+      eyebrow: 'Aircraft Cabin Interior',
+      heading: 'Designing next-generation cabin experiences.',
+      description: 'End-to-end cabin interior engineering for commercial, business, military, and advanced air mobility platforms: lightweight, passenger-centric, and certification-ready from concept to series production.',
+      cta: 'Explore Solutions',
     },
   },
 } satisfies Translations;

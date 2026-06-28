@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CabinInteriorHero from '../../components/capabilities/cabin-interior/CabinInteriorHero.astro';
+import CabinInteriorContent from '../../components/capabilities/cabin-interior/CabinInteriorContent.astro';
+---
+<BaseLayout
+  title="Aircraft Cabin Interior Engineering | Indvaltech"
+  description="End-to-end cabin interior engineering for commercial, business, military, and AAM platforms. Structural design, seating, galley, lighting, water & waste systems, and certification support."
+  showSplash={false}
+  breadcrumbs={[{ name: 'Cabin Interior', href: '/capabilities/cabin-interior' }]}
+>
+  <CabinInteriorHero />
+  <CabinInteriorContent />
+</BaseLayout>

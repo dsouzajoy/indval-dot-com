@@ -138,6 +138,7 @@ export const en = {
     technicalPublication: { heading: 'Technical Publication' },
     electricalHarnessDesign: { heading: 'Electrical Harness Design' },
     mroServices: { heading: 'MRO Services' },
+    cabinInterior: { heading: 'Cabin Interior' },
   },
   fea: {
     hero: {
@@ -791,6 +792,14 @@ export const en = {
       heading: 'MRO Engineering for the World\'s Most Demanding Aviation Programs',
       description: 'From airframe maintenance and engine overhauls to structural repairs, component teardowns, and fleet-wide modifications. Indvaltech brings engineering precision to every stage of the MRO lifecycle.',
       cta: 'Explore Services',
+    },
+  },
+  cabinInterior: {
+    hero: {
+      eyebrow: 'Aircraft Cabin Interior',
+      heading: 'Designing next-generation cabin experiences.',
+      description: 'End-to-end cabin interior engineering for commercial, business, military, and advanced air mobility platforms: lightweight, passenger-centric, and certification-ready from concept to series production.',
+      cta: 'Explore Solutions',
     },
   },
   legal: {

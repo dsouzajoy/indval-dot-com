@@ -138,7 +138,7 @@ export const en = {
     technicalPublication: { heading: 'Technical Publication' },
     electricalHarnessDesign: { heading: 'Electrical Harness Design' },
     mroServices: { heading: 'MRO Services' },
-    cabinInterior: { heading: 'Cabin Interior' },
+    cabinInterior: { heading: 'Aircraft Cabin Interior' },
   },
   fea: {
     hero: {

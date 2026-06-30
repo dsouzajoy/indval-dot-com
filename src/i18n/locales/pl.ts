@@ -495,7 +495,7 @@ export const pl = {
     reverseEngineering: { heading: 'Inżynieria odwrotna' },
     cncMachining: { hero: { heading: 'CNC Machining Services' } },
     technicalPublication: { heading: 'Publikacje techniczne' },
-    cabinInterior: { heading: 'Cabin Interior' },
+    cabinInterior: { heading: 'Aircraft Cabin Interior' },
   },
   businessModel: {
     hero: {

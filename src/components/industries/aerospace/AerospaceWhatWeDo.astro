@@ -241,32 +241,38 @@ import { withBase } from '@/lib/utils';
       <div class="bg-white border border-outline-variant rounded-lg p-8 flex flex-col items-start gap-4">
         <div class="w-16 h-16">
           <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <!--
-              Three 120° arcs on circle r=22, center (32,32).
-              A=(32,10) top · B=(51,43) lower-right · C=(13,43) lower-left.
-              Arrowheads are tangent-aligned triangles at each arc endpoint:
-                Arc1 end B tangent (-0.5, 0.87)  → tip(51,43) base(55,41)+(51,38)
-                Arc2 end C tangent (-0.5,-0.87)  → tip(13,43) base(13,48)+(17,45)
-                Arc3 end A tangent (1, 0)         → tip(32,10) base(28,13)+(28,7)
-            -->
-            <!-- Arc 1: top → lower-right (navy) -->
-            <path d="M32 10 A22 22 0 0 1 51 43" stroke="#00316c" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-            <polygon points="51,43 55,41 51,38" fill="#00316c"/>
-            <!-- Arc 2: lower-right → lower-left (navy) -->
-            <path d="M51 43 A22 22 0 0 1 13 43" stroke="#00316c" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-            <polygon points="13,43 13,48 17,45" fill="#00316c"/>
-            <!-- Arc 3: lower-left → top (orange) -->
-            <path d="M13 43 A22 22 0 0 1 32 10" stroke="#ff671f" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-            <polygon points="32,10 28,13 28,7" fill="#ff671f"/>
-            <!-- Central product: simplified aerospace component -->
-            <ellipse cx="32" cy="32" rx="11" ry="5" fill="#dce9ff" stroke="#00316c" stroke-width="1.5"/>
-            <path d="M21 32 A11 5 0 0 0 43 32 Z" fill="#00316c" opacity="0.10"/>
-            <!-- Left wing -->
-            <path d="M26 32 L18 28 L24 31 Z" fill="#dce9ff" stroke="#00316c" stroke-width="1.5" stroke-linejoin="round"/>
-            <!-- Right wing -->
-            <path d="M38 32 L46 36 L40 33 Z" fill="#dce9ff" stroke="#00316c" stroke-width="1.5" stroke-linejoin="round"/>
-            <!-- Nose tip (orange accent) -->
-            <circle cx="21" cy="32" r="2" fill="#ff671f"/>
+            <!-- Iterate / refresh arrows wrapping the gear -->
+            <path d="M59 25 A28 28 0 0 0 5 25" stroke="#00316c" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            <polygon points="4.5,26.9 9.9,22.1 2.1,20.1" fill="#00316c"/>
+            <path d="M5 39 A28 28 0 0 0 59 39" stroke="#00316c" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            <polygon points="59.5,37.1 61.9,43.9 54.1,41.9" fill="#00316c"/>
+            <!-- Gear body fill (light blue) -->
+            <circle cx="32" cy="32" r="15" fill="#dce9ff"/>
+            <!-- Gear teeth (8, rotate around 32,32) -->
+            <rect x="29.5" y="13" width="5" height="7" rx="1" fill="#dce9ff" stroke="#00316c" stroke-width="1.5" transform="rotate(0   32 32)"/>
+            <rect x="29.5" y="13" width="5" height="7" rx="1" fill="#dce9ff" stroke="#00316c" stroke-width="1.5" transform="rotate(45  32 32)"/>
+            <rect x="29.5" y="13" width="5" height="7" rx="1" fill="#dce9ff" stroke="#00316c" stroke-width="1.5" transform="rotate(90  32 32)"/>
+            <rect x="29.5" y="13" width="5" height="7" rx="1" fill="#dce9ff" stroke="#00316c" stroke-width="1.5" transform="rotate(135 32 32)"/>
+            <rect x="29.5" y="13" width="5" height="7" rx="1" fill="#dce9ff" stroke="#00316c" stroke-width="1.5" transform="rotate(180 32 32)"/>
+            <rect x="29.5" y="13" width="5" height="7" rx="1" fill="#dce9ff" stroke="#00316c" stroke-width="1.5" transform="rotate(225 32 32)"/>
+            <rect x="29.5" y="13" width="5" height="7" rx="1" fill="#dce9ff" stroke="#00316c" stroke-width="1.5" transform="rotate(270 32 32)"/>
+            <rect x="29.5" y="13" width="5" height="7" rx="1" fill="#dce9ff" stroke="#00316c" stroke-width="1.5" transform="rotate(315 32 32)"/>
+            <!-- Gear ring outline -->
+            <circle cx="32" cy="32" r="15" stroke="#00316c" stroke-width="2"/>
+            <!-- Gear depth tint (lower half) -->
+            <path d="M17 32 A15 15 0 0 0 47 32 Z" fill="#00316c" opacity="0.08"/>
+            <!-- Cube faces (fills) -->
+            <polygon points="32,23 40,28 32,33 24,28" fill="white"/>
+            <polygon points="24,28 32,33 32,42 24,37" fill="white"/>
+            <polygon points="24,28 32,33 32,42 24,37" fill="#00316c" opacity="0.06"/>
+            <polygon points="40,28 32,33 32,42 40,37" fill="white"/>
+            <polygon points="40,28 32,33 32,42 40,37" fill="#00316c" opacity="0.12"/>
+            <!-- Cube outline + interior upper edges -->
+            <polygon points="32,23 40,28 40,37 32,42 24,37 24,28" fill="none" stroke="#00316c" stroke-width="1.5" stroke-linejoin="round"/>
+            <line x1="24" y1="28" x2="32" y2="33" stroke="#00316c" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="40" y1="28" x2="32" y2="33" stroke="#00316c" stroke-width="1.5" stroke-linecap="round"/>
+            <!-- Orange front edge accent -->
+            <line x1="32" y1="33" x2="32" y2="42" stroke="#ff671f" stroke-width="2" stroke-linecap="round"/>
           </svg>
         </div>
         <span class="font-label text-base font-semibold text-on-surface leading-snug">Product Development</span>
@@ -451,22 +457,50 @@ import { withBase } from '@/lib/utils';
       <a href={withBase('/capabilities/composite-design')} class="bg-white border border-outline-variant rounded-lg p-8 flex flex-col items-start gap-4 hover:border-secondary btn-press-card cursor-pointer">
         <div class="w-16 h-16">
           <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <!-- Mould shell body -->
-            <path d="M6 24 C6 14 17 8 32 8 C47 8 58 14 58 24 L58 30 C58 40 47 46 32 46 C17 46 6 40 6 30 Z" fill="#dce9ff"/>
-            <path d="M6 24 C6 14 17 8 32 8 C47 8 58 14 58 24 L58 30 C58 40 47 46 32 46 C17 46 6 40 6 30 Z" stroke="#00316c" stroke-width="2" stroke-linejoin="round"/>
-            <!-- Stacked ply layers through cross-section -->
-            <path d="M10 22 C10 15 19 11 32 11 C45 11 54 15 54 22" stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-            <path d="M10 27 C10 20 19 16 32 16 C45 16 54 20 54 27" stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-            <path d="M10 32 C10 25 19 21 32 21 C45 21 54 25 54 32" stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-            <!-- Depth tint on lower shell -->
-            <path d="M6 30 C6 40 17 46 32 46 C47 46 58 40 58 30 L58 33 C58 41 47 46 32 46 C17 46 6 41 6 33 Z" fill="#00316c" opacity="0.10"/>
-            <!-- Tool support legs -->
-            <line x1="18" y1="46" x2="18" y2="56" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
-            <line x1="46" y1="46" x2="46" y2="56" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
-            <line x1="12" y1="56" x2="24" y2="56" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
-            <line x1="40" y1="56" x2="52" y2="56" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
-            <!-- Orange tool pin marking a single ply -->
-            <circle cx="32" cy="14" r="3" fill="#ff671f"/>
+            <defs>
+              <clipPath id="aero-composite-grid-bottom">
+                <polygon points="4,40 25,32 46,40 25,48"/>
+              </clipPath>
+              <clipPath id="aero-composite-grid-top">
+                <polygon points="4,14 25,6 46,14 25,22"/>
+              </clipPath>
+            </defs>
+            <!-- Bottom panel: fiber face sheet -->
+            <polygon points="4,40 25,48 25,53 4,45" fill="#dce9ff"/>
+            <polygon points="4,40 25,48 25,53 4,45" fill="#00316c" opacity="0.18"/>
+            <polygon points="25,48 46,40 46,45 25,53" fill="#dce9ff"/>
+            <polygon points="25,48 46,40 46,45 25,53" fill="#00316c" opacity="0.08"/>
+            <polygon points="4,40 25,32 46,40 25,48" fill="#dce9ff" stroke="#00316c" stroke-width="1.5" stroke-linejoin="round"/>
+            <g clip-path="url(#aero-composite-grid-bottom)" stroke="#00316c" stroke-width="0.75" opacity="0.5">
+              <line x1="0" y1="44" x2="20" y2="22"/>
+              <line x1="8" y1="48" x2="28" y2="26"/>
+              <line x1="16" y1="52" x2="36" y2="30"/>
+              <line x1="0" y1="34" x2="20" y2="56"/>
+              <line x1="8" y1="30" x2="28" y2="52"/>
+              <line x1="16" y1="26" x2="36" y2="48"/>
+            </g>
+            <polygon points="4,40 25,32 46,40 25,48" stroke="#00316c" stroke-width="1.5" stroke-linejoin="round" fill="none"/>
+            <!-- Middle panel: resin core (orange accent) -->
+            <polygon points="4,27 25,35 25,40 4,32" fill="#ff671f" opacity="0.75"/>
+            <polygon points="4,27 25,35 25,40 4,32" fill="#00316c" opacity="0.18"/>
+            <polygon points="25,35 46,27 46,32 25,40" fill="#ff671f" opacity="0.85"/>
+            <polygon points="25,35 46,27 46,32 25,40" fill="#00316c" opacity="0.08"/>
+            <polygon points="4,27 25,19 46,27 25,35" fill="#ff671f" stroke="#00316c" stroke-width="1.5" stroke-linejoin="round"/>
+            <!-- Top panel: fiber face sheet -->
+            <polygon points="4,14 25,22 25,27 4,19" fill="#dce9ff"/>
+            <polygon points="4,14 25,22 25,27 4,19" fill="#00316c" opacity="0.18"/>
+            <polygon points="25,22 46,14 46,19 25,27" fill="#dce9ff"/>
+            <polygon points="25,22 46,14 46,19 25,27" fill="#00316c" opacity="0.08"/>
+            <polygon points="4,14 25,6 46,14 25,22" fill="#dce9ff" stroke="#00316c" stroke-width="1.5" stroke-linejoin="round"/>
+            <g clip-path="url(#aero-composite-grid-top)" stroke="#00316c" stroke-width="0.75" opacity="0.5">
+              <line x1="0" y1="18" x2="20" y2="-4"/>
+              <line x1="8" y1="22" x2="28" y2="0"/>
+              <line x1="16" y1="26" x2="36" y2="4"/>
+              <line x1="0" y1="8" x2="20" y2="30"/>
+              <line x1="8" y1="4" x2="28" y2="26"/>
+              <line x1="16" y1="0" x2="36" y2="22"/>
+            </g>
+            <polygon points="4,14 25,6 46,14 25,22" stroke="#00316c" stroke-width="1.5" stroke-linejoin="round" fill="none"/>
           </svg>
         </div>
         <span class="font-label text-base font-semibold text-on-surface leading-snug">Composite Design Solution</span>

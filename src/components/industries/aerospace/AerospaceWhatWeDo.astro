@@ -11,7 +11,133 @@ import { withBase } from '@/lib/utils';
 
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
 
-      <!-- Tooling Design (unclickable) -->
+      <!-- 1. Secondary Structure Design (unclickable) -->
+      <div class="bg-white border border-outline-variant rounded-lg p-8 flex flex-col items-start gap-4">
+        <div class="w-16 h-16">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- Outer ring fill -->
+            <ellipse cx="32" cy="32" rx="26" ry="22" fill="#dce9ff"/>
+            <ellipse cx="32" cy="32" rx="26" ry="22" stroke="#00316c" stroke-width="2"/>
+            <!-- Inner wall cutout -->
+            <ellipse cx="32" cy="32" rx="20" ry="16" fill="white"/>
+            <ellipse cx="32" cy="32" rx="20" ry="16" stroke="#00316c" stroke-width="1.5"/>
+            <!-- Depth shading on lower half of frame ring -->
+            <path d="M6 32 A26 22 0 0 0 58 32 A20 16 0 0 1 12 32 Z" fill="#00316c" opacity="0.08"/>
+            <!-- Floor beam -->
+            <line x1="18" y1="42" x2="46" y2="42" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
+            <!-- Vertical floor supports -->
+            <line x1="22" y1="47" x2="22" y2="42" stroke="#00316c" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="42" y1="47" x2="42" y2="42" stroke="#00316c" stroke-width="1.5" stroke-linecap="round"/>
+            <!-- 8 radial ribs -->
+            <line x1="32" y1="10" x2="32" y2="16" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
+            <line x1="32" y1="54" x2="32" y2="48" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
+            <line x1="6"  y1="32" x2="12" y2="32" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
+            <line x1="58" y1="32" x2="52" y2="32" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
+            <line x1="13.6" y1="17.6" x2="17.6" y2="21.6" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
+            <line x1="50.4" y1="17.6" x2="46.4" y2="21.6" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
+            <line x1="13.6" y1="46.4" x2="17.6" y2="42.4" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
+            <line x1="50.4" y1="46.4" x2="46.4" y2="42.4" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
+            <!-- Node dots -->
+            <circle cx="32" cy="16" r="2" fill="#00316c"/>
+            <circle cx="32" cy="48" r="2" fill="#00316c"/>
+            <circle cx="12" cy="32" r="2" fill="#00316c"/>
+            <circle cx="52" cy="32" r="2" fill="#00316c"/>
+            <circle cx="17.6" cy="21.6" r="2" fill="#00316c"/>
+            <circle cx="46.4" cy="21.6" r="2" fill="#00316c"/>
+            <circle cx="17.6" cy="42.4" r="2" fill="#00316c"/>
+            <circle cx="46.4" cy="42.4" r="2" fill="#00316c"/>
+            <!-- Orange top fastener -->
+            <circle cx="32" cy="10" r="3.5" fill="#ff671f"/>
+            <circle cx="32" cy="10" r="1.5" fill="white"/>
+          </svg>
+        </div>
+        <span class="font-label text-base font-semibold text-on-surface leading-snug">Secondary Structure Design</span>
+      </div>
+
+      <!-- 2. Cabin Interior (linkable) -->
+      <a href={withBase('/capabilities/cabin-interior')} class="bg-white border border-outline-variant rounded-lg p-8 flex flex-col items-start gap-4 hover:border-secondary btn-press-card cursor-pointer">
+        <div class="w-16 h-16">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <clipPath id="aero-cabin-clip">
+                <rect x="6" y="6" width="52" height="37"/>
+              </clipPath>
+            </defs>
+            <!-- Outer fuselage circle -->
+            <circle cx="32" cy="32" r="26" fill="#dce9ff"/>
+            <circle cx="32" cy="32" r="26" stroke="#00316c" stroke-width="2"/>
+            <!-- Inner cabin (white, clipped above floor) -->
+            <circle cx="32" cy="32" r="20" fill="white" clip-path="url(#aero-cabin-clip)"/>
+            <circle cx="32" cy="32" r="20" stroke="#00316c" stroke-width="1.5" clip-path="url(#aero-cabin-clip)"/>
+            <!-- Underbelly depth tint -->
+            <path d="M6 32 A26 26 0 0 0 58 32 L58 44 L6 44 Z" fill="#00316c" opacity="0.08"/>
+            <!-- Cabin floor -->
+            <line x1="10" y1="43" x2="54" y2="43" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
+            <!-- Left window -->
+            <rect x="8" y="24" width="8" height="11" rx="3.5" fill="#00316c" opacity="0.18"/>
+            <rect x="8" y="24" width="8" height="11" rx="3.5" stroke="#00316c" stroke-width="1.5"/>
+            <!-- Right window -->
+            <rect x="48" y="24" width="8" height="11" rx="3.5" fill="#00316c" opacity="0.18"/>
+            <rect x="48" y="24" width="8" height="11" rx="3.5" stroke="#00316c" stroke-width="1.5"/>
+            <!-- Overhead bin arc -->
+            <path d="M16 36 Q32 28 48 36" stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <!-- Left seat: base + backrest -->
+            <rect x="13" y="38" width="9" height="5" rx="1" fill="#00316c" opacity="0.80"/>
+            <rect x="13" y="32" width="3" height="7" rx="1" fill="#00316c" opacity="0.80"/>
+            <!-- Right seat: base + backrest -->
+            <rect x="42" y="38" width="9" height="5" rx="1" fill="#00316c" opacity="0.80"/>
+            <rect x="48" y="32" width="3" height="7" rx="1" fill="#00316c" opacity="0.80"/>
+            <!-- Aisle dashed line -->
+            <line x1="32" y1="43" x2="32" y2="56" stroke="#00316c" stroke-width="1" stroke-dasharray="3,3" stroke-linecap="round"/>
+            <!-- Orange seatbelt symbol at center -->
+            <circle cx="32" cy="32" r="3.5" fill="white" stroke="#ff671f" stroke-width="1.5"/>
+            <line x1="30" y1="30" x2="34" y2="34" stroke="#ff671f" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="font-label text-base font-semibold text-on-surface leading-snug">Aircraft Cabin Interior</span>
+      </a>
+
+      <!-- 3. Wire Harness Design EHI (linkable) -->
+      <a href={withBase('/capabilities/electrical-harness-design')} class="bg-white border border-outline-variant rounded-lg p-8 flex flex-col items-start gap-4 hover:border-secondary btn-press-card cursor-pointer">
+        <div class="w-16 h-16">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- Left connector block -->
+            <rect x="4" y="18" width="16" height="28" rx="3" fill="#dce9ff"/>
+            <rect x="4" y="18" width="16" height="28" rx="3" stroke="#00316c" stroke-width="2"/>
+            <!-- Left pins -->
+            <rect x="8"  y="12" width="3" height="8" rx="1" fill="#00316c"/>
+            <rect x="13" y="12" width="3" height="8" rx="1" fill="#00316c"/>
+            <!-- Left socket holes (white-filled) -->
+            <circle cx="9"  cy="28" r="2.5" fill="white" stroke="#00316c" stroke-width="1"/>
+            <circle cx="15" cy="28" r="2.5" fill="white" stroke="#00316c" stroke-width="1"/>
+            <circle cx="9"  cy="37" r="2.5" fill="white" stroke="#00316c" stroke-width="1"/>
+            <circle cx="15" cy="37" r="2.5" fill="white" stroke="#00316c" stroke-width="1"/>
+            <!-- Orange locking tab on right edge of left connector -->
+            <rect x="19" y="27" width="5" height="10" rx="1.5" fill="#ff671f"/>
+            <!-- Right connector block -->
+            <rect x="44" y="18" width="16" height="28" rx="3" fill="#dce9ff"/>
+            <rect x="44" y="18" width="16" height="28" rx="3" stroke="#00316c" stroke-width="2"/>
+            <!-- Right pins -->
+            <rect x="48" y="12" width="3" height="8" rx="1" fill="#00316c"/>
+            <rect x="53" y="12" width="3" height="8" rx="1" fill="#00316c"/>
+            <!-- Right socket holes (white-filled) -->
+            <circle cx="49" cy="28" r="2.5" fill="white" stroke="#00316c" stroke-width="1"/>
+            <circle cx="55" cy="28" r="2.5" fill="white" stroke="#00316c" stroke-width="1"/>
+            <circle cx="49" cy="37" r="2.5" fill="white" stroke="#00316c" stroke-width="1"/>
+            <circle cx="55" cy="37" r="2.5" fill="white" stroke="#00316c" stroke-width="1"/>
+            <!-- 4 wires -->
+            <path d="M20 25 C28 25 36 27 44 27" stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <path d="M20 30 L44 30"             stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <path d="M20 35 L44 34"             stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <path d="M20 39 C28 39 36 37 44 37" stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <!-- Wire bundle clip -->
+            <rect x="30" y="26" width="5" height="12" rx="2.5" fill="#dce9ff" stroke="#00316c" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <span class="font-label text-base font-semibold text-on-surface leading-snug">Wire Harness Design (EHI)</span>
+      </a>
+
+      <!-- 4. Tooling Design (unclickable) -->
       <div class="bg-white border border-outline-variant rounded-lg p-8 flex flex-col items-start gap-4">
         <div class="w-16 h-16">
           <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -55,225 +181,7 @@ import { withBase } from '@/lib/utils';
         <span class="font-label text-base font-semibold text-on-surface leading-snug">Tooling Design</span>
       </div>
 
-      <!-- Secondary Structure Design (unclickable) -->
-      <div class="bg-white border border-outline-variant rounded-lg p-8 flex flex-col items-start gap-4">
-        <div class="w-16 h-16">
-          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <!-- Outer ring fill -->
-            <ellipse cx="32" cy="32" rx="26" ry="22" fill="#dce9ff"/>
-            <ellipse cx="32" cy="32" rx="26" ry="22" stroke="#00316c" stroke-width="2"/>
-            <!-- Inner wall cutout -->
-            <ellipse cx="32" cy="32" rx="20" ry="16" fill="white"/>
-            <ellipse cx="32" cy="32" rx="20" ry="16" stroke="#00316c" stroke-width="1.5"/>
-            <!-- Depth shading on lower half of frame ring -->
-            <path d="M6 32 A26 22 0 0 0 58 32 A20 16 0 0 1 12 32 Z" fill="#00316c" opacity="0.08"/>
-            <!-- Floor beam -->
-            <line x1="18" y1="42" x2="46" y2="42" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
-            <!-- Vertical floor supports -->
-            <line x1="22" y1="47" x2="22" y2="42" stroke="#00316c" stroke-width="1.5" stroke-linecap="round"/>
-            <line x1="42" y1="47" x2="42" y2="42" stroke="#00316c" stroke-width="1.5" stroke-linecap="round"/>
-            <!-- 8 radial ribs -->
-            <line x1="32" y1="10" x2="32" y2="16" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
-            <line x1="32" y1="54" x2="32" y2="48" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
-            <line x1="6"  y1="32" x2="12" y2="32" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
-            <line x1="58" y1="32" x2="52" y2="32" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
-            <line x1="13.6" y1="17.6" x2="17.6" y2="21.6" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
-            <line x1="50.4" y1="17.6" x2="46.4" y2="21.6" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
-            <line x1="13.6" y1="46.4" x2="17.6" y2="42.4" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
-            <line x1="50.4" y1="46.4" x2="46.4" y2="42.4" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
-            <!-- Node dots -->
-            <circle cx="32" cy="16" r="2" fill="#00316c"/>
-            <circle cx="32" cy="48" r="2" fill="#00316c"/>
-            <circle cx="12" cy="32" r="2" fill="#00316c"/>
-            <circle cx="52" cy="32" r="2" fill="#00316c"/>
-            <circle cx="17.6" cy="21.6" r="2" fill="#00316c"/>
-            <circle cx="46.4" cy="21.6" r="2" fill="#00316c"/>
-            <circle cx="17.6" cy="42.4" r="2" fill="#00316c"/>
-            <circle cx="46.4" cy="42.4" r="2" fill="#00316c"/>
-            <!-- Orange top fastener -->
-            <circle cx="32" cy="10" r="3.5" fill="#ff671f"/>
-            <circle cx="32" cy="10" r="1.5" fill="white"/>
-          </svg>
-        </div>
-        <span class="font-label text-base font-semibold text-on-surface leading-snug">Secondary Structure Design</span>
-      </div>
-
-      <!-- Finite Element Analysis — same icon as automotive (linkable) -->
-      <a href={withBase('/capabilities/fea')} class="bg-white border border-outline-variant rounded-lg p-8 flex flex-col items-start gap-4 hover:border-secondary btn-press-card cursor-pointer">
-        <div class="w-16 h-16">
-          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <!-- Curved plate base fill -->
-            <path d="M6 14 Q20 10 38 8 Q54 10 58 18 Q56 36 50 52 Q36 58 18 56 Q8 46 6 30 Z" fill="#dce9ff"/>
-            <path d="M6 14 Q20 10 38 8 Q54 10 58 18 Q56 36 50 52 Q36 58 18 56 Q8 46 6 30 Z" stroke="#00316c" stroke-width="2" stroke-linejoin="round"/>
-            <!-- Triangle fills (upper) -->
-            <polygon points="8,12 28,8 10,32"   fill="#dce9ff"/>
-            <polygon points="28,8 48,12 30,30"  fill="#dce9ff"/>
-            <polygon points="10,32 30,30 12,52" fill="#dce9ff"/>
-            <polygon points="30,30 52,30 32,54" fill="#dce9ff"/>
-            <!-- Triangle fills (lower-half depth tint) -->
-            <polygon points="28,8 30,30 10,32"  fill="#00316c" opacity="0.08"/>
-            <polygon points="48,12 52,30 30,30" fill="#00316c" opacity="0.08"/>
-            <polygon points="30,30 32,54 12,52" fill="#00316c" opacity="0.08"/>
-            <polygon points="52,30 54,50 32,54" fill="#00316c" opacity="0.08"/>
-            <!-- Orange stress hot-spot -->
-            <polygon points="30,30 52,30 32,54" fill="#ff671f" opacity="0.25"/>
-            <polygon points="48,12 52,30 30,30" fill="#ff671f" opacity="0.18"/>
-            <!-- Mesh edges -->
-            <line x1="8"  y1="12" x2="28" y2="8"  stroke="#00316c" stroke-width="1.5"/>
-            <line x1="28" y1="8"  x2="48" y2="12" stroke="#00316c" stroke-width="1.5"/>
-            <line x1="10" y1="32" x2="30" y2="30" stroke="#00316c" stroke-width="1.5"/>
-            <line x1="30" y1="30" x2="52" y2="30" stroke="#00316c" stroke-width="1.5"/>
-            <line x1="12" y1="52" x2="32" y2="54" stroke="#00316c" stroke-width="1.5"/>
-            <line x1="32" y1="54" x2="54" y2="50" stroke="#00316c" stroke-width="1.5"/>
-            <line x1="8"  y1="12" x2="10" y2="32" stroke="#00316c" stroke-width="1.5"/>
-            <line x1="10" y1="32" x2="12" y2="52" stroke="#00316c" stroke-width="1.5"/>
-            <line x1="28" y1="8"  x2="30" y2="30" stroke="#00316c" stroke-width="1.5"/>
-            <line x1="30" y1="30" x2="32" y2="54" stroke="#00316c" stroke-width="1.5"/>
-            <line x1="48" y1="12" x2="52" y2="30" stroke="#00316c" stroke-width="1.5"/>
-            <line x1="52" y1="30" x2="54" y2="50" stroke="#00316c" stroke-width="1.5"/>
-            <line x1="8"  y1="12" x2="30" y2="30" stroke="#00316c" stroke-width="1.5"/>
-            <line x1="28" y1="8"  x2="52" y2="30" stroke="#00316c" stroke-width="1.5"/>
-            <line x1="10" y1="32" x2="32" y2="54" stroke="#00316c" stroke-width="1.5"/>
-            <line x1="30" y1="30" x2="54" y2="50" stroke="#00316c" stroke-width="1.5"/>
-            <!-- Nodes -->
-            <circle cx="8"  cy="12" r="2" fill="#00316c"/>
-            <circle cx="28" cy="8"  r="2" fill="#00316c"/>
-            <circle cx="48" cy="12" r="2" fill="#00316c"/>
-            <circle cx="10" cy="32" r="2" fill="#00316c"/>
-            <circle cx="30" cy="30" r="2" fill="#00316c"/>
-            <circle cx="52" cy="30" r="2" fill="#00316c"/>
-            <circle cx="12" cy="52" r="2" fill="#00316c"/>
-            <circle cx="32" cy="54" r="2" fill="#00316c"/>
-            <circle cx="54" cy="50" r="2" fill="#00316c"/>
-          </svg>
-        </div>
-        <span class="font-label text-base font-semibold text-on-surface leading-snug">Finite Element Analysis</span>
-      </a>
-
-      <!-- Computational Fluid Dynamics — same icon as automotive (linkable) -->
-      <a href={withBase('/capabilities/cfd')} class="bg-white border border-outline-variant rounded-lg p-8 flex flex-col items-start gap-4 hover:border-secondary btn-press-card cursor-pointer">
-        <div class="w-16 h-16">
-          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <!-- Airfoil body -->
-            <path d="M18 32 C20 25 28 20 38 20 C46 20 52 24 56 32 C52 40 46 44 38 44 C28 44 20 39 18 32 Z" fill="#dce9ff"/>
-            <path d="M18 32 C20 25 28 20 38 20 C46 20 52 24 56 32 C52 40 46 44 38 44 C28 44 20 39 18 32 Z" stroke="#00316c" stroke-width="2" stroke-linejoin="round"/>
-            <!-- Depth tint on lower half -->
-            <path d="M18 32 C20 39 28 44 38 44 C46 44 52 40 56 32 Z" fill="#00316c" opacity="0.10"/>
-            <!-- Left streamlines -->
-            <path d="M4 16 C8 16 12 18 16 24"  stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-            <path d="M4 22 C8 22 12 24 15 27"  stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-            <path d="M4 32 L16 32"             stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-            <path d="M4 42 C8 42 12 40 15 37"  stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-            <path d="M4 48 C8 48 12 46 16 40"  stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-            <!-- Left arrowheads -->
-            <polygon points="14,22 16,24 18,23" fill="#00316c"/>
-            <polygon points="13,25 15,27 17,26" fill="#00316c"/>
-            <polygon points="14,30 16,32 14,34" fill="#00316c"/>
-            <polygon points="13,38 15,37 17,38" fill="#00316c"/>
-            <polygon points="14,39 16,40 18,41" fill="#00316c"/>
-            <!-- Right streamlines -->
-            <path d="M56 26 C58 25 60 22 60 18" stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-            <path d="M56 29 C58 28 60 26 60 24" stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-            <path d="M56 32 L60 32"             stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-            <path d="M56 35 C58 36 60 38 60 40" stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-            <path d="M56 38 C58 40 60 42 60 46" stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-            <!-- Right arrowheads -->
-            <polygon points="58,17 60,18 58,20" fill="#00316c"/>
-            <polygon points="58,23 60,24 58,26" fill="#00316c"/>
-            <polygon points="58,30 60,32 58,34" fill="#00316c"/>
-            <polygon points="58,39 60,40 58,42" fill="#00316c"/>
-            <polygon points="58,45 60,46 58,47" fill="#00316c"/>
-            <!-- Orange stagnation dot on leading edge -->
-            <circle cx="18" cy="32" r="2.5" fill="#ff671f"/>
-          </svg>
-        </div>
-        <span class="font-label text-base font-semibold text-on-surface leading-snug">Computational Fluid Dynamics</span>
-      </a>
-
-      <!-- Cabin Interior (linkable) -->
-      <a href={withBase('/capabilities/cabin-interior')} class="bg-white border border-outline-variant rounded-lg p-8 flex flex-col items-start gap-4 hover:border-secondary btn-press-card cursor-pointer">
-        <div class="w-16 h-16">
-          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <defs>
-              <clipPath id="aero-cabin-clip">
-                <rect x="6" y="6" width="52" height="37"/>
-              </clipPath>
-            </defs>
-            <!-- Outer fuselage circle -->
-            <circle cx="32" cy="32" r="26" fill="#dce9ff"/>
-            <circle cx="32" cy="32" r="26" stroke="#00316c" stroke-width="2"/>
-            <!-- Inner cabin (white, clipped above floor) -->
-            <circle cx="32" cy="32" r="20" fill="white" clip-path="url(#aero-cabin-clip)"/>
-            <circle cx="32" cy="32" r="20" stroke="#00316c" stroke-width="1.5" clip-path="url(#aero-cabin-clip)"/>
-            <!-- Underbelly depth tint -->
-            <path d="M6 32 A26 26 0 0 0 58 32 L58 44 L6 44 Z" fill="#00316c" opacity="0.08"/>
-            <!-- Cabin floor -->
-            <line x1="10" y1="43" x2="54" y2="43" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
-            <!-- Left window -->
-            <rect x="8" y="24" width="8" height="11" rx="3.5" fill="#00316c" opacity="0.18"/>
-            <rect x="8" y="24" width="8" height="11" rx="3.5" stroke="#00316c" stroke-width="1.5"/>
-            <!-- Right window -->
-            <rect x="48" y="24" width="8" height="11" rx="3.5" fill="#00316c" opacity="0.18"/>
-            <rect x="48" y="24" width="8" height="11" rx="3.5" stroke="#00316c" stroke-width="1.5"/>
-            <!-- Overhead bin arc -->
-            <path d="M16 36 Q32 28 48 36" stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-            <!-- Left seat: base + backrest -->
-            <rect x="13" y="38" width="9" height="5" rx="1" fill="#00316c" opacity="0.80"/>
-            <rect x="13" y="32" width="3" height="7" rx="1" fill="#00316c" opacity="0.80"/>
-            <!-- Right seat: base + backrest -->
-            <rect x="42" y="38" width="9" height="5" rx="1" fill="#00316c" opacity="0.80"/>
-            <rect x="48" y="32" width="3" height="7" rx="1" fill="#00316c" opacity="0.80"/>
-            <!-- Aisle dashed line -->
-            <line x1="32" y1="43" x2="32" y2="56" stroke="#00316c" stroke-width="1" stroke-dasharray="3,3" stroke-linecap="round"/>
-            <!-- Orange seatbelt symbol at center -->
-            <circle cx="32" cy="32" r="3.5" fill="white" stroke="#ff671f" stroke-width="1.5"/>
-            <line x1="30" y1="30" x2="34" y2="34" stroke="#ff671f" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <span class="font-label text-base font-semibold text-on-surface leading-snug">Aircraft Cabin Interior</span>
-      </a>
-
-      <!-- Wire Harness Design EHI — adapted from automotive Wire Harnessing (unclickable) -->
-      <div class="bg-white border border-outline-variant rounded-lg p-8 flex flex-col items-start gap-4">
-        <div class="w-16 h-16">
-          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <!-- Left connector block -->
-            <rect x="4" y="18" width="16" height="28" rx="3" fill="#dce9ff"/>
-            <rect x="4" y="18" width="16" height="28" rx="3" stroke="#00316c" stroke-width="2"/>
-            <!-- Left pins -->
-            <rect x="8"  y="12" width="3" height="8" rx="1" fill="#00316c"/>
-            <rect x="13" y="12" width="3" height="8" rx="1" fill="#00316c"/>
-            <!-- Left socket holes (white-filled) -->
-            <circle cx="9"  cy="28" r="2.5" fill="white" stroke="#00316c" stroke-width="1"/>
-            <circle cx="15" cy="28" r="2.5" fill="white" stroke="#00316c" stroke-width="1"/>
-            <circle cx="9"  cy="37" r="2.5" fill="white" stroke="#00316c" stroke-width="1"/>
-            <circle cx="15" cy="37" r="2.5" fill="white" stroke="#00316c" stroke-width="1"/>
-            <!-- Orange locking tab on right edge of left connector -->
-            <rect x="19" y="27" width="5" height="10" rx="1.5" fill="#ff671f"/>
-            <!-- Right connector block -->
-            <rect x="44" y="18" width="16" height="28" rx="3" fill="#dce9ff"/>
-            <rect x="44" y="18" width="16" height="28" rx="3" stroke="#00316c" stroke-width="2"/>
-            <!-- Right pins -->
-            <rect x="48" y="12" width="3" height="8" rx="1" fill="#00316c"/>
-            <rect x="53" y="12" width="3" height="8" rx="1" fill="#00316c"/>
-            <!-- Right socket holes (white-filled) -->
-            <circle cx="49" cy="28" r="2.5" fill="white" stroke="#00316c" stroke-width="1"/>
-            <circle cx="55" cy="28" r="2.5" fill="white" stroke="#00316c" stroke-width="1"/>
-            <circle cx="49" cy="37" r="2.5" fill="white" stroke="#00316c" stroke-width="1"/>
-            <circle cx="55" cy="37" r="2.5" fill="white" stroke="#00316c" stroke-width="1"/>
-            <!-- 4 wires -->
-            <path d="M20 25 C28 25 36 27 44 27" stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-            <path d="M20 30 L44 30"             stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-            <path d="M20 35 L44 34"             stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-            <path d="M20 39 C28 39 36 37 44 37" stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-            <!-- Wire bundle clip -->
-            <rect x="30" y="26" width="5" height="12" rx="2.5" fill="#dce9ff" stroke="#00316c" stroke-width="1.5"/>
-          </svg>
-        </div>
-        <span class="font-label text-base font-semibold text-on-surface leading-snug">Wire Harness Design (EHI)</span>
-      </div>
-
-      <!-- Avionics (unclickable) -->
+      <!-- 5. Avionics (unclickable) -->
       <div class="bg-white border border-outline-variant rounded-lg p-8 flex flex-col items-start gap-4">
         <div class="w-16 h-16">
           <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -329,7 +237,42 @@ import { withBase } from '@/lib/utils';
         <span class="font-label text-base font-semibold text-on-surface leading-snug">Avionics</span>
       </div>
 
-      <!-- Manufacturing (linkable) -->
+      <!-- 6. Product Development (unclickable) -->
+      <div class="bg-white border border-outline-variant rounded-lg p-8 flex flex-col items-start gap-4">
+        <div class="w-16 h-16">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!--
+              Three 120° arcs on circle r=22, center (32,32).
+              A=(32,10) top · B=(51,43) lower-right · C=(13,43) lower-left.
+              Arrowheads are tangent-aligned triangles at each arc endpoint:
+                Arc1 end B tangent (-0.5, 0.87)  → tip(51,43) base(55,41)+(51,38)
+                Arc2 end C tangent (-0.5,-0.87)  → tip(13,43) base(13,48)+(17,45)
+                Arc3 end A tangent (1, 0)         → tip(32,10) base(28,13)+(28,7)
+            -->
+            <!-- Arc 1: top → lower-right (navy) -->
+            <path d="M32 10 A22 22 0 0 1 51 43" stroke="#00316c" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            <polygon points="51,43 55,41 51,38" fill="#00316c"/>
+            <!-- Arc 2: lower-right → lower-left (navy) -->
+            <path d="M51 43 A22 22 0 0 1 13 43" stroke="#00316c" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            <polygon points="13,43 13,48 17,45" fill="#00316c"/>
+            <!-- Arc 3: lower-left → top (orange) -->
+            <path d="M13 43 A22 22 0 0 1 32 10" stroke="#ff671f" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            <polygon points="32,10 28,13 28,7" fill="#ff671f"/>
+            <!-- Central product: simplified aerospace component -->
+            <ellipse cx="32" cy="32" rx="11" ry="5" fill="#dce9ff" stroke="#00316c" stroke-width="1.5"/>
+            <path d="M21 32 A11 5 0 0 0 43 32 Z" fill="#00316c" opacity="0.10"/>
+            <!-- Left wing -->
+            <path d="M26 32 L18 28 L24 31 Z" fill="#dce9ff" stroke="#00316c" stroke-width="1.5" stroke-linejoin="round"/>
+            <!-- Right wing -->
+            <path d="M38 32 L46 36 L40 33 Z" fill="#dce9ff" stroke="#00316c" stroke-width="1.5" stroke-linejoin="round"/>
+            <!-- Nose tip (orange accent) -->
+            <circle cx="21" cy="32" r="2" fill="#ff671f"/>
+          </svg>
+        </div>
+        <span class="font-label text-base font-semibold text-on-surface leading-snug">Product Development</span>
+      </div>
+
+      <!-- 7. Manufacturing (linkable) -->
       <a href={withBase('/capabilities/manufacturing')} class="bg-white border border-outline-variant rounded-lg p-8 flex flex-col items-start gap-4 hover:border-secondary btn-press-card cursor-pointer">
         <div class="w-16 h-16">
           <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -375,7 +318,99 @@ import { withBase } from '@/lib/utils';
         <span class="font-label text-base font-semibold text-on-surface leading-snug">Manufacturing</span>
       </a>
 
-      <!-- Technical Publications (linkable) -->
+      <!-- 8. Finite Element Analysis (linkable) -->
+      <a href={withBase('/capabilities/fea')} class="bg-white border border-outline-variant rounded-lg p-8 flex flex-col items-start gap-4 hover:border-secondary btn-press-card cursor-pointer">
+        <div class="w-16 h-16">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- Curved plate base fill -->
+            <path d="M6 14 Q20 10 38 8 Q54 10 58 18 Q56 36 50 52 Q36 58 18 56 Q8 46 6 30 Z" fill="#dce9ff"/>
+            <path d="M6 14 Q20 10 38 8 Q54 10 58 18 Q56 36 50 52 Q36 58 18 56 Q8 46 6 30 Z" stroke="#00316c" stroke-width="2" stroke-linejoin="round"/>
+            <!-- Triangle fills (upper) -->
+            <polygon points="8,12 28,8 10,32"   fill="#dce9ff"/>
+            <polygon points="28,8 48,12 30,30"  fill="#dce9ff"/>
+            <polygon points="10,32 30,30 12,52" fill="#dce9ff"/>
+            <polygon points="30,30 52,30 32,54" fill="#dce9ff"/>
+            <!-- Triangle fills (lower-half depth tint) -->
+            <polygon points="28,8 30,30 10,32"  fill="#00316c" opacity="0.08"/>
+            <polygon points="48,12 52,30 30,30" fill="#00316c" opacity="0.08"/>
+            <polygon points="30,30 32,54 12,52" fill="#00316c" opacity="0.08"/>
+            <polygon points="52,30 54,50 32,54" fill="#00316c" opacity="0.08"/>
+            <!-- Orange stress hot-spot -->
+            <polygon points="30,30 52,30 32,54" fill="#ff671f" opacity="0.25"/>
+            <polygon points="48,12 52,30 30,30" fill="#ff671f" opacity="0.18"/>
+            <!-- Mesh edges -->
+            <line x1="8"  y1="12" x2="28" y2="8"  stroke="#00316c" stroke-width="1.5"/>
+            <line x1="28" y1="8"  x2="48" y2="12" stroke="#00316c" stroke-width="1.5"/>
+            <line x1="10" y1="32" x2="30" y2="30" stroke="#00316c" stroke-width="1.5"/>
+            <line x1="30" y1="30" x2="52" y2="30" stroke="#00316c" stroke-width="1.5"/>
+            <line x1="12" y1="52" x2="32" y2="54" stroke="#00316c" stroke-width="1.5"/>
+            <line x1="32" y1="54" x2="54" y2="50" stroke="#00316c" stroke-width="1.5"/>
+            <line x1="8"  y1="12" x2="10" y2="32" stroke="#00316c" stroke-width="1.5"/>
+            <line x1="10" y1="32" x2="12" y2="52" stroke="#00316c" stroke-width="1.5"/>
+            <line x1="28" y1="8"  x2="30" y2="30" stroke="#00316c" stroke-width="1.5"/>
+            <line x1="30" y1="30" x2="32" y2="54" stroke="#00316c" stroke-width="1.5"/>
+            <line x1="48" y1="12" x2="52" y2="30" stroke="#00316c" stroke-width="1.5"/>
+            <line x1="52" y1="30" x2="54" y2="50" stroke="#00316c" stroke-width="1.5"/>
+            <line x1="8"  y1="12" x2="30" y2="30" stroke="#00316c" stroke-width="1.5"/>
+            <line x1="28" y1="8"  x2="52" y2="30" stroke="#00316c" stroke-width="1.5"/>
+            <line x1="10" y1="32" x2="32" y2="54" stroke="#00316c" stroke-width="1.5"/>
+            <line x1="30" y1="30" x2="54" y2="50" stroke="#00316c" stroke-width="1.5"/>
+            <!-- Nodes -->
+            <circle cx="8"  cy="12" r="2" fill="#00316c"/>
+            <circle cx="28" cy="8"  r="2" fill="#00316c"/>
+            <circle cx="48" cy="12" r="2" fill="#00316c"/>
+            <circle cx="10" cy="32" r="2" fill="#00316c"/>
+            <circle cx="30" cy="30" r="2" fill="#00316c"/>
+            <circle cx="52" cy="30" r="2" fill="#00316c"/>
+            <circle cx="12" cy="52" r="2" fill="#00316c"/>
+            <circle cx="32" cy="54" r="2" fill="#00316c"/>
+            <circle cx="54" cy="50" r="2" fill="#00316c"/>
+          </svg>
+        </div>
+        <span class="font-label text-base font-semibold text-on-surface leading-snug">Finite Element Analysis</span>
+      </a>
+
+      <!-- 9. Computational Fluid Dynamics (linkable) -->
+      <a href={withBase('/capabilities/cfd')} class="bg-white border border-outline-variant rounded-lg p-8 flex flex-col items-start gap-4 hover:border-secondary btn-press-card cursor-pointer">
+        <div class="w-16 h-16">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- Airfoil body -->
+            <path d="M18 32 C20 25 28 20 38 20 C46 20 52 24 56 32 C52 40 46 44 38 44 C28 44 20 39 18 32 Z" fill="#dce9ff"/>
+            <path d="M18 32 C20 25 28 20 38 20 C46 20 52 24 56 32 C52 40 46 44 38 44 C28 44 20 39 18 32 Z" stroke="#00316c" stroke-width="2" stroke-linejoin="round"/>
+            <!-- Depth tint on lower half -->
+            <path d="M18 32 C20 39 28 44 38 44 C46 44 52 40 56 32 Z" fill="#00316c" opacity="0.10"/>
+            <!-- Left streamlines -->
+            <path d="M4 16 C8 16 12 18 16 24"  stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <path d="M4 22 C8 22 12 24 15 27"  stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <path d="M4 32 L16 32"             stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <path d="M4 42 C8 42 12 40 15 37"  stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <path d="M4 48 C8 48 12 46 16 40"  stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <!-- Left arrowheads -->
+            <polygon points="14,22 16,24 18,23" fill="#00316c"/>
+            <polygon points="13,25 15,27 17,26" fill="#00316c"/>
+            <polygon points="14,30 16,32 14,34" fill="#00316c"/>
+            <polygon points="13,38 15,37 17,38" fill="#00316c"/>
+            <polygon points="14,39 16,40 18,41" fill="#00316c"/>
+            <!-- Right streamlines -->
+            <path d="M56 26 C58 25 60 22 60 18" stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <path d="M56 29 C58 28 60 26 60 24" stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <path d="M56 32 L60 32"             stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <path d="M56 35 C58 36 60 38 60 40" stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <path d="M56 38 C58 40 60 42 60 46" stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <!-- Right arrowheads -->
+            <polygon points="58,17 60,18 58,20" fill="#00316c"/>
+            <polygon points="58,23 60,24 58,26" fill="#00316c"/>
+            <polygon points="58,30 60,32 58,34" fill="#00316c"/>
+            <polygon points="58,39 60,40 58,42" fill="#00316c"/>
+            <polygon points="58,45 60,46 58,47" fill="#00316c"/>
+            <!-- Orange stagnation dot on leading edge -->
+            <circle cx="18" cy="32" r="2.5" fill="#ff671f"/>
+          </svg>
+        </div>
+        <span class="font-label text-base font-semibold text-on-surface leading-snug">Computational Fluid Dynamics</span>
+      </a>
+
+      <!-- 10. Technical Publications (linkable) -->
       <a href={withBase('/capabilities/technical-publication')} class="bg-white border border-outline-variant rounded-lg p-8 flex flex-col items-start gap-4 hover:border-secondary btn-press-card cursor-pointer">
         <div class="w-16 h-16">
           <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -410,6 +445,31 @@ import { withBase } from '@/lib/utils';
           </svg>
         </div>
         <span class="font-label text-base font-semibold text-on-surface leading-snug">Technical Publications</span>
+      </a>
+
+      <!-- 11. Composite Design Solution (linkable) -->
+      <a href={withBase('/capabilities/composite-design')} class="bg-white border border-outline-variant rounded-lg p-8 flex flex-col items-start gap-4 hover:border-secondary btn-press-card cursor-pointer">
+        <div class="w-16 h-16">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- Mould shell body -->
+            <path d="M6 24 C6 14 17 8 32 8 C47 8 58 14 58 24 L58 30 C58 40 47 46 32 46 C17 46 6 40 6 30 Z" fill="#dce9ff"/>
+            <path d="M6 24 C6 14 17 8 32 8 C47 8 58 14 58 24 L58 30 C58 40 47 46 32 46 C17 46 6 40 6 30 Z" stroke="#00316c" stroke-width="2" stroke-linejoin="round"/>
+            <!-- Stacked ply layers through cross-section -->
+            <path d="M10 22 C10 15 19 11 32 11 C45 11 54 15 54 22" stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <path d="M10 27 C10 20 19 16 32 16 C45 16 54 20 54 27" stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <path d="M10 32 C10 25 19 21 32 21 C45 21 54 25 54 32" stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <!-- Depth tint on lower shell -->
+            <path d="M6 30 C6 40 17 46 32 46 C47 46 58 40 58 30 L58 33 C58 41 47 46 32 46 C17 46 6 41 6 33 Z" fill="#00316c" opacity="0.10"/>
+            <!-- Tool support legs -->
+            <line x1="18" y1="46" x2="18" y2="56" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
+            <line x1="46" y1="46" x2="46" y2="56" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
+            <line x1="12" y1="56" x2="24" y2="56" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
+            <line x1="40" y1="56" x2="52" y2="56" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
+            <!-- Orange tool pin marking a single ply -->
+            <circle cx="32" cy="14" r="3" fill="#ff671f"/>
+          </svg>
+        </div>
+        <span class="font-label text-base font-semibold text-on-surface leading-snug">Composite Design Solution</span>
       </a>
 
     </div>

@@ -647,6 +647,18 @@ export const en = {
       heading: 'What We Do',
     },
   },
+  automotive: {
+    hero: {
+      eyebrow: 'Industry Focus',
+      heading: 'Automotive Engineering',
+      description: 'Precision design and development of cockpit systems, exterior assemblies, and interior trims for global automotive programmes.',
+      cta: 'Explore What We Do',
+    },
+    whatWeDo: {
+      eyebrow: 'Our Capabilities',
+      heading: 'What We Do',
+    },
+  },
   businessModel: {
     hero: {
       eyebrow: 'Partnership & Business Model',

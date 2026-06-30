@@ -565,7 +565,7 @@ export const en = {
         level: 'Mid-Grade',
         exp: '3 – 5 Years',
         location: 'Nagarbhavi, Bengaluru',
-        title: 'Senior Design Engineers (SDE/Mid-Grade)',
+        title: 'Senior Design Engineers',
         summary: 'Lead BIW welding fixture design from concept through 2D detailing in CATIA V5, with QC ownership and management of a small design team.',
         jd: 'You will drive BIW welding fixture design across the full lifecycle, from conceptual design through 3D finish, 2D detailing, and documentation, while owning quality checks and managing a team of 6 to 8 designers. Customer and internal communication is a key part of the role.',
         qualBody: 'Preferably B.E, B.Tech or Diploma in Mechanical Engineering from GTTC or NTTF, Tool Engineering track.',

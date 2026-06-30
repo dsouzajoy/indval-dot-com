@@ -3,73 +3,93 @@ import { en } from '@/i18n/locales/en';
 
 const { positions } = en.careers;
 
+const p = positions.pos1;
+const p2 = positions.pos2;
+const p3 = positions.pos3;
+const p4 = positions.pos4;
+
 const jobs = [
   {
-    levelKey: 'careers.positions.pos1.level',
-    expKey:   'careers.positions.pos1.exp',
-    titleKey: 'careers.positions.pos1.title',
-    qualKey:  'careers.positions.pos1.qualBody',
-    domLabelKey: 'careers.positions.pos1.domainLabel',
-    domBodyKey:  'careers.positions.pos1.domainBody',
-    r: [
-      { key: 'careers.positions.pos1.r1', text: positions.pos1.r1 },
-      { key: 'careers.positions.pos1.r2', text: positions.pos1.r2 },
-      { key: 'careers.positions.pos1.r3', text: positions.pos1.r3 },
-      { key: 'careers.positions.pos1.r4', text: positions.pos1.r4 },
-    ],
-    level:    positions.pos1.level,
-    exp:      positions.pos1.exp,
-    title:    positions.pos1.title,
-    qualBody: positions.pos1.qualBody,
-    domainLabel: positions.pos1.domainLabel,
-    domainBody:  positions.pos1.domainBody,
+    id: 'pos1',
+    level: p.level,
+    exp: p.exp,
+    vacancies: p.vacancies,
+    title: p.title,
+    qualBody: p.qualBody,
+    jd: p.jd,
+    location: p.location,
+    domainLabel: p.domainLabel,
+    domainBody: p.domainBody,
+    responsibilities: p.responsibilities,
+    extra: p.extra,
+    tags: ['Specialist', 'Robotic Simulation', 'OLP', 'BIW'],
+    summary: p.summary,
+    description: p.jd,
   },
   {
-    levelKey: 'careers.positions.pos2.level',
-    expKey:   'careers.positions.pos2.exp',
-    titleKey: 'careers.positions.pos2.title',
-    qualKey:  'careers.positions.pos2.qualBody',
-    domLabelKey: 'careers.positions.pos2.domainLabel',
-    domBodyKey:  'careers.positions.pos2.domainBody',
-    r: [
-      { key: 'careers.positions.pos2.r1', text: positions.pos2.r1 },
-      { key: 'careers.positions.pos2.r2', text: positions.pos2.r2 },
-      { key: 'careers.positions.pos2.r3', text: positions.pos2.r3 },
-      { key: 'careers.positions.pos2.r4', text: positions.pos2.r4 },
-    ],
-    level:    positions.pos2.level,
-    exp:      positions.pos2.exp,
-    title:    positions.pos2.title,
-    qualBody: positions.pos2.qualBody,
-    domainLabel: positions.pos2.domainLabel,
-    domainBody:  positions.pos2.domainBody,
+    id: 'pos2',
+    level: p2.level,
+    exp: p2.exp,
+    vacancies: p2.vacancies,
+    title: p2.title,
+    qualBody: p2.qualBody,
+    jd: p2.jd,
+    location: p2.location,
+    domainLabel: p2.domainLabel,
+    domainBody: p2.domainBody,
+    responsibilities: p2.responsibilities,
+    extra: p2.extra,
+    tags: ['Mid-Grade', 'BIW', 'Fixture Design', 'CATIA V5'],
+    summary: p2.summary,
+    description: p2.jd,
   },
   {
-    levelKey: 'careers.positions.pos3.level',
-    expKey:   'careers.positions.pos3.exp',
-    titleKey: 'careers.positions.pos3.title',
-    qualKey:  'careers.positions.pos3.qualBody',
-    domLabelKey: 'careers.positions.pos3.domainLabel',
-    domBodyKey:  'careers.positions.pos3.domainBody',
-    r: [
-      { key: 'careers.positions.pos3.r1', text: positions.pos3.r1 },
-      { key: 'careers.positions.pos3.r2', text: positions.pos3.r2 },
-      { key: 'careers.positions.pos3.r3', text: positions.pos3.r3 },
-      { key: 'careers.positions.pos3.r4', text: positions.pos3.r4 },
-    ],
-    level:    positions.pos3.level,
-    exp:      positions.pos3.exp,
-    title:    positions.pos3.title,
-    qualBody: positions.pos3.qualBody,
-    domainLabel: positions.pos3.domainLabel,
-    domainBody:  positions.pos3.domainBody,
+    id: 'pos3',
+    level: p3.level,
+    exp: p3.exp,
+    location: p3.location,
+    title: p3.title,
+    qualBody: p3.qualBody,
+    jd: p3.jd,
+    domainLabel: p3.domainLabel,
+    domainBody: p3.domainBody,
+    responsibilities: p3.responsibilities,
+    extra: p3.extra,
+    tags: ['Mid-Grade', 'BIW', 'Fixture Design', 'CATIA V5'],
+    summary: p3.summary,
+    description: p3.jd,
+  },
+  {
+    id: 'pos4',
+    level: p4.level,
+    exp: p4.exp,
+    vacancies: p4.vacancies,
+    location: p4.location,
+    title: p4.title,
+    qualBody: p4.qualBody,
+    jd: p4.jd,
+    domainLabel: p4.domainLabel,
+    domainBody: p4.domainBody,
+    responsibilities: p4.responsibilities,
+    extra: p4.extra,
+    tags: ['Trainee', 'BIW', 'Fixture Design', 'CATIA V5'],
+    summary: p4.summary,
+    description: p4.jd,
   },
 ];
+
+const FILTER_GROUPS = [
+  { label: 'Level', tags: ['Specialist', 'Mid-Grade', 'Trainee'] },
+  { label: 'Domain', tags: ['Robotic Simulation', 'OLP', 'BIW', 'Fixture Design'] },
+];
+
+const serializedJobs = JSON.stringify(jobs);
 ---
 
-<section id="open-positions" class="py-20 md:py-24 bg-surface scroll-mt-20">
+<section id="open-positions" class="py-20 md:py-28 bg-surface scroll-mt-20">
   <div class="max-w-7xl mx-auto px-6 md:px-8">
-    <!-- Section heading -->
+
+    <!-- Section header -->
     <div class="mb-12 md:mb-16 space-y-4">
       <h2
         class="text-primary font-headline font-black text-3xl md:text-4xl tracking-tighter"
@@ -80,83 +100,626 @@ const jobs = [
       <div class="h-1 w-24 bg-secondary"></div>
     </div>
 
-    <!-- Position cards -->
-    <div class="grid grid-cols-1 gap-8 md:gap-12">
-      {jobs.map((job) => (
-        <div class="group bg-surface-container-lowest rounded p-6 md:p-12 shadow-ambient engineering-card-border transition-all duration-700">
-          <!-- Tags row -->
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span
-              class="bg-surface-container text-primary px-3 py-1 text-xs font-label uppercase font-bold tracking-widest"
-              data-i18n={job.levelKey}
-            >{job.level}</span>
-            <span
-              class="bg-surface-container-high text-on-surface-variant px-3 py-1 text-xs font-label uppercase font-bold tracking-widest"
-              data-i18n={job.expKey}
-            >{job.exp}</span>
-          </div>
+    <!-- Board: sidebar + main -->
+    <div class="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
 
-          <!-- Role title -->
-          <h3
-            class="text-primary font-headline font-extrabold text-2xl md:text-3xl mb-6"
-            data-i18n={job.titleKey}
-          >{job.title}</h3>
+      <!-- ── Filter sidebar ─────────────────────────────────────── -->
+      <aside
+        class="w-full lg:w-64 xl:w-72 shrink-0 lg:sticky lg:top-24"
+        aria-label="Filter job listings"
+      >
+        <div class="bg-surface-container-lowest rounded border border-outline-variant/20 p-6 shadow-ambient">
+          <h3 class="font-label font-bold text-on-surface text-xs uppercase tracking-widest mb-6">
+            Filter by
+          </h3>
 
-          <!-- Qualifications + Domain grid -->
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-8">
-            <div>
-              <h4
-                class="font-label text-secondary text-xs font-bold uppercase tracking-widest mb-3"
-                data-i18n="careers.positions.qualifications"
-              >{en.careers.positions.qualifications}</h4>
-              <p class="text-on-surface-variant leading-relaxed text-sm md:text-base" data-i18n={job.qualKey}>{job.qualBody}</p>
+          {FILTER_GROUPS.map(group => (
+            <div class="mb-6 last:mb-0">
+              <h4 class="font-label text-on-surface-variant text-[11px] font-bold uppercase tracking-widest mb-3">
+                {group.label}
+              </h4>
+              <div class="flex flex-col gap-1">
+                {group.tags.map(tag => (
+                  <label class="filter-label flex items-center gap-2.5 cursor-pointer py-1.5 px-1.5 rounded hover:bg-surface-container transition-colors duration-150 group/fc">
+                    <span class="relative w-4 h-4 shrink-0">
+                      <input
+                        type="checkbox"
+                        class="filter-checkbox peer absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                        value={tag}
+                        aria-label={`Filter by ${tag}`}
+                      />
+                      <span class="block w-4 h-4 rounded border-2 border-outline-variant/60 bg-white peer-checked:bg-primary peer-checked:border-primary transition-all duration-150 flex items-center justify-center">
+                        <svg
+                          class="w-2.5 h-2.5 text-white opacity-0 peer-checked:opacity-100 transition-opacity"
+                          viewBox="0 0 10 10"
+                          fill="none"
+                          aria-hidden="true"
+                        >
+                          <path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </span>
+                    </span>
+                    <span class="font-label text-sm text-on-surface-variant group-has-[input:checked]/fc:text-on-surface font-medium transition-colors duration-150">
+                      {tag}
+                    </span>
+                  </label>
+                ))}
+              </div>
             </div>
-            <div>
-              <h4
-                class="font-label text-secondary text-xs font-bold uppercase tracking-widest mb-3"
-                data-i18n={job.domLabelKey}
-              >{job.domainLabel}</h4>
-              <p class="text-on-surface-variant leading-relaxed text-sm md:text-base" data-i18n={job.domBodyKey}>{job.domainBody}</p>
-            </div>
-          </div>
+          ))}
 
-          <!-- Responsibilities -->
-          <div class="space-y-3">
-            <h4
-              class="font-label text-on-surface text-xs font-black uppercase tracking-widest"
-              data-i18n="careers.positions.responsibilities"
-            >{en.careers.positions.responsibilities}</h4>
-            <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2 mt-2">
-              {job.r.map((resp) => (
-                <li class="flex gap-2 items-start text-on-surface-variant text-sm">
-                  <span class="material-symbols-outlined text-secondary text-lg shrink-0" aria-hidden="true">check_circle</span>
-                  <span data-i18n={resp.key}>{resp.text}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <button
+            id="clear-filters"
+            class="hidden mt-5 pt-4 border-t border-outline-variant/20 w-full text-left font-label text-xs text-secondary font-bold uppercase tracking-wider hover:text-secondary/80 transition-colors"
+          >
+            Clear all filters
+          </button>
         </div>
-      ))}
+      </aside>
+
+      <!-- ── Main: search + cards ───────────────────────────────── -->
+      <div class="flex-1 min-w-0">
+
+        <!-- Search -->
+        <div class="relative mb-5">
+          <span
+            class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-on-surface-variant/50 text-xl pointer-events-none select-none"
+            aria-hidden="true"
+          >search</span>
+          <input
+            id="job-search"
+            type="search"
+            placeholder="Search by job title..."
+            autocomplete="off"
+            class="w-full pl-11 pr-4 py-3 bg-surface-container-lowest border border-outline-variant/40 rounded text-on-surface placeholder:text-on-surface-variant/50 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/60 transition-all duration-200"
+            aria-label="Search positions by title"
+          />
+        </div>
+
+        <!-- Results count -->
+        <p
+          id="results-count"
+          class="text-on-surface-variant/60 text-xs font-label uppercase tracking-wider mb-6"
+          aria-live="polite"
+          aria-atomic="true"
+        >
+          <span id="count-num">{jobs.length}</span>&nbsp;open position{jobs.length !== 1 ? 's' : ''}
+        </p>
+
+        <!-- Job cards -->
+        <div id="job-cards-list" class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
+          {jobs.map((job, i) => (
+            <article
+              class="job-card bg-surface-container-lowest rounded border border-outline-variant/20 p-6 md:p-8 shadow-ambient hover:shadow-ambient-lg cursor-pointer engineering-card-border btn-press-card group"
+              data-job-id={job.id}
+              data-title={job.title.toLowerCase()}
+              data-tags={JSON.stringify(job.tags)}
+              role="button"
+              tabindex="0"
+              aria-label={`Open details for ${job.title}`}
+              style={`--reveal-delay: ${i * 90}ms`}
+            >
+              <!-- Level / Exp / Vacancies badges -->
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="inline-flex items-center bg-primary/10 text-primary px-2.5 py-1 rounded text-[10px] font-label font-bold uppercase tracking-widest">
+                  {job.level}
+                </span>
+                <span class="inline-flex items-center gap-1 bg-surface-container text-on-surface-variant px-2.5 py-1 rounded text-[10px] font-label font-bold uppercase tracking-widest">
+                  <span class="material-symbols-outlined text-[12px]" aria-hidden="true">schedule</span>
+                  {job.exp}
+                </span>
+                {job.vacancies && (
+                  <span class="inline-flex items-center gap-1 bg-secondary/10 text-secondary px-2.5 py-1 rounded text-[10px] font-label font-bold uppercase tracking-widest">
+                    <span class="material-symbols-outlined text-[12px]" aria-hidden="true">group</span>
+                    {job.vacancies}
+                  </span>
+                )}
+              </div>
+
+              <!-- Title -->
+              <h3 class="font-headline font-extrabold text-xl md:text-2xl text-primary mb-2.5 group-hover:text-primary-container transition-colors duration-200 leading-tight">
+                {job.title}
+              </h3>
+
+              <!-- Summary -->
+              <p class="text-on-surface-variant text-xs leading-relaxed mb-4">
+                {job.summary}
+              </p>
+
+              <!-- Location -->
+              {job.location && (
+                <div class="flex items-center gap-1.5 text-on-surface-variant/70 text-xs font-label mb-5">
+                  <span class="material-symbols-outlined text-[14px] text-secondary" aria-hidden="true">location_on</span>
+                  {job.location}
+                </div>
+              )}
+
+              <!-- Domain tags -->
+              <div class="flex flex-wrap gap-2 mb-5">
+                {job.tags.map(tag => (
+                  <span class="text-[10px] font-label font-bold uppercase tracking-wider px-2.5 py-1 rounded bg-secondary/10 text-secondary">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              <!-- View details -->
+              <div class="inline-flex items-center gap-1.5 text-primary font-label font-semibold text-sm">
+                <span>View Details</span>
+                <span
+                  class="material-symbols-outlined text-base group-hover:translate-x-1.5 transition-transform duration-200"
+                  aria-hidden="true"
+                >arrow_forward</span>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <!-- Empty state -->
+        <div
+          id="empty-state"
+          class="hidden flex-col items-center justify-center py-20 text-center"
+          aria-live="polite"
+        >
+          <span
+            class="material-symbols-outlined text-5xl text-on-surface-variant/25 mb-4 block"
+            aria-hidden="true"
+          >manage_search</span>
+          <p class="font-label font-bold text-on-surface-variant text-base">No positions match your search</p>
+          <p class="text-on-surface-variant/60 text-sm mt-1.5">Try different keywords or clear your filters.</p>
+          <button
+            id="reset-all"
+            class="mt-4 font-label text-sm font-bold text-secondary hover:text-secondary/80 transition-colors"
+          >
+            Clear search and filters
+          </button>
+        </div>
+
+      </div>
     </div>
   </div>
 </section>
 
-<script>
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('opacity-100', 'translate-y-0');
-          entry.target.classList.remove('opacity-0', 'translate-y-8');
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.08 }
-  );
+<!-- ── Job Detail Dialog ──────────────────────────────────────────────── -->
+<dialog
+  id="job-detail-dialog"
+  class="w-full max-w-2xl rounded bg-surface-container-lowest p-0 border-0 overflow-hidden"
+  aria-modal="true"
+  aria-label="Job details"
+>
+  <!-- Sticky header -->
+  <div
+    id="dialog-header-wrap"
+    class="sticky top-0 z-10 bg-surface-container-lowest border-b border-outline-variant/20 px-6 py-4 flex items-start justify-between gap-4"
+  >
+    <div id="dialog-header" class="flex-1 min-w-0">
+      <!-- injected by JS -->
+    </div>
+    <button
+      id="close-dialog"
+      class="shrink-0 mt-0.5 w-8 h-8 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors btn-press-icon"
+      aria-label="Close"
+    >
+      <span class="material-symbols-outlined text-xl leading-none" aria-hidden="true">close</span>
+    </button>
+  </div>
 
-  document.querySelectorAll('#open-positions .group').forEach((el) => {
-    el.classList.add('opacity-0', 'translate-y-8');
-    observer.observe(el);
+  <!-- Scrollable body -->
+  <div id="dialog-body" class="overflow-y-auto px-6 pt-6 pb-12">
+    <!-- injected by JS -->
+  </div>
+
+  <!-- Scroll hint fade -->
+  <div id="scroll-hint" aria-hidden="true">
+    <span class="material-symbols-outlined">expand_more</span>
+  </div>
+</dialog>
+
+<style is:global>
+  /* Dialog positioning and sizing */
+  #job-detail-dialog {
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    max-height: 90dvh;
+    box-shadow: 0 24px 64px rgba(11, 28, 48, 0.22), 0 8px 24px rgba(11, 28, 48, 0.12);
+  }
+
+  #job-detail-dialog #dialog-body {
+    max-height: calc(90dvh - 80px);
+  }
+
+  /* Scroll hint */
+  #scroll-hint {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.96) 60%, rgba(255,255,255,1) 100%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 12px;
+    pointer-events: none;
+    color: #ff671f;
+    opacity: 1;
+    transition: opacity 200ms ease;
+  }
+  #scroll-hint .material-symbols-outlined {
+    font-size: 20px;
+    animation: scroll-bounce 1.2s ease-in-out infinite;
+  }
+  @keyframes scroll-bounce {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(5px); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #scroll-hint .material-symbols-outlined { animation: none; }
+  }
+
+  /* Backdrop */
+  #job-detail-dialog::backdrop {
+    background: rgba(11, 28, 48, 0.55);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+
+  /* Open animation */
+  #job-detail-dialog[open] {
+    animation: dialog-in 280ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  @keyframes dialog-in {
+    from { opacity: 0; transform: scale(0.96) translateY(12px); }
+    to   { opacity: 1; transform: scale(1)    translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #job-detail-dialog[open] { animation: none; }
+  }
+
+  /* Staggered entrance on page load — JS-gated so content is visible without JS */
+  .job-card.will-animate {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  .job-card.will-animate.entered {
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+      opacity 420ms ease,
+      transform 420ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .job-card.will-animate,
+    .job-card.will-animate.entered { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* Peer-checked SVG inside label (scoping workaround for nested peer) */
+  .filter-label input:checked + span svg {
+    opacity: 1;
+  }
+</style>
+
+<script define:vars={{ serializedJobs }}>
+  /** @type {Array<{id:string,title:string,level:string,exp:string,description:string,qualBody:string,domainLabel:string,domainBody:string,responsibilities:string[],tags:string[]}>} */
+  const jobsData = JSON.parse(serializedJobs);
+
+  // Elements
+  const searchInput   = /** @type {HTMLInputElement} */ (document.getElementById('job-search'));
+  const cards         = /** @type {NodeListOf<HTMLElement>} */ (document.querySelectorAll('.job-card'));
+  const cardsList     = document.getElementById('job-cards-list');
+  const countNum      = document.getElementById('count-num');
+  const resultsCount  = document.getElementById('results-count');
+  const emptyState    = document.getElementById('empty-state');
+  const clearBtn      = document.getElementById('clear-filters');
+  const resetAllBtn   = document.getElementById('reset-all');
+  const checkboxes    = /** @type {NodeListOf<HTMLInputElement>} */ (document.querySelectorAll('.filter-checkbox'));
+  const dialog        = /** @type {HTMLDialogElement} */ (document.getElementById('job-detail-dialog'));
+  const dialogHeader  = document.getElementById('dialog-header');
+  const dialogBody    = document.getElementById('dialog-body');
+  const scrollHint    = document.getElementById('scroll-hint');
+  const closeBtn      = document.getElementById('close-dialog');
+
+  function updateScrollHint() {
+    if (!dialogBody || !scrollHint) return;
+    const atBottom = dialogBody.scrollTop + dialogBody.clientHeight >= dialogBody.scrollHeight - 8;
+    scrollHint.style.opacity = atBottom ? '0' : '1';
+  }
+  dialogBody?.addEventListener('scroll', updateScrollHint, { passive: true });
+
+  // State
+  let searchTerm  = '';
+  let activeTags  = new Set();
+  let currentJob  = null;
+
+  // ── Filtering ────────────────────────────────────────────────────────
+
+  function updateDisplay() {
+    let visible = 0;
+
+    cards.forEach(card => {
+      const title = card.dataset.title ?? '';
+      const tags  = JSON.parse(card.dataset.tags ?? '[]');
+
+      const matchesSearch = searchTerm === '' || title.includes(searchTerm);
+      const matchesTags   = activeTags.size === 0 || tags.some(t => activeTags.has(t));
+      const show          = matchesSearch && matchesTags;
+
+      card.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+
+    const plural = visible !== 1 ? 's' : '';
+    if (countNum) countNum.textContent = String(visible);
+    if (resultsCount) resultsCount.textContent = `${visible} open position${plural}`;
+
+    const isEmpty = visible === 0;
+    if (emptyState) emptyState.style.display = isEmpty ? 'flex' : 'none';
+    if (cardsList)  cardsList.style.display  = isEmpty ? 'none' : '';
+
+    if (clearBtn) clearBtn.style.display = activeTags.size > 0 ? '' : 'none';
+  }
+
+  searchInput?.addEventListener('input', e => {
+    searchTerm = e.target.value.trim().toLowerCase();
+    updateDisplay();
+  });
+
+  checkboxes.forEach(cb => {
+    cb.addEventListener('change', e => {
+      e.target.checked ? activeTags.add(e.target.value) : activeTags.delete(e.target.value);
+      updateDisplay();
+    });
+  });
+
+  clearBtn?.addEventListener('click', () => {
+    checkboxes.forEach(cb => { cb.checked = false; });
+    activeTags.clear();
+    updateDisplay();
+  });
+
+  resetAllBtn?.addEventListener('click', () => {
+    if (searchInput) { searchInput.value = ''; }
+    searchTerm = '';
+    checkboxes.forEach(cb => { cb.checked = false; });
+    activeTags.clear();
+    updateDisplay();
+  });
+
+  // ── Card click ───────────────────────────────────────────────────────
+
+  cards.forEach(card => {
+    function open() { openDialog(card.dataset.jobId ?? ''); }
+    card.addEventListener('click', open);
+    card.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); }
+    });
+  });
+
+  // ── Dialog ───────────────────────────────────────────────────────────
+
+  function openDialog(jobId) {
+    const job = jobsData.find(j => j.id === jobId);
+    if (!job) return;
+    currentJob = job;
+
+    if (dialogHeader) {
+      dialogHeader.innerHTML = `
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px">
+          <span style="display:inline-flex;align-items:center;background:rgba(0,49,108,0.1);color:#00316c;padding:3px 10px;border-radius:4px;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase">${job.level}</span>
+          <span style="display:inline-flex;align-items:center;gap:4px;background:#e5eeff;color:#434751;padding:3px 10px;border-radius:4px;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase">
+            <span class="material-symbols-outlined" style="font-size:12px" aria-hidden="true">schedule</span>${job.exp}
+          </span>
+          ${job.vacancies ? `<span style="display:inline-flex;align-items:center;gap:4px;background:rgba(255,103,31,0.1);color:#ff671f;padding:3px 10px;border-radius:4px;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase">
+            <span class="material-symbols-outlined" style="font-size:12px" aria-hidden="true">group</span>${job.vacancies}
+          </span>` : ''}
+        </div>
+        <h2 style="font-weight:800;font-size:1.2rem;line-height:1.3;color:#00316c;margin:0 0 4px">${job.title}</h2>
+        ${job.location ? `<p style="display:flex;align-items:center;gap:4px;font-size:0.75rem;color:#434751;margin:0">
+          <span class="material-symbols-outlined" aria-hidden="true" style="font-size:14px;color:#ff671f">location_on</span>${job.location}
+        </p>` : ''}
+      `;
+    }
+
+    if (dialogBody) {
+      dialogBody.innerHTML = buildBody(job);
+      dialogBody.scrollTop = 0;
+      requestAnimationFrame(updateScrollHint);
+
+      const form = dialogBody.querySelector('#application-form');
+      form?.addEventListener('submit', handleApply);
+
+      // Input focus ring behaviour
+      dialogBody.querySelectorAll('.app-input').forEach(input => {
+        input.addEventListener('focus', () => {
+          input.style.borderColor = '#00316c';
+          input.style.boxShadow = '0 0 0 3px rgba(0,49,108,0.12)';
+        });
+        input.addEventListener('blur', () => {
+          input.style.borderColor = '#c3c6d3';
+          input.style.boxShadow = 'none';
+        });
+      });
+    }
+
+    dialog?.showModal();
+  }
+
+  function buildBody(job) {
+    const respItems = job.responsibilities
+      .map(r => `
+        <li style="display:flex;align-items:flex-start;gap:10px;font-size:0.875rem;color:#434751;line-height:1.6">
+          <span class="material-symbols-outlined" aria-hidden="true" style="font-size:18px;color:#ff671f;flex-shrink:0;margin-top:2px">check_circle</span>
+          <span>${r}</span>
+        </li>
+      `)
+      .join('');
+
+    const inputStyle = 'width:100%;padding:12px 14px;background:#fff;border:1.5px solid #c3c6d3;border-radius:6px;font-size:0.875rem;color:#0b1c30;outline:none;box-sizing:border-box;font-family:inherit;transition:border-color 150ms,box-shadow 150ms';
+
+    return `
+      <p style="font-size:0.9rem;color:#434751;line-height:1.7;margin:0 0 24px">${job.jd ?? job.description}</p>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px">
+        <div style="padding:16px;border-radius:6px;background:#eff4ff">
+          <h3 style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#ff671f;margin:0 0 8px">Qualifications</h3>
+          <p style="font-size:0.8125rem;color:#434751;line-height:1.6;margin:0">${job.qualBody}</p>
+        </div>
+        <div style="padding:16px;border-radius:6px;background:#eff4ff">
+          <h3 style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#ff671f;margin:0 0 8px">${job.domainLabel}</h3>
+          <p style="font-size:0.8125rem;color:#434751;line-height:1.6;margin:0">${job.domainBody}</p>
+        </div>
+      </div>
+
+      <div style="margin-bottom:20px">
+        <h3 style="font-size:10px;font-weight:900;letter-spacing:0.1em;text-transform:uppercase;color:#0b1c30;margin:0 0 12px">Key Responsibilities</h3>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px">${respItems}</ul>
+      </div>
+
+      ${job.extra?.items?.length > 0 ? `
+      <div style="background:rgba(255,103,31,0.07);border:1px solid rgba(255,103,31,0.2);border-radius:6px;padding:16px 18px;margin-bottom:24px">
+        <h3 style="font-size:10px;font-weight:900;letter-spacing:0.1em;text-transform:uppercase;color:#ff671f;margin:0 0 6px">${job.extra.label}</h3>
+        ${job.extra.note ? `<p style="font-size:0.8125rem;color:#434751;margin:0 0 12px;line-height:1.5">${job.extra.note}</p>` : ''}
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px">
+          ${job.extra.items.map(item => `
+            <li style="display:flex;align-items:flex-start;gap:8px;font-size:0.8125rem;color:#434751;line-height:1.6">
+              <span class="material-symbols-outlined" aria-hidden="true" style="font-size:16px;color:#ff671f;flex-shrink:0;margin-top:2px">stars</span>
+              <span>${item}</span>
+            </li>
+          `).join('')}
+        </ul>
+      </div>
+      ` : ''}
+
+      <hr style="border:0;border-top:1px solid rgba(195,198,211,0.4);margin:28px 0" />
+
+      <h3 style="font-size:1rem;font-weight:800;color:#00316c;margin:0 0 4px">Apply for this Position</h3>
+      <p style="font-size:0.8125rem;color:#434751;line-height:1.6;margin:0 0 20px">Fill in the details below. Your answers will be included in the application email.</p>
+
+      <form id="application-form" novalidate style="display:flex;flex-direction:column;gap:16px">
+
+        <div>
+          <label for="field-years" style="display:block;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#434751;margin-bottom:6px">
+            Years of Experience <span aria-hidden="true" style="color:#ff671f">*</span>
+          </label>
+          <input id="field-years" name="years" type="text" placeholder="e.g. 6 years" required class="app-input" style="${inputStyle}" />
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+          <div>
+            <label for="field-current-ctc" style="display:block;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#434751;margin-bottom:6px">
+              Current CTC <span aria-hidden="true" style="color:#ff671f">*</span>
+            </label>
+            <input id="field-current-ctc" name="currentCtc" type="text" placeholder="e.g. 8 LPA" required class="app-input" style="${inputStyle}" />
+          </div>
+          <div>
+            <label for="field-expected-ctc" style="display:block;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#434751;margin-bottom:6px">
+              Expected CTC <span aria-hidden="true" style="color:#ff671f">*</span>
+            </label>
+            <input id="field-expected-ctc" name="expectedCtc" type="text" placeholder="e.g. 12 LPA" required class="app-input" style="${inputStyle}" />
+          </div>
+        </div>
+
+        <div>
+          <label for="field-notice" style="display:block;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#434751;margin-bottom:6px">
+            Notice Period <span aria-hidden="true" style="color:#ff671f">*</span>
+          </label>
+          <input id="field-notice" name="notice" type="text" placeholder="e.g. 30 days / Immediate" required class="app-input" style="${inputStyle}" />
+        </div>
+
+        <!-- Attachment instruction -->
+        <div style="background:#eff4ff;border:1px solid rgba(0,49,108,0.14);border-radius:6px;padding:14px 16px;display:flex;gap:12px;align-items:flex-start">
+          <span class="material-symbols-outlined" aria-hidden="true" style="color:#ff671f;font-size:20px;flex-shrink:0;margin-top:2px">attach_email</span>
+          <div>
+            <p style="font-size:0.8125rem;font-weight:700;color:#0b1c30;margin:0 0 6px">Please attach the following directly to your email:</p>
+            <ul style="list-style:none;margin:0;padding:0;font-size:0.8125rem;color:#434751;display:flex;flex-direction:column;gap:4px">
+              <li style="display:flex;align-items:center;gap:8px">
+                <span style="width:5px;height:5px;border-radius:50%;background:#ff671f;flex-shrink:0;display:inline-block"></span>
+                Your updated resume
+              </li>
+              <li style="display:flex;align-items:center;gap:8px">
+                <span style="width:5px;height:5px;border-radius:50%;background:#ff671f;flex-shrink:0;display:inline-block"></span>
+                Last 3 months' payslips
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Error message -->
+        <p id="form-error" style="display:none;font-size:0.8125rem;color:#cc0000;font-weight:600">Please fill in all required fields before applying.</p>
+
+        <!-- Submit -->
+        <button
+          type="submit"
+          class="btn-press"
+          style="display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#ff671f;color:#fff;padding:14px 32px;border-radius:6px;border:none;font-weight:700;font-size:0.875rem;text-transform:uppercase;letter-spacing:0.08em;cursor:pointer;margin-top:4px;align-self:flex-start"
+        >
+          <span class="material-symbols-outlined" aria-hidden="true" style="font-size:18px">send</span>
+          Apply via Email
+        </button>
+
+      </form>
+    `;
+  }
+
+  function handleApply(e) {
+    e.preventDefault();
+    const form    = /** @type {HTMLFormElement} */ (e.target);
+    const years   = /** @type {HTMLInputElement} */ (form.querySelector('#field-years')).value.trim();
+    const current = /** @type {HTMLInputElement} */ (form.querySelector('#field-current-ctc')).value.trim();
+    const expected= /** @type {HTMLInputElement} */ (form.querySelector('#field-expected-ctc')).value.trim();
+    const notice  = /** @type {HTMLInputElement} */ (form.querySelector('#field-notice')).value.trim();
+    const errEl   = form.querySelector('#form-error');
+
+    // Validate
+    let hasError = false;
+    [['#field-years', years], ['#field-current-ctc', current], ['#field-expected-ctc', expected], ['#field-notice', notice]].forEach(([sel, val]) => {
+      const el = /** @type {HTMLInputElement} */ (form.querySelector(sel));
+      if (!val) {
+        el.style.borderColor = '#cc0000';
+        hasError = true;
+        el.addEventListener('input', () => { el.style.borderColor = '#c3c6d3'; }, { once: true });
+      }
+    });
+
+    if (hasError) {
+      if (errEl) errEl.style.display = '';
+      return;
+    }
+    if (errEl) errEl.style.display = 'none';
+
+    const jobTitle = currentJob?.title ?? 'Engineering Position';
+    const subject  = `Application for ${jobTitle} [${years} of experience]`;
+    const body = [
+      `Dear Hiring Team,`,
+      ``,
+      `I would like to apply for the position of ${jobTitle}.`,
+      ``,
+      `Years of Experience: ${years}`,
+      `Current CTC: ${current}`,
+      `Expected CTC: ${expected}`,
+      `Notice Period: ${notice}`,
+      ``,
+      `Please find my updated resume and last 3 months' payslips attached to this email.`,
+      ``,
+      `Thank you for your consideration.`,
+    ].join('\n');
+
+    window.location.href = `mailto:hr@indvaltech.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  }
+
+  // Close dialog
+  closeBtn?.addEventListener('click', () => dialog?.close());
+  dialog?.addEventListener('click', e => {
+    if (e.target === dialog) dialog.close();
+  });
+
+  // ── Staggered entrance (page-load, not scroll-gated) ────────────────
+  // Mark hidden first, then stagger in so content is always visible without JS
+
+  cards.forEach(card => card.classList.add('will-animate'));
+
+  cards.forEach((card, i) => {
+    setTimeout(() => card.classList.add('entered'), 80 + i * 90);
   });
 </script>

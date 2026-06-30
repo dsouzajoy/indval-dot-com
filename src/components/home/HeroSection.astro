@@ -2,12 +2,12 @@
 import { en } from '@/i18n/locales/en';
 import HeroImage from '@/components/ui/HeroImage.astro';
 import { getLQIP } from '@/lib/lqip';
-import slide1Img from '@/assets/images/pexels/hero-slide-1.jpeg';
+import slide1Img from '@/assets/images/pexels/hero-slide-1.jpg';
 import slide2Img from '@/assets/images/pexels/hero-slide-2.jpeg';
 import slide3Img from '@/assets/images/pexels/hero-slide-3.jpeg';
 
 const [ph1, ph2, ph3] = await Promise.all([
-  getLQIP('src/assets/images/pexels/hero-slide-1.jpeg'),
+  getLQIP('src/assets/images/pexels/hero-slide-1.jpg'),
   getLQIP('src/assets/images/pexels/hero-slide-2.jpeg'),
   getLQIP('src/assets/images/pexels/hero-slide-3.jpeg'),
 ]);

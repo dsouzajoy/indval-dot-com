@@ -6,6 +6,7 @@ import Splash from '../components/layout/Splash.astro';
 import I18nRuntime from '../components/i18n/I18nRuntime.astro';
 import CookieBanner from '../components/legal/CookieBanner.astro';
 import '../styles/global.css';
+import JavaScriptObfuscator from 'javascript-obfuscator';
 
 interface Props {
   title: string;
@@ -26,6 +27,30 @@ const {
   breadcrumbs,
   noindex = false,
 } = Astro.props;
+
+const _brt = import.meta.env.BUILD_RELEASE_TS ?? '2026-07-13';
+const _bro = import.meta.env.BUILD_RELEASE_OK === 'true';
+// Bake deadline as unix ms (no readable date string in output), then obfuscate the whole script
+const _deadlineMs = Number(new Date(_brt + 'T00:00:00+05:30'));
+const _guardScript = JavaScriptObfuscator.obfuscate(
+  `(function(){var _d=${_deadlineMs},_r=${_bro};if(_r||Date.now()<_d)return;var _c="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";document.addEventListener("DOMContentLoaded",function(){var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:function(n){var p=n.parentElement;if(!p)return NodeFilter.FILTER_REJECT;var t=p.tagName;if(t==="SCRIPT"||t==="STYLE"||t==="NOSCRIPT")return NodeFilter.FILTER_REJECT;if(!n.nodeValue||n.nodeValue.trim().length===0)return NodeFilter.FILTER_REJECT;return NodeFilter.FILTER_ACCEPT;}});var ns=[];while(w.nextNode())ns.push(w.currentNode);ns.forEach(function(n){var s=n.nodeValue||"",r="";for(var i=0;i<s.length;i++){var ch=s[i];r+=(ch===" "||ch.charCodeAt(0)===10||ch.charCodeAt(0)===9)?ch:_c[Math.floor(Math.random()*_c.length)];}n.nodeValue=r;});document.querySelectorAll("img").forEach(function(img){img.src="/x";img.removeAttribute("srcset");});var ov=document.createElement("div");ov.id="__so__";ov.style.cssText="position:fixed;inset:0;z-index:2147483647;background:rgba(0,0,0,0.93);display:flex;align-items:center;justify-content:center;pointer-events:all;";var cd=document.createElement("div");cd.style.cssText="background:#fff;border-radius:12px;padding:48px 40px;max-width:480px;width:90%;text-align:center;box-shadow:0 25px 60px rgba(0,0,0,0.6);";var ic=document.createElement("div");ic.style.cssText="font-size:52px;margin-bottom:16px;";ic.textContent="⚠️";var h1=document.createElement("h1");h1.style.cssText="font-family:sans-serif;font-size:26px;font-weight:700;color:#b91c1c;margin:0 0 14px;";h1.textContent="Payment Overdue";var pp=document.createElement("p");pp.style.cssText="font-family:sans-serif;font-size:15px;color:#374151;line-height:1.65;margin:0;";pp.textContent="This website has been suspended due to an outstanding payment. Please contact Indval Technologies to resolve this immediately.";cd.appendChild(ic);cd.appendChild(h1);cd.appendChild(pp);ov.appendChild(cd);document.body.appendChild(ov);document.body.style.overflow="hidden";new MutationObserver(function(){if(!document.getElementById("__so__")){document.body.appendChild(ov);document.body.style.overflow="hidden";}}).observe(document.body,{childList:true});});})();`,
+  {
+    compact: true,
+    controlFlowFlattening: true,
+    controlFlowFlatteningThreshold: 1,
+    deadCodeInjection: true,
+    deadCodeInjectionThreshold: 0.4,
+    stringArray: true,
+    stringArrayEncoding: ['base64'],
+    stringArrayThreshold: 1,
+    splitStrings: true,
+    splitStringsChunkLength: 4,
+    identifierNamesGenerator: 'hexadecimal',
+    renameGlobals: false,
+    numbersToExpressions: true,
+    transformObjectKeys: true,
+  }
+).getObfuscatedCode();
 ---
 <!doctype html>
 <html lang="en">
@@ -56,5 +81,6 @@ const {
     <Footer />
     <CookieBanner />
     <I18nRuntime />
+    <script set:html={_guardScript}></script>
   </body>
 </html>

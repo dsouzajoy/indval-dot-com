@@ -47,6 +47,7 @@ const jobs = [
     id: 'pos3',
     level: p3.level,
     exp: p3.exp,
+    vacancies: p3.vacancies,
     location: p3.location,
     title: p3.title,
     qualBody: p3.qualBody,
@@ -153,6 +154,30 @@ const serializedJobs = JSON.stringify(jobs);
             class="hidden mt-5 pt-4 border-t border-outline-variant/20 w-full text-left font-label text-xs text-secondary font-bold uppercase tracking-wider hover:text-secondary/80 transition-colors"
           >
             Clear all filters
+          </button>
+        </div>
+
+        <!-- Talent pool card -->
+        <div class="mt-6 bg-surface-container-lowest rounded border border-outline-variant/20 p-6 shadow-ambient">
+          <h3
+            class="font-headline font-extrabold text-lg text-primary leading-tight mb-2"
+            data-i18n="careers.talentPool.heading"
+          >
+            {en.careers.talentPool.heading}
+          </h3>
+          <p
+            class="text-on-surface-variant text-xs leading-relaxed mb-5"
+            data-i18n="careers.talentPool.body"
+          >
+            {en.careers.talentPool.body}
+          </p>
+          <button
+            id="open-talent-pool"
+            type="button"
+            class="w-full inline-flex items-center justify-center gap-2 px-8 py-4 rounded font-label font-bold text-sm uppercase tracking-wider cursor-pointer bg-secondary text-white hover:bg-secondary/90 btn-press"
+            data-i18n="careers.talentPool.cta"
+          >
+            {en.careers.talentPool.cta}
           </button>
         </div>
       </aside>
@@ -315,9 +340,40 @@ const serializedJobs = JSON.stringify(jobs);
   </div>
 </dialog>
 
+<!-- ── Talent Pool Dialog ─────────────────────────────────────────────── -->
+<dialog
+  id="talent-pool-dialog"
+  class="w-full max-w-2xl rounded bg-surface-container-lowest p-0 border-0 overflow-hidden"
+  aria-modal="true"
+  aria-label="Join our talent pool"
+>
+  <!-- Sticky header -->
+  <div
+    class="sticky top-0 z-10 bg-surface-container-lowest border-b border-outline-variant/20 px-6 py-4 flex items-start justify-between gap-4"
+  >
+    <div class="flex-1 min-w-0">
+      <h2 class="font-headline font-extrabold text-lg text-primary leading-tight">Join Our Talent Pool</h2>
+      <p class="text-on-surface-variant text-xs mt-0.5">We'll reach out when a matching role opens up.</p>
+    </div>
+    <button
+      id="close-talent-dialog"
+      class="shrink-0 mt-0.5 w-8 h-8 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors btn-press-icon"
+      aria-label="Close"
+    >
+      <span class="material-symbols-outlined text-xl leading-none" aria-hidden="true">close</span>
+    </button>
+  </div>
+
+  <!-- Scrollable body -->
+  <div id="talent-dialog-body" class="overflow-y-auto px-6 pt-6 pb-12">
+    <!-- injected by JS -->
+  </div>
+</dialog>
+
 <style is:global>
   /* Dialog positioning and sizing */
-  #job-detail-dialog {
+  #job-detail-dialog,
+  #talent-pool-dialog {
     position: fixed;
     inset: 0;
     margin: auto;
@@ -326,6 +382,10 @@ const serializedJobs = JSON.stringify(jobs);
   }
 
   #job-detail-dialog #dialog-body {
+    max-height: calc(90dvh - 80px);
+  }
+
+  #talent-pool-dialog #talent-dialog-body {
     max-height: calc(90dvh - 80px);
   }
 
@@ -359,14 +419,16 @@ const serializedJobs = JSON.stringify(jobs);
   }
 
   /* Backdrop */
-  #job-detail-dialog::backdrop {
+  #job-detail-dialog::backdrop,
+  #talent-pool-dialog::backdrop {
     background: rgba(11, 28, 48, 0.55);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
   }
 
   /* Open animation */
-  #job-detail-dialog[open] {
+  #job-detail-dialog[open],
+  #talent-pool-dialog[open] {
     animation: dialog-in 280ms cubic-bezier(0.16, 1, 0.3, 1) both;
   }
   @keyframes dialog-in {
@@ -374,7 +436,8 @@ const serializedJobs = JSON.stringify(jobs);
     to   { opacity: 1; transform: scale(1)    translateY(0); }
   }
   @media (prefers-reduced-motion: reduce) {
-    #job-detail-dialog[open] { animation: none; }
+    #job-detail-dialog[open],
+    #talent-pool-dialog[open] { animation: none; }
   }
 
   /* Staggered entrance on page load — JS-gated so content is visible without JS */
@@ -419,6 +482,10 @@ const serializedJobs = JSON.stringify(jobs);
   const dialogBody    = document.getElementById('dialog-body');
   const scrollHint    = document.getElementById('scroll-hint');
   const closeBtn      = document.getElementById('close-dialog');
+  const talentDialog  = /** @type {HTMLDialogElement} */ (document.getElementById('talent-pool-dialog'));
+  const talentBody    = document.getElementById('talent-dialog-body');
+  const talentOpenBtn = document.getElementById('open-talent-pool');
+  const talentCloseBtn= document.getElementById('close-talent-dialog');
 
   function updateScrollHint() {
     if (!dialogBody || !scrollHint) return;
@@ -526,23 +593,29 @@ const serializedJobs = JSON.stringify(jobs);
       dialogBody.scrollTop = 0;
       requestAnimationFrame(updateScrollHint);
 
-      const form = dialogBody.querySelector('#application-form');
-      form?.addEventListener('submit', handleApply);
-
-      // Input focus ring behaviour
-      dialogBody.querySelectorAll('.app-input').forEach(input => {
-        input.addEventListener('focus', () => {
-          input.style.borderColor = '#00316c';
-          input.style.boxShadow = '0 0 0 3px rgba(0,49,108,0.12)';
-        });
-        input.addEventListener('blur', () => {
-          input.style.borderColor = '#c3c6d3';
-          input.style.boxShadow = 'none';
-        });
-      });
+      wireApplicationForm(dialogBody);
     }
 
     dialog?.showModal();
+  }
+
+  // Binds submit + focus-ring behaviour to an application form injected into
+  // `container`. Shared by the job-detail and talent-pool dialogs.
+  function wireApplicationForm(container) {
+    const form = container.querySelector('#application-form');
+    form?.addEventListener('submit', handleApply);
+
+    // Input focus ring behaviour
+    container.querySelectorAll('.app-input').forEach(input => {
+      input.addEventListener('focus', () => {
+        input.style.borderColor = '#00316c';
+        input.style.boxShadow = '0 0 0 3px rgba(0,49,108,0.12)';
+      });
+      input.addEventListener('blur', () => {
+        input.style.borderColor = '#c3c6d3';
+        input.style.boxShadow = 'none';
+      });
+    });
   }
 
   function buildBody(job) {
@@ -554,8 +627,6 @@ const serializedJobs = JSON.stringify(jobs);
         </li>
       `)
       .join('');
-
-    const inputStyle = 'width:100%;padding:12px 14px;background:#fff;border:1.5px solid #c3c6d3;border-radius:6px;font-size:0.875rem;color:#0b1c30;outline:none;box-sizing:border-box;font-family:inherit;transition:border-color 150ms,box-shadow 150ms';
 
     return `
       <p style="font-size:0.9rem;color:#434751;line-height:1.7;margin:0 0 24px">${job.jd ?? job.description}</p>
@@ -596,10 +667,32 @@ const serializedJobs = JSON.stringify(jobs);
       <h3 style="font-size:1rem;font-weight:800;color:#00316c;margin:0 0 4px">Apply for this Position</h3>
       <p style="font-size:0.8125rem;color:#434751;line-height:1.6;margin:0 0 20px">Fill in the details below. Your answers will be included in the application email.</p>
 
-      <form id="application-form" novalidate style="display:flex;flex-direction:column;gap:16px">
+      ${buildApplicationForm({ mode: 'job' })}
+    `;
+  }
 
+  // Shared application form markup — used by the job-detail dialog and the
+  // talent-pool dialog. `mode` controls both the submit branch (via data-mode)
+  // and whether the free-text "Area of Interest" field is shown.
+  function buildApplicationForm({ mode = 'job' } = {}) {
+    const inputStyle = 'width:100%;padding:12px 14px;background:#fff;border:1.5px solid #c3c6d3;border-radius:6px;font-size:0.875rem;color:#0b1c30;outline:none;box-sizing:border-box;font-family:inherit;transition:border-color 150ms,box-shadow 150ms';
+    const labelStyle = 'display:block;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#434751;margin-bottom:6px';
+    const submitLabel = mode === 'talent' ? 'Submit to Talent Pool' : 'Apply via Email';
+
+    const interestField = mode === 'talent' ? `
         <div>
-          <label for="field-years" style="display:block;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#434751;margin-bottom:6px">
+          <label for="field-interest" style="${labelStyle}">
+            Area of Interest <span aria-hidden="true" style="color:#ff671f">*</span>
+          </label>
+          <input id="field-interest" name="interest" type="text" placeholder="e.g. Robotic Simulation, BIW, Fixture Design" required class="app-input" style="${inputStyle}" />
+        </div>
+    ` : '';
+
+    return `
+      <form id="application-form" data-mode="${mode}" novalidate style="display:flex;flex-direction:column;gap:16px">
+${interestField}
+        <div>
+          <label for="field-years" style="${labelStyle}">
             Years of Experience <span aria-hidden="true" style="color:#ff671f">*</span>
           </label>
           <input id="field-years" name="years" type="text" placeholder="e.g. 6 years" required class="app-input" style="${inputStyle}" />
@@ -607,13 +700,13 @@ const serializedJobs = JSON.stringify(jobs);
 
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
           <div>
-            <label for="field-current-ctc" style="display:block;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#434751;margin-bottom:6px">
+            <label for="field-current-ctc" style="${labelStyle}">
               Current CTC <span aria-hidden="true" style="color:#ff671f">*</span>
             </label>
             <input id="field-current-ctc" name="currentCtc" type="text" placeholder="e.g. 8 LPA" required class="app-input" style="${inputStyle}" />
           </div>
           <div>
-            <label for="field-expected-ctc" style="display:block;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#434751;margin-bottom:6px">
+            <label for="field-expected-ctc" style="${labelStyle}">
               Expected CTC <span aria-hidden="true" style="color:#ff671f">*</span>
             </label>
             <input id="field-expected-ctc" name="expectedCtc" type="text" placeholder="e.g. 12 LPA" required class="app-input" style="${inputStyle}" />
@@ -621,7 +714,7 @@ const serializedJobs = JSON.stringify(jobs);
         </div>
 
         <div>
-          <label for="field-notice" style="display:block;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#434751;margin-bottom:6px">
+          <label for="field-notice" style="${labelStyle}">
             Notice Period <span aria-hidden="true" style="color:#ff671f">*</span>
           </label>
           <input id="field-notice" name="notice" type="text" placeholder="e.g. 30 days / Immediate" required class="app-input" style="${inputStyle}" />
@@ -646,7 +739,7 @@ const serializedJobs = JSON.stringify(jobs);
         </div>
 
         <!-- Error message -->
-        <p id="form-error" style="display:none;font-size:0.8125rem;color:#cc0000;font-weight:600">Please fill in all required fields before applying.</p>
+        <p id="form-error" style="display:none;font-size:0.8125rem;color:#cc0000;font-weight:600">Please fill in all required fields before submitting.</p>
 
         <!-- Submit -->
         <button
@@ -655,7 +748,7 @@ const serializedJobs = JSON.stringify(jobs);
           style="display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#ff671f;color:#fff;padding:14px 32px;border-radius:6px;border:none;font-weight:700;font-size:0.875rem;text-transform:uppercase;letter-spacing:0.08em;cursor:pointer;margin-top:4px;align-self:flex-start"
         >
           <span class="material-symbols-outlined" aria-hidden="true" style="font-size:18px">send</span>
-          Apply via Email
+          ${submitLabel}
         </button>
 
       </form>
@@ -665,6 +758,8 @@ const serializedJobs = JSON.stringify(jobs);
   function handleApply(e) {
     e.preventDefault();
     const form    = /** @type {HTMLFormElement} */ (e.target);
+    const isTalent = form.dataset.mode === 'talent';
+    const interest= isTalent ? /** @type {HTMLInputElement} */ (form.querySelector('#field-interest')).value.trim() : '';
     const years   = /** @type {HTMLInputElement} */ (form.querySelector('#field-years')).value.trim();
     const current = /** @type {HTMLInputElement} */ (form.querySelector('#field-current-ctc')).value.trim();
     const expected= /** @type {HTMLInputElement} */ (form.querySelector('#field-expected-ctc')).value.trim();
@@ -673,7 +768,9 @@ const serializedJobs = JSON.stringify(jobs);
 
     // Validate
     let hasError = false;
-    [['#field-years', years], ['#field-current-ctc', current], ['#field-expected-ctc', expected], ['#field-notice', notice]].forEach(([sel, val]) => {
+    const required = [['#field-years', years], ['#field-current-ctc', current], ['#field-expected-ctc', expected], ['#field-notice', notice]];
+    if (isTalent) required.unshift(['#field-interest', interest]);
+    required.forEach(([sel, val]) => {
       const el = /** @type {HTMLInputElement} */ (form.querySelector(sel));
       if (!val) {
         el.style.borderColor = '#cc0000';
@@ -688,22 +785,42 @@ const serializedJobs = JSON.stringify(jobs);
     }
     if (errEl) errEl.style.display = 'none';
 
-    const jobTitle = currentJob?.title ?? 'Engineering Position';
-    const subject  = `Application for ${jobTitle} [${years} of experience]`;
-    const body = [
-      `Dear Hiring Team,`,
-      ``,
-      `I would like to apply for the position of ${jobTitle}.`,
-      ``,
-      `Years of Experience: ${years}`,
-      `Current CTC: ${current}`,
-      `Expected CTC: ${expected}`,
-      `Notice Period: ${notice}`,
-      ``,
-      `Please find my updated resume and last 3 months' payslips attached to this email.`,
-      ``,
-      `Thank you for your consideration.`,
-    ].join('\n');
+    let subject, body;
+    if (isTalent) {
+      subject = `Talent Pool Submission - ${interest} [${years} of experience]`;
+      body = [
+        `Dear Hiring Team,`,
+        ``,
+        `I would like to submit my details to your talent pool.`,
+        ``,
+        `Area of Interest: ${interest}`,
+        `Years of Experience: ${years}`,
+        `Current CTC: ${current}`,
+        `Expected CTC: ${expected}`,
+        `Notice Period: ${notice}`,
+        ``,
+        `Please find my updated resume and last 3 months' payslips attached to this email.`,
+        ``,
+        `Thank you for your consideration.`,
+      ].join('\n');
+    } else {
+      const jobTitle = currentJob?.title ?? 'Engineering Position';
+      subject = `Application for ${jobTitle} [${years} of experience]`;
+      body = [
+        `Dear Hiring Team,`,
+        ``,
+        `I would like to apply for the position of ${jobTitle}.`,
+        ``,
+        `Years of Experience: ${years}`,
+        `Current CTC: ${current}`,
+        `Expected CTC: ${expected}`,
+        `Notice Period: ${notice}`,
+        ``,
+        `Please find my updated resume and last 3 months' payslips attached to this email.`,
+        ``,
+        `Thank you for your consideration.`,
+      ].join('\n');
+    }
 
     window.location.href = `mailto:hr@indvaltech.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   }
@@ -712,6 +829,26 @@ const serializedJobs = JSON.stringify(jobs);
   closeBtn?.addEventListener('click', () => dialog?.close());
   dialog?.addEventListener('click', e => {
     if (e.target === dialog) dialog.close();
+  });
+
+  // ── Talent pool dialog ───────────────────────────────────────────────
+
+  function openTalentDialog() {
+    if (talentBody) {
+      talentBody.innerHTML = `
+        <p style="font-size:0.9rem;color:#434751;line-height:1.7;margin:0 0 24px">Not seeing a role that fits? Share your details and areas of interest, and our team will reach out when a matching position opens up.</p>
+        ${buildApplicationForm({ mode: 'talent' })}
+      `;
+      talentBody.scrollTop = 0;
+      wireApplicationForm(talentBody);
+    }
+    talentDialog?.showModal();
+  }
+
+  talentOpenBtn?.addEventListener('click', openTalentDialog);
+  talentCloseBtn?.addEventListener('click', () => talentDialog?.close());
+  talentDialog?.addEventListener('click', e => {
+    if (e.target === talentDialog) talentDialog.close();
   });
 
   // ── Staggered entrance (page-load, not scroll-gated) ────────────────

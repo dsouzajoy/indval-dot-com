@@ -491,6 +491,11 @@ export const en = {
       body: 'Work on mission-critical projects in automotive and aerospace engineering alongside industry veterans.',
       cta: 'View Open Positions',
     },
+    talentPool: {
+      heading: "Don't see a role that fits?",
+      body: "Submit your details to our talent pool and we'll reach out when something matches.",
+      cta: 'Join Talent Pool',
+    },
     positions: {
       heading: 'Open Positions',
       qualifications: 'Qualifications',
@@ -564,6 +569,7 @@ export const en = {
       pos3: {
         level: 'Mid-Grade',
         exp: '3 – 5 Years',
+        vacancies: '4 Positions',
         location: 'Nagarbhavi, Bengaluru',
         title: 'Senior Design Engineers',
         summary: 'Lead BIW welding fixture design from concept through 2D detailing in CATIA V5, with QC ownership and management of a small design team.',

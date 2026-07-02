@@ -18,9 +18,9 @@ const phones = [
 <section id="contact-form" class="flex flex-col md:flex-row" style="min-height: calc(100vh - 4rem);" aria-label="Contact form and global offices">
 
   <!-- LEFT: Form Panel -->
-  <div class="w-full md:w-1/2 bg-surface-container-lowest flex flex-col justify-center px-8 md:px-16 py-16">
+  <div class="w-full md:w-1/2 bg-surface-container-lowest flex flex-col justify-center px-8 md:px-16 py-12 md:py-16">
 
-    <h2 class="font-headline font-black text-4xl md:text-5xl leading-tight mb-12">
+    <h2 class="font-headline font-black text-4xl md:text-5xl leading-tight mb-8 md:mb-12">
       <span class="text-primary">Let's Build </span><span class="text-secondary">Something.</span>
     </h2>
 
@@ -189,7 +189,7 @@ ${name}
   </div>
 
   <!-- RIGHT: Map + Address Panel -->
-  <div class="w-full md:w-1/2 bg-primary flex flex-col h-[450px] md:h-auto">
+  <div class="w-full md:w-1/2 bg-primary flex flex-col md:h-auto">
 
     <!-- Decorative badge -->
     <div class="px-8 pt-8 flex justify-end shrink-0">
@@ -199,7 +199,7 @@ ${name}
     </div>
 
     <!-- SVG World Map -->
-    <div class="flex-1 min-h-0 overflow-hidden">
+    <div class="h-64 md:h-auto md:flex-1 min-h-0 overflow-hidden">
       <svg
         viewBox="0 0 800 400"
         preserveAspectRatio="xMidYMid slice"
@@ -297,13 +297,13 @@ ${name}
     </div>
 
     <!-- Address Grid (2×2) -->
-    <div class="grid grid-cols-2 shrink-0" style="background-color: #001a40;">
+    <div class="grid grid-cols-1 lg:grid-cols-2 shrink-0" style="background-color: #001a40;">
 
       <!-- Divider line at top -->
-      <div class="col-span-2 h-px" style="background: rgba(255,255,255,0.08);"></div>
+      <div class="col-span-1 lg:col-span-2 h-px" style="background: rgba(255,255,255,0.08);"></div>
 
       <!-- Cell 1: HQ Address -->
-      <div class="p-6 border-r border-b" style="border-color: rgba(255,255,255,0.08);">
+      <div class="p-6 border-b lg:border-r order-1 lg:order-none" style="border-color: rgba(255,255,255,0.08);">
         <p class="text-secondary text-xs font-label uppercase tracking-widest mb-2">HQ — Bengaluru, India</p>
         <p class="text-white text-xs leading-relaxed">
           Indval Technologies Private Limited<br />
@@ -322,7 +322,7 @@ ${name}
       </div>
 
       <!-- Cell 2: Contact -->
-      <div class="p-6 border-b" style="border-color: rgba(255,255,255,0.08);">
+      <div class="p-6 lg:border-b order-4 lg:order-none" style="border-color: rgba(255,255,255,0.08);">
         <p class="text-secondary text-xs font-label uppercase tracking-widest mb-3">Contact</p>
         <div class="flex flex-col gap-3">
           <a
@@ -347,7 +347,7 @@ ${name}
       </div>
 
       <!-- Cell 3: USA -->
-      <div class="p-6 border-r" style="border-color: rgba(255,255,255,0.08);">
+      <div class="p-6 border-b lg:border-b-0 lg:border-r order-2 lg:order-none" style="border-color: rgba(255,255,255,0.08);">
         <p class="text-secondary text-xs font-label uppercase tracking-widest mb-2">USA — Valencia, California</p>
         <p class="text-white text-xs leading-relaxed">
           Regent Indval Engineering Services LLC<br />
@@ -365,7 +365,7 @@ ${name}
       </div>
 
       <!-- Cell 4: Poland -->
-      <div class="p-6">
+      <div class="p-6 border-b lg:border-b-0 order-3 lg:order-none" style="border-color: rgba(255,255,255,0.08);">
         <p class="text-secondary text-xs font-label uppercase tracking-widest mb-2">Europe — Wrocław, Poland</p>
         <p class="text-white text-xs leading-relaxed">
           Indval Technologies Sp. z o.o.<br />

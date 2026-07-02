@@ -211,7 +211,24 @@ const industriesItems = [
         </div>
       </div>
 
-      <!-- Column 2: Manufacturing + Technical Publication -->
+      <!-- Column 2: Cabin Interior + BIW Turnkey Solutions -->
+      <div class="flex-1 flex flex-col gap-8">
+        <div class="flex flex-col gap-3">
+          <a href={withBase('/capabilities/cabin-interior')} role="menuitem" class="font-label text-sm uppercase tracking-wider font-bold text-on-surface hover:text-secondary cursor-pointer transition-colors duration-150" data-i18n="capabilities.cabinInterior.heading">{en.capabilities.cabinInterior.heading}</a>
+        </div>
+        <div class="flex flex-col gap-3">
+          <a href={withBase('/capabilities/biw-turnkey-solutions')} role="menuitem" class="font-label text-sm uppercase tracking-wider font-bold text-on-surface hover:text-secondary cursor-pointer transition-colors duration-150" data-i18n="capabilities.biwTurnkey.heading">{en.capabilities.biwTurnkey.heading}</a>
+          <div class="flex flex-col gap-4">
+            <a href={withBase('/capabilities/biw-turnkey-solutions')} role="menuitem" class="font-label text-sm text-on-surface-variant hover:text-secondary transition-colors duration-150">System Layout 2D</a>
+            <a href={withBase('/capabilities/biw-turnkey-solutions')} role="menuitem" class="font-label text-sm text-on-surface-variant hover:text-secondary transition-colors duration-150">Process Planning &amp; Feasibility</a>
+            <a href={withBase('/capabilities/biw-turnkey-solutions')} role="menuitem" class="font-label text-sm text-on-surface-variant hover:text-secondary transition-colors duration-150">Mechanical Design (3D/2D)</a>
+            <a href={withBase('/capabilities/biw-turnkey-solutions')} role="menuitem" class="font-label text-sm text-on-surface-variant hover:text-secondary transition-colors duration-150">Robotic Simulation</a>
+            <a href={withBase('/capabilities/biw-turnkey-solutions')} role="menuitem" class="font-label text-sm text-on-surface-variant hover:text-secondary transition-colors duration-150">Offline Programming (OLP)</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Column 3: Manufacturing -->
       <div class="flex-1 flex flex-col gap-8">
         <div class="flex flex-col gap-3">
           <a href={withBase('/capabilities/manufacturing')} role="menuitem" class="font-label text-sm uppercase tracking-wider font-bold text-on-surface hover:text-secondary cursor-pointer transition-colors duration-150" data-i18n="capabilities.manufacturing.heading">{en.capabilities.manufacturing.heading}</a>
@@ -228,25 +245,8 @@ const industriesItems = [
         </div>
       </div>
 
-      <!-- Column 3: BIW Turnkey Solutions -->
+      <!-- Column 4: MRO Services + Electrical Harness Design + Technical Publication -->
       <div class="flex-1 flex flex-col gap-8">
-        <div class="flex flex-col gap-3">
-          <a href={withBase('/capabilities/biw-turnkey-solutions')} role="menuitem" class="font-label text-sm uppercase tracking-wider font-bold text-on-surface hover:text-secondary cursor-pointer transition-colors duration-150" data-i18n="capabilities.biwTurnkey.heading">{en.capabilities.biwTurnkey.heading}</a>
-          <div class="flex flex-col gap-4">
-            <a href={withBase('/capabilities/biw-turnkey-solutions')} role="menuitem" class="font-label text-sm text-on-surface-variant hover:text-secondary transition-colors duration-150">System Layout 2D</a>
-            <a href={withBase('/capabilities/biw-turnkey-solutions')} role="menuitem" class="font-label text-sm text-on-surface-variant hover:text-secondary transition-colors duration-150">Process Planning &amp; Feasibility</a>
-            <a href={withBase('/capabilities/biw-turnkey-solutions')} role="menuitem" class="font-label text-sm text-on-surface-variant hover:text-secondary transition-colors duration-150">Mechanical Design (3D/2D)</a>
-            <a href={withBase('/capabilities/biw-turnkey-solutions')} role="menuitem" class="font-label text-sm text-on-surface-variant hover:text-secondary transition-colors duration-150">Robotic Simulation</a>
-            <a href={withBase('/capabilities/biw-turnkey-solutions')} role="menuitem" class="font-label text-sm text-on-surface-variant hover:text-secondary transition-colors duration-150">Offline Programming (OLP)</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Column 4: Emerging Capabilities -->
-      <div class="flex-1 flex flex-col gap-8">
-        <div class="flex flex-col gap-3">
-          <a href={withBase('/capabilities/cabin-interior')} role="menuitem" class="font-label text-sm uppercase tracking-wider font-bold text-on-surface hover:text-secondary cursor-pointer transition-colors duration-150" data-i18n="capabilities.cabinInterior.heading">{en.capabilities.cabinInterior.heading}</a>
-        </div>
         <div class="flex flex-col gap-3">
           <a href={withBase('/capabilities/mro-services')} role="menuitem" class="font-label text-sm uppercase tracking-wider font-bold text-on-surface hover:text-secondary cursor-pointer transition-colors duration-150" data-i18n="capabilities.mroServices.heading">{en.capabilities.mroServices.heading}</a>
         </div>

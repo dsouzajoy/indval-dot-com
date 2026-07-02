@@ -7,10 +7,14 @@ const p = positions.pos1;
 const p2 = positions.pos2;
 const p3 = positions.pos3;
 const p4 = positions.pos4;
+const p5 = positions.pos5;
+const p6 = positions.pos6;
+const p7 = positions.pos7;
 
 const jobs = [
   {
     id: 'pos1',
+    category: p.category,
     level: p.level,
     exp: p.exp,
     vacancies: p.vacancies,
@@ -28,6 +32,7 @@ const jobs = [
   },
   {
     id: 'pos2',
+    category: p2.category,
     level: p2.level,
     exp: p2.exp,
     vacancies: p2.vacancies,
@@ -45,6 +50,7 @@ const jobs = [
   },
   {
     id: 'pos3',
+    category: p3.category,
     level: p3.level,
     exp: p3.exp,
     vacancies: p3.vacancies,
@@ -62,6 +68,7 @@ const jobs = [
   },
   {
     id: 'pos4',
+    category: p4.category,
     level: p4.level,
     exp: p4.exp,
     vacancies: p4.vacancies,
@@ -77,11 +84,70 @@ const jobs = [
     summary: p4.summary,
     description: p4.jd,
   },
+  {
+    id: 'pos5',
+    category: p5.category,
+    level: p5.level,
+    exp: p5.exp,
+    vacancies: p5.vacancies,
+    location: p5.location,
+    title: p5.title,
+    qualBody: p5.qualBody,
+    jd: p5.jd,
+    domainLabel: p5.domainLabel,
+    domainBody: p5.domainBody,
+    responsibilities: p5.responsibilities,
+    extra: p5.extra,
+    tags: ['Corporate', 'Accounts', 'Tally', 'Excel'],
+    summary: p5.summary,
+    description: p5.jd,
+  },
+  {
+    id: 'pos6',
+    category: p6.category,
+    level: p6.level,
+    exp: p6.exp,
+    vacancies: p6.vacancies,
+    location: p6.location,
+    title: p6.title,
+    qualBody: p6.qualBody,
+    jd: p6.jd,
+    domainLabel: p6.domainLabel,
+    domainBody: p6.domainBody,
+    responsibilities: p6.responsibilities,
+    extra: p6.extra,
+    tags: ['Corporate', 'HR', 'Payroll', 'Compliance'],
+    summary: p6.summary,
+    description: p6.jd,
+  },
+  {
+    id: 'pos7',
+    category: p7.category,
+    level: p7.level,
+    exp: p7.exp,
+    vacancies: p7.vacancies,
+    location: p7.location,
+    title: p7.title,
+    qualBody: p7.qualBody,
+    jd: p7.jd,
+    domainLabel: p7.domainLabel,
+    domainBody: p7.domainBody,
+    responsibilities: p7.responsibilities,
+    extra: p7.extra,
+    tags: ['Corporate', 'IT', 'Networking', 'Security'],
+    summary: p7.summary,
+    description: p7.jd,
+  },
 ];
 
-const FILTER_GROUPS = [
-  { label: 'Level', tags: ['Specialist', 'Mid-Grade', 'Trainee'] },
-  { label: 'Domain', tags: ['Robotic Simulation', 'OLP', 'BIW', 'Fixture Design'] },
+const CATEGORIES = [
+  'All',
+  'Manufacturing',
+  'Engineering',
+  'Quality Assurance',
+  'Operations',
+  'Business Development',
+  'Corporate',
 ];
 
 const serializedJobs = JSON.stringify(jobs);
@@ -109,52 +175,28 @@ const serializedJobs = JSON.stringify(jobs);
         class="w-full lg:w-64 xl:w-72 shrink-0 lg:sticky lg:top-24"
         aria-label="Filter job listings"
       >
-        <div class="bg-surface-container-lowest rounded border border-outline-variant/20 p-6 shadow-ambient">
-          <h3 class="font-label font-bold text-on-surface text-xs uppercase tracking-widest mb-6">
-            Filter by
-          </h3>
+        <h3 class="font-label font-bold text-on-surface text-xs uppercase tracking-widest mb-4">
+          Filter by
+        </h3>
 
-          {FILTER_GROUPS.map(group => (
-            <div class="mb-6 last:mb-0">
-              <h4 class="font-label text-on-surface-variant text-[11px] font-bold uppercase tracking-widest mb-3">
-                {group.label}
-              </h4>
-              <div class="flex flex-col gap-1">
-                {group.tags.map(tag => (
-                  <label class="filter-label flex items-center gap-2.5 cursor-pointer py-1.5 px-1.5 rounded hover:bg-surface-container transition-colors duration-150 group/fc">
-                    <span class="relative w-4 h-4 shrink-0">
-                      <input
-                        type="checkbox"
-                        class="filter-checkbox peer absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-                        value={tag}
-                        aria-label={`Filter by ${tag}`}
-                      />
-                      <span class="block w-4 h-4 rounded border-2 border-outline-variant/60 bg-white peer-checked:bg-primary peer-checked:border-primary transition-all duration-150 flex items-center justify-center">
-                        <svg
-                          class="w-2.5 h-2.5 text-white opacity-0 peer-checked:opacity-100 transition-opacity"
-                          viewBox="0 0 10 10"
-                          fill="none"
-                          aria-hidden="true"
-                        >
-                          <path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                      </span>
-                    </span>
-                    <span class="font-label text-sm text-on-surface-variant group-has-[input:checked]/fc:text-on-surface font-medium transition-colors duration-150">
-                      {tag}
-                    </span>
-                  </label>
-                ))}
-              </div>
-            </div>
-          ))}
-
-          <button
-            id="clear-filters"
-            class="hidden mt-5 pt-4 border-t border-outline-variant/20 w-full text-left font-label text-xs text-secondary font-bold uppercase tracking-wider hover:text-secondary/80 transition-colors"
-          >
-            Clear all filters
-          </button>
+        <div class="flex flex-wrap lg:flex-col gap-2">
+          {CATEGORIES.map(cat => {
+            const isActive = cat === 'All';
+            const base = 'filter-strip font-label text-sm rounded px-4 py-3 shadow-ambient btn-press-card cursor-pointer text-left lg:w-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2';
+            const state = isActive
+              ? 'bg-secondary text-white font-bold'
+              : 'bg-white text-primary font-semibold hover:bg-[#f1f2f4]';
+            return (
+              <button
+                type="button"
+                class={`${base} ${state}`}
+                data-category={cat}
+                aria-pressed={isActive ? 'true' : 'false'}
+              >
+                {cat}
+              </button>
+            );
+          })}
         </div>
 
         <!-- Talent pool card -->
@@ -219,6 +261,7 @@ const serializedJobs = JSON.stringify(jobs);
               data-job-id={job.id}
               data-title={job.title.toLowerCase()}
               data-tags={JSON.stringify(job.tags)}
+              data-category={job.category}
               role="button"
               tabindex="0"
               aria-label={`Open details for ${job.title}`}
@@ -456,11 +499,6 @@ const serializedJobs = JSON.stringify(jobs);
     .job-card.will-animate,
     .job-card.will-animate.entered { opacity: 1; transform: none; transition: none; }
   }
-
-  /* Peer-checked SVG inside label (scoping workaround for nested peer) */
-  .filter-label input:checked + span svg {
-    opacity: 1;
-  }
 </style>
 
 <script define:vars={{ serializedJobs }}>
@@ -474,9 +512,8 @@ const serializedJobs = JSON.stringify(jobs);
   const countNum      = document.getElementById('count-num');
   const resultsCount  = document.getElementById('results-count');
   const emptyState    = document.getElementById('empty-state');
-  const clearBtn      = document.getElementById('clear-filters');
   const resetAllBtn   = document.getElementById('reset-all');
-  const checkboxes    = /** @type {NodeListOf<HTMLInputElement>} */ (document.querySelectorAll('.filter-checkbox'));
+  const strips        = /** @type {NodeListOf<HTMLButtonElement>} */ (document.querySelectorAll('.filter-strip'));
   const dialog        = /** @type {HTMLDialogElement} */ (document.getElementById('job-detail-dialog'));
   const dialogHeader  = document.getElementById('dialog-header');
   const dialogBody    = document.getElementById('dialog-body');
@@ -495,9 +532,13 @@ const serializedJobs = JSON.stringify(jobs);
   dialogBody?.addEventListener('scroll', updateScrollHint, { passive: true });
 
   // State
-  let searchTerm  = '';
-  let activeTags  = new Set();
-  let currentJob  = null;
+  let searchTerm      = '';
+  let activeCategory  = 'All';
+  let currentJob      = null;
+
+  // Classes toggled between selected (orange) and unselected (white) strips
+  const SELECTED_CLASSES   = ['bg-secondary', 'text-white', 'font-bold'];
+  const UNSELECTED_CLASSES = ['bg-white', 'text-primary', 'font-semibold', 'hover:bg-[#f1f2f4]'];
 
   // ── Filtering ────────────────────────────────────────────────────────
 
@@ -505,12 +546,12 @@ const serializedJobs = JSON.stringify(jobs);
     let visible = 0;
 
     cards.forEach(card => {
-      const title = card.dataset.title ?? '';
-      const tags  = JSON.parse(card.dataset.tags ?? '[]');
+      const title    = card.dataset.title ?? '';
+      const category = card.dataset.category ?? '';
 
-      const matchesSearch = searchTerm === '' || title.includes(searchTerm);
-      const matchesTags   = activeTags.size === 0 || tags.some(t => activeTags.has(t));
-      const show          = matchesSearch && matchesTags;
+      const matchesSearch   = searchTerm === '' || title.includes(searchTerm);
+      const matchesCategory = activeCategory === 'All' || category === activeCategory;
+      const show            = matchesSearch && matchesCategory;
 
       card.style.display = show ? '' : 'none';
       if (show) visible++;
@@ -523,8 +564,17 @@ const serializedJobs = JSON.stringify(jobs);
     const isEmpty = visible === 0;
     if (emptyState) emptyState.style.display = isEmpty ? 'flex' : 'none';
     if (cardsList)  cardsList.style.display  = isEmpty ? 'none' : '';
+  }
 
-    if (clearBtn) clearBtn.style.display = activeTags.size > 0 ? '' : 'none';
+  function setCategory(cat) {
+    activeCategory = cat;
+    strips.forEach(strip => {
+      const selected = strip.dataset.category === cat;
+      strip.classList.remove(...(selected ? UNSELECTED_CLASSES : SELECTED_CLASSES));
+      strip.classList.add(...(selected ? SELECTED_CLASSES : UNSELECTED_CLASSES));
+      strip.setAttribute('aria-pressed', selected ? 'true' : 'false');
+    });
+    updateDisplay();
   }
 
   searchInput?.addEventListener('input', e => {
@@ -532,25 +582,14 @@ const serializedJobs = JSON.stringify(jobs);
     updateDisplay();
   });
 
-  checkboxes.forEach(cb => {
-    cb.addEventListener('change', e => {
-      e.target.checked ? activeTags.add(e.target.value) : activeTags.delete(e.target.value);
-      updateDisplay();
-    });
-  });
-
-  clearBtn?.addEventListener('click', () => {
-    checkboxes.forEach(cb => { cb.checked = false; });
-    activeTags.clear();
-    updateDisplay();
+  strips.forEach(strip => {
+    strip.addEventListener('click', () => setCategory(strip.dataset.category ?? 'All'));
   });
 
   resetAllBtn?.addEventListener('click', () => {
     if (searchInput) { searchInput.value = ''; }
     searchTerm = '';
-    checkboxes.forEach(cb => { cb.checked = false; });
-    activeTags.clear();
-    updateDisplay();
+    setCategory('All');
   });
 
   // ── Card click ───────────────────────────────────────────────────────

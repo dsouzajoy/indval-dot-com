@@ -974,4 +974,70 @@ export const de = {
       button: 'Kontakt aufnehmen',
     },
   },
+  inspectionMetrology: {
+    hero: {
+      eyebrow: 'Prüfung & Messtechnik',
+      heading: 'Präzisionsmessung für Qualitätssicherung und Fertigungsexzellenz',
+      description: 'Qualität basiert auf Genauigkeit. Unsere Prüf- und Messtechnikdienstleistungen stellen sicher, dass jedes Bauteil den Konstruktionsvorgaben, Branchenstandards und Kundenanforderungen entspricht. Mit fortschrittlichen Messtechnologien und Präzisionsprüfgeräten bieten wir zuverlässige Maßverifizierung, Prozessvalidierung und Qualitätsdokumentation zur Unterstützung der Fertigungsexzellenz.',
+      cta: 'Fähigkeiten entdecken',
+    },
+    intro: {
+      eyebrow: 'Die Fähigkeit',
+      heading: 'Qualität, die auf Genauigkeit basiert',
+      para1: 'Qualität basiert auf Genauigkeit. Unsere Prüf- und Messtechnikdienstleistungen stellen sicher, dass jedes Bauteil den Konstruktionsvorgaben, Branchenstandards und Kundenanforderungen entspricht, mit fortschrittlichen Messtechnologien und Präzisionsprüfgeräten.',
+      para2: 'Von der Prototypenvalidierung bis zur Serienprüfung helfen wir Herstellern, Konsistenz zu wahren, die Prozessfähigkeit zu verbessern und fehlerfreie Produkte zu liefern.',
+    },
+    capabilities: {
+      eyebrow: 'Kernkompetenzen',
+      heading: 'Unsere Prüf- und Messtechnik-Fähigkeiten',
+      intro: 'Fortschrittliche Messtechnologien und Präzisionsprüfgeräte für Maßverifizierung, Prozessvalidierung und Qualitätsdokumentation.',
+      cmmInspection: {
+        label: 'CMM-Prüfung',
+        description: 'Hochpräzise Maßprüfung komplexer Bauteile mit fortschrittlichen Koordinatenmessgeräten. Wir verifizieren kritische Maße, geometrische Toleranzen und Merkmalspositionen mit außergewöhnlicher Genauigkeit.',
+      },
+      vmmInspection: {
+        label: 'VMM-Prüfung',
+        description: 'Berührungslose optische Messlösungen für filigrane und empfindliche Bauteile, die eine präzise Prüfung von Profilen, Maßen und geometrischen Merkmalen gewährleisten.',
+      },
+      precisionGauging: {
+        label: 'Präzisionslehren',
+        description: 'Umfassende Prüfung mit Präzisionslehren und Messinstrumenten zur Verifizierung von Maßen, Toleranzen und Bauteilkonformität.',
+      },
+      surfaceRoughnessTesting: {
+        label: 'Oberflächenrauheitsprüfung',
+        description: 'Messung und Bewertung von Oberflächenmerkmalen zur Sicherstellung der Einhaltung funktionaler und qualitativer Anforderungen.',
+      },
+      contourMeasurement: {
+        label: 'Konturmessung',
+        description: 'Präzise Bewertung von Bauteilprofilen, Radien, Winkeln und komplexen Geometrien zur Validierung von Konstruktionsvorgaben und Fertigungsgenauigkeit.',
+      },
+      firstArticleInspection: {
+        label: 'Erstmusterprüfung (FAI)',
+        description: 'Detaillierte Verifizierung von Erstserienteilen zur Bestätigung, dass Fertigungsprozesse durchgängig Bauteile produzieren, die alle Konstruktions- und Qualitätsanforderungen erfüllen.',
+      },
+      dimensionalValidation: {
+        label: 'Maßvalidierung',
+        description: 'Umfassende Maßanalyse und Toleranzverifizierung zur Sicherstellung, dass Bauteile den technischen Zeichnungen und Kundenspezifikationen entsprechen.',
+      },
+      qualityDocumentation: {
+        label: 'Qualitätsdokumentation',
+        description: 'Erstellung detaillierter Prüfberichte, Messaufzeichnungen und Validierungsdokumente, die vollständige Rückverfolgbarkeit gewährleisten und Qualitätsmanagementsysteme unterstützen.',
+      },
+    },
+    whyUs: {
+      eyebrow: 'Warum wir?',
+      heading: 'Warum Hersteller sich für uns entscheiden',
+      advancedEquipment: 'Fortschrittliche Messtechnik und Prüffähigkeiten',
+      accurateProcesses: 'Genaue und wiederholbare Messprozesse',
+      prototypeAndProduction: 'Unterstützung für Prototypen- und Serienprüfungen',
+      comprehensiveReporting: 'Umfassende Qualitätsberichte und Dokumentation',
+      improvedProcessControl: 'Verbesserte Prozesskontrolle und Fertigungszuverlässigkeit',
+      commitmentToPrecision: 'Engagement für Präzision, Compliance und kontinuierliche Qualitätsverbesserung',
+    },
+    cta: {
+      heading: 'Präzise messen. Selbstbewusst fertigen.',
+      body: 'Unsere Prüf- und Messtechnikdienstleistungen bieten die Genauigkeit, Rückverfolgbarkeit und Qualitätssicherung, die erforderlich sind, um sicherzustellen, dass jedes Bauteil den höchsten Leistungs- und Zuverlässigkeitsstandards entspricht. Wir helfen Herstellern, fundierte Entscheidungen zu treffen, Fehler zu reduzieren und konstante Fertigungsexzellenz zu erreichen.',
+      button: 'Kontakt aufnehmen',
+    },
+  },
 } satisfies Translations;

@@ -1311,6 +1311,72 @@ export const en = {
       button: 'Get In Touch',
     },
   },
+  inspectionMetrology: {
+    hero: {
+      eyebrow: 'Inspection & Metrology',
+      heading: 'Precision Measurement for Quality Assurance and Manufacturing Excellence',
+      description: 'Quality is built on accuracy. Our Inspection and Metrology services ensure that every component meets design specifications, industry standards, and customer requirements. Using advanced measurement technologies and precision inspection equipment, we provide reliable dimensional verification, process validation, and quality documentation to support manufacturing excellence.',
+      cta: 'Explore Capabilities',
+    },
+    intro: {
+      eyebrow: 'The Capability',
+      heading: 'Quality Built on Accuracy',
+      para1: 'Quality is built on accuracy. Our Inspection and Metrology services ensure that every component meets design specifications, industry standards, and customer requirements, using advanced measurement technologies and precision inspection equipment.',
+      para2: 'From prototype validation to production inspection, we help manufacturers maintain consistency, improve process capability, and deliver defect-free products.',
+    },
+    capabilities: {
+      eyebrow: 'Core Competencies',
+      heading: 'Our Inspection & Metrology Capabilities',
+      intro: 'Advanced measurement technologies and precision inspection equipment supporting dimensional verification, process validation, and quality documentation.',
+      cmmInspection: {
+        label: 'CMM Inspection',
+        description: 'High-precision dimensional inspection of complex components using advanced coordinate measuring machine systems. We verify critical dimensions, geometric tolerances, and feature locations with exceptional accuracy.',
+      },
+      vmmInspection: {
+        label: 'VMM Inspection',
+        description: 'Non-contact optical measurement solutions for intricate and delicate components, ensuring accurate inspection of profiles, dimensions, and geometrical features.',
+      },
+      precisionGauging: {
+        label: 'Precision Gauging',
+        description: 'Comprehensive inspection using precision gauges and measuring instruments to verify dimensions, tolerances, and component conformity.',
+      },
+      surfaceRoughnessTesting: {
+        label: 'Surface Roughness Testing',
+        description: 'Measurement and evaluation of surface finish characteristics to ensure compliance with functional and quality requirements.',
+      },
+      contourMeasurement: {
+        label: 'Contour Measurement',
+        description: 'Precise evaluation of component profiles, radii, angles, and complex geometries to validate design specifications and manufacturing accuracy.',
+      },
+      firstArticleInspection: {
+        label: 'First Article Inspection (FAI)',
+        description: 'Detailed verification of initial production parts to confirm that manufacturing processes consistently produce components that meet all design and quality requirements.',
+      },
+      dimensionalValidation: {
+        label: 'Dimensional Validation',
+        description: 'Comprehensive dimensional analysis and tolerance verification to ensure components comply with engineering drawings and customer specifications.',
+      },
+      qualityDocumentation: {
+        label: 'Quality Documentation',
+        description: 'Generation of detailed inspection reports, measurement records, and validation documents that provide complete traceability and support quality management systems.',
+      },
+    },
+    whyUs: {
+      eyebrow: 'Why Choose Us',
+      heading: 'Why Manufacturers Choose Us',
+      advancedEquipment: 'Advanced metrology equipment and inspection capabilities',
+      accurateProcesses: 'Accurate and repeatable measurement processes',
+      prototypeAndProduction: 'Support for prototype and production inspections',
+      comprehensiveReporting: 'Comprehensive quality reporting and documentation',
+      improvedProcessControl: 'Improved process control and manufacturing reliability',
+      commitmentToPrecision: 'Commitment to precision, compliance, and continuous quality improvement',
+    },
+    cta: {
+      heading: 'Measure with Precision. Manufacture with Confidence.',
+      body: 'Our Inspection and Metrology services provide the accuracy, traceability, and quality assurance needed to ensure every component meets the highest standards of performance and reliability. We help manufacturers make informed decisions, reduce defects, and achieve consistent production excellence.',
+      button: 'Get In Touch',
+    },
+  },
   legal: {
     footer: {
       privacy: 'Privacy Policy',

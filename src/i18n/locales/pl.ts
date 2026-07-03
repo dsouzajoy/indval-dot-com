@@ -974,4 +974,70 @@ export const pl = {
       button: 'Skontaktuj się z nami',
     },
   },
+  inspectionMetrology: {
+    hero: {
+      eyebrow: 'Kontrola i Metrologia',
+      heading: 'Precyzyjny pomiar dla zapewnienia jakości i doskonałości produkcyjnej',
+      description: 'Jakość opiera się na dokładności. Nasze usługi kontroli i metrologii zapewniają, że każdy komponent spełnia specyfikacje projektowe, standardy branżowe i wymagania klientów. Wykorzystując zaawansowane technologie pomiarowe i precyzyjny sprzęt kontrolny, zapewniamy wiarygodną weryfikację wymiarową, walidację procesów i dokumentację jakości wspierającą doskonałość produkcyjną.',
+      cta: 'Poznaj nasze możliwości',
+    },
+    intro: {
+      eyebrow: 'Nasza specjalizacja',
+      heading: 'Jakość oparta na dokładności',
+      para1: 'Jakość opiera się na dokładności. Nasze usługi kontroli i metrologii zapewniają, że każdy komponent spełnia specyfikacje projektowe, standardy branżowe i wymagania klientów, dzięki zaawansowanym technologiom pomiarowym i precyzyjnemu sprzętowi kontrolnemu.',
+      para2: 'Od walidacji prototypów po kontrolę produkcji, pomagamy producentom utrzymać spójność, poprawić zdolność procesową i dostarczać wyroby wolne od wad.',
+    },
+    capabilities: {
+      eyebrow: 'Kluczowe kompetencje',
+      heading: 'Nasze możliwości w zakresie kontroli i metrologii',
+      intro: 'Zaawansowane technologie pomiarowe i precyzyjny sprzęt kontrolny wspierające weryfikację wymiarową, walidację procesów i dokumentację jakości.',
+      cmmInspection: {
+        label: 'Kontrola CMM',
+        description: 'Wysokoprecyzyjna kontrola wymiarowa złożonych komponentów przy użyciu zaawansowanych współrzędnościowych maszyn pomiarowych. Weryfikujemy krytyczne wymiary, tolerancje geometryczne i położenie cech z wyjątkową dokładnością.',
+      },
+      vmmInspection: {
+        label: 'Kontrola VMM',
+        description: 'Bezstykowe optyczne rozwiązania pomiarowe dla skomplikowanych i delikatnych komponentów, zapewniające dokładną kontrolę profili, wymiarów i cech geometrycznych.',
+      },
+      precisionGauging: {
+        label: 'Precyzyjne pomiary sprawdzianowe',
+        description: 'Kompleksowa kontrola przy użyciu precyzyjnych sprawdzianów i przyrządów pomiarowych w celu weryfikacji wymiarów, tolerancji i zgodności komponentów.',
+      },
+      surfaceRoughnessTesting: {
+        label: 'Badanie chropowatości powierzchni',
+        description: 'Pomiar i ocena cech wykończenia powierzchni w celu zapewnienia zgodności z wymaganiami funkcjonalnymi i jakościowymi.',
+      },
+      contourMeasurement: {
+        label: 'Pomiar konturów',
+        description: 'Precyzyjna ocena profili, promieni, kątów i złożonych geometrii komponentów w celu walidacji specyfikacji projektowych i dokładności produkcyjnej.',
+      },
+      firstArticleInspection: {
+        label: 'Kontrola pierwszej sztuki (FAI)',
+        description: 'Szczegółowa weryfikacja pierwszych wyprodukowanych części w celu potwierdzenia, że procesy produkcyjne konsekwentnie wytwarzają komponenty spełniające wszystkie wymagania projektowe i jakościowe.',
+      },
+      dimensionalValidation: {
+        label: 'Walidacja wymiarowa',
+        description: 'Kompleksowa analiza wymiarowa i weryfikacja tolerancji zapewniająca zgodność komponentów z rysunkami technicznymi i specyfikacjami klientów.',
+      },
+      qualityDocumentation: {
+        label: 'Dokumentacja jakości',
+        description: 'Sporządzanie szczegółowych raportów kontrolnych, zapisów pomiarowych i dokumentów walidacyjnych zapewniających pełną identyfikowalność i wspierających systemy zarządzania jakością.',
+      },
+    },
+    whyUs: {
+      eyebrow: 'Dlaczego my?',
+      heading: 'Dlaczego producenci nas wybierają',
+      advancedEquipment: 'Zaawansowany sprzęt metrologiczny i możliwości kontrolne',
+      accurateProcesses: 'Dokładne i powtarzalne procesy pomiarowe',
+      prototypeAndProduction: 'Wsparcie dla kontroli prototypów i produkcji',
+      comprehensiveReporting: 'Kompleksowe raportowanie i dokumentacja jakości',
+      improvedProcessControl: 'Lepsza kontrola procesów i niezawodność produkcji',
+      commitmentToPrecision: 'Zaangażowanie w precyzję, zgodność i ciągłe doskonalenie jakości',
+    },
+    cta: {
+      heading: 'Mierz precyzyjnie. Produkuj z pewnością.',
+      body: 'Nasze usługi kontroli i metrologii zapewniają dokładność, identyfikowalność i zapewnienie jakości niezbędne do tego, aby każdy komponent spełniał najwyższe standardy wydajności i niezawodności. Pomagamy producentom podejmować świadome decyzje, ograniczać liczbę wad i osiągać stałą doskonałość produkcyjną.',
+      button: 'Skontaktuj się z nami',
+    },
+  },
 } satisfies Translations;

@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import InspectionMetrologyHero from '../../components/capabilities/inspection-metrology/InspectionMetrologyHero.astro';
+import InspectionMetrologyContent from '../../components/capabilities/inspection-metrology/InspectionMetrologyContent.astro';
+---
+
+<BaseLayout
+  title="Inspection & Metrology Services | Indvaltech"
+  description="Precision measurement services for quality assurance and manufacturing excellence, covering CMM and VMM inspection, precision gauging, surface roughness testing, contour measurement, first article inspection, dimensional validation, and quality documentation."
+  showSplash={false}
+  breadcrumbs={[{ name: 'Inspection & Metrology', href: '/capabilities/inspection-metrology' }]}
+>
+  <InspectionMetrologyHero />
+  <InspectionMetrologyContent />
+</BaseLayout>

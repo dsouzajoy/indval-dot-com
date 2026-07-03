@@ -1,0 +1,59 @@
+---
+import { en } from '@/i18n/locales/en';
+import HeroImage from '@/components/ui/HeroImage.astro';
+import { getLQIP } from '@/lib/lqip';
+import heroImg from '@/assets/images/secondary-structure-design/hero.jpg';
+
+const placeholder = await getLQIP('src/assets/images/secondary-structure-design/hero.jpg');
+---
+
+<section
+  class="relative min-h-screen flex items-center overflow-hidden"
+  aria-label="Secondary Structure Design Services"
+>
+  <HeroImage src={heroImg} {placeholder} alt="" />
+  <!-- Dark gradient overlay -->
+  <div class="absolute inset-0 bg-gradient-to-r from-on-surface/85 via-on-surface/65 to-on-surface/20 z-10"></div>
+
+  <div class="container mx-auto px-8 lg:px-16 relative z-20 py-24">
+    <div class="max-w-2xl space-y-8">
+
+      <!-- Eyebrow -->
+      <p class="font-label text-sm uppercase tracking-widest text-secondary" data-i18n="secondaryStructureDesign.hero.eyebrow">
+        {en.secondaryStructureDesign.hero.eyebrow}
+      </p>
+
+      <!-- Heading -->
+      <h1
+        class="font-headline text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tighter text-white leading-tight"
+        data-i18n="secondaryStructureDesign.hero.heading"
+      >{en.secondaryStructureDesign.hero.heading}</h1>
+
+      <!-- Description with left-border accent -->
+      <p
+        class="text-xl text-white/90 font-light leading-relaxed border-l-4 border-secondary pl-8 max-w-xl"
+        data-i18n="secondaryStructureDesign.hero.description"
+      >{en.secondaryStructureDesign.hero.description}</p>
+
+      <!-- CTA -->
+      <div class="pt-2">
+        <a
+          href="#capabilities"
+          id="ssd-hero-cta"
+          class="inline-block bg-gradient-to-r from-secondary to-secondary/80 text-white px-8 py-4 rounded font-label text-sm font-bold uppercase tracking-widest btn-press"
+          data-i18n="secondaryStructureDesign.hero.cta"
+        >
+          {en.secondaryStructureDesign.hero.cta}
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  document.getElementById('ssd-hero-cta')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    document.getElementById('capabilities')?.scrollIntoView({ behavior: 'smooth' });
+  });
+</script>

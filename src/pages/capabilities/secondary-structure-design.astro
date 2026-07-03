@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SecondaryStructureDesignHero from '../../components/capabilities/secondary-structure-design/SecondaryStructureDesignHero.astro';
+import SecondaryStructureDesignContent from '../../components/capabilities/secondary-structure-design/SecondaryStructureDesignContent.astro';
+---
+
+<BaseLayout
+  title="Secondary Structure Design Services | Indvaltech"
+  description="Specialized secondary structure design and engineering services for commercial aircraft, business jets, defense platforms, and next-generation aerospace programs, covering bracket design, electrical harness supports, ECS structures, and detailed engineering documentation."
+  showSplash={false}
+  breadcrumbs={[{ name: 'Secondary Structure Design', href: '/capabilities/secondary-structure-design' }]}
+>
+  <SecondaryStructureDesignHero />
+  <SecondaryStructureDesignContent />
+</BaseLayout>

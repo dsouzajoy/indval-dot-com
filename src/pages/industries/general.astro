@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GeneralHero from '../../components/industries/general/GeneralHero.astro';
+import GeneralWhatWeDo from '../../components/industries/general/GeneralWhatWeDo.astro';
+import GeneralCTA from '../../components/industries/general/GeneralCTA.astro';
+---
+
+<BaseLayout
+  title="General Engineering | Indvaltech Engineering Services"
+  description="Multidisciplinary engineering support across industries, from product development through tooling and analysis, for teams that need a partner who can flex across programmes."
+  showSplash={false}
+  breadcrumbs={[{ name: 'General Engineering', href: '/industries/general' }]}
+  ogImage="/images/general-hero.jpg"
+>
+  <GeneralHero />
+  <GeneralWhatWeDo />
+  <GeneralCTA />
+</BaseLayout>

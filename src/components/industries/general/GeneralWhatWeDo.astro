@@ -1,0 +1,266 @@
+---
+import { withBase } from '@/lib/utils';
+---
+
+<section id="what-we-do" class="py-24 px-8" style="background-image: linear-gradient(to right, rgba(0,49,108,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,49,108,0.05) 1px, transparent 1px); background-size: 40px 40px;">
+  <div class="max-w-7xl mx-auto">
+
+    <h2 class="font-headline text-4xl lg:text-5xl font-bold text-on-surface mb-10">
+      What We Do
+    </h2>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+      <!-- Product Development (unclickable) -->
+      <div class="bg-white border border-outline-variant rounded-lg p-8 flex flex-col items-start gap-4">
+        <div class="w-16 h-16">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- Iterate / refresh arrows wrapping the gear -->
+            <path d="M59 25 A28 28 0 0 0 5 25" stroke="#00316c" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            <polygon points="4.5,26.9 9.9,22.1 2.1,20.1" fill="#00316c"/>
+            <path d="M5 39 A28 28 0 0 0 59 39" stroke="#00316c" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            <polygon points="59.5,37.1 61.9,43.9 54.1,41.9" fill="#00316c"/>
+            <!-- Gear body fill (light blue) -->
+            <circle cx="32" cy="32" r="15" fill="#dce9ff"/>
+            <!-- Gear teeth (8, rotate around 32,32) -->
+            <rect x="29.5" y="13" width="5" height="7" rx="1" fill="#dce9ff" stroke="#00316c" stroke-width="1.5" transform="rotate(0   32 32)"/>
+            <rect x="29.5" y="13" width="5" height="7" rx="1" fill="#dce9ff" stroke="#00316c" stroke-width="1.5" transform="rotate(45  32 32)"/>
+            <rect x="29.5" y="13" width="5" height="7" rx="1" fill="#dce9ff" stroke="#00316c" stroke-width="1.5" transform="rotate(90  32 32)"/>
+            <rect x="29.5" y="13" width="5" height="7" rx="1" fill="#dce9ff" stroke="#00316c" stroke-width="1.5" transform="rotate(135 32 32)"/>
+            <rect x="29.5" y="13" width="5" height="7" rx="1" fill="#dce9ff" stroke="#00316c" stroke-width="1.5" transform="rotate(180 32 32)"/>
+            <rect x="29.5" y="13" width="5" height="7" rx="1" fill="#dce9ff" stroke="#00316c" stroke-width="1.5" transform="rotate(225 32 32)"/>
+            <rect x="29.5" y="13" width="5" height="7" rx="1" fill="#dce9ff" stroke="#00316c" stroke-width="1.5" transform="rotate(270 32 32)"/>
+            <rect x="29.5" y="13" width="5" height="7" rx="1" fill="#dce9ff" stroke="#00316c" stroke-width="1.5" transform="rotate(315 32 32)"/>
+            <!-- Gear ring outline -->
+            <circle cx="32" cy="32" r="15" stroke="#00316c" stroke-width="2"/>
+            <!-- Gear depth tint (lower half) -->
+            <path d="M17 32 A15 15 0 0 0 47 32 Z" fill="#00316c" opacity="0.08"/>
+            <!-- Cube faces (fills) -->
+            <polygon points="32,23 40,28 32,33 24,28" fill="white"/>
+            <polygon points="24,28 32,33 32,42 24,37" fill="white"/>
+            <polygon points="24,28 32,33 32,42 24,37" fill="#00316c" opacity="0.06"/>
+            <polygon points="40,28 32,33 32,42 40,37" fill="white"/>
+            <polygon points="40,28 32,33 32,42 40,37" fill="#00316c" opacity="0.12"/>
+            <!-- Cube outline + interior upper edges -->
+            <polygon points="32,23 40,28 40,37 32,42 24,37 24,28" fill="none" stroke="#00316c" stroke-width="1.5" stroke-linejoin="round"/>
+            <line x1="24" y1="28" x2="32" y2="33" stroke="#00316c" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="40" y1="28" x2="32" y2="33" stroke="#00316c" stroke-width="1.5" stroke-linecap="round"/>
+            <!-- Orange front edge accent -->
+            <line x1="32" y1="33" x2="32" y2="42" stroke="#ff671f" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="font-label text-base font-semibold text-on-surface leading-snug">Product Development</span>
+      </div>
+
+      <!-- Tooling Design Solution -->
+      <a href={withBase('/capabilities/press-tool-design')} class="bg-white border border-outline-variant rounded-lg p-8 flex flex-col items-start gap-4 hover:border-secondary btn-press-card cursor-pointer">
+        <div class="w-16 h-16">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- Shadow offsets behind dies -->
+            <rect x="14" y="10" width="44" height="14" rx="2.5" fill="#00316c" opacity="0.15"/>
+            <rect x="14" y="42" width="44" height="14" rx="2.5" fill="#00316c" opacity="0.15"/>
+            <!-- Upper die body -->
+            <rect x="10" y="6" width="44" height="14" rx="2.5" fill="#dce9ff"/>
+            <rect x="10" y="6" width="44" height="14" rx="2.5" stroke="#00316c" stroke-width="2"/>
+            <!-- Upper die inner bevel -->
+            <line x1="12" y1="8" x2="52" y2="8" stroke="#00316c" stroke-width="1" opacity="0.40"/>
+            <!-- Upper die form contour -->
+            <path d="M14 20 L14 22 Q22 18 32 17 Q42 18 50 22 L50 20" stroke="#00316c" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <!-- Press arrow -->
+            <line x1="32" y1="20" x2="32" y2="26" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
+            <polyline points="28,24 32,28 36,24" stroke="#00316c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <!-- Orange sheet metal workpiece -->
+            <rect x="10" y="28" width="44" height="6" rx="1.5" fill="#ff671f"/>
+            <rect x="10" y="28" width="44" height="6" rx="1.5" stroke="#00316c" stroke-width="1.5"/>
+            <!-- Lower die body -->
+            <rect x="10" y="38" width="44" height="14" rx="2.5" fill="#dce9ff"/>
+            <rect x="10" y="38" width="44" height="14" rx="2.5" stroke="#00316c" stroke-width="2"/>
+            <!-- Lower die form cavity -->
+            <path d="M14 38 L14 40 Q22 44 32 45 Q42 44 50 40 L50 38" stroke="#00316c" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <path d="M14 40 Q22 44 32 45 Q42 44 50 40 L50 38 Q42 42 32 43 Q22 42 14 38 Z" fill="#00316c" opacity="0.12"/>
+          </svg>
+        </div>
+        <span class="font-label text-base font-semibold text-on-surface leading-snug">Tooling Design Solution</span>
+      </a>
+
+      <!-- Composite Design Solution -->
+      <a href={withBase('/capabilities/composite-design')} class="bg-white border border-outline-variant rounded-lg p-8 flex flex-col items-start gap-4 hover:border-secondary btn-press-card cursor-pointer">
+        <div class="w-16 h-16">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <clipPath id="gen-composite-grid-bottom">
+                <polygon points="4,40 25,32 46,40 25,48"/>
+              </clipPath>
+              <clipPath id="gen-composite-grid-top">
+                <polygon points="4,14 25,6 46,14 25,22"/>
+              </clipPath>
+            </defs>
+            <!-- Bottom panel: fiber face sheet -->
+            <polygon points="4,40 25,48 25,53 4,45" fill="#dce9ff"/>
+            <polygon points="4,40 25,48 25,53 4,45" fill="#00316c" opacity="0.18"/>
+            <polygon points="25,48 46,40 46,45 25,53" fill="#dce9ff"/>
+            <polygon points="25,48 46,40 46,45 25,53" fill="#00316c" opacity="0.08"/>
+            <polygon points="4,40 25,32 46,40 25,48" fill="#dce9ff" stroke="#00316c" stroke-width="1.5" stroke-linejoin="round"/>
+            <g clip-path="url(#gen-composite-grid-bottom)" stroke="#00316c" stroke-width="0.75" opacity="0.5">
+              <line x1="0" y1="44" x2="20" y2="22"/>
+              <line x1="8" y1="48" x2="28" y2="26"/>
+              <line x1="16" y1="52" x2="36" y2="30"/>
+              <line x1="0" y1="34" x2="20" y2="56"/>
+              <line x1="8" y1="30" x2="28" y2="52"/>
+              <line x1="16" y1="26" x2="36" y2="48"/>
+            </g>
+            <polygon points="4,40 25,32 46,40 25,48" stroke="#00316c" stroke-width="1.5" stroke-linejoin="round" fill="none"/>
+            <!-- Middle panel: resin core (orange accent) -->
+            <polygon points="4,27 25,35 25,40 4,32" fill="#ff671f" opacity="0.75"/>
+            <polygon points="4,27 25,35 25,40 4,32" fill="#00316c" opacity="0.18"/>
+            <polygon points="25,35 46,27 46,32 25,40" fill="#ff671f" opacity="0.85"/>
+            <polygon points="25,35 46,27 46,32 25,40" fill="#00316c" opacity="0.08"/>
+            <polygon points="4,27 25,19 46,27 25,35" fill="#ff671f" stroke="#00316c" stroke-width="1.5" stroke-linejoin="round"/>
+            <!-- Top panel: fiber face sheet -->
+            <polygon points="4,14 25,22 25,27 4,19" fill="#dce9ff"/>
+            <polygon points="4,14 25,22 25,27 4,19" fill="#00316c" opacity="0.18"/>
+            <polygon points="25,22 46,14 46,19 25,27" fill="#dce9ff"/>
+            <polygon points="25,22 46,14 46,19 25,27" fill="#00316c" opacity="0.08"/>
+            <polygon points="4,14 25,6 46,14 25,22" fill="#dce9ff" stroke="#00316c" stroke-width="1.5" stroke-linejoin="round"/>
+            <g clip-path="url(#gen-composite-grid-top)" stroke="#00316c" stroke-width="0.75" opacity="0.5">
+              <line x1="0" y1="18" x2="20" y2="-4"/>
+              <line x1="8" y1="22" x2="28" y2="0"/>
+              <line x1="16" y1="26" x2="36" y2="4"/>
+              <line x1="0" y1="8" x2="20" y2="30"/>
+              <line x1="8" y1="4" x2="28" y2="26"/>
+              <line x1="16" y1="0" x2="36" y2="22"/>
+            </g>
+            <polygon points="4,14 25,6 46,14 25,22" stroke="#00316c" stroke-width="1.5" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </div>
+        <span class="font-label text-base font-semibold text-on-surface leading-snug">Composite Design Solution</span>
+      </a>
+
+      <!-- Wire Harnessing -->
+      <a href={withBase('/capabilities/electrical-harness-design')} class="bg-white border border-outline-variant rounded-lg p-8 flex flex-col items-start gap-4 hover:border-secondary btn-press-card cursor-pointer">
+        <div class="w-16 h-16">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- Connector block (right side) -->
+            <rect x="44" y="18" width="16" height="28" rx="3" fill="#dce9ff"/>
+            <rect x="44" y="18" width="16" height="28" rx="3" stroke="#00316c" stroke-width="2"/>
+            <!-- Pins -->
+            <rect x="48" y="12" width="3" height="8" rx="1" fill="#00316c"/>
+            <rect x="53" y="12" width="3" height="8" rx="1" fill="#00316c"/>
+            <!-- Socket holes -->
+            <circle cx="49" cy="27" r="2.5" fill="white" stroke="#00316c" stroke-width="1"/>
+            <circle cx="55" cy="27" r="2.5" fill="white" stroke="#00316c" stroke-width="1"/>
+            <circle cx="49" cy="36" r="2.5" fill="white" stroke="#00316c" stroke-width="1"/>
+            <circle cx="55" cy="36" r="2.5" fill="white" stroke="#00316c" stroke-width="1"/>
+            <!-- Orange wire bundle clip at center -->
+            <rect x="28" y="26" width="6" height="12" rx="3" fill="#ff671f"/>
+            <rect x="28" y="26" width="6" height="12" rx="3" stroke="#00316c" stroke-width="1.5"/>
+            <!-- 5 fanning wires (left side, converging to clip) -->
+            <path d="M6 10 C12 10 20 16 28 28" stroke="#00316c" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <path d="M6 22 C12 22 20 24 28 28" stroke="#00316c" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <path d="M6 32 L28 32"             stroke="#00316c" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <path d="M6 42 C12 42 20 40 28 36" stroke="#00316c" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <path d="M6 52 C12 52 20 48 28 36" stroke="#00316c" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <!-- 3 wires clip to connector -->
+            <path d="M34 28 L44 27" stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <path d="M34 32 L44 32" stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <path d="M34 36 L44 36" stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          </svg>
+        </div>
+        <span class="font-label text-base font-semibold text-on-surface leading-snug">Wire Harnessing</span>
+      </a>
+
+      <!-- Computational Fluid Dynamics -->
+      <a href={withBase('/capabilities/cfd')} class="bg-white border border-outline-variant rounded-lg p-8 flex flex-col items-start gap-4 hover:border-secondary btn-press-card cursor-pointer">
+        <div class="w-16 h-16">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- Airfoil body -->
+            <path d="M18 32 C20 25 28 20 38 20 C46 20 52 24 56 32 C52 40 46 44 38 44 C28 44 20 39 18 32 Z" fill="#dce9ff"/>
+            <path d="M18 32 C20 25 28 20 38 20 C46 20 52 24 56 32 C52 40 46 44 38 44 C28 44 20 39 18 32 Z" stroke="#00316c" stroke-width="2" stroke-linejoin="round"/>
+            <!-- Depth tint on lower half -->
+            <path d="M18 32 C20 39 28 44 38 44 C46 44 52 40 56 32 Z" fill="#00316c" opacity="0.10"/>
+            <!-- Left streamlines -->
+            <path d="M4 16 C8 16 12 18 16 24"  stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <path d="M4 22 C8 22 12 24 15 27"  stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <path d="M4 32 L16 32"             stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <path d="M4 42 C8 42 12 40 15 37"  stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <path d="M4 48 C8 48 12 46 16 40"  stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <!-- Left arrowheads -->
+            <polygon points="14,22 16,24 18,23" fill="#00316c"/>
+            <polygon points="13,25 15,27 17,26" fill="#00316c"/>
+            <polygon points="14,30 16,32 14,34" fill="#00316c"/>
+            <polygon points="13,38 15,37 17,38" fill="#00316c"/>
+            <polygon points="14,39 16,40 18,41" fill="#00316c"/>
+            <!-- Right streamlines -->
+            <path d="M56 26 C58 25 60 22 60 18" stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <path d="M56 29 C58 28 60 26 60 24" stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <path d="M56 32 L60 32"             stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <path d="M56 35 C58 36 60 38 60 40" stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <path d="M56 38 C58 40 60 42 60 46" stroke="#00316c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <!-- Right arrowheads -->
+            <polygon points="58,17 60,18 58,20" fill="#00316c"/>
+            <polygon points="58,23 60,24 58,26" fill="#00316c"/>
+            <polygon points="58,30 60,32 58,34" fill="#00316c"/>
+            <polygon points="58,39 60,40 58,42" fill="#00316c"/>
+            <polygon points="58,45 60,46 58,47" fill="#00316c"/>
+            <!-- Orange stagnation dot on leading edge -->
+            <circle cx="18" cy="32" r="2.5" fill="#ff671f"/>
+          </svg>
+        </div>
+        <span class="font-label text-base font-semibold text-on-surface leading-snug">Computational Fluid Dynamics</span>
+      </a>
+
+      <!-- Finite Element Analysis -->
+      <a href={withBase('/capabilities/fea')} class="bg-white border border-outline-variant rounded-lg p-8 flex flex-col items-start gap-4 hover:border-secondary btn-press-card cursor-pointer">
+        <div class="w-16 h-16">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- Curved plate base fill -->
+            <path d="M6 14 Q20 10 38 8 Q54 10 58 18 Q56 36 50 52 Q36 58 18 56 Q8 46 6 30 Z" fill="#dce9ff"/>
+            <path d="M6 14 Q20 10 38 8 Q54 10 58 18 Q56 36 50 52 Q36 58 18 56 Q8 46 6 30 Z" stroke="#00316c" stroke-width="2" stroke-linejoin="round"/>
+            <!-- Triangle fills (upper) -->
+            <polygon points="8,12 28,8 10,32"   fill="#dce9ff"/>
+            <polygon points="28,8 48,12 30,30"  fill="#dce9ff"/>
+            <polygon points="10,32 30,30 12,52" fill="#dce9ff"/>
+            <polygon points="30,30 52,30 32,54" fill="#dce9ff"/>
+            <!-- Triangle fills (lower-half depth tint) -->
+            <polygon points="28,8 30,30 10,32"  fill="#00316c" opacity="0.08"/>
+            <polygon points="48,12 52,30 30,30" fill="#00316c" opacity="0.08"/>
+            <polygon points="30,30 32,54 12,52" fill="#00316c" opacity="0.08"/>
+            <polygon points="52,30 54,50 32,54" fill="#00316c" opacity="0.08"/>
+            <!-- Orange stress hot-spot -->
+            <polygon points="30,30 52,30 32,54" fill="#ff671f" opacity="0.25"/>
+            <polygon points="48,12 52,30 30,30" fill="#ff671f" opacity="0.18"/>
+            <!-- Mesh edges -->
+            <line x1="8"  y1="12" x2="28" y2="8"  stroke="#00316c" stroke-width="1.5"/>
+            <line x1="28" y1="8"  x2="48" y2="12" stroke="#00316c" stroke-width="1.5"/>
+            <line x1="10" y1="32" x2="30" y2="30" stroke="#00316c" stroke-width="1.5"/>
+            <line x1="30" y1="30" x2="52" y2="30" stroke="#00316c" stroke-width="1.5"/>
+            <line x1="12" y1="52" x2="32" y2="54" stroke="#00316c" stroke-width="1.5"/>
+            <line x1="32" y1="54" x2="54" y2="50" stroke="#00316c" stroke-width="1.5"/>
+            <line x1="8"  y1="12" x2="10" y2="32" stroke="#00316c" stroke-width="1.5"/>
+            <line x1="10" y1="32" x2="12" y2="52" stroke="#00316c" stroke-width="1.5"/>
+            <line x1="28" y1="8"  x2="30" y2="30" stroke="#00316c" stroke-width="1.5"/>
+            <line x1="30" y1="30" x2="32" y2="54" stroke="#00316c" stroke-width="1.5"/>
+            <line x1="48" y1="12" x2="52" y2="30" stroke="#00316c" stroke-width="1.5"/>
+            <line x1="52" y1="30" x2="54" y2="50" stroke="#00316c" stroke-width="1.5"/>
+            <line x1="8"  y1="12" x2="30" y2="30" stroke="#00316c" stroke-width="1.5"/>
+            <line x1="28" y1="8"  x2="52" y2="30" stroke="#00316c" stroke-width="1.5"/>
+            <line x1="10" y1="32" x2="32" y2="54" stroke="#00316c" stroke-width="1.5"/>
+            <line x1="30" y1="30" x2="54" y2="50" stroke="#00316c" stroke-width="1.5"/>
+            <!-- Nodes -->
+            <circle cx="8"  cy="12" r="2" fill="#00316c"/>
+            <circle cx="28" cy="8"  r="2" fill="#00316c"/>
+            <circle cx="48" cy="12" r="2" fill="#00316c"/>
+            <circle cx="10" cy="32" r="2" fill="#00316c"/>
+            <circle cx="30" cy="30" r="2" fill="#00316c"/>
+            <circle cx="52" cy="30" r="2" fill="#00316c"/>
+            <circle cx="12" cy="52" r="2" fill="#00316c"/>
+            <circle cx="32" cy="54" r="2" fill="#00316c"/>
+            <circle cx="54" cy="50" r="2" fill="#00316c"/>
+          </svg>
+        </div>
+        <span class="font-label text-base font-semibold text-on-surface leading-snug">Finite Element Analysis</span>
+      </a>
+
+    </div>
+  </div>
+</section>

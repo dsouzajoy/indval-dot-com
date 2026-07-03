@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import OffHighwayHero from '../../components/industries/off-highway/OffHighwayHero.astro';
+import OffHighwayWhatWeDo from '../../components/industries/off-highway/OffHighwayWhatWeDo.astro';
+import OffHighwayCTA from '../../components/industries/off-highway/OffHighwayCTA.astro';
+---
+
+<BaseLayout
+  title="Off Highway | Indvaltech Engineering Services"
+  description="Design and analysis support for construction, mining, and agricultural equipment manufacturers, built for the loads and duty cycles off highway machinery demands."
+  showSplash={false}
+  breadcrumbs={[{ name: 'Off Highway', href: '/industries/off-highway' }]}
+  ogImage="/images/off-highway-hero.jpg"
+>
+  <OffHighwayHero />
+  <OffHighwayWhatWeDo />
+  <OffHighwayCTA />
+</BaseLayout>

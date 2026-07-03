@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LocomotiveHero from '../../components/industries/locomotive/LocomotiveHero.astro';
+import LocomotiveWhatWeDo from '../../components/industries/locomotive/LocomotiveWhatWeDo.astro';
+import LocomotiveCTA from '../../components/industries/locomotive/LocomotiveCTA.astro';
+---
+
+<BaseLayout
+  title="Locomotive | Indvaltech Engineering Services"
+  description="Engineering support for rail and locomotive programmes, covering rolling stock structures, traction systems, and component design from concept through production."
+  showSplash={false}
+  breadcrumbs={[{ name: 'Locomotive', href: '/industries/locomotive' }]}
+  ogImage="/images/locomotive-hero.jpg"
+>
+  <LocomotiveHero />
+  <LocomotiveWhatWeDo />
+  <LocomotiveCTA />
+</BaseLayout>

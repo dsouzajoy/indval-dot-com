@@ -749,6 +749,42 @@ export const en = {
       heading: 'What We Do',
     },
   },
+  locomotive: {
+    hero: {
+      eyebrow: 'Industry Focus',
+      heading: 'Locomotive Engineering',
+      description: 'Engineering support for the assembly and manufacture of locomotives, covering tooling, fixtures, and component design from concept through production.',
+      cta: 'Explore What We Do',
+    },
+    whatWeDo: {
+      eyebrow: 'Our Capabilities',
+      heading: 'What We Do',
+    },
+  },
+  offHighway: {
+    hero: {
+      eyebrow: 'Industry Focus',
+      heading: 'Off Highway Engineering',
+      description: 'Design and analysis support for construction, mining, and agricultural equipment manufacturers, built for the loads and duty cycles off highway machinery demands.',
+      cta: 'Explore What We Do',
+    },
+    whatWeDo: {
+      eyebrow: 'Our Capabilities',
+      heading: 'What We Do',
+    },
+  },
+  general: {
+    hero: {
+      eyebrow: 'Industry Focus',
+      heading: 'General Engineering',
+      description: 'Multidisciplinary engineering support across industries, from product development through tooling and analysis, for teams that need a partner who can flex across programmes.',
+      cta: 'Explore What We Do',
+    },
+    whatWeDo: {
+      eyebrow: 'Our Capabilities',
+      heading: 'What We Do',
+    },
+  },
   businessModel: {
     hero: {
       eyebrow: 'Partnership & Business Model',

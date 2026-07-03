@@ -1,0 +1,159 @@
+---
+import { Image } from 'astro:assets';
+import { en } from '@/i18n/locales/en';
+import { withBase } from '@/lib/utils';
+import Button from '@/components/ui/Button.astro';
+
+import overviewImg from '@/assets/images/product-development/overview.jpg';
+import automotiveImg from '@/assets/images/product-development/automotive.jpg';
+import aerospaceImg from '@/assets/images/product-development/aerospace.jpg';
+import locomotiveImg from '@/assets/images/product-development/locomotive.jpg';
+import generalEngineeringImg from '@/assets/images/product-development/general-engineering.jpg';
+
+const sections = [
+  {
+    id: 'capabilities',
+    key: 'overview',
+    data: en.productDevelopment.overview,
+    image: overviewImg,
+    alt: 'Two engineers reviewing a technical drawing together in an engineering office',
+    imageSide: 'right' as const,
+    bg: 'bg-surface',
+  },
+  {
+    id: 'automotive',
+    key: 'automotive',
+    data: en.productDevelopment.automotive,
+    image: automotiveImg,
+    alt: 'Body-in-white vehicle shell on an automotive assembly line',
+    imageSide: 'right' as const,
+    bg: 'bg-surface-container-low',
+  },
+  {
+    id: 'aerospace',
+    key: 'aerospace',
+    data: en.productDevelopment.aerospace,
+    image: aerospaceImg,
+    alt: 'Widebody commercial aircraft on the airport tarmac',
+    imageSide: 'left' as const,
+    bg: 'bg-surface',
+  },
+  {
+    id: 'locomotive',
+    key: 'locomotive',
+    data: en.productDevelopment.locomotive,
+    image: locomotiveImg,
+    alt: 'Rail transport system in operation',
+    imageSide: 'right' as const,
+    bg: 'bg-surface-container-low',
+  },
+  {
+    id: 'general-engineering',
+    key: 'generalEngineering',
+    data: en.productDevelopment.generalEngineering,
+    image: generalEngineeringImg,
+    alt: 'Industrial equipment and machinery on a production floor',
+    imageSide: 'left' as const,
+    bg: 'bg-surface',
+  },
+];
+
+const whyChooseUsIcons = [
+  'engineering',
+  'route',
+  'precision_manufacturing',
+  'speed',
+  'verified',
+  'tune',
+];
+---
+
+{sections.map((section) => (
+  <section id={section.id} class={section.bg}>
+    <div class="max-w-7xl mx-auto px-8 lg:px-16 py-20 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div class:list={['space-y-6', section.imageSide === 'left' && 'lg:order-2']}>
+        <h2
+          class="font-headline text-3xl lg:text-4xl font-bold text-on-surface"
+          data-i18n={`productDevelopment.${section.key}.heading`}
+        >{section.data.heading}</h2>
+        <p
+          class="text-lg leading-relaxed text-on-surface-variant"
+          data-i18n={`productDevelopment.${section.key}.description`}
+        >{section.data.description}</p>
+        <ul class="space-y-4">
+          {section.data.items.map((item, j) => (
+            <li class="flex gap-3 items-start">
+              <span
+                class="material-symbols-outlined text-secondary shrink-0 text-xl leading-relaxed"
+                style="font-variation-settings: 'FILL' 1"
+                aria-hidden="true"
+              >check_circle</span>
+              <span
+                class="text-on-surface-variant leading-relaxed"
+                data-i18n={`productDevelopment.${section.key}.items.${j}`}
+              >{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class:list={['rounded overflow-hidden aspect-[4/3]', section.imageSide === 'left' && 'lg:order-1']}>
+        <Image
+          src={section.image}
+          alt={section.alt}
+          format="avif"
+          quality={100}
+          width={900}
+          height={675}
+          loading="lazy"
+          class="w-full h-full object-cover"
+        />
+      </div>
+    </div>
+  </section>
+))}
+
+<!-- WHY CHOOSE US -->
+<section class="relative bg-on-surface overflow-hidden">
+  <div class="absolute inset-0" style="background-image: radial-gradient(rgba(255,255,255,0.04) 1.5px, transparent 1.5px); background-size: 32px 32px;"></div>
+  <div class="absolute inset-0" style="background: linear-gradient(160deg, rgba(0,49,108,0.15) 0%, rgba(11,28,48,0.4) 100%);"></div>
+  <div class="relative max-w-7xl mx-auto px-8 lg:px-16 py-20">
+    <div class="mb-11">
+      <h2
+        class="font-headline text-3xl lg:text-4xl font-bold text-white"
+        data-i18n="productDevelopment.whyChooseUs.heading"
+      >{en.productDevelopment.whyChooseUs.heading}</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      {en.productDevelopment.whyChooseUs.items.map(({ title, description }, i) => (
+        <div class="flex flex-col gap-3 bg-white/5 border border-white/10 rounded p-6">
+          <span class="material-symbols-outlined text-secondary shrink-0" style="font-size: 32px; font-variation-settings: 'FILL' 1" aria-hidden="true">{whyChooseUsIcons[i]}</span>
+          <h3
+            class="text-base font-semibold text-white"
+            data-i18n={`productDevelopment.whyChooseUs.items.${i}.title`}
+          >{title}</h3>
+          <p
+            class="text-sm leading-relaxed text-white/70"
+            data-i18n={`productDevelopment.whyChooseUs.items.${i}.description`}
+          >{description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING CTA -->
+<section class="bg-on-surface py-20">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16 text-center">
+    <h2
+      class="font-headline text-3xl lg:text-4xl font-bold text-white mb-4"
+      data-i18n="productDevelopment.cta.heading"
+    >{en.productDevelopment.cta.heading}</h2>
+    <p
+      class="text-white/80 text-base mb-10 max-w-xl mx-auto leading-relaxed"
+      data-i18n="productDevelopment.cta.description"
+    >{en.productDevelopment.cta.description}</p>
+    <Button href={withBase('/contact#contact-form')} variant="secondary">
+      <span data-i18n="productDevelopment.cta.button">{en.productDevelopment.cta.button}</span>
+    </Button>
+  </div>
+</section>

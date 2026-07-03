@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProductDevelopmentHero from '../../components/capabilities/product-development/ProductDevelopmentHero.astro';
+import ProductDevelopmentCapabilities from '../../components/capabilities/product-development/ProductDevelopmentCapabilities.astro';
+---
+
+<BaseLayout
+  title="Product Development Services | Indvaltech"
+  description="End-to-end product development services across automotive, aerospace, locomotive, and general engineering, from concept and design through prototyping, validation, and manufacturing support."
+  ogImage="/images/hero-turbine.jpg"
+  showSplash={false}
+  breadcrumbs={[{ name: 'Product Development', href: '/capabilities/product-development' }]}
+>
+  <ProductDevelopmentHero />
+  <ProductDevelopmentCapabilities />
+</BaseLayout>

@@ -11,8 +11,8 @@ import { withBase } from '@/lib/utils';
 
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
 
-      <!-- Product Development (unclickable) -->
-      <div class="bg-white border border-outline-variant rounded-lg p-8 flex flex-col items-start gap-4">
+      <!-- Product Development -->
+      <a href={withBase('/capabilities/product-development#automotive')} class="bg-white border border-outline-variant rounded-lg p-8 flex flex-col items-start gap-4 hover:border-secondary btn-press-card cursor-pointer">
         <div class="w-16 h-16">
           <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <!-- Iterate / refresh arrows wrapping the gear -->
@@ -50,7 +50,7 @@ import { withBase } from '@/lib/utils';
           </svg>
         </div>
         <span class="font-label text-base font-semibold text-on-surface leading-snug">Product Development</span>
-      </div>
+      </a>
 
       <!-- BIW Turnkey Solutions -->
       <a href={withBase('/capabilities/biw-turnkey-solutions')} class="bg-white border border-outline-variant rounded-lg p-8 flex flex-col items-start gap-4 hover:border-secondary btn-press-card cursor-pointer">

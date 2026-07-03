@@ -233,7 +233,7 @@ const mobileIndustriesItems = [
               <li><a href={withBase('/capabilities/manufacturing#sheet-metal')} class="flex items-center pl-6 pr-3 py-2 rounded font-label text-sm uppercase tracking-wider text-on-surface-variant hover:text-secondary hover:bg-surface-container-low transition-colors duration-200">Sheet Metal</a></li>
               <li><a href={withBase('/capabilities/manufacturing#kitting-and-assemblies')} class="flex items-center pl-6 pr-3 py-2 rounded font-label text-sm uppercase tracking-wider text-on-surface-variant hover:text-secondary hover:bg-surface-container-low transition-colors duration-200">Kitting and Assemblies</a></li>
               <li><a href={withBase('/capabilities/manufacturing#assembly-tooling')} class="flex items-center pl-6 pr-3 py-2 rounded font-label text-sm uppercase tracking-wider text-on-surface-variant hover:text-secondary hover:bg-surface-container-low transition-colors duration-200">Assembly Tooling</a></li>
-              <li><a href={withBase('/capabilities/manufacturing#rapid-prototyping')} class="flex items-center pl-6 pr-3 py-2 rounded font-label text-sm uppercase tracking-wider text-on-surface-variant hover:text-secondary hover:bg-surface-container-low transition-colors duration-200">Rapid Prototyping</a></li>
+              <li><a href={withBase('/capabilities/rapid-prototyping')} class="flex items-center pl-6 pr-3 py-2 rounded font-label text-sm uppercase tracking-wider text-on-surface-variant hover:text-secondary hover:bg-surface-container-low transition-colors duration-200">Rapid Prototyping</a></li>
               <li>
                 <a href={withBase('/capabilities/reverse-engineering')} class="flex items-center pl-6 pr-3 py-2 rounded font-label text-sm uppercase tracking-wider text-on-surface-variant hover:text-secondary hover:bg-surface-container-low transition-colors duration-200" data-i18n="capabilities.reverseEngineering.heading">
                   {en.capabilities.reverseEngineering.heading}
@@ -264,7 +264,11 @@ const mobileIndustriesItems = [
                   {en.capabilities.mechanicalDesign.specialMachineDesign}
                 </a>
               </li>
-              <li><a href={withBase('/coming-soon')} class="flex items-center px-3 py-2 rounded font-label text-sm uppercase tracking-wider text-on-surface-variant hover:text-secondary hover:bg-surface-container-low transition-colors duration-200">Product Development</a></li>
+              <li>
+                <a href={withBase('/capabilities/product-development')} class="flex items-center px-3 py-2 rounded font-label text-sm uppercase tracking-wider text-on-surface-variant hover:text-secondary hover:bg-surface-container-low transition-colors duration-200" data-i18n="capabilities.mechanicalDesign.productDevelopment">
+                  {en.capabilities.mechanicalDesign.productDevelopment}
+                </a>
+              </li>
               <li>
                 <a href={withBase('/capabilities/technical-publication')} class="flex items-center px-3 py-2 rounded font-label text-sm uppercase tracking-wider text-on-surface-variant hover:text-secondary hover:bg-surface-container-low transition-colors duration-200" data-i18n="capabilities.technicalPublication.heading">
                   {en.capabilities.technicalPublication.heading}

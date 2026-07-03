@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import RapidPrototypingHero from '../../components/capabilities/rapid-prototyping/RapidPrototypingHero.astro';
+import RapidPrototypingContent from '../../components/capabilities/rapid-prototyping/RapidPrototypingContent.astro';
+---
+
+<BaseLayout
+  title="3D Printing & Rapid Prototyping Services | Indvaltech"
+  description="Additive manufacturing services that convert digital designs into precise physical components, covering prototype manufacturing, functional components, custom part production, complex geometries, and low-volume production."
+  showSplash={false}
+  breadcrumbs={[{ name: 'Rapid Prototyping', href: '/capabilities/rapid-prototyping' }]}
+>
+  <RapidPrototypingHero />
+  <RapidPrototypingContent />
+</BaseLayout>

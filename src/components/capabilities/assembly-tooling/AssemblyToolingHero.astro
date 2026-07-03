@@ -1,0 +1,126 @@
+---
+import { en } from '@/i18n/locales/en';
+import HeroImage from '@/components/ui/HeroImage.astro';
+import { getLQIP } from '@/lib/lqip';
+import heroImg from '@/assets/images/assembly-tooling/hero.png';
+
+const placeholder = await getLQIP('src/assets/images/assembly-tooling/hero.png');
+
+const base = 'inline-flex items-center justify-center gap-2 px-8 py-4 rounded font-label font-bold text-sm uppercase tracking-wider cursor-pointer';
+const secondary = 'bg-gradient-to-r from-secondary to-secondary/80 text-white btn-press';
+
+const industries = [
+  { key: 'automotive', label: en.assemblyTooling.industries.automotive },
+  { key: 'aerospace', label: en.assemblyTooling.industries.aerospace },
+  { key: 'industrial', label: en.assemblyTooling.industries.industrial },
+  { key: 'electronics', label: en.assemblyTooling.industries.electronics },
+  { key: 'consumer', label: en.assemblyTooling.industries.consumer },
+  { key: 'medical', label: en.assemblyTooling.industries.medical },
+  { key: 'heavy', label: en.assemblyTooling.industries.heavy },
+];
+---
+
+<section
+  class="relative min-h-screen flex items-center overflow-hidden"
+  aria-label="Assembly Tooling Manufacturing"
+>
+  <HeroImage src={heroImg} {placeholder} alt="Robotic arm performing precision assembly work on a metal automotive fixture" />
+  <div class="absolute inset-0 bg-gradient-to-r from-on-surface/85 via-on-surface/65 to-on-surface/20 z-10"></div>
+
+  <div class="container mx-auto px-8 lg:px-16 relative z-20 pt-24 pb-14">
+    <div class="max-w-3xl space-y-8">
+
+      <p
+        class="font-label text-sm font-bold uppercase tracking-widest text-secondary"
+        data-i18n="assemblyTooling.hero.eyebrow"
+      >{en.assemblyTooling.hero.eyebrow}</p>
+
+      <h1
+        class="font-headline text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tighter text-white leading-tight text-balance"
+        data-i18n="assemblyTooling.hero.heading"
+      >{en.assemblyTooling.hero.heading}</h1>
+
+      <p
+        class="text-lg text-white/90 font-light leading-relaxed border-l-4 border-secondary pl-8 max-w-2xl"
+        data-i18n="assemblyTooling.hero.description"
+      >{en.assemblyTooling.hero.description}</p>
+
+      <div class="pt-2">
+        <a
+          href="#capabilities"
+          id="at-hero-cta"
+          class={`${base} ${secondary}`}
+          data-i18n="assemblyTooling.hero.cta"
+        >
+          {en.assemblyTooling.hero.cta}
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Industries served strip — infinite marquee, spans the full content width -->
+    <div class="mt-14 lg:mt-20 border-t border-white/15 pt-6">
+      <p
+        class="font-label text-xs font-bold uppercase tracking-widest text-white/50 mb-4"
+        data-i18n="assemblyTooling.hero.industriesLabel"
+      >{en.assemblyTooling.hero.industriesLabel}</p>
+
+      <div class="at-marquee-viewport relative overflow-hidden">
+        <div class="at-marquee-track flex w-max">
+          <ul class="flex shrink-0">
+            {industries.map(({ key, label }, i) => (
+              <li
+                class={`font-label text-sm uppercase tracking-wide whitespace-nowrap text-white/75 pr-6 ${i === 0 ? '' : 'pl-6 border-l border-white/25'}`}
+                data-i18n={`assemblyTooling.industries.${key}`}
+              >{label}</li>
+            ))}
+          </ul>
+          <ul class="flex shrink-0" aria-hidden="true">
+            {industries.map(({ key, label }) => (
+              <li
+                class="font-label text-sm uppercase tracking-wide whitespace-nowrap text-white/75 pr-6 pl-6 border-l border-white/25"
+                data-i18n={`assemblyTooling.industries.${key}`}
+              >{label}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  @keyframes at-industries-marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .at-marquee-track {
+    animation: at-industries-marquee 32s linear infinite;
+  }
+  .at-marquee-track:hover {
+    animation-play-state: paused;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .at-marquee-track {
+      animation: none;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+    .at-marquee-track > ul:nth-child(2) {
+      display: none;
+    }
+    .at-marquee-track > ul {
+      flex-wrap: wrap;
+    }
+  }
+</style>
+
+<script>
+  document.getElementById('at-hero-cta')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    document.getElementById('capabilities')?.scrollIntoView({ behavior: 'smooth' });
+  });
+</script>

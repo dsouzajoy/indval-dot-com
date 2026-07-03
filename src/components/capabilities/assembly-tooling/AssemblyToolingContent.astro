@@ -1,0 +1,195 @@
+---
+import { Image } from 'astro:assets';
+import { en } from '@/i18n/locales/en';
+import { withBase } from '@/lib/utils';
+import CapabilityCard from '@/components/ui/CapabilityCard.astro';
+
+import introImg from '@/assets/images/assembly-tooling/intro.png';
+import fixturesImg from '@/assets/images/assembly-tooling/fixtures.png';
+import jigsGaugesImg from '@/assets/images/assembly-tooling/jigs-gauges.png';
+import workHoldingImg from '@/assets/images/assembly-tooling/work-holding.png';
+import pneumaticManualImg from '@/assets/images/assembly-tooling/pneumatic-manual.png';
+import productionLineImg from '@/assets/images/assembly-tooling/production-line.png';
+
+const at = en.assemblyTooling;
+
+const capabilities = [
+  { key: 'fixtures', icon: 'build_circle', image: fixturesImg, data: at.capabilities.fixtures },
+  { key: 'jigsGauges', icon: 'straighten', image: jigsGaugesImg, data: at.capabilities.jigsGauges },
+  { key: 'workHolding', icon: 'precision_manufacturing', image: workHoldingImg, data: at.capabilities.workHolding },
+  { key: 'pneumaticManual', icon: 'handyman', image: pneumaticManualImg, data: at.capabilities.pneumaticManual },
+  { key: 'productionLine', icon: 'conveyor_belt', image: productionLineImg, data: at.capabilities.productionLine },
+];
+
+const steps = [
+  { key: 'design', num: '01', data: at.process.design },
+  { key: 'material', num: '02', data: at.process.material },
+  { key: 'precision', num: '03', data: at.process.precision },
+  { key: 'assembly', num: '04', data: at.process.assembly },
+  { key: 'inspection', num: '05', data: at.process.inspection },
+];
+
+const whyUs = [
+  { key: 'expertise', icon: 'engineering', label: at.whyUs.expertise },
+  { key: 'precisionEngineered', icon: 'precision_manufacturing', label: at.whyUs.precisionEngineered },
+  { key: 'repeatability', icon: 'repeat', label: at.whyUs.repeatability },
+  { key: 'reducedCost', icon: 'savings', label: at.whyUs.reducedCost },
+  { key: 'materials', icon: 'verified', label: at.whyUs.materials },
+  { key: 'endToEnd', icon: 'route', label: at.whyUs.endToEnd },
+];
+---
+
+<!-- INTRO -->
+<section class="bg-surface">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16 py-20 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <div>
+      <p
+        class="font-label font-bold text-sm uppercase tracking-widest text-secondary"
+        data-i18n="assemblyTooling.intro.eyebrow"
+      >{at.intro.eyebrow}</p>
+      <h2
+        class="mt-2 text-3xl lg:text-4xl font-bold leading-tight tracking-tight text-primary text-balance"
+        data-i18n="assemblyTooling.intro.heading"
+      >{at.intro.heading}</h2>
+      <p
+        class="mt-6 text-lg leading-relaxed text-on-surface-variant"
+        data-i18n="assemblyTooling.intro.para1"
+      >{at.intro.para1}</p>
+      <p
+        class="mt-5 text-lg leading-relaxed text-on-surface-variant"
+        data-i18n="assemblyTooling.intro.para2"
+      >{at.intro.para2}</p>
+    </div>
+    <div class="rounded overflow-hidden shadow-lg aspect-[4/3]">
+      <Image
+        src={introImg}
+        alt="Precision-machined assembly fixture with clamps and inspection gauge blocks"
+        format="avif"
+        quality={100}
+        width={800}
+        height={600}
+        loading="lazy"
+        class="w-full h-full object-cover"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- CAPABILITIES -->
+<section id="capabilities" class="bg-surface py-24 lg:py-30" style="background-image: radial-gradient(circle, rgba(195,198,211,0.8) 1px, transparent 1px); background-size: 40px 40px;">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+      <div>
+        <p
+          class="font-label text-sm uppercase tracking-widest text-secondary mb-3"
+          data-i18n="assemblyTooling.capabilities.eyebrow"
+        >{at.capabilities.eyebrow}</p>
+        <h2
+          class="font-headline text-4xl lg:text-5xl font-bold text-on-surface"
+          data-i18n="assemblyTooling.capabilities.heading"
+        >{at.capabilities.heading}</h2>
+      </div>
+      <p
+        class="text-sm text-on-surface-variant font-label max-w-xs md:text-right shrink-0 leading-relaxed"
+        data-i18n="assemblyTooling.capabilities.intro"
+      >{at.capabilities.intro}</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {capabilities.map((cap) => (
+        <CapabilityCard
+          image={cap.image}
+          icon={cap.icon}
+          label={cap.data.label}
+          description={cap.data.description}
+          labelKey={`assemblyTooling.capabilities.${cap.key}.label`}
+          descriptionKey={`assemblyTooling.capabilities.${cap.key}.description`}
+        />
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="bg-surface-container-low py-24">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+    <div class="mb-14 max-w-2xl">
+      <p
+        class="font-label font-bold text-sm uppercase tracking-widest text-secondary"
+        data-i18n="assemblyTooling.process.eyebrow"
+      >{at.process.eyebrow}</p>
+      <h2
+        class="mt-2 text-3xl lg:text-4xl font-bold tracking-tight text-primary"
+        data-i18n="assemblyTooling.process.heading"
+      >{at.process.heading}</h2>
+    </div>
+
+    <ol class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
+      {steps.map(({ key, num, data }) => (
+        <li class="flex gap-5">
+          <span class="font-headline text-4xl font-black leading-none tabular-nums text-secondary/90 shrink-0 pt-1">{num}</span>
+          <div>
+            <h3
+              class="text-lg font-bold tracking-tight text-on-surface"
+              data-i18n={`assemblyTooling.process.${key}.title`}
+            >{data.title}</h3>
+            <p
+              class="mt-2 text-sm leading-relaxed text-on-surface-variant"
+              data-i18n={`assemblyTooling.process.${key}.description`}
+            >{data.description}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="relative bg-on-surface overflow-hidden">
+  <div class="absolute inset-0" style="background-image: radial-gradient(rgba(255,255,255,0.04) 1.5px, transparent 1.5px); background-size: 32px 32px;"></div>
+  <div class="absolute inset-0" style="background: linear-gradient(160deg, rgba(0,49,108,0.15) 0%, rgba(11,28,48,0.4) 100%);"></div>
+  <div class="relative max-w-7xl mx-auto px-8 lg:px-16 py-20">
+    <div class="mb-11 max-w-2xl">
+      <p
+        class="font-label font-bold text-sm uppercase tracking-widest text-secondary"
+        data-i18n="assemblyTooling.whyUs.eyebrow"
+      >{at.whyUs.eyebrow}</p>
+      <h2
+        class="mt-2 text-3xl lg:text-4xl font-bold tracking-tight text-white"
+        data-i18n="assemblyTooling.whyUs.heading"
+      >{at.whyUs.heading}</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      {whyUs.map(({ key, icon, label }) => (
+        <div class="flex items-start gap-4 bg-white/5 border border-white/10 rounded p-6">
+          <span class="material-symbols-outlined text-secondary shrink-0" style="font-size: 28px; font-variation-settings: 'FILL' 1">{icon}</span>
+          <p
+            class="text-base font-semibold text-white leading-snug"
+            data-i18n={`assemblyTooling.whyUs.${key}`}
+          >{label}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- GET IN TOUCH -->
+<section class="bg-on-surface py-20 border-t border-white/10">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16 text-center">
+    <h2
+      class="font-headline text-3xl lg:text-4xl font-bold text-white mb-4 max-w-3xl mx-auto text-balance"
+      data-i18n="assemblyTooling.cta.heading"
+    >{at.cta.heading}</h2>
+    <p
+      class="text-white/80 text-base mb-10 max-w-2xl mx-auto leading-relaxed"
+      data-i18n="assemblyTooling.cta.body"
+    >{at.cta.body}</p>
+    <a
+      href={withBase('/contact#contact-form')}
+      class="inline-flex items-center justify-center gap-2 bg-secondary text-white px-8 py-4 rounded font-label text-sm font-bold uppercase tracking-wider cursor-pointer hover:bg-secondary/90 btn-press"
+      data-i18n="assemblyTooling.cta.button"
+    >{at.cta.button}</a>
+  </div>
+</section>

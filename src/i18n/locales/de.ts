@@ -695,4 +695,92 @@ export const de = {
       cta: 'Explore Solutions',
     },
   },
+  assemblyTooling: {
+    hero: {
+      eyebrow: 'Fertigung von Montagewerkzeugen',
+      heading: 'Präzisionswerkzeuge für die moderne Fertigung',
+      description: 'Effiziente Fertigung hängt von zuverlässigen, präzisen Werkzeugen ab. Wir entwickeln und fertigen kundenspezifische Montagewerkzeuge, die die Produktionseffizienz steigern, Wiederholgenauigkeit sicherstellen und in jeder Montagephase eine gleichbleibende Produktqualität gewährleisten.',
+      cta: 'Montagewerkzeuge entdecken',
+      industriesLabel: 'Branchen, die wir bedienen',
+    },
+    industries: {
+      automotive: 'Automobilfertigung',
+      aerospace: 'Luft- und Raumfahrt und Verteidigung',
+      industrial: 'Industrieanlagen',
+      electronics: 'Elektronik- und Elektromontage',
+      consumer: 'Konsumgüter',
+      medical: 'Medizinprodukte',
+      heavy: 'Schwermaschinenbau',
+    },
+    intro: {
+      eyebrow: 'Die Kompetenz',
+      heading: 'Kundenspezifische Werkzeuge für die Großserienfertigung',
+      para1: 'Effiziente Fertigung hängt von zuverlässigen und präzisen Werkzeugen ab. Wir sind auf die Konstruktion und Fertigung kundenspezifischer Montagewerkzeuge spezialisiert, die die Produktionseffizienz verbessern, Wiederholgenauigkeit sicherstellen und in jeder Montagephase eine gleichbleibende Produktqualität wahren.',
+      para2: 'Unsere Werkzeuglösungen sind auf die Anforderungen der Großserienfertigung ausgelegt und helfen Herstellern, Taktzeiten zu verkürzen, Fehler zu minimieren und eine höhere Prozessstabilität zu erreichen.',
+    },
+    capabilities: {
+      eyebrow: 'Kernkompetenzen',
+      heading: 'Unsere Fertigungskompetenzen',
+      intro: 'Werkzeuge für präzise Positionierung, wiederholbare Leistung und lange Lebensdauer in jeder Montagephase.',
+      fixtures: {
+        label: 'Kundenspezifische Montagevorrichtungen',
+        description: 'Wir konstruieren und fertigen Montagevorrichtungen, die auf bestimmte Bauteile und Produktionsanforderungen zugeschnitten sind. Unsere Vorrichtungen sorgen für präzise Positionierung und Ausrichtung und ermöglichen dem Bedienpersonal eine genaue und gleichbleibende Montage.',
+      },
+      jigsGauges: {
+        label: 'Präzisionslehren und -vorrichtungen',
+        description: 'Unsere Präzisionslehren und -vorrichtungen sind darauf ausgelegt, Montagevorgänge zu vereinfachen, die Maßgenauigkeit zu verbessern und die Qualitätskontrolle zu unterstützen. Jedes Werkzeug wird für eine wiederholbare Leistung unter anspruchsvollen Produktionsbedingungen gefertigt.',
+      },
+      workHolding: {
+        label: 'Werkstückspannlösungen',
+        description: 'Wir entwickeln robuste Spannsysteme, die Bauteile während der Montage sicher aufnehmen und abstützen. Für Zuverlässigkeit und einfache Bedienung ausgelegt, steigern unsere Lösungen die Effizienz des Bedienpersonals und reduzieren Produktionsstillstände.',
+      },
+      pneumaticManual: {
+        label: 'Pneumatische und manuelle Montagewerkzeuge',
+        description: 'Wir fertigen sowohl manuelle als auch pneumatische Werkzeugsysteme, die die Produktivität steigern und die Ermüdung des Bedienpersonals verringern. Diese Lösungen sind auf Ergonomie und Prozesseffizienz ausgelegt und gewährleisten reibungslose und zuverlässige Montageabläufe.',
+      },
+      productionLine: {
+        label: 'Produktions- und Linienwerkzeuge',
+        description: 'Vom Prototypenbau bis zur vollständigen Serienfertigung fertigen wir Montagewerkzeuge, die sich nahtlos in bestehende Fertigungsprozesse integrieren. Unsere Werkzeuge sind auf Langlebigkeit, Wartbarkeit und lange Lebensdauer ausgelegt.',
+      },
+    },
+    process: {
+      eyebrow: 'Unsere Vorgehensweise',
+      heading: 'Unser Fertigungsprozess',
+      design: {
+        title: 'Konstruktion und Entwicklung',
+        description: 'Jedes Projekt beginnt mit einem detaillierten Verständnis des Produkts, der Montagereihenfolge und der Produktionsanforderungen. Unser Entwicklungsteam erarbeitet Werkzeugkonzepte mit Fokus auf Fertigbarkeit, Präzision und betriebliche Effizienz.',
+      },
+      material: {
+        title: 'Materialauswahl',
+        description: 'Wir wählen Materialien anhand der Anwendungsanforderungen aus und berücksichtigen dabei Verschleißfestigkeit, Festigkeit, Maßhaltigkeit und die Produktionsumgebung. Dies gewährleistet eine langlebige Werkzeugleistung und einen geringeren Wartungsaufwand.',
+      },
+      precision: {
+        title: 'Präzisionsfertigung',
+        description: 'Mit fortschrittlichen Zerspanungs- und Fertigungsverfahren fertigen wir Werkzeugkomponenten mit engen Toleranzen und exakten Spezifikationen. Jede Komponente wird mit hohem Anspruch an Genauigkeit, Gleichmäßigkeit und Qualität hergestellt.',
+      },
+      assembly: {
+        title: 'Montage und Integration',
+        description: 'Werkzeugsysteme werden montiert, geprüft und feinabgestimmt, um eine einwandfreie Funktion und nahtlose Integration in die Produktionsumgebung sicherzustellen.',
+      },
+      inspection: {
+        title: 'Prüfung und Validierung',
+        description: 'Jede Werkzeuglösung durchläuft vor der Auslieferung eine strenge Prüfung und funktionale Validierung, um Maßgenauigkeit, Wiederholgenauigkeit und Leistung zu bestätigen.',
+      },
+    },
+    whyUs: {
+      eyebrow: 'Warum wir',
+      heading: 'Warum Hersteller sich für uns entscheiden',
+      expertise: 'Kompetenz in der Fertigung kundenspezifischer Montagewerkzeuge',
+      precisionEngineered: 'Präzisionsgefertigte Lösungen für die Großserienfertigung',
+      repeatability: 'Fokus auf Wiederholgenauigkeit und Prozesssicherheit',
+      reducedCost: 'Kürzere Montagezeiten und geringere Produktionskosten',
+      materials: 'Hochwertige Materialien und robuste Konstruktion',
+      endToEnd: 'Durchgängige Unterstützung von der Konstruktion bis zur Umsetzung',
+    },
+    cta: {
+      heading: 'Fertigungsexzellenz durch Präzisionswerkzeuge',
+      body: 'Wir arbeiten partnerschaftlich mit Herstellern zusammen, um Montagewerkzeuge zu liefern, die die Produktivität steigern, die Qualität verbessern und eine effiziente, skalierbare Produktion unterstützen. Durch die Verbindung von Entwicklungskompetenz und Präzisionsfertigung helfen wir Unternehmen, zuverlässige und kosteneffiziente Montageabläufe zu erreichen.',
+      button: 'Kontakt aufnehmen',
+    },
+  },
 } satisfies Translations;

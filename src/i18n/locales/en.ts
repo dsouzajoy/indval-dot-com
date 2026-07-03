@@ -996,6 +996,94 @@ export const en = {
       cta: 'Explore Solutions',
     },
   },
+  assemblyTooling: {
+    hero: {
+      eyebrow: 'Assembly Tooling Manufacturing',
+      heading: 'Precision Tooling Engineered for Modern Manufacturing',
+      description: 'We design and build custom assembly tools that lift production efficiency, ensure repeatability, and hold consistent product quality at every stage of assembly.',
+      cta: 'Explore Assembly Tooling',
+      industriesLabel: 'Industries We Serve',
+    },
+    industries: {
+      automotive: 'Automotive Manufacturing',
+      aerospace: 'Aerospace and Defense',
+      industrial: 'Industrial Equipment',
+      electronics: 'Electronics and Electrical Assembly',
+      consumer: 'Consumer Products',
+      medical: 'Medical Devices',
+      heavy: 'Heavy Engineering and Machinery',
+    },
+    intro: {
+      eyebrow: 'The Capability',
+      heading: 'Custom Tooling Built for High-Volume Production',
+      para1: 'Efficient manufacturing depends on reliable and accurate tooling. We specialize in the design and manufacturing of custom assembly tools that improve production efficiency, ensure repeatability, and maintain consistent product quality across every stage of assembly.',
+      para2: 'Our tooling solutions are developed to meet the demands of high-volume production environments, helping manufacturers reduce cycle times, minimize errors, and achieve greater process stability.',
+    },
+    capabilities: {
+      eyebrow: 'Core Competencies',
+      heading: 'Our Manufacturing Capabilities',
+      intro: 'Tooling engineered for precise positioning, repeatable performance, and long service life across every stage of assembly.',
+      fixtures: {
+        label: 'Custom Assembly Fixtures',
+        description: 'We design and manufacture assembly fixtures tailored to specific components and production requirements. Our fixtures ensure precise positioning and alignment, enabling operators to assemble parts accurately and consistently.',
+      },
+      jigsGauges: {
+        label: 'Precision Jigs and Gauges',
+        description: 'Our precision jigs and gauges are engineered to simplify assembly operations, improve dimensional accuracy, and support quality control. Each tool is manufactured to deliver repeatable performance under demanding production conditions.',
+      },
+      workHolding: {
+        label: 'Work Holding Solutions',
+        description: 'We develop robust work holding systems that securely locate and support components during assembly. Designed for reliability and ease of use, our solutions improve operator efficiency and reduce production downtime.',
+      },
+      pneumaticManual: {
+        label: 'Pneumatic and Manual Assembly Tools',
+        description: 'We manufacture both manual and pneumatic tooling systems that enhance productivity and reduce operator fatigue. These solutions are designed with ergonomics and process efficiency in mind, ensuring smooth and reliable assembly operations.',
+      },
+      productionLine: {
+        label: 'Production and Line Tooling',
+        description: 'From prototype builds to full-scale production lines, we manufacture assembly tooling that integrates seamlessly into existing manufacturing processes. Our tools are designed for durability, maintainability, and long service life.',
+      },
+    },
+    process: {
+      eyebrow: 'How We Work',
+      heading: 'Our Manufacturing Process',
+      design: {
+        title: 'Design and Engineering',
+        description: 'Every project begins with a detailed understanding of the product, assembly sequence, and production requirements. Our engineering team develops tooling concepts focused on manufacturability, precision, and operational efficiency.',
+      },
+      material: {
+        title: 'Material Selection',
+        description: 'We select materials based on application requirements, weighing wear resistance, strength, dimensional stability, and the production environment. This ensures long-lasting tooling performance and reduced maintenance.',
+      },
+      precision: {
+        title: 'Precision Manufacturing',
+        description: 'Using advanced machining and fabrication processes, we manufacture tooling components to tight tolerances and exact specifications. Each component is produced with a strong emphasis on accuracy, consistency, and quality.',
+      },
+      assembly: {
+        title: 'Assembly and Integration',
+        description: 'Tooling systems are assembled, tested, and fine-tuned to ensure proper functionality and seamless integration into production environments.',
+      },
+      inspection: {
+        title: 'Inspection and Validation',
+        description: 'Every tooling solution undergoes rigorous inspection and functional validation to verify dimensional accuracy, repeatability, and performance before delivery.',
+      },
+    },
+    whyUs: {
+      eyebrow: 'Why Choose Us',
+      heading: 'Why Manufacturers Choose Us',
+      expertise: 'Expertise in custom assembly tooling manufacturing',
+      precisionEngineered: 'Precision-engineered solutions for high-volume production',
+      repeatability: 'Focus on repeatability and process reliability',
+      reducedCost: 'Reduced assembly time and production costs',
+      materials: 'High-quality materials and robust construction',
+      endToEnd: 'End-to-end support from design to implementation',
+    },
+    cta: {
+      heading: 'Driving Manufacturing Excellence Through Precision Tooling',
+      body: 'We partner with manufacturers to deliver assembly tooling that enhances productivity, improves quality, and supports efficient, scalable production. By combining engineering expertise with precision manufacturing, we help businesses achieve reliable and cost-effective assembly operations.',
+      button: 'Get In Touch',
+    },
+  },
   legal: {
     footer: {
       privacy: 'Privacy Policy',

@@ -10,9 +10,12 @@ interface Props {
   description: string;
   href?: string;
   id?: string;
+  /** i18n key paths — when set, the runtime swaps these nodes on locale change. */
+  labelKey?: string;
+  descriptionKey?: string;
 }
 
-const { image, label, icon, description, href, id } = Astro.props;
+const { image, label, icon, description, href, id, labelKey, descriptionKey } = Astro.props;
 const Tag = href ? 'a' : 'div';
 ---
 
@@ -40,10 +43,10 @@ const Tag = href ? 'a' : 'div';
     />
   </div>
   <div class="p-8 flex flex-col flex-grow">
-    <div class="flex items-center justify-between mb-3">
-      <h3 class="font-headline font-bold text-xl text-on-surface">{label}</h3>
+    <div class="flex items-center justify-between gap-4 mb-3">
+      <h3 class="font-headline font-bold text-xl text-on-surface" data-i18n={labelKey}>{label}</h3>
       <span class="material-symbols-outlined text-primary text-4xl shrink-0" aria-hidden="true">{icon}</span>
     </div>
-    <p class="text-on-surface-variant leading-relaxed text-sm flex-grow">{description}</p>
+    <p class="text-on-surface-variant leading-relaxed text-sm flex-grow" data-i18n={descriptionKey}>{description}</p>
   </div>
 </Tag>

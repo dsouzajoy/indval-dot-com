@@ -695,4 +695,92 @@ export const pl = {
       cta: 'Explore Solutions',
     },
   },
+  assemblyTooling: {
+    hero: {
+      eyebrow: 'Produkcja oprzyrządowania montażowego',
+      heading: 'Precyzyjne oprzyrządowanie dla nowoczesnej produkcji',
+      description: 'Wydajna produkcja zależy od niezawodnego i dokładnego oprzyrządowania. Projektujemy i wytwarzamy niestandardowe narzędzia montażowe, które zwiększają wydajność produkcji, zapewniają powtarzalność i utrzymują stałą jakość wyrobów na każdym etapie montażu.',
+      cta: 'Poznaj oprzyrządowanie montażowe',
+      industriesLabel: 'Branże, które obsługujemy',
+    },
+    industries: {
+      automotive: 'Produkcja motoryzacyjna',
+      aerospace: 'Lotnictwo i obronność',
+      industrial: 'Urządzenia przemysłowe',
+      electronics: 'Montaż elektroniki i podzespołów elektrycznych',
+      consumer: 'Produkty konsumenckie',
+      medical: 'Wyroby medyczne',
+      heavy: 'Ciężka inżynieria i maszyny',
+    },
+    intro: {
+      eyebrow: 'Kompetencja',
+      heading: 'Niestandardowe oprzyrządowanie do produkcji wielkoseryjnej',
+      para1: 'Wydajna produkcja zależy od niezawodnego i dokładnego oprzyrządowania. Specjalizujemy się w projektowaniu i produkcji niestandardowych narzędzi montażowych, które poprawiają wydajność produkcji, zapewniają powtarzalność i utrzymują stałą jakość wyrobów na każdym etapie montażu.',
+      para2: 'Nasze rozwiązania w zakresie oprzyrządowania są opracowywane z myślą o wymaganiach produkcji wielkoseryjnej, pomagając producentom skracać czasy cyklu, minimalizować błędy i osiągać większą stabilność procesów.',
+    },
+    capabilities: {
+      eyebrow: 'Kluczowe kompetencje',
+      heading: 'Nasze możliwości produkcyjne',
+      intro: 'Oprzyrządowanie zapewniające precyzyjne pozycjonowanie, powtarzalne działanie i długą żywotność na każdym etapie montażu.',
+      fixtures: {
+        label: 'Niestandardowe przyrządy montażowe',
+        description: 'Projektujemy i wytwarzamy przyrządy montażowe dostosowane do konkretnych komponentów i wymagań produkcyjnych. Nasze przyrządy zapewniają precyzyjne pozycjonowanie i wyrównanie, umożliwiając operatorom dokładny i powtarzalny montaż części.',
+      },
+      jigsGauges: {
+        label: 'Precyzyjne przyrządy i sprawdziany',
+        description: 'Nasze precyzyjne przyrządy i sprawdziany są zaprojektowane tak, aby upraszczać operacje montażowe, poprawiać dokładność wymiarową i wspierać kontrolę jakości. Każde narzędzie jest wytwarzane w celu zapewnienia powtarzalnego działania w wymagających warunkach produkcyjnych.',
+      },
+      workHolding: {
+        label: 'Rozwiązania mocujące',
+        description: 'Opracowujemy solidne systemy mocowania, które bezpiecznie ustalają i podpierają komponenty podczas montażu. Zaprojektowane z myślą o niezawodności i łatwości obsługi, nasze rozwiązania zwiększają efektywność operatorów i ograniczają przestoje produkcyjne.',
+      },
+      pneumaticManual: {
+        label: 'Pneumatyczne i ręczne narzędzia montażowe',
+        description: 'Wytwarzamy zarówno ręczne, jak i pneumatyczne systemy narzędziowe, które zwiększają produktywność i zmniejszają zmęczenie operatorów. Rozwiązania te są projektowane z uwzględnieniem ergonomii i efektywności procesu, zapewniając płynny i niezawodny przebieg montażu.',
+      },
+      productionLine: {
+        label: 'Oprzyrządowanie produkcyjne i liniowe',
+        description: 'Od budowy prototypów po pełnoskalowe linie produkcyjne wytwarzamy oprzyrządowanie montażowe, które bezproblemowo integruje się z istniejącymi procesami produkcyjnymi. Nasze narzędzia są projektowane z myślą o trwałości, łatwości utrzymania i długiej żywotności.',
+      },
+    },
+    process: {
+      eyebrow: 'Jak pracujemy',
+      heading: 'Nasz proces produkcyjny',
+      design: {
+        title: 'Projektowanie i inżynieria',
+        description: 'Każdy projekt rozpoczyna się od szczegółowego poznania produktu, sekwencji montażu i wymagań produkcyjnych. Nasz zespół inżynierski opracowuje koncepcje oprzyrządowania skoncentrowane na wytwarzalności, precyzji i efektywności operacyjnej.',
+      },
+      material: {
+        title: 'Dobór materiałów',
+        description: 'Materiały dobieramy na podstawie wymagań aplikacji, uwzględniając odporność na zużycie, wytrzymałość, stabilność wymiarową i środowisko produkcyjne. Zapewnia to długotrwałe działanie oprzyrządowania i ograniczenie potrzeb konserwacyjnych.',
+      },
+      precision: {
+        title: 'Precyzyjna produkcja',
+        description: 'Wykorzystując zaawansowane procesy obróbki i wytwarzania, produkujemy komponenty oprzyrządowania z zachowaniem wąskich tolerancji i dokładnych specyfikacji. Każdy komponent powstaje z silnym naciskiem na dokładność, spójność i jakość.',
+      },
+      assembly: {
+        title: 'Montaż i integracja',
+        description: 'Systemy oprzyrządowania są montowane, testowane i dostrajane, aby zapewnić prawidłowe działanie i bezproblemową integrację ze środowiskiem produkcyjnym.',
+      },
+      inspection: {
+        title: 'Kontrola i walidacja',
+        description: 'Każde rozwiązanie oprzyrządowania przechodzi przed dostawą rygorystyczną kontrolę i walidację funkcjonalną w celu potwierdzenia dokładności wymiarowej, powtarzalności i wydajności.',
+      },
+    },
+    whyUs: {
+      eyebrow: 'Dlaczego my',
+      heading: 'Dlaczego producenci wybierają nas',
+      expertise: 'Doświadczenie w produkcji niestandardowego oprzyrządowania montażowego',
+      precisionEngineered: 'Precyzyjnie zaprojektowane rozwiązania do produkcji wielkoseryjnej',
+      repeatability: 'Nacisk na powtarzalność i niezawodność procesu',
+      reducedCost: 'Skrócony czas montażu i niższe koszty produkcji',
+      materials: 'Wysokiej jakości materiały i solidna konstrukcja',
+      endToEnd: 'Kompleksowe wsparcie od projektu po wdrożenie',
+    },
+    cta: {
+      heading: 'Doskonałość produkcji dzięki precyzyjnemu oprzyrządowaniu',
+      body: 'Współpracujemy z producentami, dostarczając oprzyrządowanie montażowe, które zwiększa produktywność, poprawia jakość i wspiera wydajną, skalowalną produkcję. Łącząc wiedzę inżynierską z precyzyjną produkcją, pomagamy firmom osiągać niezawodne i opłacalne procesy montażowe.',
+      button: 'Skontaktuj się',
+    },
+  },
 } satisfies Translations;

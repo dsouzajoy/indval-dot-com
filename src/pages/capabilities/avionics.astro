@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AvionicsHero from '../../components/capabilities/avionics/AvionicsHero.astro';
+import AvionicsContent from '../../components/capabilities/avionics/AvionicsContent.astro';
+---
+
+<BaseLayout
+  title="Avionics Engineering Services | Indvaltech"
+  description="Advanced avionics engineering services covering systems engineering, flight control, CNS, cockpit and display systems, embedded software, electrical systems, and DO-178C verification and certification support for commercial, defense, UAS, and advanced air mobility programs."
+  showSplash={false}
+  breadcrumbs={[{ name: 'Avionics', href: '/capabilities/avionics' }]}
+>
+  <AvionicsHero />
+  <AvionicsContent />
+</BaseLayout>

@@ -48,10 +48,26 @@ const items = [
 ] as const;
 
 const imageTiles = [
-  { key: "plugDesign", source: plugDesignRaw, label: "plug design" },
-  { key: "mouldDesign", source: mouldDesignRaw, label: "mould design" },
-  { key: "jigsFixtures", source: jigsRaw, label: "jigs and fixtures" },
-  { key: "frpTooling", source: frpRaw, label: "FRP solutions" },
+  {
+    key: "plugDesign",
+    source: plugDesignRaw,
+    label: "Precision-machined composite tooling plug",
+  },
+  {
+    key: "mouldDesign",
+    source: mouldDesignRaw,
+    label: "Composite mould tooled from the finished plug",
+  },
+  {
+    key: "jigsFixtures",
+    source: jigsRaw,
+    label: "Jigs and fixtures used in composite assembly",
+  },
+  {
+    key: "frpTooling",
+    source: frpRaw,
+    label: "FRP tooling solution ready for production",
+  },
 ] as const;
 ---
 
@@ -125,12 +141,11 @@ const imageTiles = [
       </ul>
     </div>
 
-    <!-- RIGHT: 2x2 image grid (placeholders until real photography is supplied) -->
     <!-- RIGHT: 2x2 image grid -->
     <div class="grid grid-cols-2 gap-4 lg:sticky lg:top-24">
       {
         imageTiles.map((tile) => (
-          <div class="aspect-square rounded overflow-hidden border border-outline-variant">
+          <div class="relative aspect-square rounded overflow-hidden border border-outline-variant">
             <Image
               format="avif"
               src={tile.source}
@@ -139,6 +154,14 @@ const imageTiles = [
               widths={[400, 800]}
               sizes="(min-width: 1024px) 25vw, 50vw"
             />
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-on-surface/85 to-transparent pt-8 pb-3 px-3">
+              <p
+                class="font-label text-sm font-bold text-white text-center leading-snug"
+                data-i18n={`compositeDesign.capabilities.images.${tile.key}`}
+              >
+                {cap.images[tile.key]}
+              </p>
+            </div>
           </div>
         ))
       }

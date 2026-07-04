@@ -141,6 +141,7 @@ export const en = {
     electricalHarnessDesign: { heading: 'Electrical Harness Design' },
     mroServices: { heading: 'MRO Services' },
     cabinInterior: { heading: 'Aircraft Cabin Interior' },
+    avionics: { heading: 'Avionics' },
   },
   fea: {
     hero: {
@@ -1540,6 +1541,42 @@ export const en = {
     cta: {
       heading: 'Building the Structures Behind Every Flight',
       body: 'We help aerospace organizations engineer reliable, lightweight, and manufacturable secondary structures that enable efficient integration of aircraft systems and enhance overall aircraft performance. Partner with us to design the next generation of aerospace secondary structures with precision, innovation, and engineering excellence.',
+      button: 'Get In Touch',
+    },
+  },
+  avionics: {
+    hero: {
+      eyebrow: 'Avionics Engineering Services',
+      heading: 'Advanced Avionics Solutions for Next-Generation Aerospace Systems',
+      description: 'Comprehensive avionics engineering services that enable aerospace organizations to design, develop, integrate, and validate intelligent airborne systems, spanning commercial aviation, defense, unmanned aerial systems, and advanced air mobility platforms.',
+      cta: 'Explore Capabilities',
+    },
+    intro: {
+      eyebrow: 'Full-Lifecycle Avionics Engineering',
+      heading: 'From Requirements to Certification and In-Service Support',
+      para1: 'We deliver comprehensive avionics engineering services that enable aerospace organizations to design, develop, integrate, and validate intelligent airborne systems. Our expertise spans commercial aviation, defense, unmanned aerial systems (UAS), and advanced air mobility platforms, helping customers build safe, reliable, and high-performance avionics solutions.',
+      para2: 'With deep domain knowledge and a systems engineering approach, we support the complete avionics development lifecycle, from requirements definition and architecture design to integration, verification, certification, and in-service support.',
+      examples: [
+        'Requirements management and traceability',
+        'System architecture and integration',
+        'Embedded software and hardware development',
+        'Hardware-in-the-loop and software-in-the-loop testing',
+        'DO-178C certification and compliance support',
+        'Airworthiness and regulatory documentation',
+      ],
+    },
+    whyUs: {
+      eyebrow: 'Why Choose Us',
+      heading: 'Why Choose Us?',
+      endToEndExpertise: 'Comprehensive support from concept development and system design to certification and deployment',
+      safetyAndCompliance: 'Engineering solutions aligned with aerospace safety, reliability, and regulatory requirements',
+      systemsIntegration: 'Proven expertise in integrating complex avionics hardware, software, and communication systems',
+      advancedCapabilities: 'Strong proficiency in systems engineering, embedded development, simulation, testing, and verification',
+      acceleratedDevelopment: 'Efficient development methodologies that reduce risk, improve quality, and shorten time-to-market',
+    },
+    cta: {
+      heading: 'Engineering Intelligent Avionics for the Future of Flight',
+      body: 'We help aerospace organizations develop innovative avionics systems that enhance safety, operational efficiency, and mission performance. By combining engineering excellence with advanced technologies, we deliver avionics solutions that power the next generation of aerospace innovation.',
       button: 'Get In Touch',
     },
   },

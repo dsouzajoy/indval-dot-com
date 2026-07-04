@@ -735,10 +735,6 @@ export const pl = {
         label: 'Rozwiązania mocujące',
         description: 'Opracowujemy solidne systemy mocowania, które bezpiecznie ustalają i podpierają komponenty podczas montażu. Zaprojektowane z myślą o niezawodności i łatwości obsługi, nasze rozwiązania zwiększają efektywność operatorów i ograniczają przestoje produkcyjne.',
       },
-      pneumaticManual: {
-        label: 'Pneumatyczne i ręczne narzędzia montażowe',
-        description: 'Wytwarzamy zarówno ręczne, jak i pneumatyczne systemy narzędziowe, które zwiększają produktywność i zmniejszają zmęczenie operatorów. Rozwiązania te są projektowane z uwzględnieniem ergonomii i efektywności procesu, zapewniając płynny i niezawodny przebieg montażu.',
-      },
       productionLine: {
         label: 'Oprzyrządowanie produkcyjne i liniowe',
         description: 'Od budowy prototypów po pełnoskalowe linie produkcyjne wytwarzamy oprzyrządowanie montażowe, które bezproblemowo integruje się z istniejącymi procesami produkcyjnymi. Nasze narzędzia są projektowane z myślą o trwałości, łatwości utrzymania i długiej żywotności.',

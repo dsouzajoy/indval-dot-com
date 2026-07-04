@@ -735,10 +735,6 @@ export const de = {
         label: 'Werkstückspannlösungen',
         description: 'Wir entwickeln robuste Spannsysteme, die Bauteile während der Montage sicher aufnehmen und abstützen. Für Zuverlässigkeit und einfache Bedienung ausgelegt, steigern unsere Lösungen die Effizienz des Bedienpersonals und reduzieren Produktionsstillstände.',
       },
-      pneumaticManual: {
-        label: 'Pneumatische und manuelle Montagewerkzeuge',
-        description: 'Wir fertigen sowohl manuelle als auch pneumatische Werkzeugsysteme, die die Produktivität steigern und die Ermüdung des Bedienpersonals verringern. Diese Lösungen sind auf Ergonomie und Prozesseffizienz ausgelegt und gewährleisten reibungslose und zuverlässige Montageabläufe.',
-      },
       productionLine: {
         label: 'Produktions- und Linienwerkzeuge',
         description: 'Vom Prototypenbau bis zur vollständigen Serienfertigung fertigen wir Montagewerkzeuge, die sich nahtlos in bestehende Fertigungsprozesse integrieren. Unsere Werkzeuge sind auf Langlebigkeit, Wartbarkeit und lange Lebensdauer ausgelegt.',

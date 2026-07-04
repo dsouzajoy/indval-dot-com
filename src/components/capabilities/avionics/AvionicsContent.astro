@@ -11,6 +11,12 @@ import tabCockpitDisplayImg from '@/assets/images/avionics/tab-cockpit-display.j
 import tabEmbeddedSystemsImg from '@/assets/images/avionics/tab-embedded-systems.jpg';
 import tabElectricalSystemsImg from '@/assets/images/avionics/tab-electrical-systems.jpg';
 import tabVvcImg from '@/assets/images/avionics/tab-vvc.png';
+import tabFlightManagementImg from '@/assets/images/avionics/tab-flight-management.jpg';
+import tabLandingGearImg from '@/assets/images/avionics/tab-landing-gear.jpg';
+import tabFlightTestInstrumentationImg from '@/assets/images/avionics/tab-flight-test-instrumentation.jpg';
+import tabCabinSystemImg from '@/assets/images/avionics/tab-cabin-system.jpg';
+import tabUtilityManagementImg from '@/assets/images/avionics/tab-utility-management.jpg';
+import tabSimulatorTestImg from '@/assets/images/avionics/tab-simulator-test.jpg';
 import certificationImg from '@/assets/images/avionics/certification.jpg';
 import systemsWorkedOnImg from '@/assets/images/avionics/systems-worked-on.jpg';
 import industryCommercialImg from '@/assets/images/avionics/industry-commercial.jpg';
@@ -62,6 +68,9 @@ const tabs = [
       'Control law development and validation',
       'Hardware and software integration',
       'Performance and safety analysis',
+      'Design and development of LRUs for Flight Control Computer (FCC)',
+      'SW integration testing and low-level requirement-based testing for FCS ECU and Flap ECU',
+      'SW design and verification of Air Data Computer (ADC)',
     ],
   },
   {
@@ -88,6 +97,11 @@ const tabs = [
       'Crew alerting and warning systems',
       'Display integration and testing',
       'User experience and operational efficiency enhancement',
+      'HW & SW development for cockpit interface unit',
+      'Design of LED pushbutton software',
+      'SW design and development for Multifunction Front-Up Control Panels',
+      'Design and development of video cards',
+      'SW development of Multifunction Interactive Display Unit (MIDU)',
     ],
   },
   {
@@ -114,6 +128,66 @@ const tabs = [
       'Electronic Control Unit (ECU) development',
       'Environmental and electromagnetic compatibility testing',
       'Reliability and maintainability engineering',
+      'HW & SW design and development for Digital Generator Control Unit',
+      'SW development, verification & validation, and system-level testing for Battery Management System',
+      'Fly-by-wire power converter unit development',
+      'Secondary power distribution',
+    ],
+  },
+  {
+    label: 'Flight Management System',
+    heading: 'Flight Management System',
+    image: tabFlightManagementImg,
+    bullets: [
+      'SW development support',
+      'SW verification and validation',
+      'SW certification support',
+    ],
+  },
+  {
+    label: 'Landing Gear Systems',
+    heading: 'Landing Gear Systems',
+    image: tabLandingGearImg,
+    bullets: [
+      'SW verification and validation',
+      'System-level testing',
+    ],
+  },
+  {
+    label: 'Flight Test Instrumentation',
+    heading: 'Flight Test Instrumentation',
+    image: tabFlightTestInstrumentationImg,
+    bullets: [
+      'SW design, development and testing for military applications',
+      'SW development and testing for commercial applications',
+    ],
+  },
+  {
+    label: 'Cabin System',
+    heading: 'Cabin System',
+    image: tabCabinSystemImg,
+    bullets: [
+      'SW development, verification and validation for cabin lighting systems',
+      'Design and development of lighting systems',
+      'Reliability engineering of oxygen systems',
+    ],
+  },
+  {
+    label: 'Utility Management Systems',
+    heading: 'Utility Management Systems',
+    image: tabUtilityManagementImg,
+    bullets: [
+      'SW design and development for electrical heating systems',
+      'Design and development of LRUs for environmental and fuel control systems',
+    ],
+  },
+  {
+    label: 'Simulator & Test System',
+    heading: 'Simulator and Test System',
+    image: tabSimulatorTestImg,
+    bullets: [
+      'Design and development for real-time flight simulators',
+      'ATE software development',
     ],
   },
   {
@@ -274,7 +348,7 @@ const whyUs = [
     <!-- Tab bar -->
     <div class="relative">
       <div class="absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-surface-container-low to-transparent pointer-events-none z-10"></div>
-      <div id="av-tab-scroll-container" class="flex border-b border-outline-variant overflow-x-auto" style="scrollbar-width: none; -ms-overflow-style: none;">
+      <div id="av-tab-scroll-container" class="flex border-b border-outline-variant overflow-x-auto no-scrollbar">
         {tabs.map((tab, i) => (
           <button
             data-tab={i}
@@ -295,7 +369,7 @@ const whyUs = [
       {tabs.map((tab, i) => (
         <div
           data-panel={i}
-          class={`av-tab-panel grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center transition-opacity duration-150 ${
+          class={`av-tab-panel grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start transition-opacity duration-150 ${
             i === 0 ? 'relative opacity-100 pointer-events-auto' : 'absolute top-0 left-0 right-0 opacity-0 pointer-events-none'
           }`}
         >

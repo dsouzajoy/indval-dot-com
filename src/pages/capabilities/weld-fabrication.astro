@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import WeldFabricationHero from '../../components/capabilities/weld-fabrication/WeldFabricationHero.astro';
+import WeldFabricationContent from '../../components/capabilities/weld-fabrication/WeldFabricationContent.astro';
+---
+
+<BaseLayout
+  title="Weld Fabrication | Indvaltech"
+  description="Precision heavy weldments and fabricated assemblies for demanding industrial applications, covering engineering, fabrication, dimensional control, and assembly of high-integrity welded structures."
+  showSplash={false}
+  breadcrumbs={[{ name: 'Weld Fabrication', href: '/capabilities/weld-fabrication' }]}
+>
+  <WeldFabricationHero />
+  <WeldFabricationContent />
+</BaseLayout>

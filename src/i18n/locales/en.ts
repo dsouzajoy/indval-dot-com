@@ -127,7 +127,7 @@ export const en = {
       fea: 'Finite Element Analysis',
       cfd: 'Computational Fluid Dynamics',
     },
-    manufacturing: { heading: 'Manufacturing' },
+    manufacturing: { heading: 'Manufacturing', weldFabrication: 'Weld Fabrication' },
     biwTurnkey: { heading: 'BIW Turnkey Solutions' },
     mechanicalDesign: {
       heading: 'Engineering Solutions',
@@ -1123,10 +1123,6 @@ export const en = {
         label: 'Work Holding Solutions',
         description: 'We develop robust work holding systems that securely locate and support components during assembly. Designed for reliability and ease of use, our solutions improve operator efficiency and reduce production downtime.',
       },
-      pneumaticManual: {
-        label: 'Pneumatic and Manual Assembly Tools',
-        description: 'We manufacture both manual and pneumatic tooling systems that enhance productivity and reduce operator fatigue. These solutions are designed with ergonomics and process efficiency in mind, ensuring smooth and reliable assembly operations.',
-      },
       productionLine: {
         label: 'Production and Line Tooling',
         description: 'From prototype builds to full-scale production lines, we manufacture assembly tooling that integrates seamlessly into existing manufacturing processes. Our tools are designed for durability, maintainability, and long service life.',
@@ -1612,6 +1608,42 @@ export const en = {
     cta: {
       heading: 'Ready to Engineer Your Next Tooling Solution?',
       body: 'Connect with our tooling engineering team to accelerate product development and achieve production-ready designs, from concept through final manufacturing documentation.',
+      button: 'Get In Touch',
+    },
+  },
+  weldFabrication: {
+    hero: {
+      eyebrow: 'Manufacturing',
+      heading: 'Precision Heavy Weldments for Industrial Applications',
+      description: 'We specialize in the manufacturing of large, complex weldments and heavy fabricated assemblies for demanding industrial applications, covering engineering, fabrication, machining support, dimensional control, and assembly of high-integrity welded structures designed to perform under severe operating conditions.',
+      cta: 'Explore Capabilities',
+    },
+    intro: {
+      eyebrow: 'Heavy Weldment Capabilities',
+      heading: 'From Machine Bases to Structural Assemblies, Precision-Engineered Weldments Built to Perform',
+      para1: 'We specialize in the manufacturing of large, complex weldments and heavy fabricated assemblies for demanding industrial applications. Our expertise covers engineering, fabrication, machining support, dimensional control, and assembly of high-integrity welded structures designed to perform under severe operating conditions.',
+      para2: 'From machine bases and equipment frames to process modules and structural assemblies, we deliver precision-engineered weldments that meet stringent quality, strength, and dimensional requirements.',
+      examples: [
+        'Large fabricated structures and heavy weldments',
+        'Thick plate fabrication and multi-pass welding',
+        'Complex assemblies with tight dimensional tolerances',
+        'Modular fabrication and pre-assembly capabilities',
+      ],
+    },
+    whyUs: {
+      eyebrow: 'Why Partner With Us',
+      heading: 'Why Partner With Us',
+      largeComplexWeldments: 'Expertise in large and complex weldments',
+      engineeringDriven: 'Engineering-driven fabrication approach',
+      advancedCapabilities: 'Advanced welding and assembly capabilities',
+      strictQualityControl: 'Strict dimensional and quality control',
+      endToEndExecution: 'End-to-end project execution',
+      reliableDelivery: 'Reliable delivery and installation support',
+      customizedSolutions: 'Customized solutions for critical industrial applications',
+    },
+    cta: {
+      heading: 'Engineering Heavy Weldments That Deliver Strength, Precision, and Long-Term Performance',
+      body: 'We manufacture large welded assemblies and heavy fabricated structures designed to meet the rigorous demands of modern industry, combining engineering expertise, precision fabrication, and uncompromising quality standards.',
       button: 'Get In Touch',
     },
   },

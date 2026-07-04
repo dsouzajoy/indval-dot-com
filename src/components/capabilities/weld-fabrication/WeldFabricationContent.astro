@@ -1,0 +1,378 @@
+---
+import { en } from '@/i18n/locales/en';
+import { withBase } from '@/lib/utils';
+
+const wf = en.weldFabrication;
+
+const introImg = {
+  full: 'https://images.unsplash.com/photo-1529479627062-5f1f0b88912a?auto=format&fit=crop&w=1200&q=80',
+  alt: 'Fabricator finishing a heavy steel weldment during quality inspection',
+};
+
+const tabs = [
+  {
+    label: 'Heavy Machine Bases',
+    heading: 'Heavy Machine Bases',
+    description: 'Fabricated bases for CNC machines, presses, turbines, compressors, and industrial equipment requiring high rigidity and vibration resistance.',
+    image: 'https://images.unsplash.com/photo-1455165814004-1126a7199f9b?auto=format&fit=crop&w=1200&q=80',
+  },
+  {
+    label: 'Equipment Frames & Skids',
+    heading: 'Equipment Frames and Skids',
+    description: 'Welded structures for pumps, compressors, process equipment, generators, and modular plant systems.',
+    image: 'https://images.unsplash.com/photo-1698664683348-f9f35b809821?auto=format&fit=crop&w=1200&q=80',
+  },
+  {
+    label: 'Process Modules & Structures',
+    heading: 'Process Modules and Structural Assemblies',
+    description: 'Integrated fabricated modules comprising platforms, supports, pipe racks, and equipment mounting systems.',
+    image: 'https://images.unsplash.com/photo-1526634140919-468dc3ae3870?auto=format&fit=crop&w=1200&q=80',
+  },
+  {
+    label: 'Columns & Box Structures',
+    heading: 'Fabricated Columns and Box Structures',
+    description: 'Heavy built-up sections designed for high-load applications and large industrial installations.',
+    image: 'https://images.unsplash.com/photo-1683470157212-cd4005549fce?auto=format&fit=crop&w=1200&q=80',
+  },
+  {
+    label: 'Material Handling Structures',
+    heading: 'Conveyor and Material Handling Structures',
+    description: 'Fabricated frames, galleries, transfer towers, and support structures for bulk material handling systems.',
+    image: 'https://images.unsplash.com/photo-1668140736531-d23950307b3c?auto=format&fit=crop&w=1200&q=80',
+  },
+  {
+    label: 'Special Purpose Weldments',
+    heading: 'Special Purpose Industrial Weldments',
+    description: 'Customized welded assemblies manufactured according to customer drawings and engineering specifications.',
+    image: 'https://images.unsplash.com/photo-1564182998523-6923112e7d6b?auto=format&fit=crop&w=1200&q=80',
+  },
+];
+
+const fabricationCapacity = [
+  { icon: 'domain', label: 'Large Fabricated Structures & Heavy Weldments' },
+  { icon: 'straighten', label: 'Customer-Specified Dimensions & Weights' },
+  { icon: 'layers', label: 'Thick Plate Fabrication & Multi-Pass Welding' },
+  { icon: 'view_in_ar', label: 'Box Structures & Fabricated Beams' },
+  { icon: 'precision_manufacturing', label: 'Tight Dimensional Tolerances' },
+  { icon: 'view_module', label: 'Modular Fabrication & Pre-Assembly' },
+];
+
+const processCards = [
+  {
+    type: 'Manufacturing Engineering',
+    heading: 'Design Review and Manufacturing Engineering',
+    items: [
+      'Drawing review and manufacturability analysis',
+      'Welding sequence planning',
+      'Distortion and shrinkage control planning',
+      'Fabrication methodology development',
+      'Assembly and lifting studies',
+    ],
+  },
+  {
+    type: 'Fit-Up & Assembly',
+    heading: 'Assembly and Fit-Up',
+    items: [
+      'Fixture-based assembly systems',
+      'Controlled alignment and dimensional checks',
+      'Precision tack welding and staged assembly',
+      'Monitoring of critical dimensions and tolerances',
+    ],
+  },
+];
+
+const weldingExcellence = [
+  { icon: 'thermostat', label: 'Controlled Heat Input' },
+  { icon: 'compress', label: 'Minimum Residual Stresses' },
+  { icon: 'tune', label: 'Distortion Management' },
+  { icon: 'join_full', label: 'Complete Weld Penetration' },
+  { icon: 'foundation', label: 'High Structural Integrity' },
+  { icon: 'verified', label: 'Repeatable Weld Quality' },
+  { icon: 'fact_check', label: 'Compliance with Specifications' },
+];
+
+const whyUs = [
+  { icon: 'engineering', title: 'Large & Complex Weldment Expertise', desc: wf.whyUs.largeComplexWeldments },
+  { icon: 'design_services', title: 'Engineering-Driven Fabrication', desc: wf.whyUs.engineeringDriven },
+  { icon: 'precision_manufacturing', title: 'Advanced Welding & Assembly', desc: wf.whyUs.advancedCapabilities },
+  { icon: 'fact_check', title: 'Strict Dimensional & Quality Control', desc: wf.whyUs.strictQualityControl },
+  { icon: 'route', title: 'End-to-End Project Execution', desc: wf.whyUs.endToEndExecution },
+  { icon: 'local_shipping', title: 'Reliable Delivery & Installation Support', desc: wf.whyUs.reliableDelivery },
+  { icon: 'handshake', title: 'Customized Industrial Solutions', desc: wf.whyUs.customizedSolutions },
+];
+---
+
+<!-- INTRO -->
+<section class="bg-surface">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16 py-20 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <div>
+      <p
+        class="font-label font-bold text-sm uppercase tracking-widest text-secondary"
+        data-i18n="weldFabrication.intro.eyebrow"
+      >{wf.intro.eyebrow}</p>
+      <h2
+        class="mt-2 text-3xl lg:text-4xl font-bold leading-tight tracking-tight text-primary text-balance"
+        data-i18n="weldFabrication.intro.heading"
+      >{wf.intro.heading}</h2>
+      <p
+        class="mt-6 text-lg leading-relaxed text-on-surface-variant"
+        data-i18n="weldFabrication.intro.para1"
+      >{wf.intro.para1}</p>
+      <p
+        class="mt-5 text-lg leading-relaxed text-on-surface-variant"
+        data-i18n="weldFabrication.intro.para2"
+      >{wf.intro.para2}</p>
+      <ul class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
+        {wf.intro.examples.map((item, j) => (
+          <li class="flex gap-3 items-start">
+            <span class="material-symbols-outlined text-secondary shrink-0 text-lg leading-relaxed" style="font-variation-settings: 'FILL' 1" aria-hidden="true">check_circle</span>
+            <span class="text-sm text-on-surface-variant leading-relaxed" data-i18n={`weldFabrication.intro.examples.${j}`}>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div class="rounded overflow-hidden shadow-lg aspect-[4/3]">
+      <img
+        src={introImg.full}
+        alt={introImg.alt}
+        loading="eager"
+        class="w-full h-full object-cover"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- CAPABILITIES (TABS) -->
+<section id="capabilities" class="bg-surface-container-low py-24 lg:py-30" style="background-image: radial-gradient(circle, rgba(195,198,211,0.8) 1px, transparent 1px); background-size: 40px 40px;">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+
+    <div class="mb-14 max-w-2xl">
+      <p class="font-label font-bold text-sm uppercase tracking-widest text-secondary">Our Heavy Weldment Capabilities</p>
+      <h2 class="font-headline text-4xl lg:text-5xl font-bold text-on-surface mt-2">
+        Major Products & Weldments
+      </h2>
+    </div>
+
+    <!-- Tab bar -->
+    <div class="relative">
+      <div class="absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-surface-container-low to-transparent pointer-events-none z-10"></div>
+      <div id="wf-tab-scroll-container" class="flex border-b border-outline-variant overflow-x-auto no-scrollbar">
+        {tabs.map((tab, i) => (
+          <button
+            data-tab={i}
+            class={`wf-tab-btn font-label text-sm uppercase tracking-wider py-3 px-5 border-b-2 whitespace-nowrap transition-colors duration-200 shrink-0 cursor-pointer ${
+              i === 0
+                ? 'border-secondary text-primary font-bold'
+                : 'border-transparent text-on-surface-variant hover:text-primary'
+            }`}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <!-- Tab panels -->
+    <div class="relative mt-10">
+      {tabs.map((tab, i) => (
+        <div
+          data-panel={i}
+          class={`wf-tab-panel grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start transition-opacity duration-150 ${
+            i === 0 ? 'relative opacity-100 pointer-events-auto' : 'absolute top-0 left-0 right-0 opacity-0 pointer-events-none'
+          }`}
+        >
+          <div class="space-y-6">
+            <h3 class="font-headline font-bold text-3xl text-on-surface">{tab.heading}</h3>
+            <p class="text-lg leading-relaxed text-on-surface-variant">{tab.description}</p>
+          </div>
+          <div class="rounded overflow-hidden aspect-video">
+            <img
+              src={tab.image}
+              alt={`${tab.heading} weld fabrication`}
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const wfTabBtns = document.querySelectorAll<HTMLButtonElement>('.wf-tab-btn');
+  const wfTabPanels = document.querySelectorAll<HTMLElement>('.wf-tab-panel');
+
+  function activateWfTab(index: number) {
+    wfTabBtns.forEach((btn) => {
+      const isActive = Number(btn.dataset.tab) === index;
+      btn.classList.toggle('border-secondary', isActive);
+      btn.classList.toggle('text-primary', isActive);
+      btn.classList.toggle('font-bold', isActive);
+      btn.classList.toggle('border-transparent', !isActive);
+      btn.classList.toggle('text-on-surface-variant', !isActive);
+    });
+
+    wfTabPanels.forEach((panel, i) => {
+      const isActive = i === index;
+      panel.classList.toggle('relative', isActive);
+      panel.classList.toggle('opacity-100', isActive);
+      panel.classList.toggle('pointer-events-auto', isActive);
+      panel.classList.toggle('absolute', !isActive);
+      panel.classList.toggle('top-0', !isActive);
+      panel.classList.toggle('left-0', !isActive);
+      panel.classList.toggle('right-0', !isActive);
+      panel.classList.toggle('opacity-0', !isActive);
+      panel.classList.toggle('pointer-events-none', !isActive);
+    });
+  }
+
+  wfTabBtns.forEach((btn) => {
+    btn.addEventListener('click', () => activateWfTab(Number(btn.dataset.tab)));
+  });
+
+  const wfTabScrollContainer = document.getElementById('wf-tab-scroll-container');
+  if (wfTabScrollContainer) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          observer.disconnect();
+          setTimeout(() => {
+            wfTabScrollContainer.scrollTo({ left: wfTabScrollContainer.scrollWidth, behavior: 'smooth' });
+            setTimeout(() => {
+              wfTabScrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
+            }, 900);
+          }, 400);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    const section = document.getElementById('capabilities');
+    if (section) observer.observe(section);
+  }
+</script>
+
+<!-- FABRICATION CAPACITY -->
+<section class="bg-surface py-24">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+    <div class="mb-14 max-w-xl">
+      <p class="font-label font-bold text-sm uppercase tracking-widest text-secondary">Heavy Weldment Capabilities</p>
+      <h2 class="mt-2 text-3xl lg:text-4xl font-bold tracking-tight text-primary">
+        Fabrication Capacity
+      </h2>
+      <p class="mt-4 text-on-surface-variant leading-relaxed">
+        We manufacture large fabricated structures and heavy weldments to customer-specified dimensions and weights.
+      </p>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-6">
+      {fabricationCapacity.map((cap) => (
+        <div class="flex flex-col items-center text-center gap-3 bg-surface-container-low rounded-lg p-6">
+          <span class="material-symbols-outlined text-secondary" style="font-size: 32px;" aria-hidden="true">{cap.icon}</span>
+          <p class="text-sm font-medium text-on-surface leading-snug">{cap.label}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ENGINEERING & MANUFACTURING PROCESS -->
+<section class="bg-surface-container-low py-24">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+    <div class="mb-16 max-w-xl">
+      <p class="font-label text-sm uppercase tracking-[0.3em] text-secondary mb-2">How We Work</p>
+      <h2 class="font-headline text-4xl font-extrabold tracking-tight text-primary">
+        Engineering & Manufacturing Process
+      </h2>
+      <p class="text-on-surface-variant mt-4 leading-relaxed">
+        From design review through final fit-up, every stage is planned and monitored for dimensional accuracy.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {processCards.map((card) => (
+        <div class="bg-surface p-10 rounded-lg shadow-ambient hover:shadow-ambient-lg transition-shadow">
+          <h4 class="font-label text-sm uppercase tracking-widest text-on-surface-variant mb-4">{card.type}</h4>
+          <h3 class="font-headline text-2xl font-bold text-primary mb-6">{card.heading}</h3>
+          <ul class="space-y-4">
+            {card.items.map((item) => (
+              <li class="flex items-center gap-3 text-on-surface-variant">
+                <span class="material-symbols-outlined text-secondary text-lg" aria-hidden="true">check_circle</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- WELDING ENGINEERING EXCELLENCE -->
+<section class="bg-surface py-24">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+    <div class="mb-14 max-w-xl">
+      <p class="font-label font-bold text-sm uppercase tracking-widest text-secondary">Welding Engineering Excellence</p>
+      <h2 class="mt-2 text-3xl lg:text-4xl font-bold tracking-tight text-primary">
+        Built for Structural Integrity
+      </h2>
+      <p class="mt-4 text-on-surface-variant leading-relaxed">
+        Qualified welding procedures and certified welders are employed for manufacturing critical heavy weldments.
+      </p>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+      {weldingExcellence.map((item) => (
+        <div class="flex flex-col items-center text-center gap-3 bg-surface-container-low rounded-lg p-6">
+          <span class="material-symbols-outlined text-secondary" style="font-size: 32px;" aria-hidden="true">{item.icon}</span>
+          <p class="text-sm font-medium text-on-surface leading-snug">{item.label}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- WHY PARTNER WITH US -->
+<section class="relative bg-on-surface overflow-hidden">
+  <div class="absolute inset-0" style="background-image: radial-gradient(rgba(255,255,255,0.04) 1.5px, transparent 1.5px); background-size: 32px 32px;"></div>
+  <div class="absolute inset-0" style="background: linear-gradient(160deg, rgba(0,49,108,0.15) 0%, rgba(11,28,48,0.4) 100%);"></div>
+  <div class="relative max-w-7xl mx-auto px-8 lg:px-16 py-20">
+    <div class="mb-11 max-w-2xl">
+      <p
+        class="font-label font-bold text-sm uppercase tracking-widest text-secondary"
+        data-i18n="weldFabrication.whyUs.eyebrow"
+      >{wf.whyUs.eyebrow}</p>
+      <h2
+        class="mt-2 text-3xl lg:text-4xl font-bold tracking-tight text-white"
+        data-i18n="weldFabrication.whyUs.heading"
+      >{wf.whyUs.heading}</h2>
+    </div>
+    <div class="flex flex-wrap justify-center gap-5">
+      {whyUs.map(({ icon, title, desc }) => (
+        <div class="flex flex-col gap-3 bg-white/5 border border-white/10 rounded p-6 w-full md:w-[calc(50%-10px)] lg:w-[calc(33.333%-13.333px)]">
+          <span class="material-symbols-outlined text-secondary shrink-0" style="font-size: 32px; font-variation-settings: 'FILL' 1">{icon}</span>
+          <h3 class="text-base font-semibold text-white">{title}</h3>
+          <p class="text-sm leading-relaxed text-white/70">{desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING BRAND STATEMENT + CTA -->
+<section class="bg-on-surface py-20 border-t border-white/10">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16 text-center">
+    <h2
+      class="font-headline text-3xl lg:text-4xl font-bold text-white mb-4 max-w-3xl mx-auto text-balance"
+      data-i18n="weldFabrication.cta.heading"
+    >{wf.cta.heading}</h2>
+    <p
+      class="text-white/80 text-base mb-10 max-w-2xl mx-auto leading-relaxed"
+      data-i18n="weldFabrication.cta.body"
+    >{wf.cta.body}</p>
+    <a
+      href={withBase('/contact#contact-form')}
+      class="inline-flex items-center justify-center gap-2 bg-secondary text-white px-8 py-4 rounded font-label text-sm font-bold uppercase tracking-wider cursor-pointer hover:bg-secondary/90 btn-press"
+      data-i18n="weldFabrication.cta.button"
+    >{wf.cta.button}</a>
+  </div>
+</section>

@@ -121,3 +121,12 @@ html[data-lang]:not([data-lang="en"]) [data-i18n-attr] {
   transition-duration: 55ms;
   transition-timing-function: ease-out;
 }
+
+/* Hide native scrollbar on horizontally-scrollable tab bars */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

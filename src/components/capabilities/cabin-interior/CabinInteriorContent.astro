@@ -3,6 +3,12 @@ import { Image } from 'astro:assets';
 import { withBase } from '@/lib/utils';
 
 import introImg from '@/assets/images/cabin-interior/intro.jpg';
+import specialisationsImg from '@/assets/images/cabin-interior/specialisations.png';
+import cabinInteriorsImg from '@/assets/images/cabin-interior/cabin-interiors.png';
+import galleyDiagramImg from '@/assets/images/cabin-interior/galley-diagram.png';
+import lavatoryDiagramImg from '@/assets/images/cabin-interior/lavatory-diagram.png';
+import lruDiagramImg from '@/assets/images/cabin-interior/lru-diagram.png';
+import retrofitDiagramImg from '@/assets/images/cabin-interior/retrofit-diagram.png';
 import tabStructuresImg from '@/assets/images/cabin-interior/tab-structures.jpg';
 import tabWaterWasteImg from '@/assets/images/cabin-interior/tab-water-waste.png';
 import tabOxygenImg from '@/assets/images/cabin-interior/tab-oxygen.png';
@@ -12,8 +18,133 @@ import tabLightingImg from '@/assets/images/cabin-interior/tab-lighting.jpg';
 import industryCommercialImg from '@/assets/images/cabin-interior/industry-commercial.jpg';
 import industryVipImg from '@/assets/images/cabin-interior/industry-vip.jpg';
 import industryMilitaryImg from '@/assets/images/cabin-interior/industry-military.jpg';
-import industryAamImg from '@/assets/images/cabin-interior/industry-aam.avif';
+import industryAamImg from '@/assets/images/cabin-interior/industry-aam.jpg';
 import industryMroImg from '@/assets/images/cabin-interior/industry-mro.jpg';
+
+const specialisations = [
+  {
+    discipline: 'Cabin Systems',
+    scope: '3D CAD, 2D Drawings, MEP Integration, technical publications',
+  },
+  {
+    discipline: 'Composite Design',
+    scope: 'Laminate optimisation, stack and orientation design, autoclave and press lay-up definition',
+  },
+  {
+    discipline: 'Structural Analysis',
+    scope: 'Linear & non-linear FEA, ultimate load analysis, fatigue, damage tolerance, topology optimisation',
+  },
+  {
+    discipline: 'Ballistic Engineering',
+    scope: 'Layer stack design to STANAG 4569, NIJ, and AEP-55, integration with vehicle and aircraft armour systems',
+  },
+  {
+    discipline: 'Manufacturing DFM',
+    scope: 'Manufacturability reviews, CNC programme design, jig & fixture design',
+  },
+  {
+    discipline: 'Certification Support',
+    scope: 'FAA, EASA documentation, STC documentation packages, AS9100 audit evidence generation',
+  },
+  {
+    discipline: 'Systems Integration',
+    scope: 'Avionics housing design, electrical harness routing, EMI/EMC shielding design, DO-160 compliance',
+  },
+  {
+    discipline: 'Tooling Design',
+    scope: 'Autoclave mould design, RTM matched-die design, assembly jigs, holding fixtures',
+  },
+  {
+    discipline: 'Reverse Engineering',
+    scope: '3D laser scanning, point cloud to CAD conversion, legacy component digitization',
+  },
+  {
+    discipline: 'Materials Engineering',
+    scope: 'Metallurgical evaluation, XRF spectrometry validation, composite resin characterization, failure analysis',
+  },
+];
+
+const cabinInteriorSpecs = [
+  { component: 'Galleys', scope: 'Structural design, MEP, load analysis' },
+  { component: 'Lavatories', scope: 'Structural design, MEP, FST' },
+  { component: 'Overhead Bins', scope: 'Structural sizing, latch mechanism design' },
+  { component: 'Sidewall Panels', scope: 'Lay-up design, material qualification packs' },
+  { component: 'Dividers & MCDs', scope: 'Mechanical design and kinematic analysis' },
+  { component: 'Closets & Stowages', scope: 'Structural, mechanical, and human factors design' },
+  { component: 'Insulation Blankets', scope: 'Thermal and acoustic design' },
+  { component: 'Floor Panels', scope: 'Structural analysis, weight and load calculations' },
+  { component: 'Carpets', scope: 'Specification and supplier qualification documents' },
+  { component: 'Seat Tracks & Covers', scope: 'Design to EASA CS-25 / FAR 25 seat track standards' },
+  { component: 'Floor Path Marking', scope: 'Layout, illumination design' },
+  { component: 'Dado Panels', scope: 'Composite design, bracket and attachment' },
+  { component: 'Ceiling Panels', scope: 'Composite lay-up and attachment design' },
+  { component: 'PSU Channels & Coverings', scope: 'Structural and MEP integration' },
+  { component: 'Lighting Systems', scope: 'Lumen calculations, fixture integration' },
+  { component: 'Placards & Signage', scope: 'Specification, layout, regulatory compliance' },
+  { component: 'Bulkheads', scope: 'Primary and secondary structural design' },
+  { component: 'Window Panels', scope: 'Thermal analysis, attachment design' },
+  { component: 'Emergency Exit Signs', scope: 'Placement analysis, regulatory submission' },
+];
+
+const galleySpecs = [
+  { component: 'Galley Complexes', scope: 'Nose, aft, and overwing' },
+  { component: 'Composites', scope: 'Honeycomb construction' },
+  { component: 'Insert Equipment', scope: 'Mounting frames and guide rails' },
+  { component: 'Electrical, Water & Waste', scope: 'MEP integration' },
+  { component: 'Aircraft Formats', scope: 'A320, B737, A330, A350, B777' },
+  { component: 'Refrigeration Units', scope: 'ARINC standardized air chillers' },
+  { component: 'Catering Storage', scope: 'ATLAS and KSSU cart compatibility' },
+  { component: 'Doors and Latches', scope: 'Secondary retention systems for turbulence' },
+  { component: 'Cooking Appliances', scope: 'Convection and steam oven inserts' },
+  { component: 'Beverage Stations', scope: 'Integrated coffee makers and water boilers' },
+  { component: 'Task Lighting', scope: 'Low-power, high-yield LED strip integration' },
+  { component: 'Ventilation and Exhaust', scope: 'Odor extraction and air circulation routing' },
+  { component: 'Surface Finishes', scope: 'Fire-retardant laminates and Tedlar coatings' },
+  { component: 'Base Protection', scope: 'Stainless steel kickplates and extruded bumpers' },
+  { component: 'Drainage Systems', scope: 'Fold-down faucets and anti-clog filters' },
+  { component: 'Compliance', scope: 'D6 Documents and Frame Specifications' },
+];
+
+const lavatorySpecs = [
+  { component: 'Modules', scope: 'Composite structure with plumbing integration' },
+  { component: 'Surface Materials', scope: 'FAR 25.853 fire, smoke, and toxicity compliance' },
+  { component: 'Plumbing', scope: 'Vacuum flush mechanisms and gray water drainage' },
+  { component: 'Retrofit Modules', scope: 'Designed for cabin conversion programmes' },
+  { component: 'Certification', scope: 'Full STC documentation package available' },
+  { component: 'Door Systems', scope: 'Space-saving bi-fold or blade doors' },
+  { component: 'Touchless Amenities', scope: 'Sensor-activated faucets, soap dispensers, and flush' },
+  { component: 'Vanity Lighting', scope: 'LED wash-lighting and task illumination' },
+  { component: 'Baby Changing', scope: 'Fold-down, stowable composite tables' },
+  { component: 'Water Heaters', scope: 'Inline heating units for the sink tap' },
+  { component: 'Ventilation Systems', scope: 'Cabin air exhaust routing' },
+  { component: 'Smoke Detection', scope: 'Ceiling-mounted detectors' },
+  { component: 'Flooring Pans', scope: 'Anti-slip, seamless waterproof composite base pans' },
+  { component: 'Accessibility Features', scope: 'PRM grab bars and turning space' },
+  { component: 'Amenities Storage', scope: 'Secure, rattle-free compartments' },
+  { component: 'Compliance', scope: 'D6 Documents and Frame Specifications' },
+];
+
+const lruSpecs = [
+  { component: 'Cargo Containers', scope: 'Certified aluminum or composite ULDs (ETSO-C90)' },
+  { component: 'Standard Containers', scope: 'Lower and main deck contoured baggage/cargo units' },
+  { component: 'Galley Trolleys', scope: 'Half-size and full-size ATLAS/KSSU meal and waste carts (ETSO-C175)' },
+  { component: 'Pallets & Nets', scope: 'Heavy-duty restraint nets and aluminum bulk freight bases' },
+  { component: 'Cabin Attendant Seats', scope: 'Folding jumpseats with integrated retraction and harness mechanisms' },
+];
+
+const retrofitSpecs = [
+  { component: 'Overhead Stowage Bins', scope: 'High-capacity composite bins and assist handrails' },
+  { component: 'Movable Class Dividers', scope: 'Track-mounted bulkheads and custom curtain headers' },
+  { component: 'Seasonal & Regional Mods', scope: 'Quick-change seating, LOPA updates, and galley swaps' },
+  { component: 'Full Cabin Conversions', scope: 'Complete interior strip-down and density reconfigurations' },
+  { component: 'VIP Conversions', scope: 'Bespoke monuments, luxury finishes, and VIP seating' },
+  { component: 'Cabin Lighting Upgrades', scope: 'Retrofit LED mood and reading light systems' },
+  { component: 'Upholstery', scope: 'Ergonomic, fire-blocked bespoke upholstery' },
+  { component: 'Linings', scope: 'Refurbished composites with updated laminates' },
+  { component: 'Carpeting & Flooring', scope: 'Flame-retardant carpets and durable wet-area NTF' },
+  { component: 'Certification Support', scope: 'Engineering analysis and FAA/EASA compliance' },
+  { component: 'STC Documentation', scope: 'Full STC generation for major cabin alterations' },
+];
 
 const tabs = [
   {
@@ -115,7 +246,7 @@ const industries = [
     title: 'Advanced Air Mobility (AAM)',
     desc: 'Next-generation eVTOL and urban air mobility cabin solutions.',
     image: industryAamImg,
-    alt: 'Modern aircraft cockpit for advanced air mobility',
+    alt: 'eVTOL aircraft at an advanced air mobility vertiport',
   },
   {
     num: '05',
@@ -186,6 +317,348 @@ const whyUs = [
         loading="lazy"
         class="w-full h-full object-cover"
       />
+    </div>
+  </div>
+</section>
+
+<!-- SPECIALISATIONS -->
+<section class="bg-surface-container-low pt-24 lg:pt-32 pb-12 lg:pb-16 border-t border-outline-variant">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16 grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr] lg:grid-rows-[auto_1fr] gap-x-12 lg:gap-x-16 gap-y-6">
+    <div class="lg:col-start-1 lg:row-start-1">
+      <p class="font-label font-bold text-sm uppercase tracking-widest text-secondary">ENGINEERING</p>
+      <h2 class="mt-2 text-3xl lg:text-4xl font-bold leading-tight tracking-tight text-primary">
+        Specialisations
+      </h2>
+    </div>
+
+    <div class="aspect-square lg:col-start-2 lg:row-start-2 lg:self-start flex items-center justify-center">
+      <Image
+        src={specialisationsImg}
+        alt="Cutaway illustration of an aircraft cabin interior showing seating, stowage, and systems integration"
+        format="avif"
+        quality={100}
+        width={1000}
+        height={1000}
+        loading="lazy"
+        class="w-full h-full object-contain"
+      />
+    </div>
+
+    <div class="lg:col-start-1 lg:row-start-2">
+      <div class="overflow-x-auto">
+        <table class="w-full min-w-[480px] rounded-[4px] overflow-hidden border border-outline-variant shadow-ambient bg-surface border-separate border-spacing-0">
+          <thead>
+            <tr>
+              <th scope="col" class="px-5 py-2.5 text-left font-label text-xs uppercase tracking-widest text-on-surface-variant/60 font-bold border-b-2 border-secondary/40">
+                Discipline
+              </th>
+              <th scope="col" class="px-5 py-2.5 text-left font-label text-xs uppercase tracking-widest text-on-surface-variant/60 font-bold border-b-2 border-secondary/40">
+                Scope
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {specialisations.map((row, i) => (
+              <tr class:list={[i % 2 === 0 ? 'bg-surface' : 'bg-surface-container-low', i > 0 && 'border-t border-outline-variant']}>
+                <td class="px-5 py-2.5 align-top whitespace-nowrap">
+                  <span class="flex items-center gap-2.5">
+                    <span class="w-1 h-3 rounded-full bg-secondary shrink-0" aria-hidden="true"></span>
+                    <span class="font-headline font-bold text-xs text-primary">{row.discipline}</span>
+                  </span>
+                </td>
+                <td class="px-5 py-2.5 align-top text-xs text-on-surface-variant leading-snug">
+                  {row.scope}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CABIN INTERIORS (COMPONENT TABLE) -->
+<section class="bg-surface-container-low pt-12 lg:pt-16 pb-12 lg:pb-16">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16 grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr] lg:grid-rows-[auto_1fr] gap-x-12 lg:gap-x-16 gap-y-6">
+    <div class="lg:col-start-1 lg:row-start-1">
+      <p class="font-label font-bold text-sm uppercase tracking-widest text-secondary">ENGINEERING</p>
+      <h2 class="mt-2 text-3xl lg:text-4xl font-bold leading-tight tracking-tight text-primary">
+        Cabin Interiors
+      </h2>
+    </div>
+
+    <div class="h-full rounded overflow-hidden lg:col-start-1 lg:row-start-2">
+      <Image
+        src={cabinInteriorsImg}
+        alt="Wide-angle symmetrical view of a modern aircraft cabin interior"
+        format="avif"
+        quality={100}
+        width={1000}
+        height={1000}
+        loading="lazy"
+        class="w-full h-full object-cover"
+      />
+    </div>
+
+    <div class="lg:col-start-2 lg:row-start-2">
+      <div class="overflow-x-auto">
+        <table class="w-full min-w-[480px] rounded-[4px] overflow-hidden border border-outline-variant shadow-ambient bg-surface border-separate border-spacing-0">
+          <thead>
+            <tr>
+              <th scope="col" class="px-5 py-2.5 text-left font-label text-xs uppercase tracking-widest text-on-surface-variant/60 font-bold border-b-2 border-secondary/40">
+                Component
+              </th>
+              <th scope="col" class="px-5 py-2.5 text-left font-label text-xs uppercase tracking-widest text-on-surface-variant/60 font-bold border-b-2 border-secondary/40">
+                Engineering, Design, Compliance
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {cabinInteriorSpecs.map((row, i) => (
+              <tr class:list={[i % 2 === 0 ? 'bg-surface' : 'bg-surface-container-low', i > 0 && 'border-t border-outline-variant']}>
+                <td class="px-5 py-2.5 align-top whitespace-nowrap">
+                  <span class="flex items-center gap-2.5">
+                    <span class="w-1 h-3 rounded-full bg-secondary shrink-0" aria-hidden="true"></span>
+                    <span class="font-headline font-bold text-xs text-primary">{row.component}</span>
+                  </span>
+                </td>
+                <td class="px-5 py-2.5 align-top text-xs text-on-surface-variant leading-snug">
+                  {row.scope}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLEY (COMPONENT TABLE) -->
+<section class="bg-surface-container-low pt-12 lg:pt-16 pb-12 lg:pb-16">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16 grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr] lg:grid-rows-[auto_1fr] gap-x-12 lg:gap-x-16 gap-y-6">
+    <div class="lg:col-start-1 lg:row-start-1">
+      <p class="font-label font-bold text-sm uppercase tracking-widest text-secondary">ENGINEERING</p>
+      <h2 class="mt-2 text-3xl lg:text-4xl font-bold leading-tight tracking-tight text-primary">
+        Galley
+      </h2>
+    </div>
+
+    <div class="aspect-square lg:col-start-2 lg:row-start-2 lg:self-start flex items-center justify-center">
+      <Image
+        src={galleyDiagramImg}
+        alt="Cutaway diagram of an aircraft galley complex showing chillers, stowage compartments, and cart bays"
+        format="avif"
+        quality={100}
+        width={1000}
+        height={1000}
+        loading="lazy"
+        class="w-full h-full object-contain"
+      />
+    </div>
+
+    <div class="lg:col-start-1 lg:row-start-2">
+      <div class="overflow-x-auto">
+        <table class="w-full min-w-[480px] rounded-[4px] overflow-hidden border border-outline-variant shadow-ambient bg-surface border-separate border-spacing-0">
+          <thead>
+            <tr>
+              <th scope="col" class="px-5 py-2.5 text-left font-label text-xs uppercase tracking-widest text-on-surface-variant/60 font-bold border-b-2 border-secondary/40">
+                Component
+              </th>
+              <th scope="col" class="px-5 py-2.5 text-left font-label text-xs uppercase tracking-widest text-on-surface-variant/60 font-bold border-b-2 border-secondary/40">
+                Engineering, Design, Compliance
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {galleySpecs.map((row, i) => (
+              <tr class:list={[i % 2 === 0 ? 'bg-surface' : 'bg-surface-container-low', i > 0 && 'border-t border-outline-variant']}>
+                <td class="px-5 py-2.5 align-top whitespace-nowrap">
+                  <span class="flex items-center gap-2.5">
+                    <span class="w-1 h-3 rounded-full bg-secondary shrink-0" aria-hidden="true"></span>
+                    <span class="font-headline font-bold text-xs text-primary">{row.component}</span>
+                  </span>
+                </td>
+                <td class="px-5 py-2.5 align-top text-xs text-on-surface-variant leading-snug">
+                  {row.scope}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LAVATORY (COMPONENT TABLE) -->
+<section class="bg-surface-container-low pt-12 lg:pt-16 pb-12 lg:pb-16">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16 grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr] lg:grid-rows-[auto_1fr] gap-x-12 lg:gap-x-16 gap-y-6">
+    <div class="lg:col-start-1 lg:row-start-1">
+      <p class="font-label font-bold text-sm uppercase tracking-widest text-secondary">ENGINEERING</p>
+      <h2 class="mt-2 text-3xl lg:text-4xl font-bold leading-tight tracking-tight text-primary">
+        Lavatory
+      </h2>
+    </div>
+
+    <div class="h-full rounded overflow-hidden lg:col-start-1 lg:row-start-2">
+      <Image
+        src={lavatoryDiagramImg}
+        alt="Cutaway diagram of an aircraft lavatory module showing the toilet, vanity, and plumbing integration"
+        format="avif"
+        quality={100}
+        width={1000}
+        height={1000}
+        loading="lazy"
+        class="w-full h-full object-cover"
+      />
+    </div>
+
+    <div class="lg:col-start-2 lg:row-start-2">
+      <div class="overflow-x-auto">
+        <table class="w-full min-w-[480px] rounded-[4px] overflow-hidden border border-outline-variant shadow-ambient bg-surface border-separate border-spacing-0">
+          <thead>
+            <tr>
+              <th scope="col" class="px-5 py-2.5 text-left font-label text-xs uppercase tracking-widest text-on-surface-variant/60 font-bold border-b-2 border-secondary/40">
+                Component
+              </th>
+              <th scope="col" class="px-5 py-2.5 text-left font-label text-xs uppercase tracking-widest text-on-surface-variant/60 font-bold border-b-2 border-secondary/40">
+                Engineering, Design, Compliance
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {lavatorySpecs.map((row, i) => (
+              <tr class:list={[i % 2 === 0 ? 'bg-surface' : 'bg-surface-container-low', i > 0 && 'border-t border-outline-variant']}>
+                <td class="px-5 py-2.5 align-top whitespace-nowrap">
+                  <span class="flex items-center gap-2.5">
+                    <span class="w-1 h-3 rounded-full bg-secondary shrink-0" aria-hidden="true"></span>
+                    <span class="font-headline font-bold text-xs text-primary">{row.component}</span>
+                  </span>
+                </td>
+                <td class="px-5 py-2.5 align-top text-xs text-on-surface-variant leading-snug">
+                  {row.scope}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CABIN INTERIORS · LRUs (COMPONENT TABLE) -->
+<section class="bg-surface-container-low pt-12 lg:pt-16 pb-12 lg:pb-16">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16 grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr] lg:grid-rows-[auto_1fr] lg:items-center gap-x-12 lg:gap-x-16 gap-y-6">
+    <div class="lg:col-start-1 lg:row-start-1">
+      <p class="font-label font-bold text-sm uppercase tracking-widest text-secondary">ENGINEERING</p>
+      <h2 class="mt-2 text-3xl lg:text-4xl font-bold leading-tight tracking-tight text-primary">
+        Cabin Interiors &middot; LRUs
+      </h2>
+    </div>
+
+    <div class="aspect-[4/3] rounded overflow-hidden lg:col-start-2 lg:row-start-2">
+      <Image
+        src={lruDiagramImg}
+        alt="3D render of a modular aircraft cargo container line-replaceable unit"
+        format="avif"
+        quality={100}
+        width={1000}
+        height={1000}
+        loading="lazy"
+        class="w-full h-full object-contain"
+      />
+    </div>
+
+    <div class="lg:col-start-1 lg:row-start-2">
+      <div class="overflow-x-auto">
+        <table class="w-full min-w-[480px] rounded-[4px] overflow-hidden border border-outline-variant shadow-ambient bg-surface border-separate border-spacing-0">
+          <thead>
+            <tr>
+              <th scope="col" class="px-5 py-2.5 text-left font-label text-xs uppercase tracking-widest text-on-surface-variant/60 font-bold border-b-2 border-secondary/40">
+                Component
+              </th>
+              <th scope="col" class="px-5 py-2.5 text-left font-label text-xs uppercase tracking-widest text-on-surface-variant/60 font-bold border-b-2 border-secondary/40">
+                Engineering, Design, Compliance
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {lruSpecs.map((row, i) => (
+              <tr class:list={[i % 2 === 0 ? 'bg-surface' : 'bg-surface-container-low', i > 0 && 'border-t border-outline-variant']}>
+                <td class="px-5 py-2.5 align-top whitespace-nowrap">
+                  <span class="flex items-center gap-2.5">
+                    <span class="w-1 h-3 rounded-full bg-secondary shrink-0" aria-hidden="true"></span>
+                    <span class="font-headline font-bold text-xs text-primary">{row.component}</span>
+                  </span>
+                </td>
+                <td class="px-5 py-2.5 align-top text-xs text-on-surface-variant leading-snug">
+                  {row.scope}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CABIN INTERIORS · RETROFIT (COMPONENT TABLE) -->
+<section class="bg-surface-container-low pt-12 lg:pt-16 pb-12 lg:pb-16 border-b border-outline-variant">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16 grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr] lg:grid-rows-[auto_1fr] lg:items-center gap-x-12 lg:gap-x-16 gap-y-6">
+    <div class="lg:col-start-1 lg:row-start-1">
+      <p class="font-label font-bold text-sm uppercase tracking-widest text-secondary">ENGINEERING</p>
+      <h2 class="mt-2 text-3xl lg:text-4xl font-bold leading-tight tracking-tight text-primary">
+        Cabin Interiors &middot; Retrofit
+      </h2>
+    </div>
+
+    <div class="aspect-square rounded overflow-hidden lg:col-start-1 lg:row-start-2">
+      <Image
+        src={retrofitDiagramImg}
+        alt="Cutaway illustration of an aircraft cabin retrofit showing overhead bins, window panels, and sidewall structure"
+        format="avif"
+        quality={100}
+        width={1000}
+        height={1000}
+        loading="lazy"
+        class="w-full h-full object-cover"
+      />
+    </div>
+
+    <div class="lg:col-start-2 lg:row-start-2">
+      <div class="overflow-x-auto">
+        <table class="w-full min-w-[480px] rounded-[4px] overflow-hidden border border-outline-variant shadow-ambient bg-surface border-separate border-spacing-0">
+          <thead>
+            <tr>
+              <th scope="col" class="px-5 py-2.5 text-left font-label text-xs uppercase tracking-widest text-on-surface-variant/60 font-bold border-b-2 border-secondary/40">
+                Component
+              </th>
+              <th scope="col" class="px-5 py-2.5 text-left font-label text-xs uppercase tracking-widest text-on-surface-variant/60 font-bold border-b-2 border-secondary/40">
+                Engineering, Design, Compliance
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {retrofitSpecs.map((row, i) => (
+              <tr class:list={[i % 2 === 0 ? 'bg-surface' : 'bg-surface-container-low', i > 0 && 'border-t border-outline-variant']}>
+                <td class="px-5 py-2.5 align-top whitespace-nowrap">
+                  <span class="flex items-center gap-2.5">
+                    <span class="w-1 h-3 rounded-full bg-secondary shrink-0" aria-hidden="true"></span>
+                    <span class="font-headline font-bold text-xs text-primary">{row.component}</span>
+                  </span>
+                </td>
+                <td class="px-5 py-2.5 align-top text-xs text-on-surface-variant leading-snug">
+                  {row.scope}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </section>

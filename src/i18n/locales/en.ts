@@ -744,7 +744,7 @@ export const en = {
     hero: {
       eyebrow: 'Industry Focus',
       heading: 'Automotive Engineering',
-      description: 'Precision design and development of cockpit systems, exterior assemblies, and interior trims for global automotive programmes.',
+      description: 'Driving engineering excellence for automotive OEMs and Tier 1 suppliers with integrated capabilities across product development, electrification, connected systems, and digital innovation, transforming ideas into production-ready solutions.',
       cta: 'Explore What We Do',
     },
     whatWeDo: {

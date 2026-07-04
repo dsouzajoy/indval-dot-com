@@ -1010,6 +1010,54 @@ export const en = {
       description: 'From Class A surface to a production-ready mould, Indvaltech owns every stage of plug and mould development for aerospace, automotive and advanced manufacturing.',
       cta: 'See the process',
     },
+    capabilities: {
+      eyebrow: 'Capabilities',
+      heading: 'Our Composite Tooling Capabilities',
+      items: {
+        conceptDesign: {
+          title: 'Concept Design & Feasibility Studies',
+          description: 'Optimized tooling concepts with manufacturability and cost effectiveness.',
+        },
+        laminateArchitecture: {
+          title: 'Composite Product Design & Laminate Architecture',
+          description: 'Tailored laminate design for strength, weight and performance.',
+        },
+        toolingMouldDesign: {
+          title: 'Tooling & Mould Design (Plugs, Moulds, Jigs & Fixtures)',
+          description: 'High precision 3D design for all types of composite tools.',
+        },
+        detailedEngineering: {
+          title: 'Detailed Engineering (3D/2D, Assemblies, Fabrication Drawings)',
+          description: 'Complete documentation for fabrication and quality assurance.',
+        },
+        dfma: {
+          title: 'Design for Manufacturing & Assembly (DFMA)',
+          description: 'Streamlined designs for efficient manufacturing and assembly.',
+        },
+        prototypeSupport: {
+          title: 'Prototype Development Support',
+          description: 'Concept validation through prototyping and iterations.',
+        },
+        inHouseMachining: {
+          title: 'In-house Machining of Tooling, Jigs & Components',
+          description: 'High precision CNC machining for plugs, moulds and fixtures.',
+        },
+        simulationValidation: {
+          title: 'Simulation & Validation (CAE)',
+          items: [
+            'Structural Analysis (Static, Dynamic, Buckling)',
+            'Fatigue & Durability Analysis',
+            'Thermal Analysis, Load Case & Performance Validation',
+          ],
+        },
+      },
+      images: {
+        plugDesign: 'Plug Design',
+        mouldDesign: 'Mould Design',
+        jigsFixtures: 'Jigs & Fixtures',
+        frpTooling: 'FRP Tooling Solutions',
+      },
+    },
   },
   electricalHarness: {
     hero: {

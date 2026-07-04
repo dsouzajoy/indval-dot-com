@@ -1,0 +1,146 @@
+---
+import { Image } from "astro:assets";
+import { en } from "@/i18n/locales/en";
+import plugDesignRaw from "@/assets/images/composite-design/intro-plug-design.png";
+import mouldDesignRaw from "@/assets/images/composite-design/intro-mould-design.png";
+import jigsRaw from "@/assets/images/composite-design/intro-jigs.png";
+import frpRaw from "@/assets/images/composite-design/intro-frp.png";
+
+const cap = en.compositeDesign.capabilities;
+
+const items = [
+  {
+    key: "conceptDesign",
+    icon: "design_services",
+    data: cap.items.conceptDesign,
+  },
+  {
+    key: "laminateArchitecture",
+    icon: "layers",
+    data: cap.items.laminateArchitecture,
+  },
+  {
+    key: "toolingMouldDesign",
+    icon: "view_in_ar",
+    data: cap.items.toolingMouldDesign,
+  },
+  {
+    key: "detailedEngineering",
+    icon: "draw",
+    data: cap.items.detailedEngineering,
+  },
+  { key: "dfma", icon: "precision_manufacturing", data: cap.items.dfma },
+  {
+    key: "prototypeSupport",
+    icon: "science",
+    data: cap.items.prototypeSupport,
+  },
+  {
+    key: "inHouseMachining",
+    icon: "settings",
+    data: cap.items.inHouseMachining,
+  },
+  {
+    key: "simulationValidation",
+    icon: "monitoring",
+    data: cap.items.simulationValidation,
+  },
+] as const;
+
+const imageTiles = [
+  { key: "plugDesign", source: plugDesignRaw, label: "plug design" },
+  { key: "mouldDesign", source: mouldDesignRaw, label: "mould design" },
+  { key: "jigsFixtures", source: jigsRaw, label: "jigs and fixtures" },
+  { key: "frpTooling", source: frpRaw, label: "FRP solutions" },
+] as const;
+---
+
+<section id="capabilities" class="bg-surface">
+  <div
+    class="max-w-7xl mx-auto px-8 lg:px-16 py-20 lg:py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start"
+  >
+    <!-- LEFT: capabilities list -->
+    <div>
+      <p
+        class="font-label font-bold text-sm uppercase tracking-widest text-secondary"
+        data-i18n="compositeDesign.capabilities.eyebrow"
+      >
+        {cap.eyebrow}
+      </p>
+      <h2
+        class="mt-2 font-headline text-3xl lg:text-4xl font-bold tracking-tight text-primary text-balance"
+        data-i18n="compositeDesign.capabilities.heading"
+      >
+        {cap.heading}
+      </h2>
+
+      <ul class="mt-10 space-y-7">
+        {
+          items.map((item) => (
+            <li class="flex gap-4 items-start">
+              <span
+                class="material-symbols-outlined text-secondary shrink-0 text-2xl leading-none mt-0.5"
+                style="font-variation-settings: 'FILL' 1"
+                aria-hidden="true"
+              >
+                {item.icon}
+              </span>
+              <div>
+                <h3
+                  class="font-headline text-lg font-bold text-on-surface leading-snug"
+                  data-i18n={`compositeDesign.capabilities.items.${item.key}.title`}
+                >
+                  {item.data.title}
+                </h3>
+                {"description" in item.data ? (
+                  <p
+                    class="mt-1 text-base leading-relaxed text-on-surface-variant"
+                    data-i18n={`compositeDesign.capabilities.items.${item.key}.description`}
+                  >
+                    {item.data.description}
+                  </p>
+                ) : (
+                  <ul class="mt-2 space-y-1.5">
+                    {item.data.items.map((sub, j) => (
+                      <li class="flex gap-2 text-sm text-on-surface-variant leading-relaxed">
+                        <span
+                          class="text-secondary font-bold shrink-0"
+                          aria-hidden="true"
+                        >
+                          ›
+                        </span>
+                        <span
+                          data-i18n={`compositeDesign.capabilities.items.${item.key}.items.${j}`}
+                        >
+                          {sub}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <!-- RIGHT: 2x2 image grid (placeholders until real photography is supplied) -->
+    <!-- RIGHT: 2x2 image grid -->
+    <div class="grid grid-cols-2 gap-4 lg:sticky lg:top-24">
+      {
+        imageTiles.map((tile) => (
+          <div class="aspect-square rounded overflow-hidden border border-outline-variant">
+            <Image
+              src={tile.source}
+              alt={tile.label}
+              class="h-full w-full object-cover"
+              widths={[400, 800]}
+              sizes="(min-width: 1024px) 25vw, 50vw"
+            />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

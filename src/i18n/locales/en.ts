@@ -1060,6 +1060,48 @@ export const en = {
         frpTooling: 'FRP Tooling Solutions',
       },
     },
+    toolingProcesses: {
+      eyebrow: 'Every Process, Covered',
+      heading: 'Precision Tooling for Every Composite Manufacturing Process',
+      items: {
+        handLayUp: {
+          title: 'Hand Lay-Up Tooling',
+          description: 'Custom molds and lay-up tools designed for manual composite fabrication, ensuring accurate part geometry and repeatable production.',
+        },
+        vacuumBagging: {
+          title: 'Vacuum Bagging Tooling',
+          description: 'Precision tooling engineered to support vacuum consolidation processes, delivering improved laminate quality and reduced void content.',
+        },
+        vacuumInfusion: {
+          title: 'Vacuum Infusion Tooling',
+          description: 'Specialized molds and infusion tooling designed for controlled resin flow and production of high-quality composite structures.',
+        },
+        rtm: {
+          title: 'RTM (Resin Transfer Molding) Tooling',
+          description: 'Closed-mold tooling systems manufactured for precise resin injection, dimensional stability, and consistent production performance.',
+        },
+        prepregLayUp: {
+          title: 'Prepreg Lay-Up Tooling',
+          description: 'High-precision molds capable of withstanding elevated curing temperatures while maintaining excellent dimensional accuracy.',
+        },
+        masterPatterns: {
+          title: 'Master Patterns and Production Molds',
+          description: 'Accurate master patterns and durable production molds developed for prototype, low-volume, and serial manufacturing requirements.',
+        },
+        assemblyBonding: {
+          title: 'Assembly and Bonding Fixtures',
+          description: 'Custom fixtures designed for precise alignment, positioning, and bonding of composite components during assembly operations.',
+        },
+        trimmingInspection: {
+          title: 'Trimming and Inspection Fixtures',
+          description: 'Dedicated fixtures for trimming, machining, and dimensional inspection to ensure accuracy and repeatability of finished components.',
+        },
+        prototypeProduction: {
+          title: 'Prototype and Production Tooling',
+          description: 'End-to-end tooling solutions developed to support rapid prototyping, process validation, and full-scale composite manufacturing.',
+        },
+      },
+    },
   },
   electricalHarness: {
     hero: {
@@ -1644,6 +1686,30 @@ export const en = {
     cta: {
       heading: 'Engineering Heavy Weldments That Deliver Strength, Precision, and Long-Term Performance',
       body: 'We manufacture large welded assemblies and heavy fabricated structures designed to meet the rigorous demands of modern industry, combining engineering expertise, precision fabrication, and uncompromising quality standards.',
+      button: 'Get In Touch',
+    },
+  },
+  cubingControlGauges: {
+    hero: {
+      eyebrow: 'Automotive Manufacturing',
+      heading: 'Precision Cubing & Advanced Control Gauges',
+      description: 'Eliminate assembly errors before production begins. We design, engineer, and manufacture ultra-precise automotive cubing systems and inspection control gauges to validate part flushness, gap alignments, and geometric tolerances.',
+      cta: 'Explore Capabilities',
+    },
+    intro: {
+      eyebrow: 'Cubing & Control Gauge Capabilities',
+      heading: 'Definitive Physical References for Dimensional Validation',
+      para1: "In modern manufacturing, achieving perfect fit and finish requires microscopic accuracy. Our advanced cubing and control gauge services provide Tier-1 suppliers and OEMs with definitive physical references for dimensional validation. By combining premium solid aluminum machining with micron-level CMM calibration, we simulate complete vehicle assemblies long before mass production begins. We bridge the gap between digital CAD data and physical manufacturing reality, ensuring your parts meet strict GD&T (Geometric Dimensioning and Tolerancing) standards every single time.",
+      examples: [
+        'Full-scale meisterbock and E-cubing systems',
+        'Go/No-Go and variable measurement gauges',
+        'CMM holding fixtures for coordinate measurement',
+        'Micron-level dimensional validation',
+      ],
+    },
+    cta: {
+      heading: 'Ready to Secure Your Production Quality?',
+      body: "Share your project's CAD data or tolerances with our engineering team. We will deliver a comprehensive manufacturability review and fixture strategy tailored to your production timeline.",
       button: 'Get In Touch',
     },
   },

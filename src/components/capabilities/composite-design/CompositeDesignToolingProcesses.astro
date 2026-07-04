@@ -1,0 +1,53 @@
+---
+import CapabilityCard from '@/components/ui/CapabilityCard.astro';
+import { en } from '@/i18n/locales/en';
+
+const tp = en.compositeDesign.toolingProcesses;
+
+const processes = [
+  { key: 'handLayUp', icon: 'back_hand', image: '/images/composite-design/tooling/hand-layup.png' },
+  { key: 'vacuumBagging', icon: 'compress', image: '/images/composite-design/tooling/vacuum-bagging.png' },
+  { key: 'vacuumInfusion', icon: 'water_drop', image: '/images/composite-design/tooling/vacuum-infusion.png' },
+  { key: 'rtm', icon: 'sync_alt', image: '/images/composite-design/tooling/rtm.png' },
+  { key: 'prepregLayUp', icon: 'thermostat', image: '/images/composite-design/tooling/prepreg-layup.png' },
+  { key: 'masterPatterns', icon: 'content_copy', image: '/images/composite-design/tooling/master-patterns.png' },
+  { key: 'assemblyBonding', icon: 'join_full', image: '/images/composite-design/tooling/assembly-bonding-fixtures.png' },
+  { key: 'trimmingInspection', icon: 'content_cut', image: '/images/composite-design/tooling/trimming-inspection-fixtures.png' },
+  { key: 'prototypeProduction', icon: 'rocket_launch', image: '/images/composite-design/tooling/prototype-production.png' },
+] as const;
+---
+
+<section id="tooling-processes" class="bg-surface-container-low">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16 py-24 lg:py-30">
+
+    <div class="mb-14 max-w-2xl">
+      <span
+        class="font-label text-sm font-bold uppercase tracking-widest text-secondary"
+        data-i18n="compositeDesign.toolingProcesses.eyebrow"
+      >{tp.eyebrow}</span>
+      <h2
+        class="font-headline text-4xl lg:text-5xl font-bold text-on-surface mt-2 text-balance"
+        data-i18n="compositeDesign.toolingProcesses.heading"
+      >
+        {tp.heading}
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {processes.map(({ key, icon, image }) => {
+        const item = tp.items[key];
+        return (
+          <CapabilityCard
+            image={image}
+            label={item.title}
+            icon={icon}
+            description={item.description}
+            labelKey={`compositeDesign.toolingProcesses.items.${key}.title`}
+            descriptionKey={`compositeDesign.toolingProcesses.items.${key}.description`}
+          />
+        );
+      })}
+    </div>
+
+  </div>
+</section>

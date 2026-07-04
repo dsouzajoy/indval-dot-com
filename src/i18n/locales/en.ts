@@ -132,6 +132,7 @@ export const en = {
     mechanicalDesign: {
       heading: 'Engineering Solutions',
       pressToolDesign: 'Press Tool Die Design',
+      toolingDesign: 'Tooling Design',
       specialMachineDesign: 'Machine Design and Development',
       productDevelopment: 'Product Development',
       secondaryStructureDesign: 'Secondary Structure Design',
@@ -1577,6 +1578,40 @@ export const en = {
     cta: {
       heading: 'Engineering Intelligent Avionics for the Future of Flight',
       body: 'We help aerospace organizations develop innovative avionics systems that enhance safety, operational efficiency, and mission performance. By combining engineering excellence with advanced technologies, we deliver avionics solutions that power the next generation of aerospace innovation.',
+      button: 'Get In Touch',
+    },
+  },
+  toolingDesign: {
+    hero: {
+      eyebrow: 'Mechanical Design',
+      heading: 'Precision Tooling Design & Engineering Solutions',
+      description: 'End-to-end tooling design and engineering services for Automotive, Aerospace, Locomotive, Defence, and General Engineering industries, from concept development to final design release and detailed manufacturing drawings.',
+      cta: 'Explore Capabilities',
+    },
+    intro: {
+      eyebrow: 'Transforming Concepts into Manufacturing Excellence',
+      heading: 'Innovative Tooling Solutions, from Concept and Design to Final Manufacturing Documentation',
+      para1: 'We provide end-to-end tooling design and engineering services for automotive, aerospace, locomotive, defence, and general engineering industries. From initial concept development to final design release and detailed 2D manufacturing drawings, we deliver innovative, reliable, and production-ready tooling solutions that enhance productivity, precision, and quality.',
+      para2: 'With deep engineering expertise and advanced CAD technologies, we help manufacturers accelerate product development, optimize manufacturing processes, and achieve operational excellence through world-class tooling solutions.',
+      examples: [
+        'Injection mold design',
+        'Material handling equipment',
+        'Prototype tooling solutions',
+        'Ground support equipment (GSE)',
+      ],
+    },
+    whyUs: {
+      eyebrow: 'Why Choose Us',
+      heading: 'Why Choose Us?',
+      multiDomain: 'Comprehensive experience across automotive, aerospace, locomotive, defence, and general engineering industries',
+      endToEnd: 'From concept development to final manufacturing documentation under one roof',
+      manufacturingFocused: 'Designs engineered for productivity, quality, cost optimization, and ease of manufacturing',
+      precisionAndInnovation: 'Combining engineering excellence with advanced technologies to deliver world-class tooling solutions',
+      customerCentric: 'Dedicated teams, flexible engagement models, and on-time project delivery',
+    },
+    cta: {
+      heading: 'Ready to Engineer Your Next Tooling Solution?',
+      body: 'Connect with our tooling engineering team to accelerate product development and achieve production-ready designs, from concept through final manufacturing documentation.',
       button: 'Get In Touch',
     },
   },

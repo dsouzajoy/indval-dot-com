@@ -1,0 +1,431 @@
+---
+import { Image } from 'astro:assets';
+import { en } from '@/i18n/locales/en';
+import { withBase } from '@/lib/utils';
+
+import introImg from '@/assets/images/tooling-design/intro.jpg';
+import tabInjectionMoldImg from '@/assets/images/tooling-design/tab-injection-mold.jpg';
+import tabMaterialHandlingImg from '@/assets/images/tooling-design/tab-material-handling.jpg';
+import tabFixturesJigsImg from '@/assets/images/tooling-design/tab-fixtures-jigs.jpg';
+import tabMachiningImg from '@/assets/images/tooling-design/tab-machining.jpg';
+import tabInspectionGaugingImg from '@/assets/images/tooling-design/tab-inspection-gauging.jpg';
+import tabCompositeFabricationImg from '@/assets/images/tooling-design/tab-composite-fabrication.jpg';
+
+const td = en.toolingDesign;
+
+const tabs = [
+  {
+    label: 'Mold & Prototype Tooling',
+    heading: 'Injection Mold & Prototype Tooling',
+    image: tabInjectionMoldImg,
+    bullets: [
+      'Injection mold design',
+      'Prototype tooling solutions',
+      'Detailed part tooling',
+      'Forming tools',
+    ],
+  },
+  {
+    label: 'Material Handling & GSE',
+    heading: 'Material Handling Equipment & Ground Support Equipment',
+    image: tabMaterialHandlingImg,
+    bullets: [
+      'Material handling equipment',
+      'Ground support equipment (GSE)',
+      'Ground support equipment and fixturing',
+      'Material handling fixtures',
+      'Handling equipment and scaffolding',
+      'Platforms and scaffolding',
+      'Shipping fixtures',
+    ],
+  },
+  {
+    label: 'Assembly & Welding Fixtures',
+    heading: 'Assembly, Welding & Checking Fixtures',
+    image: tabFixturesJigsImg,
+    bullets: [
+      'Assembly fixtures',
+      'Welding fixtures',
+      'Checking fixtures',
+      'Piping fixtures',
+      'Assembly jigs and fixtures',
+      'Bonding jigs and fixtures',
+      'Cubing',
+    ],
+  },
+  {
+    label: 'Machining, Drilling & Milling',
+    heading: 'Machining, Drilling & Milling Jigs',
+    image: tabMachiningImg,
+    bullets: [
+      'Machining fixtures',
+      'Drill jigs',
+      'Milling fixtures',
+      'Drilling jigs',
+      'Machining jigs',
+      'Robotic end-of-arm tooling (EOAT)',
+    ],
+  },
+  {
+    label: 'Inspection & Gauging',
+    heading: 'Inspection Fixtures, Jigs & Gauges',
+    image: tabInspectionGaugingImg,
+    bullets: [
+      'Inspection fixtures',
+      'Inspection jigs',
+      'Jigs and gauges',
+      'Customized test workstations',
+    ],
+  },
+  {
+    label: 'Composite & Heavy Fabrication',
+    heading: 'Composite Tooling & Heavy Fabrication Fixtures',
+    image: tabCompositeFabricationImg,
+    bullets: [
+      'Composite tooling',
+      'Heavy fabrication fixtures',
+    ],
+  },
+];
+
+const designCapabilities = [
+  { icon: 'view_in_ar', label: 'Part Modeling' },
+  { icon: 'account_tree', label: 'Assembly Modeling' },
+  { icon: 'settings_suggest', label: 'Mechanism Development' },
+  { icon: 'fact_check', label: 'Design Validation' },
+  { icon: 'animation', label: 'Motion Simulation' },
+  { icon: 'compare_arrows', label: 'Interference Analysis' },
+  { icon: 'straighten', label: 'Tolerance Analysis' },
+  { icon: 'tune', label: 'Design Optimization' },
+  { icon: 'category', label: 'Standard Component Integration' },
+];
+
+const docCards = [
+  {
+    type: 'Manufacturing Output',
+    heading: 'Manufacturing & Assembly Drawings',
+    items: ['Manufacturing Drawings', 'Assembly Drawings', 'Component Drawings', 'Exploded Views'],
+  },
+  {
+    type: 'Fabrication Output',
+    heading: 'Fabrication & Machining Drawings',
+    items: ['Fabrication Drawings', 'Welding Drawings', 'Machining Drawings', 'Inspection Drawings'],
+  },
+  {
+    type: 'Release Output',
+    heading: 'Release & Compliance Documentation',
+    items: ['Bill of Materials (BOM)', 'GD&T Documentation', 'Material Specifications', 'Revision Control Documentation'],
+  },
+];
+
+const processSteps = [
+  { number: '01', heading: 'Concept Development & Requirement Analysis', description: 'Translating programme requirements into a clear tooling brief and design intent.' },
+  { number: '02', heading: 'Feasibility Study & Manufacturing Planning', description: 'Assessing manufacturability, cost, and process constraints before design commits.' },
+  { number: '03', heading: 'Tool Architecture & Design Development', description: 'Establishing the structural concept and load paths of the tool or fixture.' },
+  { number: '04', heading: 'Detailed 3D Modeling & Validation', description: 'Full parametric modeling with motion, interference, and tolerance validation.' },
+  { number: '05', heading: 'Engineering Analysis & Optimization', description: 'Refining designs for productivity, durability, and ease of manufacture.' },
+  { number: '06', heading: 'Manufacturing Documentation & 2D Detailing', description: 'Producing production-ready drawings, BOMs, and GD&T documentation.' },
+  { number: '07', heading: 'Final Design Release & Production Support', description: 'Releasing the design package and supporting the shop floor through build and buy-off.' },
+];
+
+const whyUs = [
+  { icon: 'hub', title: 'Multi-Domain Engineering Expertise', desc: td.whyUs.multiDomain },
+  { icon: 'route', title: 'End-to-End Engineering Solutions', desc: td.whyUs.endToEnd },
+  { icon: 'precision_manufacturing', title: 'Manufacturing-Focused Approach', desc: td.whyUs.manufacturingFocused },
+  { icon: 'engineering', title: 'Precision and Innovation', desc: td.whyUs.precisionAndInnovation },
+  { icon: 'handshake', title: 'Customer-Centric Execution', desc: td.whyUs.customerCentric },
+];
+---
+
+<!-- INTRO -->
+<section class="bg-surface">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16 py-20 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <div>
+      <p
+        class="font-label font-bold text-sm uppercase tracking-widest text-secondary"
+        data-i18n="toolingDesign.intro.eyebrow"
+      >{td.intro.eyebrow}</p>
+      <h2
+        class="mt-2 text-3xl lg:text-4xl font-bold leading-tight tracking-tight text-primary text-balance"
+        data-i18n="toolingDesign.intro.heading"
+      >{td.intro.heading}</h2>
+      <p
+        class="mt-6 text-lg leading-relaxed text-on-surface-variant"
+        data-i18n="toolingDesign.intro.para1"
+      >{td.intro.para1}</p>
+      <p
+        class="mt-5 text-lg leading-relaxed text-on-surface-variant"
+        data-i18n="toolingDesign.intro.para2"
+      >{td.intro.para2}</p>
+      <ul class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
+        {td.intro.examples.map((item, j) => (
+          <li class="flex gap-3 items-start">
+            <span class="material-symbols-outlined text-secondary shrink-0 text-lg leading-relaxed" style="font-variation-settings: 'FILL' 1" aria-hidden="true">check_circle</span>
+            <span class="text-sm text-on-surface-variant leading-relaxed" data-i18n={`toolingDesign.intro.examples.${j}`}>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div class="rounded overflow-hidden shadow-lg aspect-[4/3]">
+      <Image
+        src={introImg}
+        alt="Engineers collaborating over CAD tooling designs at a workstation"
+        format="avif"
+        quality={100}
+        width={800}
+        height={600}
+        loading="eager"
+        class="w-full h-full object-cover"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- CAPABILITIES (TABS) -->
+<section id="capabilities" class="bg-surface-container-low py-24 lg:py-30" style="background-image: radial-gradient(circle, rgba(195,198,211,0.8) 1px, transparent 1px); background-size: 40px 40px;">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+
+    <div class="mb-14 max-w-2xl">
+      <p class="font-label font-bold text-sm uppercase tracking-widest text-secondary">Across All Engineering Domains</p>
+      <h2 class="font-headline text-4xl lg:text-5xl font-bold text-on-surface mt-2">
+        Our Tooling Design Capabilities
+      </h2>
+    </div>
+
+    <!-- Tab bar -->
+    <div class="relative">
+      <div class="absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-surface-container-low to-transparent pointer-events-none z-10"></div>
+      <div id="td-tab-scroll-container" class="flex border-b border-outline-variant overflow-x-auto no-scrollbar">
+        {tabs.map((tab, i) => (
+          <button
+            data-tab={i}
+            class={`td-tab-btn font-label text-sm uppercase tracking-wider py-3 px-5 border-b-2 whitespace-nowrap transition-colors duration-200 shrink-0 cursor-pointer ${
+              i === 0
+                ? 'border-secondary text-primary font-bold'
+                : 'border-transparent text-on-surface-variant hover:text-primary'
+            }`}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <!-- Tab panels -->
+    <div class="relative mt-10">
+      {tabs.map((tab, i) => (
+        <div
+          data-panel={i}
+          class={`td-tab-panel grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start transition-opacity duration-150 ${
+            i === 0 ? 'relative opacity-100 pointer-events-auto' : 'absolute top-0 left-0 right-0 opacity-0 pointer-events-none'
+          }`}
+        >
+          <div class="space-y-6">
+            <h3 class="font-headline font-bold text-3xl text-on-surface">{tab.heading}</h3>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+              {tab.bullets.map((bullet) => (
+                <li class="flex gap-3 items-start">
+                  <span
+                    class="material-symbols-outlined text-secondary shrink-0 text-xl leading-relaxed"
+                    style="font-variation-settings: 'FILL' 1"
+                    aria-hidden="true"
+                  >check_circle</span>
+                  <span class="text-sm text-on-surface-variant leading-relaxed">{bullet}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="rounded overflow-hidden aspect-video">
+            <Image
+              src={tab.image}
+              alt={`${tab.heading} engineering capability`}
+              format="avif"
+              quality={100}
+              width={1200}
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const tdTabBtns = document.querySelectorAll<HTMLButtonElement>('.td-tab-btn');
+  const tdTabPanels = document.querySelectorAll<HTMLElement>('.td-tab-panel');
+
+  function activateTdTab(index: number) {
+    tdTabBtns.forEach((btn) => {
+      const isActive = Number(btn.dataset.tab) === index;
+      btn.classList.toggle('border-secondary', isActive);
+      btn.classList.toggle('text-primary', isActive);
+      btn.classList.toggle('font-bold', isActive);
+      btn.classList.toggle('border-transparent', !isActive);
+      btn.classList.toggle('text-on-surface-variant', !isActive);
+    });
+
+    tdTabPanels.forEach((panel, i) => {
+      const isActive = i === index;
+      panel.classList.toggle('relative', isActive);
+      panel.classList.toggle('opacity-100', isActive);
+      panel.classList.toggle('pointer-events-auto', isActive);
+      panel.classList.toggle('absolute', !isActive);
+      panel.classList.toggle('top-0', !isActive);
+      panel.classList.toggle('left-0', !isActive);
+      panel.classList.toggle('right-0', !isActive);
+      panel.classList.toggle('opacity-0', !isActive);
+      panel.classList.toggle('pointer-events-none', !isActive);
+    });
+  }
+
+  tdTabBtns.forEach((btn) => {
+    btn.addEventListener('click', () => activateTdTab(Number(btn.dataset.tab)));
+  });
+
+  const tdTabScrollContainer = document.getElementById('td-tab-scroll-container');
+  if (tdTabScrollContainer) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          observer.disconnect();
+          setTimeout(() => {
+            tdTabScrollContainer.scrollTo({ left: tdTabScrollContainer.scrollWidth, behavior: 'smooth' });
+            setTimeout(() => {
+              tdTabScrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
+            }, 900);
+          }, 400);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    const section = document.getElementById('capabilities');
+    if (section) observer.observe(section);
+  }
+</script>
+
+<!-- DETAILED 3D DESIGN ENGINEERING -->
+<section class="bg-surface py-24">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+    <div class="mb-14 max-w-xl">
+      <p class="font-label font-bold text-sm uppercase tracking-widest text-secondary">3D Design Engineering</p>
+      <h2 class="mt-2 text-3xl lg:text-4xl font-bold tracking-tight text-primary">
+        Detailed 3D Design Engineering
+      </h2>
+      <p class="mt-4 text-on-surface-variant leading-relaxed">
+        Our experienced engineers develop detailed and production-ready 3D models using industry-leading CAD platforms.
+      </p>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+      {designCapabilities.map((cap) => (
+        <div class="flex flex-col items-center text-center gap-3 bg-surface-container-low rounded-lg p-6">
+          <span class="material-symbols-outlined text-secondary" style="font-size: 32px;" aria-hidden="true">{cap.icon}</span>
+          <p class="text-sm font-medium text-on-surface leading-snug">{cap.label}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- 2D DRAFTING & MANUFACTURING DOCUMENTATION -->
+<section class="bg-surface-container-low py-24">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+    <div class="mb-16 max-w-xl">
+      <p class="font-label text-sm uppercase tracking-[0.3em] text-secondary mb-2">Manufacturing Documentation</p>
+      <h2 class="font-headline text-4xl font-extrabold tracking-tight text-primary">
+        2D Drafting & Manufacturing Documentation
+      </h2>
+      <p class="text-on-surface-variant mt-4 leading-relaxed">
+        Precise manufacturing documentation is critical for successful tool manufacturing and assembly.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {docCards.map((card) => (
+        <div class="bg-surface p-10 rounded-lg shadow-ambient hover:shadow-ambient-lg transition-shadow">
+          <h4 class="font-label text-sm uppercase tracking-widest text-on-surface-variant mb-4">{card.type}</h4>
+          <h3 class="font-headline text-2xl font-bold text-primary mb-6">{card.heading}</h3>
+          <ul class="space-y-4">
+            {card.items.map((item) => (
+              <li class="flex items-center gap-3 text-on-surface-variant">
+                <span class="material-symbols-outlined text-secondary text-lg" aria-hidden="true">check_circle</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ENGINEERING PROCESS -->
+<section class="bg-surface py-24">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+    <div class="mb-14 max-w-2xl">
+      <p class="font-label font-bold text-sm uppercase tracking-widest text-secondary">How We Work</p>
+      <h2 class="mt-2 text-3xl lg:text-4xl font-bold tracking-tight text-primary">
+        Engineering Process
+      </h2>
+    </div>
+    <ol class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-12">
+      {processSteps.map(({ number, heading, description }) => (
+        <li class="flex gap-5">
+          <span class="font-headline text-4xl font-black leading-none tabular-nums text-secondary/90 shrink-0 pt-1">{number}</span>
+          <div>
+            <h3 class="text-lg font-bold tracking-tight text-on-surface">{heading}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-on-surface-variant">{description}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="relative bg-on-surface overflow-hidden">
+  <div class="absolute inset-0" style="background-image: radial-gradient(rgba(255,255,255,0.04) 1.5px, transparent 1.5px); background-size: 32px 32px;"></div>
+  <div class="absolute inset-0" style="background: linear-gradient(160deg, rgba(0,49,108,0.15) 0%, rgba(11,28,48,0.4) 100%);"></div>
+  <div class="relative max-w-7xl mx-auto px-8 lg:px-16 py-20">
+    <div class="mb-11 max-w-2xl">
+      <p
+        class="font-label font-bold text-sm uppercase tracking-widest text-secondary"
+        data-i18n="toolingDesign.whyUs.eyebrow"
+      >{td.whyUs.eyebrow}</p>
+      <h2
+        class="mt-2 text-3xl lg:text-4xl font-bold tracking-tight text-white"
+        data-i18n="toolingDesign.whyUs.heading"
+      >{td.whyUs.heading}</h2>
+    </div>
+    <div class="flex flex-wrap justify-center gap-5">
+      {whyUs.map(({ icon, title, desc }) => (
+        <div class="flex flex-col gap-3 bg-white/5 border border-white/10 rounded p-6 w-full md:w-[calc(50%-10px)] lg:w-[calc(33.333%-13.333px)]">
+          <span class="material-symbols-outlined text-secondary shrink-0" style="font-size: 32px; font-variation-settings: 'FILL' 1">{icon}</span>
+          <h3 class="text-base font-semibold text-white">{title}</h3>
+          <p class="text-sm leading-relaxed text-white/70">{desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING BRAND STATEMENT + CTA -->
+<section class="bg-on-surface py-20 border-t border-white/10">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16 text-center">
+    <h2
+      class="font-headline text-3xl lg:text-4xl font-bold text-white mb-4 max-w-3xl mx-auto text-balance"
+      data-i18n="toolingDesign.cta.heading"
+    >{td.cta.heading}</h2>
+    <p
+      class="text-white/80 text-base mb-10 max-w-2xl mx-auto leading-relaxed"
+      data-i18n="toolingDesign.cta.body"
+    >{td.cta.body}</p>
+    <a
+      href={withBase('/contact#contact-form')}
+      class="inline-flex items-center justify-center gap-2 bg-secondary text-white px-8 py-4 rounded font-label text-sm font-bold uppercase tracking-wider cursor-pointer hover:bg-secondary/90 btn-press"
+      data-i18n="toolingDesign.cta.button"
+    >{td.cta.button}</a>
+  </div>
+</section>

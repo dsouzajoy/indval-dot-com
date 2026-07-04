@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ToolingDesignHero from '../../components/capabilities/tooling-design/ToolingDesignHero.astro';
+import ToolingDesignContent from '../../components/capabilities/tooling-design/ToolingDesignContent.astro';
+---
+
+<BaseLayout
+  title="Tooling Design & Engineering | Indvaltech"
+  description="End-to-end tooling design and engineering services for Automotive, Aerospace, Locomotive, Defence, and General Engineering industries, from concept development to final manufacturing documentation."
+  showSplash={false}
+  breadcrumbs={[{ name: 'Tooling Design', href: '/capabilities/tooling-design' }]}
+>
+  <ToolingDesignHero />
+  <ToolingDesignContent />
+</BaseLayout>

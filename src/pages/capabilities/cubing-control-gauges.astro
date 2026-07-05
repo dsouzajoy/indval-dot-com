@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CubingControlGaugesHero from '../../components/capabilities/cubing-control-gauges/CubingControlGaugesHero.astro';
+import CubingControlGaugesContent from '../../components/capabilities/cubing-control-gauges/CubingControlGaugesContent.astro';
+---
+
+<BaseLayout
+  title="Cubing & Control Gauges | Indvaltech"
+  description="Ultra-precise automotive cubing systems and inspection control gauges to validate part flushness, gap alignments, and geometric tolerances for Tier-1 suppliers and OEMs."
+  showSplash={false}
+  breadcrumbs={[{ name: 'Cubing & Control Gauges', href: '/capabilities/cubing-control-gauges' }]}
+>
+  <CubingControlGaugesHero />
+  <CubingControlGaugesContent />
+</BaseLayout>

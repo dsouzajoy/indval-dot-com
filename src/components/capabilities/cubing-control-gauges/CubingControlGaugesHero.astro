@@ -1,0 +1,80 @@
+---
+import { en } from '@/i18n/locales/en';
+
+const HERO_FULL = 'https://images.unsplash.com/photo-1567789884554-0b844b597180?auto=format&fit=crop&w=1600&q=80';
+const HERO_BLUR = 'https://images.unsplash.com/photo-1567789884554-0b844b597180?auto=format&fit=crop&w=40&blur=60&q=40';
+---
+
+<section
+  class="relative min-h-screen flex items-center overflow-hidden"
+  aria-label="Cubing & Control Gauges"
+>
+  <div class="absolute inset-0 z-0">
+    <img
+      src={HERO_BLUR}
+      alt=""
+      aria-hidden="true"
+      class="absolute inset-0 w-full h-full object-cover scale-110 blur-lg"
+    />
+    <img
+      src={HERO_FULL}
+      alt="Robotic precision inspection of a vehicle body during assembly"
+      class="ccg-hero-full absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-700"
+      loading="eager"
+      fetchpriority="high"
+    />
+  </div>
+  <!-- Dark gradient overlay -->
+  <div class="absolute inset-0 bg-gradient-to-r from-on-surface/85 via-on-surface/65 to-on-surface/20 z-10"></div>
+
+  <div class="container mx-auto px-8 lg:px-16 relative z-20 py-24">
+    <div class="max-w-2xl space-y-8">
+
+      <!-- Eyebrow -->
+      <p class="font-label text-sm uppercase tracking-widest text-secondary" data-i18n="cubingControlGauges.hero.eyebrow">
+        {en.cubingControlGauges.hero.eyebrow}
+      </p>
+
+      <!-- Heading -->
+      <h1
+        class="font-headline text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tighter text-white leading-tight text-balance"
+        data-i18n="cubingControlGauges.hero.heading"
+      >{en.cubingControlGauges.hero.heading}</h1>
+
+      <!-- Description with left-border accent -->
+      <p
+        class="text-xl text-white/90 font-light leading-relaxed border-l-4 border-secondary pl-8 max-w-xl"
+        data-i18n="cubingControlGauges.hero.description"
+      >{en.cubingControlGauges.hero.description}</p>
+
+      <!-- CTA -->
+      <div class="pt-2">
+        <a
+          href="#cubing-services"
+          id="ccg-hero-cta"
+          class="inline-block bg-gradient-to-r from-secondary to-secondary/80 text-white px-8 py-4 rounded font-label text-sm font-bold uppercase tracking-widest btn-press"
+          data-i18n="cubingControlGauges.hero.cta"
+        >
+          {en.cubingControlGauges.hero.cta}
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  document.getElementById('ccg-hero-cta')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    document.getElementById('cubing-services')?.scrollIntoView({ behavior: 'smooth' });
+  });
+
+  const ccgHeroFull = document.querySelector<HTMLImageElement>('.ccg-hero-full');
+  if (ccgHeroFull) {
+    if (ccgHeroFull.complete) {
+      ccgHeroFull.classList.remove('opacity-0');
+    } else {
+      ccgHeroFull.addEventListener('load', () => ccgHeroFull.classList.remove('opacity-0'));
+    }
+  }
+</script>

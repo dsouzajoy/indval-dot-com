@@ -1,0 +1,178 @@
+---
+import { en } from '@/i18n/locales/en';
+import { withBase } from '@/lib/utils';
+
+const ccg = en.cubingControlGauges;
+
+const introImg = {
+  full: 'https://images.unsplash.com/photo-1758873263563-5ba4aa330799?auto=format&fit=crop&w=1200&q=80',
+  alt: 'Engineer using a digital caliper to measure a precision-machined metal part',
+};
+
+const cubingCards = [
+  {
+    heading: 'Full Vehicle Meisterbock / Cubing',
+    description: 'Complete, full-scale vehicle frames milled from solid aluminum blocks to evaluate the overall interaction of exterior body panels and lights.',
+    image: 'https://images.unsplash.com/photo-1777383975764-bec6f5cabf00?auto=format&fit=crop&w=1200&q=80',
+  },
+  {
+    heading: 'Exterior E-Cubing',
+    description: 'Dedicated validation rigs designed specifically to check gaps, flushness, and aerodynamic interfaces for doors, hoods, bumpers, and tailgates.',
+    image: 'https://images.unsplash.com/photo-1567613747256-9f97205d23d2?auto=format&fit=crop&w=1200&q=80',
+  },
+  {
+    heading: 'Interior Cubing Frameworks',
+    description: 'Precision master jigs built to simulate full cockpits, ensuring flawless interface alignments between dashboards, door trims, and center consoles.',
+    image: 'https://images.unsplash.com/photo-1700727448575-6f1680cd7d75?auto=format&fit=crop&w=1200&q=80',
+  },
+  {
+    heading: 'Functional Cubing',
+    description: 'Interactive, mechanical master gauges configured with moving toggle clamps to replicate assembly steps and verify tool clearances.',
+    image: 'https://images.unsplash.com/photo-1735494033576-9c882e80504c?auto=format&fit=crop&w=1200&q=80',
+  },
+];
+
+const gaugeCards = [
+  {
+    heading: 'Attribute (Go/No-Go) Gauges',
+    description: 'High-efficiency tactile tools that instantly verify if a production part’s critical features fall within permissible geometric tolerances.',
+    image: 'https://images.unsplash.com/photo-1759846865520-7ebe2baaa759?auto=format&fit=crop&w=1200&q=80',
+  },
+  {
+    heading: 'Variable Measurement Gauges',
+    description: 'Integrated fixtures featuring digital dial indicators or electronic probes to record precise numerical deviations during live quality checks.',
+    image: 'https://images.unsplash.com/photo-1747999827332-163aa33cd597?auto=format&fit=crop&w=1200&q=80',
+  },
+  {
+    heading: 'CMM Holding Fixtures',
+    description: 'Specialized, distortion-free nests designed to securely lock flexible components into their exact position for coordinate measuring machine scanning.',
+    image: 'https://images.unsplash.com/photo-1769147339214-076740872485?auto=format&fit=crop&w=1200&q=80',
+  },
+  {
+    heading: 'Automated Inspection Gauges',
+    description: 'Smart inline checking stations equipped with optical sensors and pneumatic clamps for rapid, operator-independent quality control.',
+    image: 'https://images.unsplash.com/photo-1754039985008-a15410211b67?auto=format&fit=crop&w=1200&q=80',
+  },
+];
+---
+
+<!-- INTRO -->
+<section class="bg-surface">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16 py-20 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <div>
+      <p
+        class="font-label font-bold text-sm uppercase tracking-widest text-secondary"
+        data-i18n="cubingControlGauges.intro.eyebrow"
+      >{ccg.intro.eyebrow}</p>
+      <h2
+        class="mt-2 text-3xl lg:text-4xl font-bold leading-tight tracking-tight text-primary text-balance"
+        data-i18n="cubingControlGauges.intro.heading"
+      >{ccg.intro.heading}</h2>
+      <p
+        class="mt-6 text-lg leading-relaxed text-on-surface-variant"
+        data-i18n="cubingControlGauges.intro.para1"
+      >{ccg.intro.para1}</p>
+      <ul class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
+        {ccg.intro.examples.map((item, j) => (
+          <li class="flex gap-3 items-start">
+            <span class="material-symbols-outlined text-secondary shrink-0 text-lg leading-relaxed" style="font-variation-settings: 'FILL' 1" aria-hidden="true">check_circle</span>
+            <span class="text-sm text-on-surface-variant leading-relaxed" data-i18n={`cubingControlGauges.intro.examples.${j}`}>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div class="rounded overflow-hidden shadow-lg aspect-[4/3]">
+      <img
+        src={introImg.full}
+        alt={introImg.alt}
+        loading="eager"
+        class="w-full h-full object-cover"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- CUBING SERVICES (CARD GRID) -->
+<section id="cubing-services" class="bg-surface-container-low py-24 lg:py-30" style="background-image: radial-gradient(circle, rgba(195,198,211,0.8) 1px, transparent 1px); background-size: 40px 40px;">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+
+    <div class="mb-14 max-w-2xl">
+      <p class="font-label font-bold text-sm uppercase tracking-widest text-secondary">Vehicle Cubing Systems</p>
+      <h2 class="font-headline text-4xl lg:text-5xl font-bold text-on-surface mt-2">
+        Types of Cubing Services
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      {cubingCards.map((card) => (
+        <div class="group bg-surface rounded flex flex-col overflow-hidden border border-outline-variant border-b-2 hover:border-b-secondary transition-all duration-300">
+          <div class="aspect-video overflow-hidden">
+            <img
+              src={card.image}
+              alt={card.heading}
+              loading="lazy"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <div class="p-8 flex flex-col flex-grow">
+            <h3 class="font-headline font-bold text-xl text-on-surface mb-3">{card.heading}</h3>
+            <p class="text-on-surface-variant leading-relaxed text-sm flex-grow">{card.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTROL GAUGES SERVICES (CARD GRID) -->
+<section id="control-gauges" class="bg-surface py-24 lg:py-30" style="background-image: radial-gradient(circle, rgba(195,198,211,0.8) 1px, transparent 1px); background-size: 40px 40px;">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+
+    <div class="mb-14 max-w-2xl">
+      <p class="font-label font-bold text-sm uppercase tracking-widest text-secondary">Inspection Control Gauges</p>
+      <h2 class="font-headline text-4xl lg:text-5xl font-bold text-on-surface mt-2">
+        Types of Control Gauges Services
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      {gaugeCards.map((card) => (
+        <div class="group bg-surface-container-low rounded flex flex-col overflow-hidden border border-outline-variant border-b-2 hover:border-b-secondary transition-all duration-300">
+          <div class="aspect-video overflow-hidden">
+            <img
+              src={card.image}
+              alt={card.heading}
+              loading="lazy"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <div class="p-8 flex flex-col flex-grow">
+            <h3 class="font-headline font-bold text-xl text-on-surface mb-3">{card.heading}</h3>
+            <p class="text-on-surface-variant leading-relaxed text-sm flex-grow">{card.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<!-- CLOSING BRAND STATEMENT + CTA -->
+<section class="bg-on-surface py-20 border-t border-white/10">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16 text-center">
+    <h2
+      class="font-headline text-3xl lg:text-4xl font-bold text-white mb-4 max-w-3xl mx-auto text-balance"
+      data-i18n="cubingControlGauges.cta.heading"
+    >{ccg.cta.heading}</h2>
+    <p
+      class="text-white/80 text-base mb-10 max-w-2xl mx-auto leading-relaxed"
+      data-i18n="cubingControlGauges.cta.body"
+    >{ccg.cta.body}</p>
+    <a
+      href={withBase('/contact#contact-form')}
+      class="inline-flex items-center justify-center gap-2 bg-secondary text-white px-8 py-4 rounded font-label text-sm font-bold uppercase tracking-wider cursor-pointer hover:bg-secondary/90 btn-press"
+      data-i18n="cubingControlGauges.cta.button"
+    >{ccg.cta.button}</a>
+  </div>
+</section>

@@ -4,89 +4,8 @@ import { en } from '@/i18n/locales/en';
 import { withBase } from '@/lib/utils';
 
 import introImg from '@/assets/images/tooling-design/intro.jpg';
-import tabInjectionMoldImg from '@/assets/images/tooling-design/tab-injection-mold.jpg';
-import tabMaterialHandlingImg from '@/assets/images/tooling-design/tab-material-handling.jpg';
-import tabFixturesJigsImg from '@/assets/images/tooling-design/tab-fixtures-jigs.jpg';
-import tabMachiningImg from '@/assets/images/tooling-design/tab-machining.jpg';
-import tabInspectionGaugingImg from '@/assets/images/tooling-design/tab-inspection-gauging.jpg';
-import tabCompositeFabricationImg from '@/assets/images/tooling-design/tab-composite-fabrication.jpg';
 
 const td = en.toolingDesign;
-
-const tabs = [
-  {
-    label: 'Mold & Prototype Tooling',
-    heading: 'Injection Mold & Prototype Tooling',
-    image: tabInjectionMoldImg,
-    bullets: [
-      'Injection mold design',
-      'Prototype tooling solutions',
-      'Detailed part tooling',
-      'Forming tools',
-    ],
-  },
-  {
-    label: 'Material Handling & GSE',
-    heading: 'Material Handling Equipment & Ground Support Equipment',
-    image: tabMaterialHandlingImg,
-    bullets: [
-      'Material handling equipment',
-      'Ground support equipment (GSE)',
-      'Ground support equipment and fixturing',
-      'Material handling fixtures',
-      'Handling equipment and scaffolding',
-      'Platforms and scaffolding',
-      'Shipping fixtures',
-    ],
-  },
-  {
-    label: 'Assembly & Welding Fixtures',
-    heading: 'Assembly, Welding & Checking Fixtures',
-    image: tabFixturesJigsImg,
-    bullets: [
-      'Assembly fixtures',
-      'Welding fixtures',
-      'Checking fixtures',
-      'Piping fixtures',
-      'Assembly jigs and fixtures',
-      'Bonding jigs and fixtures',
-      'Cubing',
-    ],
-  },
-  {
-    label: 'Machining, Drilling & Milling',
-    heading: 'Machining, Drilling & Milling Jigs',
-    image: tabMachiningImg,
-    bullets: [
-      'Machining fixtures',
-      'Drill jigs',
-      'Milling fixtures',
-      'Drilling jigs',
-      'Machining jigs',
-      'Robotic end-of-arm tooling (EOAT)',
-    ],
-  },
-  {
-    label: 'Inspection & Gauging',
-    heading: 'Inspection Fixtures, Jigs & Gauges',
-    image: tabInspectionGaugingImg,
-    bullets: [
-      'Inspection fixtures',
-      'Inspection jigs',
-      'Jigs and gauges',
-      'Customized test workstations',
-    ],
-  },
-  {
-    label: 'Composite & Heavy Fabrication',
-    heading: 'Composite Tooling & Heavy Fabrication Fixtures',
-    image: tabCompositeFabricationImg,
-    bullets: [
-      'Composite tooling',
-      'Heavy fabrication fixtures',
-    ],
-  },
-];
 
 const designCapabilities = [
   { icon: 'view_in_ar', label: 'Part Modeling' },
@@ -181,130 +100,28 @@ const whyUs = [
   </div>
 </section>
 
-<!-- CAPABILITIES (TABS) -->
+<!-- CAPABILITIES -->
 <section id="capabilities" class="bg-surface-container-low py-24 lg:py-30" style="background-image: radial-gradient(circle, rgba(195,198,211,0.8) 1px, transparent 1px); background-size: 40px 40px;">
   <div class="max-w-7xl mx-auto px-8 lg:px-16">
 
     <div class="mb-14 max-w-2xl">
-      <p class="font-label font-bold text-sm uppercase tracking-widest text-secondary">Across All Engineering Domains</p>
-      <h2 class="font-headline text-4xl lg:text-5xl font-bold text-on-surface mt-2">
-        Our Tooling Design Capabilities
+      <p class="font-label font-bold text-sm uppercase tracking-widest text-secondary" data-i18n="toolingDesign.capabilities.eyebrow">{td.capabilities.eyebrow}</p>
+      <h2 class="font-headline text-4xl lg:text-5xl font-bold text-on-surface mt-2" data-i18n="toolingDesign.capabilities.heading">
+        {td.capabilities.heading}
       </h2>
     </div>
 
-    <!-- Tab bar -->
-    <div class="relative">
-      <div class="absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-surface-container-low to-transparent pointer-events-none z-10"></div>
-      <div id="td-tab-scroll-container" class="flex border-b border-outline-variant overflow-x-auto no-scrollbar">
-        {tabs.map((tab, i) => (
-          <button
-            data-tab={i}
-            class={`td-tab-btn font-label text-sm uppercase tracking-wider py-3 px-5 border-b-2 whitespace-nowrap transition-colors duration-200 shrink-0 cursor-pointer ${
-              i === 0
-                ? 'border-secondary text-primary font-bold'
-                : 'border-transparent text-on-surface-variant hover:text-primary'
-            }`}
-          >
-            {tab.label}
-          </button>
-        ))}
-      </div>
-    </div>
-
-    <!-- Tab panels -->
-    <div class="relative mt-10">
-      {tabs.map((tab, i) => (
-        <div
-          data-panel={i}
-          class={`td-tab-panel grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start transition-opacity duration-150 ${
-            i === 0 ? 'relative opacity-100 pointer-events-auto' : 'absolute top-0 left-0 right-0 opacity-0 pointer-events-none'
-          }`}
-        >
-          <div class="space-y-6">
-            <h3 class="font-headline font-bold text-3xl text-on-surface">{tab.heading}</h3>
-            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
-              {tab.bullets.map((bullet) => (
-                <li class="flex gap-3 items-start">
-                  <span
-                    class="material-symbols-outlined text-secondary shrink-0 text-xl leading-relaxed"
-                    style="font-variation-settings: 'FILL' 1"
-                    aria-hidden="true"
-                  >check_circle</span>
-                  <span class="text-sm text-on-surface-variant leading-relaxed">{bullet}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div class="rounded overflow-hidden aspect-video">
-            <Image
-              src={tab.image}
-              alt={`${tab.heading} engineering capability`}
-              format="avif"
-              quality={100}
-              width={1200}
-              class="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
-        </div>
+    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-4">
+      {td.capabilities.items.map((item, i) => (
+        <li class="flex items-start gap-3 text-sm text-on-surface-variant leading-relaxed">
+          <span class="material-symbols-outlined text-secondary text-base mt-0.5 shrink-0" aria-hidden="true">check_circle</span>
+          <span data-i18n={`toolingDesign.capabilities.items.${i}`}>{item}</span>
+        </li>
       ))}
-    </div>
+    </ul>
 
   </div>
 </section>
-
-<script>
-  const tdTabBtns = document.querySelectorAll<HTMLButtonElement>('.td-tab-btn');
-  const tdTabPanels = document.querySelectorAll<HTMLElement>('.td-tab-panel');
-
-  function activateTdTab(index: number) {
-    tdTabBtns.forEach((btn) => {
-      const isActive = Number(btn.dataset.tab) === index;
-      btn.classList.toggle('border-secondary', isActive);
-      btn.classList.toggle('text-primary', isActive);
-      btn.classList.toggle('font-bold', isActive);
-      btn.classList.toggle('border-transparent', !isActive);
-      btn.classList.toggle('text-on-surface-variant', !isActive);
-    });
-
-    tdTabPanels.forEach((panel, i) => {
-      const isActive = i === index;
-      panel.classList.toggle('relative', isActive);
-      panel.classList.toggle('opacity-100', isActive);
-      panel.classList.toggle('pointer-events-auto', isActive);
-      panel.classList.toggle('absolute', !isActive);
-      panel.classList.toggle('top-0', !isActive);
-      panel.classList.toggle('left-0', !isActive);
-      panel.classList.toggle('right-0', !isActive);
-      panel.classList.toggle('opacity-0', !isActive);
-      panel.classList.toggle('pointer-events-none', !isActive);
-    });
-  }
-
-  tdTabBtns.forEach((btn) => {
-    btn.addEventListener('click', () => activateTdTab(Number(btn.dataset.tab)));
-  });
-
-  const tdTabScrollContainer = document.getElementById('td-tab-scroll-container');
-  if (tdTabScrollContainer) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          observer.disconnect();
-          setTimeout(() => {
-            tdTabScrollContainer.scrollTo({ left: tdTabScrollContainer.scrollWidth, behavior: 'smooth' });
-            setTimeout(() => {
-              tdTabScrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
-            }, 900);
-          }, 400);
-        }
-      });
-    }, { threshold: 0.3 });
-
-    const section = document.getElementById('capabilities');
-    if (section) observer.observe(section);
-  }
-</script>
 
 <!-- DETAILED 3D DESIGN ENGINEERING -->
 <section class="bg-surface py-24">

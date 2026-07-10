@@ -116,6 +116,7 @@ export const en = {
       specialMachineDesign: 'Machine Design and Development',
       productDevelopment: 'Product Development',
       secondaryStructureDesign: 'Secondary Structure Design',
+      cubingControlGauges: 'Cubing & Control Gauges',
     },
     reverseEngineering: { heading: 'Reverse Engineering' },
     technicalPublication: { heading: 'Technical Publication' },

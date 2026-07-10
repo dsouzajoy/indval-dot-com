@@ -188,6 +188,14 @@ export const en = {
       cta: 'Explore Capabilities',
     },
   },
+  springManufacturing: {
+    hero: {
+      eyebrow: 'Manufacturing',
+      heading: 'Spring Manufacturing Capabilities',
+      description: 'Precision springs engineered to exact customer specifications, backed by advanced CNC coiling technology, experienced engineers, and stringent quality controls, from prototype development through high-volume production.',
+      cta: 'Explore Capabilities',
+    },
+  },
   kitting: {
     hero: {
       eyebrow: 'Manufacturing',

@@ -1,0 +1,595 @@
+---
+import { withBase } from '@/lib/utils';
+
+const introImg = {
+  full: 'https://images.unsplash.com/photo-1717386255767-52643970d483?auto=format&fit=crop&w=1200&q=80',
+  alt: 'CNC spring coiling machine on a precision manufacturing floor',
+};
+
+const productRange = [
+  {
+    label: 'Compression Springs',
+    icon: 'height',
+    image: 'https://images.unsplash.com/photo-1780037125316-88b66997ddfa?auto=format&fit=crop&w=1200&q=80',
+    description: 'Open-coil springs engineered to resist compressive loads, produced to precise free length, rate, and squareness tolerances.',
+  },
+  {
+    label: 'Extension Springs',
+    icon: 'expand',
+    image: 'https://images.unsplash.com/photo-1563743157646-b34fce2a89bb?auto=format&fit=crop&w=1200&q=80',
+    description: 'Close-wound springs designed to absorb and store tension energy, with hook, loop, and end-form geometries built to specification.',
+  },
+  {
+    label: 'Torsion Springs',
+    icon: 'sync',
+    image: 'https://images.unsplash.com/photo-1740435062800-adecea4b835d?auto=format&fit=crop&w=1200&q=80',
+    description: 'Coiled springs that store and release rotational force, formed with precise leg angles and torque rates for mechanism applications.',
+  },
+  {
+    label: 'Wire Forms',
+    icon: 'gesture',
+    image: 'https://images.unsplash.com/photo-1736793513114-ba3d41fec65a?auto=format&fit=crop&w=1200&q=80',
+    description: 'Custom-bent wire components in round, square, rectangular, and special-section profiles, formed to complex geometries.',
+  },
+  {
+    label: 'Customized Special Springs',
+    icon: 'tune',
+    image: 'https://images.unsplash.com/photo-1548683726-203119be6a39?auto=format&fit=crop&w=1200&q=80',
+    description: 'Application-specific spring designs engineered around unique load, space, and performance requirements.',
+  },
+  {
+    label: 'Press Components',
+    icon: 'precision_manufacturing',
+    image: 'https://images.unsplash.com/photo-1764114902604-2b291087fe26?auto=format&fit=crop&w=1200&q=80',
+    description: 'Stamped and formed metal components produced alongside spring programs for integrated assembly requirements.',
+  },
+];
+
+const materialSpecs = [
+  { component: 'High Carbon Spring Steel', scope: 'Grade I, II, III & IV' },
+  { component: 'Stainless Steel 302', scope: 'General corrosion resistance' },
+  { component: 'Stainless Steel 304', scope: 'Enhanced corrosion resistance' },
+  { component: 'Stainless Steel 316', scope: 'Marine and chemical-grade resistance' },
+  { component: 'EN-42 Spring Steel', scope: 'High tensile strength applications' },
+  { component: 'Mild Steel', scope: 'Cost-effective general-purpose forming' },
+  { component: 'Special Alloy Materials', scope: 'Available upon customer request' },
+];
+
+const wireDiameterSpecs = [
+  { component: 'Compression Springs', scope: '0.15 mm – 18.00 mm' },
+  { component: 'Extension Springs', scope: '0.20 mm – 9.00 mm' },
+  { component: 'Torsion Springs', scope: '0.20 mm – 4.00 mm' },
+  { component: 'Wire Forms', scope: '0.20 mm – 7.00 mm' },
+];
+
+const equipmentSpecs = [
+  { component: '8-Axis CNC Spring Forming Machines', scope: 'Complex geometry, tight tolerances' },
+  { component: '4-Axis CNC Spring Coiling Machines', scope: 'High-precision coiling' },
+  { component: 'High-Speed Spring Coiling Machines', scope: 'High-volume production runs' },
+  { component: 'Spring Length Gauge Systems', scope: 'Dimensional consistency checks' },
+  { component: 'Heat Treatment Furnace', scope: 'Stress relief and hardening' },
+  { component: 'Computerized Spring Load Testing Machines', scope: 'Load and rate verification' },
+  { component: 'In-house Tool Room', scope: 'Tooling design and maintenance' },
+  { component: 'Press Component Manufacturing Equipment', scope: 'Integrated stamped-part production' },
+];
+
+const qualitySpecs = [
+  { component: 'Spring Load Testing', scope: 'Rate and force verification' },
+  { component: 'Digital Vernier Measurement', scope: 'Dimensional inspection' },
+  { component: 'Digital Micrometers', scope: 'Wire diameter verification' },
+  { component: 'Thickness Gauges', scope: 'Material thickness checks' },
+  { component: 'Radius Gauges', scope: 'Bend and coil radius verification' },
+  { component: 'Precision Weighing', scope: 'Batch and unit weight control' },
+  { component: 'Material Verification', scope: 'Certified material traceability' },
+  { component: 'PPAP Documentation', scope: 'Production part approval packages' },
+  { component: 'ISO 9001:2015 Quality Procedures', scope: 'Certified process compliance' },
+];
+
+const customization = [
+  { icon: 'fitness_center', title: 'Load requirements', description: 'Spring rate and force targets matched to the application.' },
+  { icon: 'thermostat', title: 'Working environment', description: 'Temperature, corrosion, and fatigue conditions in service.' },
+  { icon: 'category', title: 'Material selection', description: 'Alloy choice balanced against strength, cost, and durability.' },
+  { icon: 'update', title: 'Spring life expectancy', description: 'Cycle life engineered to the expected service duration.' },
+  { icon: 'straighten', title: 'Dimensional constraints', description: 'Geometry engineered to fit tightly defined envelopes.' },
+  { icon: 'biotech', title: 'Prototype development', description: 'Rapid iteration from concept to validated first article.' },
+  { icon: 'payments', title: 'Cost optimization', description: 'Design and process choices tuned for production economics.' },
+];
+
+const industries = [
+  { icon: 'directions_car', label: 'Automotive' },
+  { icon: 'bolt', label: 'Electrical & Electronics' },
+  { icon: 'precision_manufacturing', label: 'Industrial Equipment' },
+  { icon: 'kitchen', label: 'Consumer Appliances' },
+  { icon: 'medical_services', label: 'Medical Equipment' },
+  { icon: 'flight', label: 'Aerospace Components' },
+  { icon: 'engineering', label: 'General Engineering' },
+  { icon: 'factory', label: 'Manufacturing Industries' },
+];
+
+const whyUs = [
+  { icon: 'precision_manufacturing', title: 'Precision CNC Manufacturing', desc: 'Advanced multi-axis coiling and forming for tight, repeatable tolerances.' },
+  { icon: 'design_services', title: 'Custom Spring Design Support', desc: 'Engineering collaboration from concept through validated production.' },
+  { icon: 'category', title: 'Wide Material Selection', desc: 'Spring steels, stainless grades, and special alloys under one roof.' },
+  { icon: 'fact_check', title: 'Strict Quality Control', desc: 'ISO 9001:2015 procedures with full dimensional and load verification.' },
+  { icon: 'schedule', title: 'Competitive Lead Times', desc: 'Efficient production planning that keeps programs on schedule.' },
+  { icon: 'local_shipping', title: 'Reliable On-Time Delivery', desc: 'Consistent, dependable fulfillment across production volumes.' },
+  { icon: 'route', title: 'Prototype to Mass Production', desc: 'Scalable capability from first article to high-volume runs.' },
+  { icon: 'groups', title: 'Experienced Technical Team', desc: 'Engineers and operators focused on spring manufacturing alone.' },
+];
+---
+
+<!-- INTRO -->
+<section class="bg-surface">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16 py-20 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <div>
+      <p class="font-label font-bold text-sm uppercase tracking-widest text-secondary">The capability</p>
+      <h2 class="mt-2 text-3xl lg:text-4xl font-bold leading-tight tracking-tight text-primary text-balance">
+        Precision Spring Manufacturing
+      </h2>
+      <p class="mt-6 text-lg leading-relaxed text-on-surface-variant">
+        At IndvalTech, we specialize in manufacturing high-quality precision springs engineered to meet the demanding requirements of various industries. With advanced CNC spring coiling technology, experienced engineers, and stringent quality controls, we produce reliable springs that deliver consistent performance, durability, and accuracy.
+      </p>
+      <p class="mt-5 text-lg leading-relaxed text-on-surface-variant">
+        Whether you require prototype development or high-volume production, our manufacturing capabilities ensure every spring is produced to exact customer specifications.
+      </p>
+    </div>
+    <div class="rounded overflow-hidden shadow-lg aspect-[4/3]">
+      <img
+        src={introImg.full}
+        alt={introImg.alt}
+        loading="eager"
+        class="w-full h-full object-cover"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- MANUFACTURING CAPABILITIES -->
+<section id="capabilities" class="bg-surface-container-low py-24 lg:py-32 border-t border-b border-outline-variant">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+    <div class="max-w-2xl mb-12">
+      <p class="font-label text-sm uppercase tracking-widest text-secondary mb-3">What we offer</p>
+      <h2 class="font-headline text-4xl lg:text-5xl font-bold text-on-surface mb-4">Our Manufacturing Capabilities</h2>
+      <p class="text-on-surface-variant leading-relaxed">
+        A comprehensive range of custom-engineered springs, designed and manufactured according to customer drawings, technical specifications, and application requirements.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {productRange.map((item) => (
+        <div class="group bg-surface rounded flex flex-col overflow-hidden border border-outline-variant border-b-2 hover:border-b-secondary hover:bg-surface-container-high transition-all duration-300">
+          <div class="aspect-video overflow-hidden">
+            <img
+              src={item.image}
+              alt={item.label}
+              loading="lazy"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <div class="p-8 flex flex-col flex-grow">
+            <div class="flex items-center justify-between gap-4 mb-3">
+              <h3 class="font-headline font-bold text-xl text-on-surface">{item.label}</h3>
+              <span class="material-symbols-outlined text-primary text-4xl shrink-0" aria-hidden="true">{item.icon}</span>
+            </div>
+            <p class="text-on-surface-variant leading-relaxed text-sm flex-grow">{item.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- MATERIAL CAPABILITIES -->
+<section class="eng-spec-section bg-surface pt-24 lg:pt-32 pb-16 lg:pb-20">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+    <div class="flex flex-wrap items-end justify-between gap-x-10 gap-y-8">
+      <div class="max-w-2xl">
+        <p class="font-label font-bold text-sm uppercase tracking-widest text-secondary">MATERIALS</p>
+        <h2 class="mt-2 text-3xl lg:text-4xl font-bold leading-tight tracking-tight text-primary">
+          Material Capabilities
+        </h2>
+      </div>
+      <div class="eng-stat flex items-center gap-4">
+        <span class="material-symbols-outlined text-secondary shrink-0" style="font-size: 36px; font-variation-settings: 'FILL' 1" aria-hidden="true">category</span>
+        <div>
+          <span class="eng-stat-count font-headline font-black text-4xl text-primary tabular-nums" data-count="7">7</span>
+          <p class="mt-0.5 font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant leading-tight">Material Grades</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-10 lg:mt-14 flex flex-col lg:flex-row lg:items-start gap-10 lg:gap-16">
+      <div class="eng-spec-image lg:order-2 lg:w-[38%] lg:shrink-0 rounded overflow-hidden">
+        <img
+          src="https://images.unsplash.com/photo-1697698532634-ea59b636ccea?auto=format&fit=crop&w=1000&q=80"
+          alt="Rolled steel coils stacked in a manufacturing warehouse"
+          loading="lazy"
+          class="w-full h-auto rounded"
+        />
+      </div>
+
+      <dl class="lg:order-1 flex-1 grid grid-cols-1 sm:grid-cols-2 sm:gap-x-10 border-t border-outline-variant/70">
+        {materialSpecs.map((row) => (
+          <div class="eng-spec-row group py-4 sm:py-5 px-2 -mx-2 rounded border-b border-outline-variant/70 transition-colors duration-200 hover:bg-surface-container-low">
+            <dt class="flex items-start gap-2.5">
+              <span class="mt-2 w-1.5 h-1.5 rounded-full bg-secondary shrink-0 transition-transform duration-200 group-hover:scale-[1.8]" aria-hidden="true"></span>
+              <span class="font-headline font-bold text-[0.95rem] text-primary leading-snug">{row.component}</span>
+            </dt>
+            <dd class="mt-1.5 pl-4 text-sm text-on-surface-variant leading-relaxed">{row.scope}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- WIRE DIAMETER RANGE -->
+<section class="eng-spec-section bg-surface pt-12 lg:pt-16 pb-16 lg:pb-20">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+    <div class="flex flex-wrap items-end justify-between gap-x-10 gap-y-8">
+      <div class="max-w-2xl">
+        <p class="font-label font-bold text-sm uppercase tracking-widest text-secondary">PRODUCTION RANGE</p>
+        <h2 class="mt-2 text-3xl lg:text-4xl font-bold leading-tight tracking-tight text-primary">
+          Wire Diameter Range
+        </h2>
+      </div>
+      <div class="eng-stat flex items-center gap-4">
+        <span class="material-symbols-outlined text-secondary shrink-0" style="font-size: 36px; font-variation-settings: 'FILL' 1" aria-hidden="true">linear_scale</span>
+        <div>
+          <span class="eng-stat-count font-headline font-black text-4xl text-primary tabular-nums" data-count="4">4</span>
+          <p class="mt-0.5 font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant leading-tight">Spring Types</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-10 lg:mt-14 flex flex-col lg:flex-row lg:items-start gap-10 lg:gap-16">
+      <div class="eng-spec-image lg:order-1 lg:w-[38%] lg:shrink-0 rounded overflow-hidden">
+        <img
+          src="https://images.unsplash.com/photo-1758965364875-e090e5423d2d?auto=format&fit=crop&w=1000&q=80"
+          alt="Large industrial reel of coiled wire"
+          loading="lazy"
+          class="w-full h-auto rounded"
+        />
+      </div>
+
+      <dl class="lg:order-2 flex-1 grid grid-cols-1 sm:grid-cols-2 sm:gap-x-10 border-t border-outline-variant/70">
+        {wireDiameterSpecs.map((row) => (
+          <div class="eng-spec-row group py-4 sm:py-5 px-2 -mx-2 rounded border-b border-outline-variant/70 transition-colors duration-200 hover:bg-surface-container-low">
+            <dt class="flex items-start gap-2.5">
+              <span class="mt-2 w-1.5 h-1.5 rounded-full bg-secondary shrink-0 transition-transform duration-200 group-hover:scale-[1.8]" aria-hidden="true"></span>
+              <span class="font-headline font-bold text-[0.95rem] text-primary leading-snug">{row.component}</span>
+            </dt>
+            <dd class="mt-1.5 pl-4 text-sm text-on-surface-variant leading-relaxed">{row.scope}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+
+    <p class="mt-10 text-sm text-on-surface-variant leading-relaxed border-t border-outline-variant/70 pt-6">
+      We also manufacture custom profiles using round, square, rectangular, and special-section wire.
+    </p>
+  </div>
+</section>
+
+<!-- ADVANCED MANUFACTURING EQUIPMENT -->
+<section class="eng-spec-section bg-surface pt-12 lg:pt-16 pb-16 lg:pb-20 border-b border-outline-variant">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+    <div class="flex flex-wrap items-end justify-between gap-x-10 gap-y-8">
+      <div class="max-w-2xl">
+        <p class="font-label font-bold text-sm uppercase tracking-widest text-secondary">INFRASTRUCTURE</p>
+        <h2 class="mt-2 text-3xl lg:text-4xl font-bold leading-tight tracking-tight text-primary">
+          Advanced Manufacturing Equipment
+        </h2>
+        <p class="mt-4 text-on-surface-variant leading-relaxed">
+          Our facility is equipped with modern CNC spring manufacturing machines that provide exceptional precision, repeatability, and production efficiency.
+        </p>
+      </div>
+      <div class="eng-stat flex items-center gap-4">
+        <span class="material-symbols-outlined text-secondary shrink-0" style="font-size: 36px; font-variation-settings: 'FILL' 1" aria-hidden="true">precision_manufacturing</span>
+        <div>
+          <span class="eng-stat-count font-headline font-black text-4xl text-primary tabular-nums" data-count="8">8</span>
+          <p class="mt-0.5 font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant leading-tight">Equipment Systems</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-10 lg:mt-14 flex flex-col lg:flex-row lg:items-start gap-10 lg:gap-16">
+      <div class="eng-spec-image lg:order-2 lg:w-[38%] lg:shrink-0 rounded overflow-hidden">
+        <img
+          src="https://images.unsplash.com/photo-1764114441123-586d13fc6ece?auto=format&fit=crop&w=1000&q=80"
+          alt="Industrial workshop with a lathe and metal shavings"
+          loading="lazy"
+          class="w-full h-auto rounded"
+        />
+      </div>
+
+      <dl class="lg:order-1 flex-1 grid grid-cols-1 sm:grid-cols-2 sm:gap-x-10 border-t border-outline-variant/70">
+        {equipmentSpecs.map((row) => (
+          <div class="eng-spec-row group py-4 sm:py-5 px-2 -mx-2 rounded border-b border-outline-variant/70 transition-colors duration-200 hover:bg-surface-container-low">
+            <dt class="flex items-start gap-2.5">
+              <span class="mt-2 w-1.5 h-1.5 rounded-full bg-secondary shrink-0 transition-transform duration-200 group-hover:scale-[1.8]" aria-hidden="true"></span>
+              <span class="font-headline font-bold text-[0.95rem] text-primary leading-snug">{row.component}</span>
+            </dt>
+            <dd class="mt-1.5 pl-4 text-sm text-on-surface-variant leading-relaxed">{row.scope}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </div>
+</section>
+
+<script>
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const sections = document.querySelectorAll<HTMLElement>('.eng-spec-section');
+
+  // --- Stat counter (odometer digit roll) ---
+  type SlotState = { curr: HTMLElement; nxt: HTMLElement; lineH: number; target: number };
+
+  const setupCounter = (el: HTMLElement): SlotState => {
+    const target = parseInt(el.dataset.count!, 10);
+    el.textContent = '';
+    el.style.display = 'inline-flex';
+    el.style.alignItems = 'baseline';
+
+    const slotWrap = document.createElement('span');
+    slotWrap.style.cssText = 'display:inline-block;overflow:hidden;position:relative;';
+
+    const curr = document.createElement('span');
+    curr.style.cssText = 'display:block;position:absolute;top:0;left:0;right:0;text-align:left;';
+    curr.textContent = '0';
+
+    const nxt = document.createElement('span');
+    nxt.style.cssText = 'display:block;position:absolute;left:0;right:0;text-align:left;';
+
+    const spacer = document.createElement('span');
+    spacer.setAttribute('aria-hidden', 'true');
+    spacer.style.cssText = 'display:block;visibility:hidden;pointer-events:none;';
+    spacer.textContent = String(target);
+
+    slotWrap.append(curr, nxt, spacer);
+    el.appendChild(slotWrap);
+
+    const lineH = spacer.offsetHeight;
+    slotWrap.style.height = `${lineH}px`;
+    nxt.style.top = `${lineH}px`;
+
+    return { curr, nxt, lineH, target };
+  };
+
+  const animateCounter = ({ curr, nxt, lineH, target }: SlotState) => {
+    const TARGET_FLIPS = 12;
+    const stepSize = Math.max(1, Math.ceil(target / TARGET_FLIPS));
+
+    const steps: number[] = [];
+    for (let v = stepSize; v < target; v += stepSize) steps.push(v);
+    steps.push(target);
+
+    const totalSteps = steps.length;
+    const endTimes: number[] = [];
+    let cumulative = 0;
+    for (let i = 0; i < totalSteps; i++) {
+      const t = totalSteps > 1 ? i / (totalSteps - 1) : 1;
+      cumulative += 55 + t ** 2 * 80;
+      endTimes.push(cumulative);
+    }
+
+    let startTime: number | null = null;
+
+    const frame = (now: number) => {
+      if (startTime === null) startTime = now;
+      const elapsed = now - startTime;
+
+      if (elapsed >= endTimes[totalSteps - 1]) {
+        curr.textContent = String(target);
+        curr.style.transform = 'translateY(0)';
+        nxt.style.transform = `translateY(${lineH}px)`;
+        nxt.textContent = '';
+        return;
+      }
+
+      let i = 0;
+      while (i < totalSteps - 1 && endTimes[i] <= elapsed) i++;
+
+      const stepStart = i === 0 ? 0 : endTimes[i - 1];
+      const stepDuration = endTimes[i] - stepStart;
+      const t = (elapsed - stepStart) / stepDuration;
+      const eased = 1 - (1 - t) ** 2;
+
+      curr.textContent = String(i === 0 ? 0 : steps[i - 1]);
+      nxt.textContent = String(steps[i]);
+      curr.style.transform = `translateY(${-eased * lineH}px)`;
+      nxt.style.transform = `translateY(${-eased * lineH}px)`;
+
+      requestAnimationFrame(frame);
+    };
+
+    requestAnimationFrame(frame);
+  };
+
+  // --- Reveal: spec rows stagger in, image settles in ---
+  const revealSection = (section: HTMLElement) => {
+    if (reduceMotion) return;
+
+    const rows = section.querySelectorAll<HTMLElement>('.eng-spec-row');
+    rows.forEach((row, i) => {
+      row.animate(
+        [
+          { opacity: 0, transform: 'translateY(10px)' },
+          { opacity: 1, transform: 'translateY(0)' },
+        ],
+        { duration: 420, delay: Math.min(i, 10) * 35, easing: 'cubic-bezier(0.22, 1, 0.36, 1)', fill: 'backwards' }
+      );
+    });
+
+    const image = section.querySelector<HTMLElement>('.eng-spec-image');
+    if (image) {
+      image.animate(
+        [
+          { opacity: 0, transform: 'scale(0.97)' },
+          { opacity: 1, transform: 'scale(1)' },
+        ],
+        { duration: 520, easing: 'cubic-bezier(0.22, 1, 0.36, 1)', fill: 'backwards' }
+      );
+    }
+  };
+
+  const counterStates = new Map<HTMLElement, SlotState>();
+  sections.forEach((section) => {
+    const countEl = section.querySelector<HTMLElement>('.eng-stat-count');
+    if (countEl) counterStates.set(section, setupCounter(countEl));
+  });
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const section = entry.target as HTMLElement;
+
+        const state = counterStates.get(section);
+        if (state) {
+          if (reduceMotion) {
+            state.curr.textContent = String(state.target);
+            state.curr.style.transform = 'translateY(0)';
+          } else {
+            animateCounter(state);
+          }
+        }
+
+        revealSection(section);
+
+        observer.unobserve(section);
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  sections.forEach((section) => observer.observe(section));
+</script>
+
+<!-- ENGINEERING & CUSTOMIZATION -->
+<section class="bg-surface-container-low py-24">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+    <div class="mb-14 max-w-2xl">
+      <p class="font-label font-bold text-sm uppercase tracking-widest text-secondary">Engineering support</p>
+      <h2 class="mt-2 text-3xl lg:text-4xl font-bold tracking-tight text-primary">Engineering &amp; Customization</h2>
+      <p class="mt-4 text-on-surface-variant leading-relaxed">
+        Every application has unique requirements. Our engineering team works closely with customers to develop customized spring solutions, from concept to production.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {customization.map((point) => (
+        <div class="bg-surface rounded-lg p-6 border border-outline-variant">
+          <span class="material-symbols-outlined text-secondary" style="font-size: 32px;" aria-hidden="true">{point.icon}</span>
+          <p class="mt-4 font-headline font-bold text-sm text-primary">{point.title}</p>
+          <p class="mt-1.5 text-sm text-on-surface-variant leading-relaxed">{point.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- QUALITY ASSURANCE -->
+<section class="eng-spec-section bg-surface pt-24 lg:pt-32 pb-16 lg:pb-20">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+    <div class="flex flex-wrap items-end justify-between gap-x-10 gap-y-8">
+      <div class="max-w-2xl">
+        <p class="font-label font-bold text-sm uppercase tracking-widest text-secondary">QUALITY</p>
+        <h2 class="mt-2 text-3xl lg:text-4xl font-bold leading-tight tracking-tight text-primary">
+          Quality Assurance
+        </h2>
+        <p class="mt-4 text-on-surface-variant leading-relaxed">
+          Quality is integrated into every stage of our manufacturing process. Each product undergoes rigorous inspection to ensure compliance with customer specifications before dispatch.
+        </p>
+      </div>
+      <div class="eng-stat flex items-center gap-4">
+        <span class="material-symbols-outlined text-secondary shrink-0" style="font-size: 36px; font-variation-settings: 'FILL' 1" aria-hidden="true">verified</span>
+        <div>
+          <span class="eng-stat-count font-headline font-black text-4xl text-primary tabular-nums" data-count="9">9</span>
+          <p class="mt-0.5 font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant leading-tight">Inspection Points</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-10 lg:mt-14 flex flex-col lg:flex-row lg:items-start gap-10 lg:gap-16">
+      <div class="eng-spec-image lg:order-1 lg:w-[38%] lg:shrink-0 rounded overflow-hidden">
+        <img
+          src="https://images.unsplash.com/photo-1745571479807-8a0dda362f94?auto=format&fit=crop&w=1000&q=80"
+          alt="A worker measuring a metal component clamped in a vise"
+          loading="lazy"
+          class="w-full h-auto rounded"
+        />
+      </div>
+
+      <dl class="lg:order-2 flex-1 grid grid-cols-1 sm:grid-cols-2 sm:gap-x-10 border-t border-outline-variant/70">
+        {qualitySpecs.map((row) => (
+          <div class="eng-spec-row group py-4 sm:py-5 px-2 -mx-2 rounded border-b border-outline-variant/70 transition-colors duration-200 hover:bg-surface-container-low">
+            <dt class="flex items-start gap-2.5">
+              <span class="mt-2 w-1.5 h-1.5 rounded-full bg-secondary shrink-0 transition-transform duration-200 group-hover:scale-[1.8]" aria-hidden="true"></span>
+              <span class="font-headline font-bold text-[0.95rem] text-primary leading-snug">{row.component}</span>
+            </dt>
+            <dd class="mt-1.5 pl-4 text-sm text-on-surface-variant leading-relaxed">{row.scope}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES WE SERVE -->
+<section class="bg-surface-container-low py-24">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+    <div class="mb-14 max-w-2xl">
+      <p class="font-label font-bold text-sm uppercase tracking-widest text-secondary">Who we work with</p>
+      <h2 class="mt-2 text-3xl lg:text-4xl font-bold tracking-tight text-primary">Industries We Serve</h2>
+      <p class="mt-4 text-on-surface-variant leading-relaxed">
+        Our precision springs are supplied to customers across a broad range of manufacturing sectors.
+      </p>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+      {industries.map((item) => (
+        <div class="flex flex-col items-center text-center gap-3 bg-surface rounded-lg p-6 border border-outline-variant">
+          <span class="material-symbols-outlined text-secondary" style="font-size: 32px;" aria-hidden="true">{item.icon}</span>
+          <p class="text-sm font-medium text-on-surface leading-snug">{item.label}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE INDVALTECH -->
+<section class="relative bg-on-surface overflow-hidden">
+  <div class="absolute inset-0" style="background-image: radial-gradient(rgba(255,255,255,0.04) 1.5px, transparent 1.5px); background-size: 32px 32px;"></div>
+  <div class="absolute inset-0" style="background: linear-gradient(160deg, rgba(0,49,108,0.15) 0%, rgba(11,28,48,0.4) 100%);"></div>
+  <div class="relative max-w-7xl mx-auto px-8 lg:px-16 py-20">
+    <div class="mb-11 max-w-2xl">
+      <p class="font-label font-bold text-sm uppercase tracking-widest text-secondary">Why choose us</p>
+      <h2 class="mt-2 text-3xl lg:text-4xl font-bold tracking-tight text-white">Why Choose IndvalTech</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+      {whyUs.map(({ icon, title, desc }) => (
+        <div class="flex flex-col gap-3 bg-white/5 border border-white/10 rounded p-6">
+          <span class="material-symbols-outlined text-secondary shrink-0" style="font-size: 32px; font-variation-settings: 'FILL' 1">{icon}</span>
+          <h3 class="text-base font-semibold text-white">{title}</h3>
+          <p class="text-sm leading-relaxed text-white/70">{desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- GET IN TOUCH -->
+<section class="bg-on-surface py-20">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16 text-center">
+    <h2 class="font-headline text-3xl lg:text-4xl font-bold text-white mb-4">
+      Ready to Engineer Your Next Spring Program?
+    </h2>
+    <p class="text-white/80 text-base mb-10 max-w-xl mx-auto leading-relaxed">
+      Send your specification and a dedicated engineer will respond with a costed, scoped quote from prototype through high-volume production.
+    </p>
+    <a
+      href={withBase('/contact#contact-form')}
+      class="inline-flex items-center justify-center gap-2 bg-secondary text-white px-8 py-4 rounded font-label text-sm font-bold uppercase tracking-wider cursor-pointer hover:bg-secondary/90 btn-press"
+    >
+      Get In Touch
+    </a>
+  </div>
+</section>

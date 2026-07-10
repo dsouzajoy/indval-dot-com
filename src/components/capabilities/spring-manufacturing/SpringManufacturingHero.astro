@@ -1,0 +1,76 @@
+---
+import { en } from '@/i18n/locales/en';
+
+const HERO_FULL = 'https://images.unsplash.com/photo-1745449562896-71ba57d1e2b3?auto=format&fit=crop&w=1600&q=80';
+const HERO_BLUR = 'https://images.unsplash.com/photo-1745449562896-71ba57d1e2b3?auto=format&fit=crop&w=40&blur=60&q=40';
+---
+
+<section
+  class="relative min-h-screen flex items-center overflow-hidden"
+  aria-label="Spring Manufacturing"
+>
+  <div class="absolute inset-0 z-0">
+    <img
+      src={HERO_BLUR}
+      alt=""
+      aria-hidden="true"
+      class="absolute inset-0 w-full h-full object-cover scale-110 blur-lg"
+    />
+    <img
+      src={HERO_FULL}
+      alt="Precision-coiled steel springs stacked in a manufacturing warehouse"
+      class="sm-hero-full absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-700"
+      loading="eager"
+      fetchpriority="high"
+    />
+  </div>
+  <!-- Dark gradient overlay -->
+  <div class="absolute inset-0 bg-gradient-to-r from-on-surface/85 via-on-surface/65 to-on-surface/20 z-10"></div>
+
+  <div class="container mx-auto px-8 lg:px-16 relative z-20 py-24">
+    <div class="max-w-2xl space-y-8">
+
+      <p class="font-label text-sm uppercase tracking-widest text-secondary" data-i18n="springManufacturing.hero.eyebrow">
+        {en.springManufacturing.hero.eyebrow}
+      </p>
+
+      <h1
+        class="font-headline text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tighter text-white leading-tight text-balance"
+        data-i18n="springManufacturing.hero.heading"
+      >{en.springManufacturing.hero.heading}</h1>
+
+      <p
+        class="text-xl text-white/90 font-light leading-relaxed border-l-4 border-secondary pl-8 max-w-xl"
+        data-i18n="springManufacturing.hero.description"
+      >{en.springManufacturing.hero.description}</p>
+
+      <div class="pt-2">
+        <a
+          href="#capabilities"
+          id="sm-hero-cta"
+          class="inline-block bg-gradient-to-r from-secondary to-secondary/80 text-white px-8 py-4 rounded font-label text-sm font-bold uppercase tracking-widest btn-press"
+          data-i18n="springManufacturing.hero.cta"
+        >
+          {en.springManufacturing.hero.cta}
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  document.getElementById('sm-hero-cta')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    document.getElementById('capabilities')?.scrollIntoView({ behavior: 'smooth' });
+  });
+
+  const smHeroFull = document.querySelector<HTMLImageElement>('.sm-hero-full');
+  if (smHeroFull) {
+    if (smHeroFull.complete) {
+      smHeroFull.classList.remove('opacity-0');
+    } else {
+      smHeroFull.addEventListener('load', () => smHeroFull.classList.remove('opacity-0'));
+    }
+  }
+</script>

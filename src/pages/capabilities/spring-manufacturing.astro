@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SpringManufacturingHero from '../../components/capabilities/spring-manufacturing/SpringManufacturingHero.astro';
+import SpringManufacturingContent from '../../components/capabilities/spring-manufacturing/SpringManufacturingContent.astro';
+---
+
+<BaseLayout
+  title="Spring Manufacturing Capabilities | Indvaltech"
+  description="Precision compression, extension, and torsion springs, wire forms, and press components engineered to exact specification. CNC coiling, in-house tooling, and ISO 9001:2015 quality control from prototype to high-volume production."
+  showSplash={false}
+  breadcrumbs={[{ name: 'Spring Manufacturing', href: '/capabilities/spring-manufacturing' }]}
+>
+  <SpringManufacturingHero />
+  <SpringManufacturingContent />
+</BaseLayout>

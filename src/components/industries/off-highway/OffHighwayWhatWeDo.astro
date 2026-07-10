@@ -274,6 +274,89 @@ import { withBase } from '@/lib/utils';
         <span class="font-label text-base font-semibold text-on-surface leading-snug">Finite Element Analysis</span>
       </a>
 
+      <!-- Manufacturing -->
+      <a href={withBase('/capabilities/manufacturing')} class="bg-white border border-outline-variant rounded-lg p-8 flex flex-col items-start gap-4 hover:border-secondary btn-press-card cursor-pointer">
+        <div class="w-16 h-16">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- Large gear body fill -->
+            <circle cx="28" cy="34" r="20" fill="#dce9ff"/>
+            <!-- Large gear teeth (8, rotate around 28,34) -->
+            <rect x="26" y="9" width="4" height="8" rx="1" fill="#dce9ff" stroke="#00316c" stroke-width="1.5" transform="rotate(0   28 34)"/>
+            <rect x="26" y="9" width="4" height="8" rx="1" fill="#dce9ff" stroke="#00316c" stroke-width="1.5" transform="rotate(45  28 34)"/>
+            <rect x="26" y="9" width="4" height="8" rx="1" fill="#dce9ff" stroke="#00316c" stroke-width="1.5" transform="rotate(90  28 34)"/>
+            <rect x="26" y="9" width="4" height="8" rx="1" fill="#dce9ff" stroke="#00316c" stroke-width="1.5" transform="rotate(135 28 34)"/>
+            <rect x="26" y="9" width="4" height="8" rx="1" fill="#dce9ff" stroke="#00316c" stroke-width="1.5" transform="rotate(180 28 34)"/>
+            <rect x="26" y="9" width="4" height="8" rx="1" fill="#dce9ff" stroke="#00316c" stroke-width="1.5" transform="rotate(225 28 34)"/>
+            <rect x="26" y="9" width="4" height="8" rx="1" fill="#dce9ff" stroke="#00316c" stroke-width="1.5" transform="rotate(270 28 34)"/>
+            <rect x="26" y="9" width="4" height="8" rx="1" fill="#dce9ff" stroke="#00316c" stroke-width="1.5" transform="rotate(315 28 34)"/>
+            <!-- Large gear ring outline -->
+            <circle cx="28" cy="34" r="20" stroke="#00316c" stroke-width="2"/>
+            <!-- Depth tint lower-right -->
+            <path d="M28 54 A20 20 0 0 0 48 34 A20 20 0 0 0 28 14 Z" fill="#00316c" opacity="0.08"/>
+            <!-- Center bore -->
+            <circle cx="28" cy="34" r="7" fill="white"/>
+            <circle cx="28" cy="34" r="7" stroke="#00316c" stroke-width="1.5"/>
+            <!-- Bolt holes -->
+            <circle cx="28" cy="22" r="2" fill="#00316c"/>
+            <circle cx="38.4" cy="28" r="2" fill="#00316c"/>
+            <circle cx="17.6" cy="28" r="2" fill="#00316c"/>
+            <!-- Small gear body -->
+            <circle cx="50" cy="18" r="10" fill="#dce9ff"/>
+            <!-- Small gear teeth (5, rotate around 50,18) -->
+            <rect x="48" y="4" width="4" height="6" rx="1" fill="#dce9ff" stroke="#00316c" stroke-width="1.5" transform="rotate(0   50 18)"/>
+            <rect x="48" y="4" width="4" height="6" rx="1" fill="#dce9ff" stroke="#00316c" stroke-width="1.5" transform="rotate(72  50 18)"/>
+            <rect x="48" y="4" width="4" height="6" rx="1" fill="#dce9ff" stroke="#00316c" stroke-width="1.5" transform="rotate(144 50 18)"/>
+            <rect x="48" y="4" width="4" height="6" rx="1" fill="#dce9ff" stroke="#00316c" stroke-width="1.5" transform="rotate(216 50 18)"/>
+            <rect x="48" y="4" width="4" height="6" rx="1" fill="#dce9ff" stroke="#00316c" stroke-width="1.5" transform="rotate(288 50 18)"/>
+            <!-- Small gear ring outline -->
+            <circle cx="50" cy="18" r="10" stroke="#00316c" stroke-width="2"/>
+            <!-- Small gear center -->
+            <circle cx="50" cy="18" r="3" fill="#00316c"/>
+            <circle cx="50" cy="18" r="1.5" fill="white"/>
+            <!-- Orange contact point between gears -->
+            <circle cx="44" cy="24" r="2.5" fill="#ff671f"/>
+          </svg>
+        </div>
+        <span class="font-label text-base font-semibold text-on-surface leading-snug">Manufacturing</span>
+      </a>
+
+      <!-- Technical Publications -->
+      <a href={withBase('/capabilities/technical-publication')} class="bg-white border border-outline-variant rounded-lg p-8 flex flex-col items-start gap-4 hover:border-secondary btn-press-card cursor-pointer">
+        <div class="w-16 h-16">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- Document body -->
+            <path d="M8 4 L40 4 L56 20 L56 60 L8 60 Z" fill="#dce9ff"/>
+            <path d="M8 4 L40 4 L56 20 L56 60 L8 60 Z" stroke="#00316c" stroke-width="2" stroke-linejoin="round"/>
+            <!-- Folded corner (orange accent) -->
+            <path d="M40 4 L40 20 L56 20 Z" fill="#ff671f" opacity="0.70"/>
+            <path d="M40 4 L40 20 L56 20" stroke="#00316c" stroke-width="1.5" stroke-linejoin="round"/>
+            <!-- L-bracket: horizontal bar -->
+            <path d="M16 26 L48 26 L48 32 L16 32 Z" fill="#00316c" opacity="0.15"/>
+            <path d="M16 26 L48 26 L48 32 L16 32 Z" stroke="#00316c" stroke-width="1.5" stroke-linejoin="round" fill="none"/>
+            <!-- L-bracket: vertical leg -->
+            <path d="M16 26 L16 46 L22 46 L22 32 L16 32 Z" fill="#00316c" opacity="0.15"/>
+            <path d="M16 26 L16 46 L22 46 L22 32 L16 32 Z" stroke="#00316c" stroke-width="1.5" stroke-linejoin="round" fill="none"/>
+            <!-- Horizontal dimension line -->
+            <line x1="16" y1="36" x2="48" y2="36" stroke="#00316c" stroke-width="1" stroke-linecap="round"/>
+            <polyline points="18,34 16,36 18,38" stroke="#00316c" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <polyline points="46,34 48,36 46,38" stroke="#00316c" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <!-- Vertical dimension line -->
+            <line x1="26" y1="26" x2="26" y2="46" stroke="#00316c" stroke-width="1" stroke-linecap="round"/>
+            <polyline points="24,28 26,26 28,28" stroke="#00316c" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <polyline points="24,44 26,46 28,44" stroke="#00316c" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <!-- Callout bubble -->
+            <line x1="48" y1="29" x2="53" y2="23" stroke="#00316c" stroke-width="1" stroke-linecap="round"/>
+            <circle cx="53" cy="21" r="3.5" fill="white" stroke="#00316c" stroke-width="1"/>
+            <!-- Title block -->
+            <line x1="12" y1="51" x2="52" y2="51" stroke="#00316c" stroke-width="1" stroke-linecap="round"/>
+            <line x1="12" y1="56" x2="52" y2="56" stroke="#00316c" stroke-width="1" stroke-linecap="round"/>
+            <line x1="28" y1="51" x2="28" y2="56" stroke="#00316c" stroke-width="1" stroke-linecap="round"/>
+            <line x1="42" y1="51" x2="42" y2="56" stroke="#00316c" stroke-width="1" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="font-label text-base font-semibold text-on-surface leading-snug">Technical Publications</span>
+      </a>
+
     </div>
   </div>
 </section>

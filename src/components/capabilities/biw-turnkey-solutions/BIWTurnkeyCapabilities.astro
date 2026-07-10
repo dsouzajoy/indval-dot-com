@@ -106,6 +106,103 @@ const steps = [
     description: 'Ramp-up management, line commissioning support, and handover to production operations.',
   },
 ];
+
+const joiningAssemblyCards = [
+  {
+    heading: 'Spot Welding Systems',
+    description: 'Development of manual and robotic spot welding fixtures engineered for repeatable positioning, weld accessibility, and high-volume production requirements.',
+    image: 'https://images.unsplash.com/photo-1647427060118-4911c9821b82?auto=format&fit=crop&w=1200&q=80',
+  },
+  {
+    heading: 'MIG Welding Tooling',
+    description: 'Design of welding stations and fixtures for structural and closure assemblies with emphasis on rigidity, operator accessibility, and process consistency.',
+    image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1200&q=80',
+  },
+  {
+    heading: 'Hemming Solutions',
+    description: 'Engineering of hemming tools for doors, hoods, and tailgates, ensuring dimensional accuracy, surface quality, and reliable panel forming.',
+    image: 'https://images.unsplash.com/photo-1695603414659-4d573962b517?auto=format&fit=crop&w=1200&q=80',
+  },
+  {
+    heading: 'Flow Drill Screw (FDS) Systems',
+    description: 'Fixture solutions for multi-material joining applications, integrating precise screw positioning, clamping strategies, and process monitoring requirements.',
+    image: 'https://images.unsplash.com/photo-1564226591723-659ff3852b2a?auto=format&fit=crop&w=1200&q=80',
+  },
+];
+
+const manufacturingSupportCards = [
+  {
+    heading: 'Safety Fencing & Access Systems',
+    description: 'Modular movable fencing and guarding solutions designed to provide operator safety while maintaining ease of maintenance and process accessibility.',
+    image: 'https://images.unsplash.com/photo-1777269390301-3d40dbd19f36?auto=format&fit=crop&w=1200&q=80',
+  },
+  {
+    heading: 'Maintenance Platforms',
+    description: 'Custom-designed platforms and walkways for safe access to robotic cells, fixtures, and process equipment.',
+    image: 'https://images.unsplash.com/photo-1770119074920-3c5603188095?auto=format&fit=crop&w=1200&q=80',
+  },
+  {
+    heading: 'Structural Supports & Stands',
+    description: 'Design and fabrication of equipment stands, support frames, and base structures engineered for durability and operational stability.',
+    image: 'https://images.unsplash.com/photo-1745162391671-244e8d3ccd5f?auto=format&fit=crop&w=1200&q=80',
+  },
+  {
+    heading: 'Buffer & Intermediate Stations',
+    description: 'Production buffering systems and temporary storage solutions designed to improve line balancing and workflow efficiency.',
+    image: 'https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=1200&q=80',
+  },
+];
+
+const processSpecificFixtureCards = [
+  {
+    heading: 'Marking & Traceability Fixtures',
+    description: 'Tooling solutions for component identification, traceability marking, and process verification throughout the manufacturing cycle.',
+    image: 'https://images.unsplash.com/photo-1640090330138-4360e82a690c?auto=format&fit=crop&w=1200&q=80',
+  },
+  {
+    heading: 'Ejection Systems',
+    description: 'Mechanically and pneumatically actuated systems for controlled component release and part transfer.',
+    image: 'https://images.unsplash.com/photo-1752802469747-bff685763f3f?auto=format&fit=crop&w=1200&q=80',
+  },
+  {
+    heading: 'Adhesive & Sealing Fixtures',
+    description: 'Precision tooling for sealant and adhesive application processes with controlled bead placement and repeatable quality.',
+    image: 'https://images.unsplash.com/photo-1596495578090-4f64ed1d4c80?auto=format&fit=crop&w=1200&q=80',
+  },
+  {
+    heading: 'Checking & Validation Fixtures',
+    description: 'Inspection fixtures designed for dimensional verification, GD&T evaluation, and assembly conformity checks.',
+    image: 'https://images.unsplash.com/photo-1745571479807-8a0dda362f94?auto=format&fit=crop&w=1200&q=80',
+  },
+  {
+    heading: 'Takeout & Transfer Systems',
+    description: 'Automated and manual part removal systems developed to ensure safe handling and smooth integration between manufacturing operations.',
+    image: 'https://images.unsplash.com/photo-1761195696590-3490ea770aa1?auto=format&fit=crop&w=1200&q=80',
+  },
+];
+
+const materialHandlingCards = [
+  {
+    heading: 'Geo and Handling Grippers',
+    description: 'Robotic grippers designed for accurate part location, handling, and transfer of automotive panels and assemblies.',
+    image: 'https://images.unsplash.com/photo-1774229637247-3cd45219826c?auto=format&fit=crop&w=1200&q=80',
+  },
+  {
+    heading: 'Lifting Devices & Tackles',
+    description: 'Custom lifting equipment for large panels, fixtures, and assemblies with a focus on safety and ergonomic operation.',
+    image: 'https://images.unsplash.com/photo-1652837135986-d737901cc7d7?auto=format&fit=crop&w=1200&q=80',
+  },
+  {
+    heading: 'Lift-Assist Systems',
+    description: 'Ergonomic handling solutions developed to reduce operator fatigue and improve productivity during assembly operations.',
+    image: 'https://images.unsplash.com/photo-1730584476120-8534d2850654?auto=format&fit=crop&w=1200&q=80',
+  },
+  {
+    heading: 'Conveyor Pallets & Carriers',
+    description: 'Engineered pallets and carrier systems for precise part transportation, process indexing, and automated line integration.',
+    image: 'https://images.unsplash.com/photo-1780850503758-cab85c57bc65?auto=format&fit=crop&w=1200&q=80',
+  },
+];
 ---
 
 <!-- Section 01 — Overview -->
@@ -219,6 +316,111 @@ const steps = [
           </div>
           <h3 class="font-headline font-bold text-lg text-on-surface mb-2 relative">{step.title}</h3>
           <p class="text-on-surface-variant text-sm leading-relaxed relative">{step.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Section 04 — End-to-end Engineering Solutions -->
+<section
+  class="bg-surface-container-low py-24"
+  style="background-image: radial-gradient(circle, rgba(195,198,211,0.8) 1px, transparent 1px); background-size: 40px 40px;"
+>
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+    <div class="mb-14">
+      <p class="font-label text-sm uppercase tracking-widest text-secondary mb-3">03 — Full-Spectrum Capability</p>
+      <h2 class="font-headline text-4xl lg:text-5xl font-bold text-on-surface">End-to-end Engineering Solutions</h2>
+    </div>
+
+    <div class="mb-14 max-w-2xl">
+      <h3 class="font-headline text-2xl lg:text-3xl font-bold text-on-surface">Joining &amp; Assembly Tooling</h3>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      {joiningAssemblyCards.map((card) => (
+        <div class="group bg-surface rounded flex flex-col overflow-hidden border border-outline-variant border-b-2 hover:border-b-secondary transition-all duration-300">
+          <div class="aspect-video overflow-hidden">
+            <img
+              src={card.image}
+              alt={card.heading}
+              loading="lazy"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <div class="p-8 flex flex-col flex-grow">
+            <h3 class="font-headline font-bold text-xl text-on-surface mb-3">{card.heading}</h3>
+            <p class="text-on-surface-variant leading-relaxed text-sm flex-grow">{card.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-16 mb-14 max-w-2xl">
+      <h3 class="font-headline text-2xl lg:text-3xl font-bold text-on-surface">Manufacturing Support Equipment</h3>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      {manufacturingSupportCards.map((card) => (
+        <div class="group bg-surface rounded flex flex-col overflow-hidden border border-outline-variant border-b-2 hover:border-b-secondary transition-all duration-300">
+          <div class="aspect-video overflow-hidden">
+            <img
+              src={card.image}
+              alt={card.heading}
+              loading="lazy"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <div class="p-8 flex flex-col flex-grow">
+            <h3 class="font-headline font-bold text-xl text-on-surface mb-3">{card.heading}</h3>
+            <p class="text-on-surface-variant leading-relaxed text-sm flex-grow">{card.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-16 mb-14 max-w-2xl">
+      <h3 class="font-headline text-2xl lg:text-3xl font-bold text-on-surface">Process-Specific Fixtures</h3>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      {processSpecificFixtureCards.map((card) => (
+        <div class="group bg-surface rounded flex flex-col overflow-hidden border border-outline-variant border-b-2 hover:border-b-secondary transition-all duration-300">
+          <div class="aspect-video overflow-hidden">
+            <img
+              src={card.image}
+              alt={card.heading}
+              loading="lazy"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <div class="p-8 flex flex-col flex-grow">
+            <h3 class="font-headline font-bold text-xl text-on-surface mb-3">{card.heading}</h3>
+            <p class="text-on-surface-variant leading-relaxed text-sm flex-grow">{card.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-16 mb-14 max-w-2xl">
+      <h3 class="font-headline text-2xl lg:text-3xl font-bold text-on-surface">Material Handling & Automation Tooling</h3>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      {materialHandlingCards.map((card) => (
+        <div class="group bg-surface rounded flex flex-col overflow-hidden border border-outline-variant border-b-2 hover:border-b-secondary transition-all duration-300">
+          <div class="aspect-video overflow-hidden">
+            <img
+              src={card.image}
+              alt={card.heading}
+              loading="lazy"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <div class="p-8 flex flex-col flex-grow">
+            <h3 class="font-headline font-bold text-xl text-on-surface mb-3">{card.heading}</h3>
+            <p class="text-on-surface-variant leading-relaxed text-sm flex-grow">{card.description}</p>
+          </div>
         </div>
       ))}
     </div>

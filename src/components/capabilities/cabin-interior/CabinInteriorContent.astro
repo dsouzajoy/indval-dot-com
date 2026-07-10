@@ -322,346 +322,440 @@ const whyUs = [
 </section>
 
 <!-- SPECIALISATIONS -->
-<section class="bg-surface-container-low pt-24 lg:pt-32 pb-12 lg:pb-16 border-t border-outline-variant">
-  <div class="max-w-7xl mx-auto px-8 lg:px-16 grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr] lg:grid-rows-[auto_1fr] gap-x-12 lg:gap-x-16 gap-y-6">
-    <div class="lg:col-start-1 lg:row-start-1">
-      <p class="font-label font-bold text-sm uppercase tracking-widest text-secondary">ENGINEERING</p>
-      <h2 class="mt-2 text-3xl lg:text-4xl font-bold leading-tight tracking-tight text-primary">
-        Specialisations
-      </h2>
-    </div>
-
-    <div class="aspect-square lg:col-start-2 lg:row-start-2 lg:self-start flex items-center justify-center">
-      <Image
-        src={specialisationsImg}
-        alt="Cutaway illustration of an aircraft cabin interior showing seating, stowage, and systems integration"
-        format="avif"
-        quality={100}
-        width={1000}
-        height={1000}
-        loading="lazy"
-        class="w-full h-full object-contain"
-      />
-    </div>
-
-    <div class="lg:col-start-1 lg:row-start-2">
-      <div class="overflow-x-auto">
-        <table class="w-full min-w-[480px] rounded-[4px] overflow-hidden border border-outline-variant shadow-ambient bg-surface border-separate border-spacing-0">
-          <thead>
-            <tr>
-              <th scope="col" class="px-5 py-2.5 text-left font-label text-xs uppercase tracking-widest text-on-surface-variant/60 font-bold border-b-2 border-secondary/40">
-                Discipline
-              </th>
-              <th scope="col" class="px-5 py-2.5 text-left font-label text-xs uppercase tracking-widest text-on-surface-variant/60 font-bold border-b-2 border-secondary/40">
-                Scope
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {specialisations.map((row, i) => (
-              <tr class:list={[i % 2 === 0 ? 'bg-surface' : 'bg-surface-container-low', i > 0 && 'border-t border-outline-variant']}>
-                <td class="px-5 py-2.5 align-top whitespace-nowrap">
-                  <span class="flex items-center gap-2.5">
-                    <span class="w-1 h-3 rounded-full bg-secondary shrink-0" aria-hidden="true"></span>
-                    <span class="font-headline font-bold text-xs text-primary">{row.discipline}</span>
-                  </span>
-                </td>
-                <td class="px-5 py-2.5 align-top text-xs text-on-surface-variant leading-snug">
-                  {row.scope}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+<section class="eng-spec-section bg-surface-container-low pt-24 lg:pt-32 pb-16 lg:pb-20 border-t border-outline-variant">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+    <div class="flex flex-wrap items-end justify-between gap-x-10 gap-y-8">
+      <div class="max-w-2xl">
+        <p class="font-label font-bold text-sm uppercase tracking-widest text-secondary">ENGINEERING</p>
+        <h2 class="mt-2 text-3xl lg:text-4xl font-bold leading-tight tracking-tight text-primary">
+          Specialisations
+        </h2>
       </div>
+      <div class="eng-stat flex items-center gap-4">
+        <span class="material-symbols-outlined text-secondary shrink-0" style="font-size: 36px; font-variation-settings: 'FILL' 1" aria-hidden="true">hub</span>
+        <div>
+          <span class="eng-stat-count font-headline font-black text-4xl text-primary tabular-nums" data-count="10">10</span>
+          <p class="mt-0.5 font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant leading-tight">Engineering Disciplines</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-10 lg:mt-14 flex flex-col lg:flex-row lg:items-start gap-10 lg:gap-16">
+      <div class="eng-spec-image lg:order-2 lg:w-[38%] lg:shrink-0 rounded overflow-hidden p-6 lg:p-8" style="background-image: radial-gradient(circle, rgba(0,49,108,0.12) 1px, transparent 1px); background-size: 28px 28px;">
+        <Image
+          src={specialisationsImg}
+          alt="Cutaway illustration of an aircraft cabin interior showing seating, stowage, and systems integration"
+          format="avif"
+          quality={100}
+          width={1000}
+          height={1000}
+          loading="lazy"
+          class="w-full h-auto rounded"
+        />
+      </div>
+
+      <dl class="lg:order-1 flex-1 grid grid-cols-1 sm:grid-cols-2 sm:gap-x-10 border-t border-outline-variant/70">
+        {specialisations.map((row) => (
+          <div class="eng-spec-row group py-4 sm:py-5 px-2 -mx-2 rounded border-b border-outline-variant/70 transition-colors duration-200 hover:bg-surface">
+            <dt class="flex items-start gap-2.5">
+              <span class="mt-2 w-1.5 h-1.5 rounded-full bg-secondary shrink-0 transition-transform duration-200 group-hover:scale-[1.8]" aria-hidden="true"></span>
+              <span class="font-headline font-bold text-[0.95rem] text-primary leading-snug">{row.discipline}</span>
+            </dt>
+            <dd class="mt-1.5 pl-4 text-sm text-on-surface-variant leading-relaxed">{row.scope}</dd>
+          </div>
+        ))}
+      </dl>
     </div>
   </div>
 </section>
 
-<!-- CABIN INTERIORS (COMPONENT TABLE) -->
-<section class="bg-surface-container-low pt-12 lg:pt-16 pb-12 lg:pb-16">
-  <div class="max-w-7xl mx-auto px-8 lg:px-16 grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr] lg:grid-rows-[auto_1fr] gap-x-12 lg:gap-x-16 gap-y-6">
-    <div class="lg:col-start-1 lg:row-start-1">
-      <p class="font-label font-bold text-sm uppercase tracking-widest text-secondary">ENGINEERING</p>
-      <h2 class="mt-2 text-3xl lg:text-4xl font-bold leading-tight tracking-tight text-primary">
-        Cabin Interiors
-      </h2>
-    </div>
-
-    <div class="h-full rounded overflow-hidden lg:col-start-1 lg:row-start-2">
-      <Image
-        src={cabinInteriorsImg}
-        alt="Wide-angle symmetrical view of a modern aircraft cabin interior"
-        format="avif"
-        quality={100}
-        width={1000}
-        height={1000}
-        loading="lazy"
-        class="w-full h-full object-cover"
-      />
-    </div>
-
-    <div class="lg:col-start-2 lg:row-start-2">
-      <div class="overflow-x-auto">
-        <table class="w-full min-w-[480px] rounded-[4px] overflow-hidden border border-outline-variant shadow-ambient bg-surface border-separate border-spacing-0">
-          <thead>
-            <tr>
-              <th scope="col" class="px-5 py-2.5 text-left font-label text-xs uppercase tracking-widest text-on-surface-variant/60 font-bold border-b-2 border-secondary/40">
-                Component
-              </th>
-              <th scope="col" class="px-5 py-2.5 text-left font-label text-xs uppercase tracking-widest text-on-surface-variant/60 font-bold border-b-2 border-secondary/40">
-                Engineering, Design, Compliance
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {cabinInteriorSpecs.map((row, i) => (
-              <tr class:list={[i % 2 === 0 ? 'bg-surface' : 'bg-surface-container-low', i > 0 && 'border-t border-outline-variant']}>
-                <td class="px-5 py-2.5 align-top whitespace-nowrap">
-                  <span class="flex items-center gap-2.5">
-                    <span class="w-1 h-3 rounded-full bg-secondary shrink-0" aria-hidden="true"></span>
-                    <span class="font-headline font-bold text-xs text-primary">{row.component}</span>
-                  </span>
-                </td>
-                <td class="px-5 py-2.5 align-top text-xs text-on-surface-variant leading-snug">
-                  {row.scope}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+<!-- CABIN INTERIORS -->
+<section class="eng-spec-section bg-surface-container-low pt-12 lg:pt-16 pb-16 lg:pb-20">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+    <div class="flex flex-wrap items-end justify-between gap-x-10 gap-y-8">
+      <div class="max-w-2xl">
+        <p class="font-label font-bold text-sm uppercase tracking-widest text-secondary">ENGINEERING</p>
+        <h2 class="mt-2 text-3xl lg:text-4xl font-bold leading-tight tracking-tight text-primary">
+          Cabin Interiors
+        </h2>
       </div>
+      <div class="eng-stat flex items-center gap-4">
+        <span class="material-symbols-outlined text-secondary shrink-0" style="font-size: 36px; font-variation-settings: 'FILL' 1" aria-hidden="true">airline_seat_recline_normal</span>
+        <div>
+          <span class="eng-stat-count font-headline font-black text-4xl text-primary tabular-nums" data-count="19">19</span>
+          <p class="mt-0.5 font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant leading-tight">Cabin Components</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-10 lg:mt-14 flex flex-col lg:flex-row lg:items-start gap-10 lg:gap-16">
+      <div class="eng-spec-image lg:order-1 lg:w-[38%] lg:shrink-0 rounded overflow-hidden p-6 lg:p-8" style="background-image: radial-gradient(circle, rgba(0,49,108,0.12) 1px, transparent 1px); background-size: 28px 28px;">
+        <Image
+          src={cabinInteriorsImg}
+          alt="Wide-angle symmetrical view of a modern aircraft cabin interior"
+          format="avif"
+          quality={100}
+          width={1000}
+          height={1000}
+          loading="lazy"
+          class="w-full h-auto rounded"
+        />
+      </div>
+
+      <dl class="lg:order-2 flex-1 grid grid-cols-1 sm:grid-cols-2 sm:gap-x-10 border-t border-outline-variant/70">
+        {cabinInteriorSpecs.map((row) => (
+          <div class="eng-spec-row group py-4 sm:py-5 px-2 -mx-2 rounded border-b border-outline-variant/70 transition-colors duration-200 hover:bg-surface">
+            <dt class="flex items-start gap-2.5">
+              <span class="mt-2 w-1.5 h-1.5 rounded-full bg-secondary shrink-0 transition-transform duration-200 group-hover:scale-[1.8]" aria-hidden="true"></span>
+              <span class="font-headline font-bold text-[0.95rem] text-primary leading-snug">{row.component}</span>
+            </dt>
+            <dd class="mt-1.5 pl-4 text-sm text-on-surface-variant leading-relaxed">{row.scope}</dd>
+          </div>
+        ))}
+      </dl>
     </div>
   </div>
 </section>
 
-<!-- GALLEY (COMPONENT TABLE) -->
-<section class="bg-surface-container-low pt-12 lg:pt-16 pb-12 lg:pb-16">
-  <div class="max-w-7xl mx-auto px-8 lg:px-16 grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr] lg:grid-rows-[auto_1fr] gap-x-12 lg:gap-x-16 gap-y-6">
-    <div class="lg:col-start-1 lg:row-start-1">
-      <p class="font-label font-bold text-sm uppercase tracking-widest text-secondary">ENGINEERING</p>
-      <h2 class="mt-2 text-3xl lg:text-4xl font-bold leading-tight tracking-tight text-primary">
-        Galley
-      </h2>
-    </div>
-
-    <div class="aspect-square lg:col-start-2 lg:row-start-2 lg:self-start flex items-center justify-center">
-      <Image
-        src={galleyDiagramImg}
-        alt="Cutaway diagram of an aircraft galley complex showing chillers, stowage compartments, and cart bays"
-        format="avif"
-        quality={100}
-        width={1000}
-        height={1000}
-        loading="lazy"
-        class="w-full h-full object-contain"
-      />
-    </div>
-
-    <div class="lg:col-start-1 lg:row-start-2">
-      <div class="overflow-x-auto">
-        <table class="w-full min-w-[480px] rounded-[4px] overflow-hidden border border-outline-variant shadow-ambient bg-surface border-separate border-spacing-0">
-          <thead>
-            <tr>
-              <th scope="col" class="px-5 py-2.5 text-left font-label text-xs uppercase tracking-widest text-on-surface-variant/60 font-bold border-b-2 border-secondary/40">
-                Component
-              </th>
-              <th scope="col" class="px-5 py-2.5 text-left font-label text-xs uppercase tracking-widest text-on-surface-variant/60 font-bold border-b-2 border-secondary/40">
-                Engineering, Design, Compliance
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {galleySpecs.map((row, i) => (
-              <tr class:list={[i % 2 === 0 ? 'bg-surface' : 'bg-surface-container-low', i > 0 && 'border-t border-outline-variant']}>
-                <td class="px-5 py-2.5 align-top whitespace-nowrap">
-                  <span class="flex items-center gap-2.5">
-                    <span class="w-1 h-3 rounded-full bg-secondary shrink-0" aria-hidden="true"></span>
-                    <span class="font-headline font-bold text-xs text-primary">{row.component}</span>
-                  </span>
-                </td>
-                <td class="px-5 py-2.5 align-top text-xs text-on-surface-variant leading-snug">
-                  {row.scope}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+<!-- GALLEY -->
+<section class="eng-spec-section bg-surface-container-low pt-12 lg:pt-16 pb-16 lg:pb-20">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+    <div class="flex flex-wrap items-end justify-between gap-x-10 gap-y-8">
+      <div class="max-w-2xl">
+        <p class="font-label font-bold text-sm uppercase tracking-widest text-secondary">ENGINEERING</p>
+        <h2 class="mt-2 text-3xl lg:text-4xl font-bold leading-tight tracking-tight text-primary">
+          Galley
+        </h2>
       </div>
+      <div class="eng-stat flex items-center gap-4">
+        <span class="material-symbols-outlined text-secondary shrink-0" style="font-size: 36px; font-variation-settings: 'FILL' 1" aria-hidden="true">countertops</span>
+        <div>
+          <span class="eng-stat-count font-headline font-black text-4xl text-primary tabular-nums" data-count="16">16</span>
+          <p class="mt-0.5 font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant leading-tight">Galley Systems</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-10 lg:mt-14 flex flex-col lg:flex-row lg:items-start gap-10 lg:gap-16">
+      <div class="eng-spec-image lg:order-2 lg:w-[38%] lg:shrink-0 rounded overflow-hidden p-6 lg:p-8" style="background-image: radial-gradient(circle, rgba(0,49,108,0.12) 1px, transparent 1px); background-size: 28px 28px;">
+        <Image
+          src={galleyDiagramImg}
+          alt="Cutaway diagram of an aircraft galley complex showing chillers, stowage compartments, and cart bays"
+          format="avif"
+          quality={100}
+          width={1000}
+          height={1000}
+          loading="lazy"
+          class="w-full h-auto rounded"
+        />
+      </div>
+
+      <dl class="lg:order-1 flex-1 grid grid-cols-1 sm:grid-cols-2 sm:gap-x-10 border-t border-outline-variant/70">
+        {galleySpecs.map((row) => (
+          <div class="eng-spec-row group py-4 sm:py-5 px-2 -mx-2 rounded border-b border-outline-variant/70 transition-colors duration-200 hover:bg-surface">
+            <dt class="flex items-start gap-2.5">
+              <span class="mt-2 w-1.5 h-1.5 rounded-full bg-secondary shrink-0 transition-transform duration-200 group-hover:scale-[1.8]" aria-hidden="true"></span>
+              <span class="font-headline font-bold text-[0.95rem] text-primary leading-snug">{row.component}</span>
+            </dt>
+            <dd class="mt-1.5 pl-4 text-sm text-on-surface-variant leading-relaxed">{row.scope}</dd>
+          </div>
+        ))}
+      </dl>
     </div>
   </div>
 </section>
 
-<!-- LAVATORY (COMPONENT TABLE) -->
-<section class="bg-surface-container-low pt-12 lg:pt-16 pb-12 lg:pb-16">
-  <div class="max-w-7xl mx-auto px-8 lg:px-16 grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr] lg:grid-rows-[auto_1fr] gap-x-12 lg:gap-x-16 gap-y-6">
-    <div class="lg:col-start-1 lg:row-start-1">
-      <p class="font-label font-bold text-sm uppercase tracking-widest text-secondary">ENGINEERING</p>
-      <h2 class="mt-2 text-3xl lg:text-4xl font-bold leading-tight tracking-tight text-primary">
-        Lavatory
-      </h2>
-    </div>
-
-    <div class="h-full rounded overflow-hidden lg:col-start-1 lg:row-start-2">
-      <Image
-        src={lavatoryDiagramImg}
-        alt="Cutaway diagram of an aircraft lavatory module showing the toilet, vanity, and plumbing integration"
-        format="avif"
-        quality={100}
-        width={1000}
-        height={1000}
-        loading="lazy"
-        class="w-full h-full object-cover"
-      />
-    </div>
-
-    <div class="lg:col-start-2 lg:row-start-2">
-      <div class="overflow-x-auto">
-        <table class="w-full min-w-[480px] rounded-[4px] overflow-hidden border border-outline-variant shadow-ambient bg-surface border-separate border-spacing-0">
-          <thead>
-            <tr>
-              <th scope="col" class="px-5 py-2.5 text-left font-label text-xs uppercase tracking-widest text-on-surface-variant/60 font-bold border-b-2 border-secondary/40">
-                Component
-              </th>
-              <th scope="col" class="px-5 py-2.5 text-left font-label text-xs uppercase tracking-widest text-on-surface-variant/60 font-bold border-b-2 border-secondary/40">
-                Engineering, Design, Compliance
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {lavatorySpecs.map((row, i) => (
-              <tr class:list={[i % 2 === 0 ? 'bg-surface' : 'bg-surface-container-low', i > 0 && 'border-t border-outline-variant']}>
-                <td class="px-5 py-2.5 align-top whitespace-nowrap">
-                  <span class="flex items-center gap-2.5">
-                    <span class="w-1 h-3 rounded-full bg-secondary shrink-0" aria-hidden="true"></span>
-                    <span class="font-headline font-bold text-xs text-primary">{row.component}</span>
-                  </span>
-                </td>
-                <td class="px-5 py-2.5 align-top text-xs text-on-surface-variant leading-snug">
-                  {row.scope}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+<!-- LAVATORY -->
+<section class="eng-spec-section bg-surface-container-low pt-12 lg:pt-16 pb-16 lg:pb-20">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+    <div class="flex flex-wrap items-end justify-between gap-x-10 gap-y-8">
+      <div class="max-w-2xl">
+        <p class="font-label font-bold text-sm uppercase tracking-widest text-secondary">ENGINEERING</p>
+        <h2 class="mt-2 text-3xl lg:text-4xl font-bold leading-tight tracking-tight text-primary">
+          Lavatory
+        </h2>
       </div>
+      <div class="eng-stat flex items-center gap-4">
+        <span class="material-symbols-outlined text-secondary shrink-0" style="font-size: 36px; font-variation-settings: 'FILL' 1" aria-hidden="true">wc</span>
+        <div>
+          <span class="eng-stat-count font-headline font-black text-4xl text-primary tabular-nums" data-count="16">16</span>
+          <p class="mt-0.5 font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant leading-tight">Lavatory Systems</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-10 lg:mt-14 flex flex-col lg:flex-row lg:items-start gap-10 lg:gap-16">
+      <div class="eng-spec-image lg:order-1 lg:w-[38%] lg:shrink-0 rounded overflow-hidden p-6 lg:p-8" style="background-image: radial-gradient(circle, rgba(0,49,108,0.12) 1px, transparent 1px); background-size: 28px 28px;">
+        <Image
+          src={lavatoryDiagramImg}
+          alt="Cutaway diagram of an aircraft lavatory module showing the toilet, vanity, and plumbing integration"
+          format="avif"
+          quality={100}
+          width={1000}
+          height={1000}
+          loading="lazy"
+          class="w-full h-auto rounded"
+        />
+      </div>
+
+      <dl class="lg:order-2 flex-1 grid grid-cols-1 sm:grid-cols-2 sm:gap-x-10 border-t border-outline-variant/70">
+        {lavatorySpecs.map((row) => (
+          <div class="eng-spec-row group py-4 sm:py-5 px-2 -mx-2 rounded border-b border-outline-variant/70 transition-colors duration-200 hover:bg-surface">
+            <dt class="flex items-start gap-2.5">
+              <span class="mt-2 w-1.5 h-1.5 rounded-full bg-secondary shrink-0 transition-transform duration-200 group-hover:scale-[1.8]" aria-hidden="true"></span>
+              <span class="font-headline font-bold text-[0.95rem] text-primary leading-snug">{row.component}</span>
+            </dt>
+            <dd class="mt-1.5 pl-4 text-sm text-on-surface-variant leading-relaxed">{row.scope}</dd>
+          </div>
+        ))}
+      </dl>
     </div>
   </div>
 </section>
 
-<!-- CABIN INTERIORS · LRUs (COMPONENT TABLE) -->
-<section class="bg-surface-container-low pt-12 lg:pt-16 pb-12 lg:pb-16">
-  <div class="max-w-7xl mx-auto px-8 lg:px-16 grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr] lg:grid-rows-[auto_1fr] lg:items-center gap-x-12 lg:gap-x-16 gap-y-6">
-    <div class="lg:col-start-1 lg:row-start-1">
-      <p class="font-label font-bold text-sm uppercase tracking-widest text-secondary">ENGINEERING</p>
-      <h2 class="mt-2 text-3xl lg:text-4xl font-bold leading-tight tracking-tight text-primary">
-        Cabin Interiors &middot; LRUs
-      </h2>
-    </div>
-
-    <div class="aspect-[4/3] rounded overflow-hidden lg:col-start-2 lg:row-start-2">
-      <Image
-        src={lruDiagramImg}
-        alt="3D render of a modular aircraft cargo container line-replaceable unit"
-        format="avif"
-        quality={100}
-        width={1000}
-        height={1000}
-        loading="lazy"
-        class="w-full h-full object-contain"
-      />
-    </div>
-
-    <div class="lg:col-start-1 lg:row-start-2">
-      <div class="overflow-x-auto">
-        <table class="w-full min-w-[480px] rounded-[4px] overflow-hidden border border-outline-variant shadow-ambient bg-surface border-separate border-spacing-0">
-          <thead>
-            <tr>
-              <th scope="col" class="px-5 py-2.5 text-left font-label text-xs uppercase tracking-widest text-on-surface-variant/60 font-bold border-b-2 border-secondary/40">
-                Component
-              </th>
-              <th scope="col" class="px-5 py-2.5 text-left font-label text-xs uppercase tracking-widest text-on-surface-variant/60 font-bold border-b-2 border-secondary/40">
-                Engineering, Design, Compliance
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {lruSpecs.map((row, i) => (
-              <tr class:list={[i % 2 === 0 ? 'bg-surface' : 'bg-surface-container-low', i > 0 && 'border-t border-outline-variant']}>
-                <td class="px-5 py-2.5 align-top whitespace-nowrap">
-                  <span class="flex items-center gap-2.5">
-                    <span class="w-1 h-3 rounded-full bg-secondary shrink-0" aria-hidden="true"></span>
-                    <span class="font-headline font-bold text-xs text-primary">{row.component}</span>
-                  </span>
-                </td>
-                <td class="px-5 py-2.5 align-top text-xs text-on-surface-variant leading-snug">
-                  {row.scope}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+<!-- CABIN INTERIORS · LRUs -->
+<section class="eng-spec-section bg-surface-container-low pt-12 lg:pt-16 pb-16 lg:pb-20">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+    <div class="flex flex-wrap items-end justify-between gap-x-10 gap-y-8">
+      <div class="max-w-2xl">
+        <p class="font-label font-bold text-sm uppercase tracking-widest text-secondary">ENGINEERING</p>
+        <h2 class="mt-2 text-3xl lg:text-4xl font-bold leading-tight tracking-tight text-primary">
+          Cabin Interiors &middot; LRUs
+        </h2>
       </div>
+      <div class="eng-stat flex items-center gap-4">
+        <span class="material-symbols-outlined text-secondary shrink-0" style="font-size: 36px; font-variation-settings: 'FILL' 1" aria-hidden="true">inventory_2</span>
+        <div>
+          <span class="eng-stat-count font-headline font-black text-4xl text-primary tabular-nums" data-count="5">5</span>
+          <p class="mt-0.5 font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant leading-tight">LRU Types</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-10 lg:mt-14 flex flex-col lg:flex-row lg:items-center gap-10 lg:gap-16">
+      <div class="eng-spec-image lg:order-2 lg:w-[38%] lg:shrink-0 rounded overflow-hidden p-6 lg:p-8" style="background-image: radial-gradient(circle, rgba(0,49,108,0.12) 1px, transparent 1px); background-size: 28px 28px;">
+        <Image
+          src={lruDiagramImg}
+          alt="3D render of a modular aircraft cargo container line-replaceable unit"
+          format="avif"
+          quality={100}
+          width={1000}
+          height={1000}
+          loading="lazy"
+          class="w-full h-auto rounded"
+        />
+      </div>
+
+      <dl class="lg:order-1 flex-1 grid grid-cols-1 sm:grid-cols-2 sm:gap-x-10 border-t border-outline-variant/70">
+        {lruSpecs.map((row) => (
+          <div class="eng-spec-row group py-4 sm:py-5 px-2 -mx-2 rounded border-b border-outline-variant/70 transition-colors duration-200 hover:bg-surface">
+            <dt class="flex items-start gap-2.5">
+              <span class="mt-2 w-1.5 h-1.5 rounded-full bg-secondary shrink-0 transition-transform duration-200 group-hover:scale-[1.8]" aria-hidden="true"></span>
+              <span class="font-headline font-bold text-[0.95rem] text-primary leading-snug">{row.component}</span>
+            </dt>
+            <dd class="mt-1.5 pl-4 text-sm text-on-surface-variant leading-relaxed">{row.scope}</dd>
+          </div>
+        ))}
+      </dl>
     </div>
   </div>
 </section>
 
-<!-- CABIN INTERIORS · RETROFIT (COMPONENT TABLE) -->
-<section class="bg-surface-container-low pt-12 lg:pt-16 pb-12 lg:pb-16 border-b border-outline-variant">
-  <div class="max-w-7xl mx-auto px-8 lg:px-16 grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr] lg:grid-rows-[auto_1fr] lg:items-center gap-x-12 lg:gap-x-16 gap-y-6">
-    <div class="lg:col-start-1 lg:row-start-1">
-      <p class="font-label font-bold text-sm uppercase tracking-widest text-secondary">ENGINEERING</p>
-      <h2 class="mt-2 text-3xl lg:text-4xl font-bold leading-tight tracking-tight text-primary">
-        Cabin Interiors &middot; Retrofit
-      </h2>
-    </div>
-
-    <div class="aspect-square rounded overflow-hidden lg:col-start-1 lg:row-start-2">
-      <Image
-        src={retrofitDiagramImg}
-        alt="Cutaway illustration of an aircraft cabin retrofit showing overhead bins, window panels, and sidewall structure"
-        format="avif"
-        quality={100}
-        width={1000}
-        height={1000}
-        loading="lazy"
-        class="w-full h-full object-cover"
-      />
-    </div>
-
-    <div class="lg:col-start-2 lg:row-start-2">
-      <div class="overflow-x-auto">
-        <table class="w-full min-w-[480px] rounded-[4px] overflow-hidden border border-outline-variant shadow-ambient bg-surface border-separate border-spacing-0">
-          <thead>
-            <tr>
-              <th scope="col" class="px-5 py-2.5 text-left font-label text-xs uppercase tracking-widest text-on-surface-variant/60 font-bold border-b-2 border-secondary/40">
-                Component
-              </th>
-              <th scope="col" class="px-5 py-2.5 text-left font-label text-xs uppercase tracking-widest text-on-surface-variant/60 font-bold border-b-2 border-secondary/40">
-                Engineering, Design, Compliance
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {retrofitSpecs.map((row, i) => (
-              <tr class:list={[i % 2 === 0 ? 'bg-surface' : 'bg-surface-container-low', i > 0 && 'border-t border-outline-variant']}>
-                <td class="px-5 py-2.5 align-top whitespace-nowrap">
-                  <span class="flex items-center gap-2.5">
-                    <span class="w-1 h-3 rounded-full bg-secondary shrink-0" aria-hidden="true"></span>
-                    <span class="font-headline font-bold text-xs text-primary">{row.component}</span>
-                  </span>
-                </td>
-                <td class="px-5 py-2.5 align-top text-xs text-on-surface-variant leading-snug">
-                  {row.scope}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+<!-- CABIN INTERIORS · RETROFIT -->
+<section class="eng-spec-section bg-surface-container-low pt-12 lg:pt-16 pb-16 lg:pb-20 border-b border-outline-variant">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+    <div class="flex flex-wrap items-end justify-between gap-x-10 gap-y-8">
+      <div class="max-w-2xl">
+        <p class="font-label font-bold text-sm uppercase tracking-widest text-secondary">ENGINEERING</p>
+        <h2 class="mt-2 text-3xl lg:text-4xl font-bold leading-tight tracking-tight text-primary">
+          Cabin Interiors &middot; Retrofit
+        </h2>
       </div>
+      <div class="eng-stat flex items-center gap-4">
+        <span class="material-symbols-outlined text-secondary shrink-0" style="font-size: 36px; font-variation-settings: 'FILL' 1" aria-hidden="true">autorenew</span>
+        <div>
+          <span class="eng-stat-count font-headline font-black text-4xl text-primary tabular-nums" data-count="11">11</span>
+          <p class="mt-0.5 font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant leading-tight">Retrofit Scopes</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-10 lg:mt-14 flex flex-col lg:flex-row lg:items-center gap-10 lg:gap-16">
+      <div class="eng-spec-image lg:order-1 lg:w-[38%] lg:shrink-0 rounded overflow-hidden p-6 lg:p-8" style="background-image: radial-gradient(circle, rgba(0,49,108,0.12) 1px, transparent 1px); background-size: 28px 28px;">
+        <Image
+          src={retrofitDiagramImg}
+          alt="Cutaway illustration of an aircraft cabin retrofit showing overhead bins, window panels, and sidewall structure"
+          format="avif"
+          quality={100}
+          width={1000}
+          height={1000}
+          loading="lazy"
+          class="w-full h-auto rounded"
+        />
+      </div>
+
+      <dl class="lg:order-2 flex-1 grid grid-cols-1 sm:grid-cols-2 sm:gap-x-10 border-t border-outline-variant/70">
+        {retrofitSpecs.map((row) => (
+          <div class="eng-spec-row group py-4 sm:py-5 px-2 -mx-2 rounded border-b border-outline-variant/70 transition-colors duration-200 hover:bg-surface">
+            <dt class="flex items-start gap-2.5">
+              <span class="mt-2 w-1.5 h-1.5 rounded-full bg-secondary shrink-0 transition-transform duration-200 group-hover:scale-[1.8]" aria-hidden="true"></span>
+              <span class="font-headline font-bold text-[0.95rem] text-primary leading-snug">{row.component}</span>
+            </dt>
+            <dd class="mt-1.5 pl-4 text-sm text-on-surface-variant leading-relaxed">{row.scope}</dd>
+          </div>
+        ))}
+      </dl>
     </div>
   </div>
 </section>
+
+<script>
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const sections = document.querySelectorAll<HTMLElement>('.eng-spec-section');
+
+  // --- Stat counter (odometer digit roll) ---
+  type SlotState = { curr: HTMLElement; nxt: HTMLElement; lineH: number; target: number };
+
+  const setupCounter = (el: HTMLElement): SlotState => {
+    const target = parseInt(el.dataset.count!, 10);
+    el.textContent = '';
+    el.style.display = 'inline-flex';
+    el.style.alignItems = 'baseline';
+
+    const slotWrap = document.createElement('span');
+    slotWrap.style.cssText = 'display:inline-block;overflow:hidden;position:relative;';
+
+    const curr = document.createElement('span');
+    curr.style.cssText = 'display:block;position:absolute;top:0;left:0;right:0;text-align:left;';
+    curr.textContent = '0';
+
+    const nxt = document.createElement('span');
+    nxt.style.cssText = 'display:block;position:absolute;left:0;right:0;text-align:left;';
+
+    const spacer = document.createElement('span');
+    spacer.setAttribute('aria-hidden', 'true');
+    spacer.style.cssText = 'display:block;visibility:hidden;pointer-events:none;';
+    spacer.textContent = String(target);
+
+    slotWrap.append(curr, nxt, spacer);
+    el.appendChild(slotWrap);
+
+    const lineH = spacer.offsetHeight;
+    slotWrap.style.height = `${lineH}px`;
+    nxt.style.top = `${lineH}px`;
+
+    return { curr, nxt, lineH, target };
+  };
+
+  const animateCounter = ({ curr, nxt, lineH, target }: SlotState) => {
+    const TARGET_FLIPS = 12;
+    const stepSize = Math.max(1, Math.ceil(target / TARGET_FLIPS));
+
+    const steps: number[] = [];
+    for (let v = stepSize; v < target; v += stepSize) steps.push(v);
+    steps.push(target);
+
+    const totalSteps = steps.length;
+    const endTimes: number[] = [];
+    let cumulative = 0;
+    for (let i = 0; i < totalSteps; i++) {
+      const t = totalSteps > 1 ? i / (totalSteps - 1) : 1;
+      cumulative += 55 + t ** 2 * 80;
+      endTimes.push(cumulative);
+    }
+
+    let startTime: number | null = null;
+
+    const frame = (now: number) => {
+      if (startTime === null) startTime = now;
+      const elapsed = now - startTime;
+
+      if (elapsed >= endTimes[totalSteps - 1]) {
+        curr.textContent = String(target);
+        curr.style.transform = 'translateY(0)';
+        nxt.style.transform = `translateY(${lineH}px)`;
+        nxt.textContent = '';
+        return;
+      }
+
+      let i = 0;
+      while (i < totalSteps - 1 && endTimes[i] <= elapsed) i++;
+
+      const stepStart = i === 0 ? 0 : endTimes[i - 1];
+      const stepDuration = endTimes[i] - stepStart;
+      const t = (elapsed - stepStart) / stepDuration;
+      const eased = 1 - (1 - t) ** 2;
+
+      curr.textContent = String(i === 0 ? 0 : steps[i - 1]);
+      nxt.textContent = String(steps[i]);
+      curr.style.transform = `translateY(${-eased * lineH}px)`;
+      nxt.style.transform = `translateY(${-eased * lineH}px)`;
+
+      requestAnimationFrame(frame);
+    };
+
+    requestAnimationFrame(frame);
+  };
+
+  // --- Reveal: spec rows stagger in, image settles in ---
+  const revealSection = (section: HTMLElement) => {
+    if (reduceMotion) return;
+
+    const rows = section.querySelectorAll<HTMLElement>('.eng-spec-row');
+    rows.forEach((row, i) => {
+      row.animate(
+        [
+          { opacity: 0, transform: 'translateY(10px)' },
+          { opacity: 1, transform: 'translateY(0)' },
+        ],
+        { duration: 420, delay: Math.min(i, 10) * 35, easing: 'cubic-bezier(0.22, 1, 0.36, 1)', fill: 'backwards' }
+      );
+    });
+
+    const image = section.querySelector<HTMLElement>('.eng-spec-image');
+    if (image) {
+      image.animate(
+        [
+          { opacity: 0, transform: 'scale(0.97)' },
+          { opacity: 1, transform: 'scale(1)' },
+        ],
+        { duration: 520, easing: 'cubic-bezier(0.22, 1, 0.36, 1)', fill: 'backwards' }
+      );
+    }
+  };
+
+  const counterStates = new Map<HTMLElement, SlotState>();
+  sections.forEach((section) => {
+    const countEl = section.querySelector<HTMLElement>('.eng-stat-count');
+    if (countEl) counterStates.set(section, setupCounter(countEl));
+  });
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const section = entry.target as HTMLElement;
+
+        const state = counterStates.get(section);
+        if (state) {
+          if (reduceMotion) {
+            state.curr.textContent = String(state.target);
+            state.curr.style.transform = 'translateY(0)';
+          } else {
+            animateCounter(state);
+          }
+        }
+
+        revealSection(section);
+
+        observer.unobserve(section);
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  sections.forEach((section) => observer.observe(section));
+</script>
 
 <!-- CABIN INTERIOR SOLUTIONS (TABS) -->
 <section id="capabilities" class="bg-surface py-30" style="background-image: radial-gradient(circle, rgba(195,198,211,0.8) 1px, transparent 1px); background-size: 40px 40px;">

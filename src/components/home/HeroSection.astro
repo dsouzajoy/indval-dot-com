@@ -1,54 +1,50 @@
 ---
 import { en } from '@/i18n/locales/en';
+import { withBase } from '@/lib/utils';
 import HeroImage from '@/components/ui/HeroImage.astro';
+import HeroVideo from '@/components/ui/HeroVideo.astro';
 import { getLQIP } from '@/lib/lqip';
-import slide1Img from '@/assets/images/pexels/hero-slide-1.jpg';
-import slide2Img from '@/assets/images/pexels/hero-slide-2.jpeg';
-import slide3Img from '@/assets/images/pexels/hero-slide-3.jpeg';
+import biwHeroVideo from '@/assets/videos/biw-hero-video.mp4';
+import biwHeroPoster from '@/assets/images/biw/biw-hero-poster.jpg';
+import cabinHeroImg from '@/assets/images/cabin-interior/hero.jpg';
+import manufacturingHeroImg from '@/assets/images/manufacturing-hero.webp';
 
-const [ph1, ph2, ph3] = await Promise.all([
-  getLQIP('src/assets/images/pexels/hero-slide-1.jpg'),
-  getLQIP('src/assets/images/pexels/hero-slide-2.jpeg'),
-  getLQIP('src/assets/images/pexels/hero-slide-3.jpeg'),
+const [cabinPlaceholder, manufacturingPlaceholder] = await Promise.all([
+  getLQIP('src/assets/images/cabin-interior/hero.jpg'),
+  getLQIP('src/assets/images/manufacturing-hero.webp'),
 ]);
 
 const slides = [
   {
-    eyebrow: en.hero.slide1.eyebrow,
-    heading:  en.hero.slide1.heading,
-    body:     en.hero.slide1.body,
-    cta:      en.hero.slide1.cta,
-    href:     '/capabilities/biw-turnkey-solutions',
-    i18nPrefix: 'hero.slide1',
-    img: slide1Img,
-    placeholder: ph1,
-    imgAlt: 'Female engineer with laptop overseeing a robotic arm in a manufacturing facility',
-    gradient: 'from-primary/80 via-primary/30 to-black/10',
+    eyebrow: en.biwTurnkey.hero.eyebrow,
+    heading: en.biwTurnkey.hero.heading,
+    body: 'End-to-end advanced manufacturing engineering, bridging product design and production through process planning, digital simulation, and industrialization support.',
+    cta: en.biwTurnkey.hero.cta,
+    href: '/capabilities/biw-turnkey-solutions#capabilities',
+    i18nPrefix: 'biwTurnkey.hero',
+    video: biwHeroVideo,
+    poster: biwHeroPoster,
   },
   {
-    eyebrow: en.hero.slide2.eyebrow,
-    heading:  en.hero.slide2.heading,
-    body:     en.hero.slide2.body,
-    // TODO: add client stories page and restore CTA
-    // cta: en.hero.slide2.cta,
-    hideCta:  true,
-    i18nPrefix: 'hero.slide2',
-    img: slide2Img,
-    placeholder: ph2,
-    imgAlt: 'Engineers in uniform collaborating on a tablet inside a manufacturing facility',
-    gradient: 'from-black/70 via-black/20 to-black/10',
+    eyebrow: en.cabinInterior.hero.eyebrow,
+    heading: en.cabinInterior.hero.heading,
+    body: en.cabinInterior.hero.description,
+    cta: en.cabinInterior.hero.cta,
+    href: '/capabilities/cabin-interior#intro',
+    i18nPrefix: 'cabinInterior.hero',
+    img: cabinHeroImg,
+    placeholder: cabinPlaceholder,
+    imgAlt: 'Aircraft cabin interior',
   },
   {
-    eyebrow: en.hero.slide3.eyebrow,
-    heading:  en.hero.slide3.heading,
-    body:     en.hero.slide3.body,
-    cta:      en.hero.slide3.cta,
-    href:     '/careers',
-    i18nPrefix: 'hero.slide3',
-    img: slide3Img,
-    placeholder: ph3,
-    imgAlt: 'Indian female factory worker in a textile manufacturing facility',
-    gradient: 'from-primary/80 via-primary/30 to-black/10',
+    heading: en.manufacturing.hero.heading,
+    body: en.manufacturing.hero.description,
+    cta: en.manufacturing.hero.cta,
+    href: '/capabilities/manufacturing#capabilities',
+    i18nPrefix: 'manufacturing.hero',
+    img: manufacturingHeroImg,
+    placeholder: manufacturingPlaceholder,
+    imgAlt: 'Manufacturing facility',
   },
 ];
 ---
@@ -59,19 +55,24 @@ const slides = [
   aria-label="Hero"
 >
   <div class="relative h-full w-full min-h-[85vh] lg:min-h-[700px] xl:min-h-[800px] 2xl:min-h-[921px]">
-    {slides.map((slide, i) => (
+    {slides.map((slide) => (
       <div class="carousel-item w-full h-full">
-        <div class="absolute inset-0 bg-black/50 z-10"></div>
-        <div class={`absolute inset-0 bg-gradient-to-r ${slide.gradient} z-10`}></div>
-        <HeroImage src={slide.img} placeholder={slide.placeholder} alt={slide.imgAlt} />
+        <div class="absolute inset-0 bg-gradient-to-r from-on-surface/85 via-on-surface/65 to-on-surface/20 z-10"></div>
+        {slide.video ? (
+          <HeroVideo videoSrc={slide.video} poster={slide.poster} />
+        ) : (
+          <HeroImage src={slide.img} placeholder={slide.placeholder} alt={slide.imgAlt} />
+        )}
         <div class="absolute inset-0 z-20 flex items-center px-8 max-w-screen-2xl mx-auto">
           <div class="max-w-2xl">
-            <span
-              class="font-label text-secondary font-bold tracking-[0.2em] uppercase text-sm mb-6 block"
-              data-i18n={`${slide.i18nPrefix}.eyebrow`}
-            >
-              {slide.eyebrow}
-            </span>
+            {slide.eyebrow && (
+              <span
+                class="font-label text-secondary font-bold tracking-[0.2em] uppercase text-sm mb-6 block"
+                data-i18n={`${slide.i18nPrefix}.eyebrow`}
+              >
+                {slide.eyebrow}
+              </span>
+            )}
             <h1
               class="font-headline font-black text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl text-white leading-[0.9] tracking-tight mb-8"
               data-i18n={`${slide.i18nPrefix}.heading`}
@@ -80,26 +81,17 @@ const slides = [
             </h1>
             <p
               class="text-white/80 text-xl leading-relaxed max-w-xl mb-12"
-              data-i18n={`${slide.i18nPrefix}.body`}
+              data-i18n={`${slide.i18nPrefix}.description`}
             >
               {slide.body}
             </p>
-            {!slide.hideCta && slide.href ? (
-              <a
-                href={slide.href}
-                class="inline-block bg-secondary text-white px-8 py-4 rounded font-label font-bold uppercase tracking-wider hover:bg-secondary/80 btn-press"
-                data-i18n={`${slide.i18nPrefix}.cta`}
-              >
-                {slide.cta}
-              </a>
-            ) : !slide.hideCta ? (
-              <button
-                class="bg-secondary text-white px-8 py-4 rounded font-label font-bold uppercase tracking-wider hover:bg-secondary/80 btn-press"
-                data-i18n={`${slide.i18nPrefix}.cta`}
-              >
-                {slide.cta}
-              </button>
-            ) : null}
+            <a
+              href={withBase(slide.href)}
+              class="inline-block bg-secondary text-white px-8 py-4 rounded font-label font-bold uppercase tracking-wider hover:bg-secondary/80 btn-press"
+              data-i18n={`${slide.i18nPrefix}.cta`}
+            >
+              {slide.cta}
+            </a>
           </div>
         </div>
       </div>

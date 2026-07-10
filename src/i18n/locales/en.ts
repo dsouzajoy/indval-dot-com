@@ -12,26 +12,6 @@ export const en = {
     hamburgerOpen: 'Open navigation menu',
     academia: 'Indvaltech Academia',
   },
-  hero: {
-    slide1: {
-      eyebrow: 'Manufacturing Excellence',
-      heading: 'Precision at every stage of production',
-      body: 'Advanced manufacturing solutions powered by robotic precision and industrial expertise.',
-      cta: 'Explore our capabilities',
-    },
-    slide2: {
-      eyebrow: 'Professional Expertise',
-      heading: 'Trusted by engineers, proven in the field.',
-      body: 'Collaborative engineering partnerships that deliver high-stakes results across global industries.',
-      cta: 'Read client stories',
-    },
-    slide3: {
-      eyebrow: 'Join Our Team',
-      heading: 'Build your career where craft meets innovation',
-      body: 'Empowering the next generation of engineering talent to solve complex aerospace and automotive challenges.',
-      cta: 'View open positions',
-    },
-  },
   stats: {
     industries: 'Industries',
     clients: 'Clients',

@@ -11,50 +11,7 @@ import { withBase } from '@/lib/utils';
 
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
 
-      <!-- 1. Secondary Structure Design -->
-      <a href={withBase('/capabilities/secondary-structure-design')} class="bg-white border border-outline-variant rounded-lg p-8 flex flex-col items-start gap-4 hover:border-secondary btn-press-card cursor-pointer">
-        <div class="w-16 h-16">
-          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <!-- Outer ring fill -->
-            <ellipse cx="32" cy="32" rx="26" ry="22" fill="#dce9ff"/>
-            <ellipse cx="32" cy="32" rx="26" ry="22" stroke="#00316c" stroke-width="2"/>
-            <!-- Inner wall cutout -->
-            <ellipse cx="32" cy="32" rx="20" ry="16" fill="white"/>
-            <ellipse cx="32" cy="32" rx="20" ry="16" stroke="#00316c" stroke-width="1.5"/>
-            <!-- Depth shading on lower half of frame ring -->
-            <path d="M6 32 A26 22 0 0 0 58 32 A20 16 0 0 1 12 32 Z" fill="#00316c" opacity="0.08"/>
-            <!-- Floor beam -->
-            <line x1="18" y1="42" x2="46" y2="42" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
-            <!-- Vertical floor supports -->
-            <line x1="22" y1="47" x2="22" y2="42" stroke="#00316c" stroke-width="1.5" stroke-linecap="round"/>
-            <line x1="42" y1="47" x2="42" y2="42" stroke="#00316c" stroke-width="1.5" stroke-linecap="round"/>
-            <!-- 8 radial ribs -->
-            <line x1="32" y1="10" x2="32" y2="16" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
-            <line x1="32" y1="54" x2="32" y2="48" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
-            <line x1="6"  y1="32" x2="12" y2="32" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
-            <line x1="58" y1="32" x2="52" y2="32" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
-            <line x1="13.6" y1="17.6" x2="17.6" y2="21.6" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
-            <line x1="50.4" y1="17.6" x2="46.4" y2="21.6" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
-            <line x1="13.6" y1="46.4" x2="17.6" y2="42.4" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
-            <line x1="50.4" y1="46.4" x2="46.4" y2="42.4" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
-            <!-- Node dots -->
-            <circle cx="32" cy="16" r="2" fill="#00316c"/>
-            <circle cx="32" cy="48" r="2" fill="#00316c"/>
-            <circle cx="12" cy="32" r="2" fill="#00316c"/>
-            <circle cx="52" cy="32" r="2" fill="#00316c"/>
-            <circle cx="17.6" cy="21.6" r="2" fill="#00316c"/>
-            <circle cx="46.4" cy="21.6" r="2" fill="#00316c"/>
-            <circle cx="17.6" cy="42.4" r="2" fill="#00316c"/>
-            <circle cx="46.4" cy="42.4" r="2" fill="#00316c"/>
-            <!-- Orange top fastener -->
-            <circle cx="32" cy="10" r="3.5" fill="#ff671f"/>
-            <circle cx="32" cy="10" r="1.5" fill="white"/>
-          </svg>
-        </div>
-        <span class="font-label text-base font-semibold text-on-surface leading-snug">Secondary Structure Design</span>
-      </a>
-
-      <!-- 2. Cabin Interior (linkable) -->
+      <!-- 1. Cabin Interior (linkable) -->
       <a href={withBase('/capabilities/cabin-interior')} class="bg-white border border-outline-variant rounded-lg p-8 flex flex-col items-start gap-4 hover:border-secondary btn-press-card cursor-pointer">
         <div class="w-16 h-16">
           <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -95,6 +52,49 @@ import { withBase } from '@/lib/utils';
           </svg>
         </div>
         <span class="font-label text-base font-semibold text-on-surface leading-snug">Aircraft Cabin Interior</span>
+      </a>
+
+      <!-- 2. Secondary Structure Design -->
+      <a href={withBase('/capabilities/secondary-structure-design')} class="bg-white border border-outline-variant rounded-lg p-8 flex flex-col items-start gap-4 hover:border-secondary btn-press-card cursor-pointer">
+        <div class="w-16 h-16">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- Outer ring fill -->
+            <ellipse cx="32" cy="32" rx="26" ry="22" fill="#dce9ff"/>
+            <ellipse cx="32" cy="32" rx="26" ry="22" stroke="#00316c" stroke-width="2"/>
+            <!-- Inner wall cutout -->
+            <ellipse cx="32" cy="32" rx="20" ry="16" fill="white"/>
+            <ellipse cx="32" cy="32" rx="20" ry="16" stroke="#00316c" stroke-width="1.5"/>
+            <!-- Depth shading on lower half of frame ring -->
+            <path d="M6 32 A26 22 0 0 0 58 32 A20 16 0 0 1 12 32 Z" fill="#00316c" opacity="0.08"/>
+            <!-- Floor beam -->
+            <line x1="18" y1="42" x2="46" y2="42" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
+            <!-- Vertical floor supports -->
+            <line x1="22" y1="47" x2="22" y2="42" stroke="#00316c" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="42" y1="47" x2="42" y2="42" stroke="#00316c" stroke-width="1.5" stroke-linecap="round"/>
+            <!-- 8 radial ribs -->
+            <line x1="32" y1="10" x2="32" y2="16" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
+            <line x1="32" y1="54" x2="32" y2="48" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
+            <line x1="6"  y1="32" x2="12" y2="32" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
+            <line x1="58" y1="32" x2="52" y2="32" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
+            <line x1="13.6" y1="17.6" x2="17.6" y2="21.6" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
+            <line x1="50.4" y1="17.6" x2="46.4" y2="21.6" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
+            <line x1="13.6" y1="46.4" x2="17.6" y2="42.4" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
+            <line x1="50.4" y1="46.4" x2="46.4" y2="42.4" stroke="#00316c" stroke-width="2" stroke-linecap="round"/>
+            <!-- Node dots -->
+            <circle cx="32" cy="16" r="2" fill="#00316c"/>
+            <circle cx="32" cy="48" r="2" fill="#00316c"/>
+            <circle cx="12" cy="32" r="2" fill="#00316c"/>
+            <circle cx="52" cy="32" r="2" fill="#00316c"/>
+            <circle cx="17.6" cy="21.6" r="2" fill="#00316c"/>
+            <circle cx="46.4" cy="21.6" r="2" fill="#00316c"/>
+            <circle cx="17.6" cy="42.4" r="2" fill="#00316c"/>
+            <circle cx="46.4" cy="42.4" r="2" fill="#00316c"/>
+            <!-- Orange top fastener -->
+            <circle cx="32" cy="10" r="3.5" fill="#ff671f"/>
+            <circle cx="32" cy="10" r="1.5" fill="white"/>
+          </svg>
+        </div>
+        <span class="font-label text-base font-semibold text-on-surface leading-snug">Secondary Structure Design</span>
       </a>
 
       <!-- 3. Wire Harness Design EHI (linkable) -->

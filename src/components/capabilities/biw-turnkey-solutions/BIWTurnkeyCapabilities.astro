@@ -68,6 +68,8 @@ const pillars = [
   },
 ];
 
+const keyCompetencies = en.biwTurnkey.keyCompetencies;
+
 const steps = [
   {
     number: '01',
@@ -424,6 +426,25 @@ const materialHandlingCards = [
         </div>
       ))}
     </div>
+  </div>
+</section>
+
+<!-- Section 05 — Key Competencies -->
+<section class="bg-surface py-24">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16">
+    <div class="mb-14">
+      <p class="font-label text-sm uppercase tracking-widest text-secondary mb-3" data-i18n="biwTurnkey.keyCompetencies.eyebrow">{keyCompetencies.eyebrow}</p>
+      <h2 class="font-headline text-4xl lg:text-5xl font-bold text-on-surface" data-i18n="biwTurnkey.keyCompetencies.heading">{keyCompetencies.heading}</h2>
+    </div>
+
+    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-4">
+      {keyCompetencies.items.map((item, i) => (
+        <li class="flex items-start gap-3 text-sm text-on-surface-variant leading-relaxed">
+          <span class="material-symbols-outlined text-secondary text-base mt-0.5 shrink-0" aria-hidden="true">check_circle</span>
+          <span data-i18n={`biwTurnkey.keyCompetencies.items.${i}`}>{item}</span>
+        </li>
+      ))}
+    </ul>
   </div>
 </section>
 

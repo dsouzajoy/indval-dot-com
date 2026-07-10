@@ -34,23 +34,6 @@ const industriesItems = [
       </li>
     ))}
 
-    <!-- Industries dropdown -->
-    <li id="industries-nav-item">
-      <button
-        id="industries-trigger"
-        aria-haspopup="true"
-        aria-expanded="false"
-        class="flex items-center gap-0.5 font-label text-sm uppercase tracking-wider text-on-surface-variant hover:text-secondary transition-colors duration-300 cursor-pointer"
-      >
-        <span data-i18n="nav.industries">{en.nav.industries}</span>
-        <span
-          id="industries-chevron"
-          class="material-symbols-outlined text-base leading-none transition-transform duration-200"
-          aria-hidden="true"
-        >expand_more</span>
-      </button>
-    </li>
-
     <!-- Company dropdown -->
     <li id="company-nav-item">
       <button
@@ -62,6 +45,23 @@ const industriesItems = [
         <span data-i18n="nav.company">{en.nav.company}</span>
         <span
           id="company-chevron"
+          class="material-symbols-outlined text-base leading-none transition-transform duration-200"
+          aria-hidden="true"
+        >expand_more</span>
+      </button>
+    </li>
+
+    <!-- Industries dropdown -->
+    <li id="industries-nav-item">
+      <button
+        id="industries-trigger"
+        aria-haspopup="true"
+        aria-expanded="false"
+        class="flex items-center gap-0.5 font-label text-sm uppercase tracking-wider text-on-surface-variant hover:text-secondary transition-colors duration-300 cursor-pointer"
+      >
+        <span data-i18n="nav.industries">{en.nav.industries}</span>
+        <span
+          id="industries-chevron"
           class="material-symbols-outlined text-base leading-none transition-transform duration-200"
           aria-hidden="true"
         >expand_more</span>

@@ -76,14 +76,6 @@ const whyUs = [
         class="mt-5 text-lg leading-relaxed text-on-surface-variant"
         data-i18n="toolingDesign.intro.para2"
       >{td.intro.para2}</p>
-      <ul class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
-        {td.intro.examples.map((item, j) => (
-          <li class="flex gap-3 items-start">
-            <span class="material-symbols-outlined text-secondary shrink-0 text-lg leading-relaxed" style="font-variation-settings: 'FILL' 1" aria-hidden="true">check_circle</span>
-            <span class="text-sm text-on-surface-variant leading-relaxed" data-i18n={`toolingDesign.intro.examples.${j}`}>{item}</span>
-          </li>
-        ))}
-      </ul>
     </div>
     <div class="rounded overflow-hidden shadow-lg aspect-[4/3]">
       <Image

@@ -310,11 +310,11 @@ const whyUs = [
         class="mt-5 text-lg leading-relaxed text-on-surface-variant"
         data-i18n="avionics.intro.para2"
       >{av.intro.para2}</p>
-      <ul class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
+      <ul class="mt-8 grid grid-cols-1 gap-y-3">
         {av.intro.examples.map((item, j) => (
           <li class="flex gap-3 items-start">
             <span class="material-symbols-outlined text-secondary shrink-0 text-lg leading-relaxed" style="font-variation-settings: 'FILL' 1" aria-hidden="true">check_circle</span>
-            <span class="text-sm text-on-surface-variant leading-relaxed" data-i18n={`avionics.intro.examples.${j}`}>{item}</span>
+            <span class="text-lg text-on-surface-variant leading-relaxed" data-i18n={`avionics.intro.examples.${j}`}>{item}</span>
           </li>
         ))}
       </ul>
@@ -475,7 +475,7 @@ const whyUs = [
       />
     </div>
     <div class="lg:order-1">
-      <p class="font-label font-bold text-sm uppercase tracking-widest text-secondary">Certification Experience</p>
+      <p class="font-label font-bold text-sm uppercase tracking-widest text-secondary">SOI Audits</p>
       <h2 class="mt-2 text-3xl lg:text-4xl font-bold leading-tight tracking-tight text-primary text-balance">
         Stage of Involvement Audits and Expert Services
       </h2>

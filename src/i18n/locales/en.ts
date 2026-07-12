@@ -93,10 +93,11 @@ export const en = {
     brand: 'Specialized engineering partners providing precision technical solutions for the world\'s most demanding industries.',
     industriesHeading: 'Industries',
     companyHeading: 'Company',
-    servicesHeading: 'Services',
+    servicesHeading: 'Capabilities',
     getInTouchHeading: 'Get In Touch',
     getInTouchDesc: 'Have a project in mind? Let\'s talk.',
     getInTouchCta: 'Contact Us',
+    followUs: 'Follow Us',
     copyright: '© {year} Indvaltech Engineering. Precision Guaranteed.',
   },
   capabilities: {
@@ -124,6 +125,8 @@ export const en = {
     mroServices: { heading: 'MRO Services' },
     cabinInterior: { heading: 'Aircraft Cabin Interior' },
     avionics: { heading: 'Avionics' },
+    compositeDesign: { heading: 'Composite Design Solutions' },
+    specializedServices: { heading: 'Specialized Services' },
   },
   fea: {
     hero: {

@@ -115,10 +115,11 @@ export const de = {
     brand: 'Spezialisierte Engineering-Partner, die Präzisionslösungen für die anspruchsvollsten Industrien der Welt liefern.',
     industriesHeading: 'Branchen',
     companyHeading: 'Unternehmen',
-    servicesHeading: 'Leistungen',
+    servicesHeading: 'Kompetenzen',
     getInTouchHeading: 'Kontakt',
     getInTouchDesc: 'Haben Sie ein Projekt? Lassen Sie uns sprechen.',
     getInTouchCta: 'Kontaktieren',
+    followUs: 'Folgen Sie uns',
     copyright: '© {year} Indvaltech Engineering. Präzision garantiert.',
   },
   fea: {
@@ -501,6 +502,8 @@ export const de = {
     cncMachining: { hero: { heading: 'CNC Machining Services' } },
     technicalPublication: { heading: 'Technische Dokumentation' },
     cabinInterior: { heading: 'Aircraft Cabin Interior' },
+    compositeDesign: { heading: 'Composite-Designlösungen' },
+    specializedServices: { heading: 'Spezialisierte Dienstleistungen' },
   },
   businessModel: {
     hero: {

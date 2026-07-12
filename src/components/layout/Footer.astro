@@ -15,22 +15,46 @@ const industries = [
   { label: en.industries.general.title,    href: '/industries/general',    i18nKey: 'industries.general.title'    },
 ];
 
-const services = [
-  { label: en.capabilities.engineeringAnalysis.fea,          href: '/capabilities/fea',                    i18nKey: 'capabilities.engineeringAnalysis.fea'          },
-  { label: en.capabilities.engineeringAnalysis.cfd,          href: '/capabilities/cfd',                    i18nKey: 'capabilities.engineeringAnalysis.cfd'          },
-  { label: en.capabilities.manufacturing.heading,            href: '/capabilities/manufacturing',          i18nKey: 'capabilities.manufacturing.heading'            },
-  { label: en.capabilities.biwTurnkey.heading,               href: '/capabilities/biw-turnkey-solutions',  i18nKey: 'capabilities.biwTurnkey.heading'               },
-  { label: en.capabilities.mechanicalDesign.pressToolDesign, href: '/capabilities/press-tool-design',      i18nKey: 'capabilities.mechanicalDesign.pressToolDesign' },
-  { label: en.capabilities.mechanicalDesign.specialMachineDesign, href: '/capabilities/special-machine-design', i18nKey: 'capabilities.mechanicalDesign.specialMachineDesign' },
-  { label: en.capabilities.mechanicalDesign.secondaryStructureDesign, href: '/capabilities/secondary-structure-design', i18nKey: 'capabilities.mechanicalDesign.secondaryStructureDesign' },
-  { label: en.capabilities.mechanicalDesign.toolingDesign,    href: '/capabilities/tooling-design',          i18nKey: 'capabilities.mechanicalDesign.toolingDesign'   },
-  { label: en.capabilities.reverseEngineering.heading,       href: '/capabilities/reverse-engineering',    i18nKey: 'capabilities.reverseEngineering.heading'       },
-  { label: en.capabilities.technicalPublication.heading,     href: '/capabilities/technical-publication',  i18nKey: 'capabilities.technicalPublication.heading'     },
-  { label: en.capabilities.electricalHarnessDesign.heading, href: '/capabilities/electrical-harness-design', i18nKey: 'capabilities.electricalHarnessDesign.heading' },
-  { label: en.capabilities.mroServices.heading,            href: '/capabilities/mro-services',              i18nKey: 'capabilities.mroServices.heading'              },
-  { label: en.capabilities.cabinInterior.heading,          href: '/capabilities/cabin-interior',            i18nKey: 'capabilities.cabinInterior.heading'            },
-  { label: en.capabilities.mechanicalDesign.productDevelopment, href: '/capabilities/product-development', i18nKey: 'capabilities.mechanicalDesign.productDevelopment' },
-  { label: 'Composite Design Solutions',                   href: '/capabilities/composite-design' },
+const serviceGroups = [
+  {
+    heading: en.capabilities.engineeringAnalysis.heading,
+    i18nKey: 'capabilities.engineeringAnalysis.heading',
+    items: [
+      { label: en.capabilities.engineeringAnalysis.fea, href: '/capabilities/fea', i18nKey: 'capabilities.engineeringAnalysis.fea' },
+      { label: en.capabilities.engineeringAnalysis.cfd, href: '/capabilities/cfd', i18nKey: 'capabilities.engineeringAnalysis.cfd' },
+    ],
+  },
+  {
+    heading: en.capabilities.manufacturing.heading,
+    i18nKey: 'capabilities.manufacturing.heading',
+    items: [
+      { label: en.capabilities.manufacturing.heading, href: '/capabilities/manufacturing', i18nKey: 'capabilities.manufacturing.heading' },
+      { label: en.capabilities.biwTurnkey.heading, href: '/capabilities/biw-turnkey-solutions', i18nKey: 'capabilities.biwTurnkey.heading' },
+      { label: en.capabilities.compositeDesign.heading, href: '/capabilities/composite-design', i18nKey: 'capabilities.compositeDesign.heading' },
+    ],
+  },
+  {
+    heading: en.capabilities.mechanicalDesign.heading,
+    i18nKey: 'capabilities.mechanicalDesign.heading',
+    items: [
+      { label: en.capabilities.mechanicalDesign.pressToolDesign, href: '/capabilities/press-tool-design', i18nKey: 'capabilities.mechanicalDesign.pressToolDesign' },
+      { label: en.capabilities.mechanicalDesign.specialMachineDesign, href: '/capabilities/special-machine-design', i18nKey: 'capabilities.mechanicalDesign.specialMachineDesign' },
+      { label: en.capabilities.mechanicalDesign.secondaryStructureDesign, href: '/capabilities/secondary-structure-design', i18nKey: 'capabilities.mechanicalDesign.secondaryStructureDesign' },
+      { label: en.capabilities.mechanicalDesign.toolingDesign, href: '/capabilities/tooling-design', i18nKey: 'capabilities.mechanicalDesign.toolingDesign' },
+      { label: en.capabilities.mechanicalDesign.productDevelopment, href: '/capabilities/product-development', i18nKey: 'capabilities.mechanicalDesign.productDevelopment' },
+    ],
+  },
+  {
+    heading: en.capabilities.specializedServices.heading,
+    i18nKey: 'capabilities.specializedServices.heading',
+    items: [
+      { label: en.capabilities.reverseEngineering.heading, href: '/capabilities/reverse-engineering', i18nKey: 'capabilities.reverseEngineering.heading' },
+      { label: en.capabilities.technicalPublication.heading, href: '/capabilities/technical-publication', i18nKey: 'capabilities.technicalPublication.heading' },
+      { label: en.capabilities.electricalHarnessDesign.heading, href: '/capabilities/electrical-harness-design', i18nKey: 'capabilities.electricalHarnessDesign.heading' },
+      { label: en.capabilities.mroServices.heading, href: '/capabilities/mro-services', i18nKey: 'capabilities.mroServices.heading' },
+      { label: en.capabilities.cabinInterior.heading, href: '/capabilities/cabin-interior', i18nKey: 'capabilities.cabinInterior.heading' },
+    ],
+  },
 ];
 
 const year = new Date().getFullYear();
@@ -39,7 +63,7 @@ const year = new Date().getFullYear();
 
   <!-- Main grid -->
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-12">
 
       <!-- Brand column -->
       <div class="sm:col-span-2 lg:col-span-1">
@@ -64,7 +88,7 @@ const year = new Date().getFullYear();
         <ul class="flex flex-col gap-3 list-none m-0 p-0">
           {industries.map(({ label, href, i18nKey }) => (
             <li>
-              <a href={withBase(href)} data-i18n={i18nKey} class="text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-all duration-200 block">
+              <a href={withBase(href)} data-i18n={i18nKey} class="text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-[color,translate] duration-200 block">
                 {label}
               </a>
             </li>
@@ -76,22 +100,22 @@ const year = new Date().getFullYear();
         </h3>
         <ul class="flex flex-col gap-3 list-none m-0 p-0">
           <li>
-            <a href={withBase('/about')} data-i18n="nav.aboutUs" class="text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-all duration-200 block">
+            <a href={withBase('/about')} data-i18n="nav.aboutUs" class="text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-[color,translate] duration-200 block">
               {en.nav.aboutUs}
             </a>
           </li>
           <li>
-            <a href={withBase('/life')} data-i18n="nav.lifeAtIndvaltech" class="text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-all duration-200 block">
+            <a href={withBase('/life')} data-i18n="nav.lifeAtIndvaltech" class="text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-[color,translate] duration-200 block">
               {en.nav.lifeAtIndvaltech}
             </a>
           </li>
           <li>
-            <a href={withBase('/business-model')} class="text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-all duration-200 block">
+            <a href={withBase('/business-model')} class="text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-[color,translate] duration-200 block">
               Business Model
             </a>
           </li>
           <li>
-            <a href={withBase('/academia')} data-i18n="nav.academia" class="text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-all duration-200 block">
+            <a href={withBase('/academia')} data-i18n="nav.academia" class="text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-[color,translate] duration-200 block">
               {en.nav.academia}
             </a>
           </li>
@@ -99,19 +123,28 @@ const year = new Date().getFullYear();
       </div>
 
       <!-- Services -->
-      <div>
+      <div class="lg:col-span-2">
         <h3 class="font-label text-xs font-bold uppercase tracking-widest text-secondary mb-5" data-i18n="footer.servicesHeading">
           {en.footer.servicesHeading}
         </h3>
-        <ul class="flex flex-col gap-3 list-none m-0 p-0">
-          {services.map(({ label, href, i18nKey }) => (
-            <li>
-              <a href={withBase(href)} data-i18n={i18nKey} class="text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-all duration-200 block">
-                {label}
-              </a>
-            </li>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-6">
+          {serviceGroups.map(({ heading, i18nKey: groupI18nKey, items }) => (
+            <div>
+              <h4 class="font-label text-xs font-semibold text-slate-400 uppercase tracking-wide mb-3" data-i18n={groupI18nKey}>
+                {heading}
+              </h4>
+              <ul class="flex flex-col gap-3 list-none m-0 p-0">
+                {items.map(({ label, href, i18nKey }) => (
+                  <li>
+                    <a href={withBase(href)} data-i18n={i18nKey} class="text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-[color,translate] duration-200 block">
+                      {label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
 
       <!-- Get In Touch -->
@@ -145,9 +178,10 @@ const year = new Date().getFullYear();
           {en.footer.getInTouchCta}
           <span class="material-symbols-outlined text-base">arrow_forward</span>
         </a>
-        <div class="flex items-center gap-5 mt-10">
-          <a href="https://www.linkedin.com/company/indval-technologies-private-limited/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-slate-400 hover:text-white transition-colors duration-200">
-            <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <div class="flex items-center gap-3 mt-8 pt-6 border-t border-white/10">
+          <span class="text-sm text-slate-400" data-i18n="footer.followUs">{en.footer.followUs}</span>
+          <a href="https://www.linkedin.com/company/indval-technologies-private-limited/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-slate-400 hover:text-white transition-colors duration-200 btn-press-icon">
+            <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
             </svg>
           </a>
@@ -181,12 +215,12 @@ const year = new Date().getFullYear();
         © {year} Indvaltech. Precision Guaranteed.
       </p>
       <nav aria-label="Legal" class="flex items-center gap-5 flex-wrap justify-center">
-        <a href={withBase('/privacy')} class="font-label text-[10px] uppercase tracking-widest text-slate-500 hover:text-slate-300 transition-colors duration-200" data-i18n="legal.footer.privacy">{en.legal.footer.privacy}</a>
-        <a href={withBase('/terms')} class="font-label text-[10px] uppercase tracking-widest text-slate-500 hover:text-slate-300 transition-colors duration-200" data-i18n="legal.footer.terms">{en.legal.footer.terms}</a>
-        <a href={withBase('/cookies')} class="font-label text-[10px] uppercase tracking-widest text-slate-500 hover:text-slate-300 transition-colors duration-200" data-i18n="legal.footer.cookies">{en.legal.footer.cookies}</a>
+        <a href={withBase('/privacy')} class="font-label text-[10px] uppercase tracking-widest text-slate-400 hover:text-slate-300 transition-colors duration-200" data-i18n="legal.footer.privacy">{en.legal.footer.privacy}</a>
+        <a href={withBase('/terms')} class="font-label text-[10px] uppercase tracking-widest text-slate-400 hover:text-slate-300 transition-colors duration-200" data-i18n="legal.footer.terms">{en.legal.footer.terms}</a>
+        <a href={withBase('/cookies')} class="font-label text-[10px] uppercase tracking-widest text-slate-400 hover:text-slate-300 transition-colors duration-200" data-i18n="legal.footer.cookies">{en.legal.footer.cookies}</a>
         <button
           onclick="window.dispatchEvent(new Event('indval:showCookieBanner'))"
-          class="font-label text-[10px] uppercase tracking-widest text-slate-500 hover:text-slate-300 transition-colors duration-200 bg-transparent border-none p-0 cursor-pointer"
+          class="font-label text-[10px] uppercase tracking-widest text-slate-400 hover:text-slate-300 transition-colors duration-200 bg-transparent border-none p-0 cursor-pointer"
           data-i18n="legal.footer.cookiePreferences"
         >{en.legal.footer.cookiePreferences}</button>
       </nav>

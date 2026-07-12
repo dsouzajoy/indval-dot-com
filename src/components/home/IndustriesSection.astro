@@ -31,7 +31,7 @@ import generalImg from '@/assets/images/industries/general.png';
     <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
 
       <!-- Aerospace — 8 cols -->
-      <a href={withBase('/industries/aerospace')} class="md:col-span-8 group relative h-96 overflow-hidden rounded bg-surface-container-high btn-press-card block">
+      <a href={withBase('/industries/aerospace')} class="industry-card industry-card--zoom-lg md:col-span-8 group relative h-96 overflow-hidden rounded bg-surface-container-high block">
         <Image
           src={aerospaceImg}
           alt="Aerospace engine component"
@@ -39,7 +39,7 @@ import generalImg from '@/assets/images/industries/general.png';
           quality={100}
           width={1200}
           loading="lazy"
-          class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          class="industry-card__image absolute inset-0 w-full h-full object-cover"
         />
         <div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/40 to-transparent p-12 flex flex-col justify-end">
           <div class="w-fit mb-4 p-2 bg-secondary/20 rounded">
@@ -61,7 +61,7 @@ import generalImg from '@/assets/images/industries/general.png';
       </a>
 
       <!-- Automotive Systems — 4 cols -->
-      <a href={withBase('/industries/automotive')} class="md:col-span-4 group relative h-96 overflow-hidden rounded bg-surface-container-high btn-press-card block">
+      <a href={withBase('/industries/automotive')} class="industry-card industry-card--zoom-lg md:col-span-4 group relative h-96 overflow-hidden rounded bg-surface-container-high block">
         <Image
           src={automotiveImg}
           alt="Automotive engineering"
@@ -69,7 +69,7 @@ import generalImg from '@/assets/images/industries/general.png';
           quality={100}
           width={800}
           loading="lazy"
-          class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          class="industry-card__image absolute inset-0 w-full h-full object-cover"
         />
         <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent p-10 flex flex-col justify-end">
           <div class="w-fit mb-4 p-2 bg-secondary/20 rounded">
@@ -91,7 +91,7 @@ import generalImg from '@/assets/images/industries/general.png';
       </a>
 
       <!-- Locomotive — 4 cols -->
-      <a href={withBase('/industries/locomotive')} class="md:col-span-4 group relative h-96 overflow-hidden rounded bg-surface-container-lowest btn-press-card block">
+      <a href={withBase('/industries/locomotive')} class="industry-card md:col-span-4 group relative h-96 overflow-hidden rounded bg-surface-container-lowest block">
         <Image
           src={locomotiveImg}
           alt="Locomotive engineering"
@@ -99,7 +99,7 @@ import generalImg from '@/assets/images/industries/general.png';
           quality={100}
           width={800}
           loading="lazy"
-          class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          class="industry-card__image absolute inset-0 w-full h-full object-cover"
         />
         <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent p-10 flex flex-col justify-end">
           <div class="w-fit mb-4 p-2 bg-secondary/20 rounded">
@@ -121,7 +121,7 @@ import generalImg from '@/assets/images/industries/general.png';
       </a>
 
       <!-- Off Highway — 4 cols -->
-      <a href={withBase('/industries/off-highway')} class="md:col-span-4 group relative h-96 overflow-hidden rounded bg-surface-container-high btn-press-card block">
+      <a href={withBase('/industries/off-highway')} class="industry-card md:col-span-4 group relative h-96 overflow-hidden rounded bg-surface-container-high block">
         <Image
           src={offHighwayImg}
           alt="Off highway machinery"
@@ -129,7 +129,7 @@ import generalImg from '@/assets/images/industries/general.png';
           quality={100}
           width={800}
           loading="lazy"
-          class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          class="industry-card__image absolute inset-0 w-full h-full object-cover"
         />
         <div class="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent p-10 flex flex-col justify-end">
           <div class="w-fit mb-4 p-2 bg-secondary/20 rounded">
@@ -151,7 +151,7 @@ import generalImg from '@/assets/images/industries/general.png';
       </a>
 
       <!-- General Engineering — 4 cols -->
-      <a href={withBase('/industries/general')} class="md:col-span-4 group relative h-96 overflow-hidden rounded bg-primary-container btn-press-card block">
+      <a href={withBase('/industries/general')} class="industry-card md:col-span-4 group relative h-96 overflow-hidden rounded bg-primary-container block">
         <Image
           src={generalImg}
           alt="General engineering"
@@ -159,7 +159,7 @@ import generalImg from '@/assets/images/industries/general.png';
           quality={100}
           width={800}
           loading="lazy"
-          class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          class="industry-card__image absolute inset-0 w-full h-full object-cover"
         />
         <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent p-10 flex flex-col justify-end">
           <div class="w-fit mb-4 p-2 bg-secondary/20 rounded">
@@ -183,3 +183,50 @@ import generalImg from '@/assets/images/industries/general.png';
     </div>
   </div>
 </section>
+
+<style>
+  /*
+    The card lift and the photo zoom are two transforms on two different
+    elements (anchor + image). They must share one duration and one easing
+    curve or they read as two things moving independently instead of a
+    single gesture.
+  */
+  .industry-card {
+    transform: translateY(0);
+    transition: transform 380ms ease-in-out,
+                box-shadow 380ms ease-in-out;
+  }
+  .industry-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 6px 0 0 rgba(11, 28, 48, 0.14), 0 20px 40px rgba(11, 28, 48, 0.18);
+  }
+  .industry-card:active {
+    transform: translateY(1px);
+    transition-duration: 80ms;
+    transition-timing-function: ease-out;
+  }
+
+  .industry-card__image {
+    transition: transform 380ms ease-in-out;
+  }
+  .industry-card:hover .industry-card__image {
+    transform: scale(1.05);
+  }
+  .industry-card--zoom-lg:hover .industry-card__image {
+    transform: scale(1.08);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .industry-card,
+    .industry-card__image {
+      transition: none;
+    }
+    .industry-card:hover {
+      transform: none;
+      box-shadow: none;
+    }
+    .industry-card:hover .industry-card__image {
+      transform: none;
+    }
+  }
+</style>

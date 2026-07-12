@@ -15,7 +15,7 @@ const industries = [
   { label: en.industries.general.title,    href: '/industries/general',    i18nKey: 'industries.general.title'    },
 ];
 
-const serviceGroups = [
+const leftServiceGroups = [
   {
     heading: en.capabilities.engineeringAnalysis.heading,
     i18nKey: 'capabilities.engineeringAnalysis.heading',
@@ -25,34 +25,32 @@ const serviceGroups = [
     ],
   },
   {
-    heading: en.capabilities.manufacturing.heading,
-    i18nKey: 'capabilities.manufacturing.heading',
+    heading: en.capabilities.specializedServices.heading,
+    i18nKey: 'capabilities.specializedServices.heading',
     items: [
-      { label: en.capabilities.manufacturing.heading, href: '/capabilities/manufacturing', i18nKey: 'capabilities.manufacturing.heading' },
+      { label: en.capabilities.cabinInterior.heading, href: '/capabilities/cabin-interior', i18nKey: 'capabilities.cabinInterior.heading' },
       { label: en.capabilities.biwTurnkey.heading, href: '/capabilities/biw-turnkey-solutions', i18nKey: 'capabilities.biwTurnkey.heading' },
-      { label: en.capabilities.compositeDesign.heading, href: '/capabilities/composite-design', i18nKey: 'capabilities.compositeDesign.heading' },
+      { label: en.capabilities.manufacturing.heading, href: '/capabilities/manufacturing', i18nKey: 'capabilities.manufacturing.heading' },
+      { label: en.capabilities.mroServices.heading, href: '/capabilities/mro-services', i18nKey: 'capabilities.mroServices.heading' },
+      { label: en.capabilities.electricalHarnessDesign.heading, href: '/capabilities/electrical-harness-design', i18nKey: 'capabilities.electricalHarnessDesign.heading' },
+      { label: en.capabilities.technicalPublication.heading, href: '/capabilities/technical-publication', i18nKey: 'capabilities.technicalPublication.heading' },
+      { label: en.capabilities.avionics.heading, href: '/capabilities/avionics', i18nKey: 'capabilities.avionics.heading' },
     ],
   },
+];
+
+const rightServiceGroups = [
   {
     heading: en.capabilities.mechanicalDesign.heading,
     i18nKey: 'capabilities.mechanicalDesign.heading',
     items: [
       { label: en.capabilities.mechanicalDesign.pressToolDesign, href: '/capabilities/press-tool-design', i18nKey: 'capabilities.mechanicalDesign.pressToolDesign' },
-      { label: en.capabilities.mechanicalDesign.specialMachineDesign, href: '/capabilities/special-machine-design', i18nKey: 'capabilities.mechanicalDesign.specialMachineDesign' },
-      { label: en.capabilities.mechanicalDesign.secondaryStructureDesign, href: '/capabilities/secondary-structure-design', i18nKey: 'capabilities.mechanicalDesign.secondaryStructureDesign' },
       { label: en.capabilities.mechanicalDesign.toolingDesign, href: '/capabilities/tooling-design', i18nKey: 'capabilities.mechanicalDesign.toolingDesign' },
+      { label: en.capabilities.compositeDesign.heading, href: '/capabilities/composite-design', i18nKey: 'capabilities.compositeDesign.heading' },
+      { label: en.capabilities.mechanicalDesign.specialMachineDesign, href: '/capabilities/special-machine-design', i18nKey: 'capabilities.mechanicalDesign.specialMachineDesign' },
       { label: en.capabilities.mechanicalDesign.productDevelopment, href: '/capabilities/product-development', i18nKey: 'capabilities.mechanicalDesign.productDevelopment' },
-    ],
-  },
-  {
-    heading: en.capabilities.specializedServices.heading,
-    i18nKey: 'capabilities.specializedServices.heading',
-    items: [
-      { label: en.capabilities.reverseEngineering.heading, href: '/capabilities/reverse-engineering', i18nKey: 'capabilities.reverseEngineering.heading' },
-      { label: en.capabilities.technicalPublication.heading, href: '/capabilities/technical-publication', i18nKey: 'capabilities.technicalPublication.heading' },
-      { label: en.capabilities.electricalHarnessDesign.heading, href: '/capabilities/electrical-harness-design', i18nKey: 'capabilities.electricalHarnessDesign.heading' },
-      { label: en.capabilities.mroServices.heading, href: '/capabilities/mro-services', i18nKey: 'capabilities.mroServices.heading' },
-      { label: en.capabilities.cabinInterior.heading, href: '/capabilities/cabin-interior', i18nKey: 'capabilities.cabinInterior.heading' },
+      { label: en.capabilities.mechanicalDesign.secondaryStructureDesign, href: '/capabilities/secondary-structure-design', i18nKey: 'capabilities.mechanicalDesign.secondaryStructureDesign' },
+      { label: en.capabilities.mechanicalDesign.cubingControlGauges, href: '/capabilities/cubing-control-gauges', i18nKey: 'capabilities.mechanicalDesign.cubingControlGauges' },
     ],
   },
 ];
@@ -128,20 +126,24 @@ const year = new Date().getFullYear();
           {en.footer.servicesHeading}
         </h3>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-6">
-          {serviceGroups.map(({ heading, i18nKey: groupI18nKey, items }) => (
-            <div>
-              <h4 class="font-label text-xs font-semibold text-slate-400 uppercase tracking-wide mb-3" data-i18n={groupI18nKey}>
-                {heading}
-              </h4>
-              <ul class="flex flex-col gap-3 list-none m-0 p-0">
-                {items.map(({ label, href, i18nKey }) => (
-                  <li>
-                    <a href={withBase(href)} data-i18n={i18nKey} class="text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-[color,translate] duration-200 block">
-                      {label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+          {[leftServiceGroups, rightServiceGroups].map((groups) => (
+            <div class="flex flex-col gap-6">
+              {groups.map(({ heading, i18nKey: groupI18nKey, items }) => (
+                <div>
+                  <h4 class="font-label text-xs font-semibold text-slate-400 uppercase tracking-wide mb-3" data-i18n={groupI18nKey}>
+                    {heading}
+                  </h4>
+                  <ul class="flex flex-col gap-3 list-none m-0 p-0">
+                    {items.map(({ label, href, i18nKey }) => (
+                      <li>
+                        <a href={withBase(href)} data-i18n={i18nKey} class="text-sm text-slate-300 hover:text-white hover:translate-x-1 transition-[color,translate] duration-200 block">
+                          {label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
           ))}
         </div>

@@ -89,6 +89,8 @@ This applies to all copy in components, i18n locale files (`en.ts`, etc.), and m
 
 All user-facing strings go through `src/i18n/locales/en.ts`. Components import `{ en }` and also add `data-i18n="key.path"` attributes for runtime locale switching.
 
+Whenever adding a new feature or making any change that includes copy changes or copy additions, translations must strictly be added for the English, German, and Polish i18n locale files.
+
 ## Tech Stack
 
 - Astro (static output) + Tailwind CSS + React (islands only)

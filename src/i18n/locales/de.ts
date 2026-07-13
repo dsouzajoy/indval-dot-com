@@ -82,7 +82,7 @@ export const de = {
     stat1Value: '3',
     stat1Label: 'Globale Standorte',
     stat2Value: '24/7',
-    stat2Label: 'Logistik-Support',
+    stat2Label: 'Engineering- und Fertigungssupport',
   },
   qualityPolicy: {
     eyebrow: 'Exzellenzstandard',

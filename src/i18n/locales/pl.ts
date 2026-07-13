@@ -82,7 +82,7 @@ export const pl = {
     stat1Value: '3',
     stat1Label: 'Globalne Centra',
     stat2Value: '24/7',
-    stat2Label: 'Wsparcie logistyczne',
+    stat2Label: 'Wsparcie inżynieryjne i produkcyjne',
   },
   qualityPolicy: {
     eyebrow: 'Standard doskonałości',

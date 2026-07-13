@@ -80,7 +80,7 @@ export const en = {
     stat1Value: '3',
     stat1Label: 'Global Hubs',
     stat2Value: '24/7',
-    stat2Label: 'Engineering Support',
+    stat2Label: 'Engineering & Manufacturing Support',
   },
   qualityPolicy: {
     eyebrow: 'Standard of Excellence',

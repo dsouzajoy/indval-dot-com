@@ -1309,6 +1309,14 @@ export const pl = {
       button: 'Skontaktuj się z nami',
     },
   },
+  capabilitiesOverview: {
+    hero: {
+      eyebrow: 'Partner inżynieryjny od A do Z',
+      heading: 'Jeden partner, wszystkie możliwości',
+      description: 'Od projektowania koncepcyjnego i symulacji po precyzyjną produkcję i dokumentację techniczną, Indvaltech oferuje kompletny ekosystem inżynieryjny pod jednym dachem.',
+      cta: 'Poznaj wszystkie możliwości',
+    },
+  },
   manufacturing: {
     hero: {
       heading: 'Precyzyjna produkcja i integracja techniczna',

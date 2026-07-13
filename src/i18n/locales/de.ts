@@ -1309,6 +1309,14 @@ export const de = {
       button: 'Kontakt aufnehmen',
     },
   },
+  capabilitiesOverview: {
+    hero: {
+      eyebrow: 'Engineering-Partner für alle Leistungen',
+      heading: 'Ein Partner, jede Fähigkeit',
+      description: 'Von Konzeptdesign und Simulation bis hin zu Präzisionsfertigung und technischer Dokumentation bietet Indvaltech ein komplettes Engineering-Ökosystem aus einer Hand.',
+      cta: 'Alle Fähigkeiten entdecken',
+    },
+  },
   manufacturing: {
     hero: {
       heading: 'Präzisionsfertigung & technische Integration',

@@ -8,10 +8,12 @@ import biwHeroVideo from '@/assets/videos/biw-hero-video.mp4';
 import biwHeroPoster from '@/assets/images/biw/biw-hero-poster.jpg';
 import cabinHeroImg from '@/assets/images/cabin-interior/hero.jpg';
 import manufacturingHeroImg from '@/assets/images/manufacturing-hero.webp';
+import capabilitiesHeroImg from '@/assets/images/capabilities-overview-hero.jpg';
 
-const [cabinPlaceholder, manufacturingPlaceholder] = await Promise.all([
+const [cabinPlaceholder, manufacturingPlaceholder, capabilitiesPlaceholder] = await Promise.all([
   getLQIP('src/assets/images/cabin-interior/hero.jpg'),
   getLQIP('src/assets/images/manufacturing-hero.webp'),
+  getLQIP('src/assets/images/capabilities-overview-hero.jpg'),
 ]);
 
 const slides = [
@@ -45,6 +47,17 @@ const slides = [
     img: manufacturingHeroImg,
     placeholder: manufacturingPlaceholder,
     imgAlt: 'Manufacturing facility',
+  },
+  {
+    eyebrow: en.capabilitiesOverview.hero.eyebrow,
+    heading: en.capabilitiesOverview.hero.heading,
+    body: en.capabilitiesOverview.hero.description,
+    cta: en.capabilitiesOverview.hero.cta,
+    openMegaMenu: true,
+    i18nPrefix: 'capabilitiesOverview.hero',
+    img: capabilitiesHeroImg,
+    placeholder: capabilitiesPlaceholder,
+    imgAlt: 'Precision machined components on engineering blueprints',
   },
 ];
 ---
@@ -85,13 +98,24 @@ const slides = [
             >
               {slide.body}
             </p>
-            <a
-              href={withBase(slide.href)}
-              class="inline-block bg-secondary text-white px-8 py-4 rounded font-label font-bold uppercase tracking-wider hover:bg-secondary/80 btn-press"
-              data-i18n={`${slide.i18nPrefix}.cta`}
-            >
-              {slide.cta}
-            </a>
+            {slide.openMegaMenu ? (
+              <button
+                type="button"
+                data-open-capabilities
+                class="inline-block bg-secondary text-white px-8 py-4 rounded font-label font-bold uppercase tracking-wider hover:bg-secondary/80 btn-press"
+                data-i18n={`${slide.i18nPrefix}.cta`}
+              >
+                {slide.cta}
+              </button>
+            ) : (
+              <a
+                href={withBase(slide.href!)}
+                class="inline-block bg-secondary text-white px-8 py-4 rounded font-label font-bold uppercase tracking-wider hover:bg-secondary/80 btn-press"
+                data-i18n={`${slide.i18nPrefix}.cta`}
+              >
+                {slide.cta}
+              </a>
+            )}
           </div>
         </div>
       </div>
@@ -227,5 +251,13 @@ const slides = [
     });
 
     startAutoplay();
+
+    document.querySelectorAll<HTMLElement>('[data-open-capabilities]').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        document.getElementById('capabilities-trigger')
+          ?.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true }));
+      });
+    });
   });
 </script>

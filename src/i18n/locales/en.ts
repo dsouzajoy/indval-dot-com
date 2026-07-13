@@ -144,6 +144,14 @@ export const en = {
       cta: 'Explore Capabilities',
     },
   },
+  capabilitiesOverview: {
+    hero: {
+      eyebrow: 'End-to-End Engineering Partner',
+      heading: 'One Partner, Every Capability',
+      description: 'From concept design and simulation to precision manufacturing and technical publication, Indvaltech delivers a complete engineering ecosystem under one roof.',
+      cta: 'Explore All Capabilities',
+    },
+  },
   manufacturing: {
     hero: {
       heading: 'Precision Manufacturing & Technical Integration',

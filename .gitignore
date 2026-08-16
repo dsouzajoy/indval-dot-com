@@ -28,3 +28,7 @@ Thumbs.db
 
 # Test coverage
 coverage/
+
+# Release artifacts (generated in CI)
+release-notes.md
+indvaltech-web-v*.zip

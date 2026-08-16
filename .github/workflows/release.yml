@@ -1,0 +1,84 @@
+name: Release
+
+# Runs on every push to main, which covers both direct pushes and merged pull
+# requests. Version comes from the conventional commits since the last v* tag
+# (see scripts/release-info.mjs), and the prod build is attached as a zip.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# One release at a time, and never cancel a half-finished one.
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    # Skip the bot's own version-bump commit. Pushes made with GITHUB_TOKEN
+    # don't retrigger workflows, so this is belt and braces.
+    if: "!startsWith(github.event.head_commit.message, 'chore(release):')"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # full history + tags, needed to read commits since the last release
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Work out the next version
+        id: info
+        run: node scripts/release-info.mjs
+
+      - name: Nothing to release
+        if: steps.info.outputs.has_changes != 'true'
+        run: echo "No new commits since ${{ steps.info.outputs.last_tag }}. Skipping."
+
+      - name: Install dependencies
+        if: steps.info.outputs.has_changes == 'true'
+        run: npm ci
+
+      - name: Bump the version
+        if: steps.info.outputs.has_changes == 'true'
+        run: npm version "${{ steps.info.outputs.version }}" --no-git-tag-version --allow-same-version
+
+      - name: Build for production
+        if: steps.info.outputs.has_changes == 'true'
+        run: npm run build:prod
+
+      - name: Zip the build
+        if: steps.info.outputs.has_changes == 'true'
+        run: |
+          set -euo pipefail
+          zip -r "../indvaltech-web-${{ steps.info.outputs.tag }}.zip" . -x '.DS_Store' '**/.DS_Store'
+        working-directory: dist
+
+      - name: Commit the bump and tag the release
+        if: steps.info.outputs.has_changes == 'true'
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add package.json package-lock.json
+          git commit -m "chore(release): ${{ steps.info.outputs.tag }} [skip ci]"
+          git tag -a "${{ steps.info.outputs.tag }}" -m "${{ steps.info.outputs.tag }}"
+          git push origin HEAD:main --follow-tags
+
+      - name: Publish the release
+        if: steps.info.outputs.has_changes == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh release create "${{ steps.info.outputs.tag }}" \
+            "indvaltech-web-${{ steps.info.outputs.tag }}.zip" \
+            --title "${{ steps.info.outputs.tag }}" \
+            --notes-file release-notes.md

@@ -91,6 +91,27 @@ All user-facing strings go through `src/i18n/locales/en.ts`. Components import `
 
 Whenever adding a new feature or making any change that includes copy changes or copy additions, translations must strictly be added for the English, German, and Polish i18n locale files.
 
+## Releases — write conventional commit subjects
+
+Every push to `main` (direct or via a merged PR) runs `.github/workflows/release.yml`, which
+reads the commits since the last `v*` tag and cuts a GitHub Release with the production build
+(`npm run build:prod`) attached as `indvaltech-web-v<version>.zip`.
+
+The version bump is decided by the commit subjects (`scripts/release-info.mjs`):
+
+| Commit | Bump |
+| --- | --- |
+| `feat!: ...` or `BREAKING CHANGE:` in the body | major |
+| `feat: ...` | minor |
+| `fix: ...`, `chore: ...`, or a plain non-conventional subject | patch |
+
+So use `feat:` / `fix:` prefixes. A subject with no prefix still releases, just as a patch.
+Squash-merge PRs so the squash subject is the one that drives the bump.
+
+The workflow pushes back a `chore(release): vX.Y.Z [skip ci]` commit with the new
+`package.json` version, then tags it. That push uses `GITHUB_TOKEN`, so it does not retrigger
+CI. Requires **Settings → Actions → General → Workflow permissions = Read and write**.
+
 ## Tech Stack
 
 - Astro (static output) + Tailwind CSS + React (islands only)

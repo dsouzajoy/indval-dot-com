@@ -18,7 +18,7 @@ interface Props {
 const { title, description, canonicalURL, ogImage = '/images/og-default.png', breadcrumbs, noindex = false } = Astro.props;
 
 const siteOrigin = Astro.site ? new URL('/', Astro.site).href.replace(/\/$/, '') : 'https://www.indvaltech.com';
-const logoUrl = new URL(withBase('/images/logo.png'), Astro.site).toString();
+const logoUrl = new URL(withBase('/images/logo-lockup.png'), Astro.site).toString();
 
 const schemaGraph: object[] = [
   {

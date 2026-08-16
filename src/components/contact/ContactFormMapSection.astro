@@ -2,6 +2,7 @@
 import { feature } from 'topojson-client';
 import { geoEquirectangular, geoPath } from 'd3-geo';
 import world from 'world-atlas/countries-110m.json';
+import ContactBlueprint from './ContactBlueprint.astro';
 
 const land = feature(world as any, (world as any).objects.land);
 const projection = geoEquirectangular().scale(127.32).translate([400, 200]);
@@ -180,6 +181,11 @@ ${name}
         f.addEventListener('input', () => { if (submitted) validateAll(); })
       );
     </script>
+
+    <!-- Fills the slack under the form, which is shorter than the address grid opposite -->
+    <div class="hidden md:block mt-auto pt-16">
+      <ContactBlueprint />
+    </div>
   </div>
 
   <!-- RIGHT: Map + Address Panel -->

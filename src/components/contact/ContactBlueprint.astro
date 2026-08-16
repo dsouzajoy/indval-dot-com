@@ -1,0 +1,123 @@
+---
+// Decorative drafting-style line art that fills the space below the enquiry
+// form. Drawn in the muted outline-variant grey (#c3c6d3) so it reads as a
+// faint blueprint rather than competing with the form above it.
+
+const INK = '#c3c6d3';
+
+// Gear front view: centre (100,110), 18 teeth.
+const CX = 100;
+const CY = 110;
+const R_TIP = 72;
+const R_ROOT = 58;
+const TEETH = 18;
+
+function gearPath(cx: number, cy: number, rTip: number, rRoot: number, n: number) {
+  const step = (Math.PI * 2) / n;
+  const halfTip = step * 0.2;
+  const halfRoot = step * 0.3;
+  const pt = (rad: number, ang: number) =>
+    `${(cx + rad * Math.cos(ang)).toFixed(2)},${(cy + rad * Math.sin(ang)).toFixed(2)}`;
+
+  let d = `M${pt(rRoot, -halfRoot)}`;
+  for (let i = 0; i < n; i++) {
+    const a = i * step;
+    d += `L${pt(rTip, a - halfTip)}`;
+    d += `A${rTip},${rTip} 0 0 1 ${pt(rTip, a + halfTip)}`;
+    d += `L${pt(rRoot, a + halfRoot)}`;
+    d += `A${rRoot},${rRoot} 0 0 1 ${pt(rRoot, a + step - halfRoot)}`;
+  }
+  return `${d}Z`;
+}
+
+const gear = gearPath(CX, CY, R_TIP, R_ROOT, TEETH);
+
+// Six bolt holes on a 42px bolt circle.
+const boltHoles = Array.from({ length: 6 }, (_, i) => {
+  const a = (i * Math.PI * 2) / 6 - Math.PI / 2;
+  return { cx: CX + 42 * Math.cos(a), cy: CY + 42 * Math.sin(a) };
+});
+---
+
+<svg
+  viewBox="0 0 560 240"
+  class="w-full max-w-[560px] h-auto"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+>
+  <defs>
+    <pattern id="contact-blueprint-hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="7" stroke={INK} stroke-width="1" stroke-opacity="0.55" />
+    </pattern>
+  </defs>
+
+  <g stroke={INK} stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- ── Front view: gear ──────────────────────────────────────────── -->
+
+    <!-- centre marks -->
+    <line x1={CX} y1="20" x2={CX} y2="200" stroke-opacity="0.35" stroke-dasharray="16 4 3 4" />
+    <line x1="10" y1={CY} x2="190" y2={CY} stroke-opacity="0.35" stroke-dasharray="16 4 3 4" />
+
+    <!-- pitch + bolt construction circles -->
+    <circle cx={CX} cy={CY} r="65" stroke-opacity="0.3" stroke-dasharray="6 5" />
+    <circle cx={CX} cy={CY} r="42" stroke-opacity="0.3" stroke-dasharray="6 5" />
+
+    <path d={gear} stroke-opacity="0.85" stroke-width="1.25" />
+    <circle cx={CX} cy={CY} r="26" stroke-opacity="0.75" />
+    <circle cx={CX} cy={CY} r="11" stroke-opacity="0.75" />
+    {boltHoles.map(({ cx, cy }) => <circle cx={cx} cy={cy} r="5.5" stroke-opacity="0.7" />)}
+
+    <!-- Ø dimension -->
+    <line x1="28" y1="188" x2="28" y2="218" stroke-opacity="0.35" />
+    <line x1="172" y1="188" x2="172" y2="218" stroke-opacity="0.35" />
+    <line x1="28" y1="212" x2="172" y2="212" stroke-opacity="0.6" />
+    <line x1="23" y1="217" x2="33" y2="207" stroke-opacity="0.6" />
+    <line x1="167" y1="217" x2="177" y2="207" stroke-opacity="0.6" />
+    <text
+      x={CX} y="206" text-anchor="middle" stroke="none" fill="#b4b8c6"
+      font-family="Space Grotesk, sans-serif" font-size="11" letter-spacing="0.08em"
+    >Ø144</text>
+
+    <!-- ── Section view: stepped bush ────────────────────────────────── -->
+
+    <!-- centreline -->
+    <line x1="242" y1="110" x2="492" y2="110" stroke-opacity="0.35" stroke-dasharray="16 4 3 4" />
+
+    <!-- hatched body, then the bore knocked back out of it -->
+    <rect x="262" y="52" width="32" height="116" fill="url(#contact-blueprint-hatch)" stroke="none" />
+    <rect x="294" y="82" width="172" height="56" fill="url(#contact-blueprint-hatch)" stroke="none" />
+    <rect x="262" y="102" width="204" height="16" fill="#ffffff" stroke="none" />
+
+    <!-- outlines on top -->
+    <rect x="262" y="52" width="32" height="116" stroke-opacity="0.85" stroke-width="1.25" />
+    <rect x="294" y="82" width="172" height="56" stroke-opacity="0.85" stroke-width="1.25" />
+    <line x1="262" y1="102" x2="466" y2="102" stroke-opacity="0.85" stroke-width="1.25" />
+    <line x1="262" y1="118" x2="466" y2="118" stroke-opacity="0.85" stroke-width="1.25" />
+
+    <!-- length dimension -->
+    <line x1="262" y1="174" x2="262" y2="218" stroke-opacity="0.35" />
+    <line x1="466" y1="144" x2="466" y2="218" stroke-opacity="0.35" />
+    <line x1="262" y1="212" x2="466" y2="212" stroke-opacity="0.6" />
+    <line x1="257" y1="217" x2="267" y2="207" stroke-opacity="0.6" />
+    <line x1="461" y1="217" x2="471" y2="207" stroke-opacity="0.6" />
+    <text
+      x="364" y="206" text-anchor="middle" stroke="none" fill="#b4b8c6"
+      font-family="Space Grotesk, sans-serif" font-size="11" letter-spacing="0.08em"
+    >204</text>
+
+    <!-- height dimension -->
+    <line x1="298" y1="52" x2="516" y2="52" stroke-opacity="0.35" />
+    <line x1="470" y1="168" x2="516" y2="168" stroke-opacity="0.35" />
+    <line x1="510" y1="52" x2="510" y2="168" stroke-opacity="0.6" />
+    <line x1="505" y1="57" x2="515" y2="47" stroke-opacity="0.6" />
+    <line x1="505" y1="173" x2="515" y2="163" stroke-opacity="0.6" />
+    <text
+      x="504" y="110" text-anchor="middle" stroke="none" fill="#b4b8c6"
+      font-family="Space Grotesk, sans-serif" font-size="11" letter-spacing="0.08em"
+      transform="rotate(-90 504 110)"
+    >116</text>
+
+  </g>
+</svg>

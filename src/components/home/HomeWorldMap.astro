@@ -11,6 +11,7 @@ import world from 'world-atlas/countries-110m.json';
 //   Bangalore  (77.6°E, 12.9°N) → (523, 221)
 //   Valencia CA(118.6°W,34.4°N) → ( 87, 174)
 //   Wrocław    (17°E,   51.1°N) → (388, 136)
+//   Dover DE   (75.5°W, 39.2°N) → (182, 163)
 
 const land = feature(world as any, (world as any).objects.land);
 const projection = geoEquirectangular().scale(127.32).translate([350, 250]);
@@ -63,6 +64,9 @@ const landPath = pathGen(land as any);
   <line x1="523" y1="221" x2="87"  y2="174" stroke="rgba(255,103,31,0.18)" stroke-width="1" stroke-dasharray="5 5" />
   <line x1="523" y1="221" x2="388" y2="136" stroke="rgba(255,103,31,0.18)" stroke-width="1" stroke-dasharray="5 5" />
   <line x1="87"  y1="174" x2="388" y2="136" stroke="rgba(255,103,31,0.18)" stroke-width="1" stroke-dasharray="5 5" />
+  <line x1="182" y1="163" x2="523" y2="221" stroke="rgba(255,103,31,0.18)" stroke-width="1" stroke-dasharray="5 5" />
+  <line x1="182" y1="163" x2="87"  y2="174" stroke="rgba(255,103,31,0.18)" stroke-width="1" stroke-dasharray="5 5" />
+  <line x1="182" y1="163" x2="388" y2="136" stroke="rgba(255,103,31,0.18)" stroke-width="1" stroke-dasharray="5 5" />
 
   <!-- Bangalore (77.6°E, 12.9°N) → (523, 221) -->
   <g>
@@ -89,7 +93,22 @@ const landPath = pathGen(land as any);
       <animate attributeName="stroke-opacity" from="0.4" to="0" dur="2.5s" begin="1.3s" repeatCount="indefinite" />
     </circle>
     <circle cx="87" cy="174" r="4" fill="#ff671f" />
-    <text x="97" y="167" fill="rgba(255,255,255,0.88)" font-size="9" font-family="Space Grotesk, sans-serif" letter-spacing="0.12em" font-weight="600">CALIFORNIA, USA</text>
+    <!-- label sits below the dot so it clears the Dover DE marker to its right -->
+    <text x="97" y="188" fill="rgba(255,255,255,0.88)" font-size="9" font-family="Space Grotesk, sans-serif" letter-spacing="0.12em" font-weight="600">CALIFORNIA, USA</text>
+  </g>
+
+  <!-- Dover DE (75.5°W, 39.2°N) → (182, 163) -->
+  <g>
+    <circle cx="182" cy="163" r="4" fill="none" stroke="#ff671f" stroke-opacity="0.6">
+      <animate attributeName="r" from="4" to="22" dur="2.5s" begin="1.2s" repeatCount="indefinite" />
+      <animate attributeName="stroke-opacity" from="0.6" to="0" dur="2.5s" begin="1.2s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="182" cy="163" r="4" fill="none" stroke="#ff671f" stroke-opacity="0.4">
+      <animate attributeName="r" from="4" to="22" dur="2.5s" begin="2.1s" repeatCount="indefinite" />
+      <animate attributeName="stroke-opacity" from="0.4" to="0" dur="2.5s" begin="2.1s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="182" cy="163" r="4" fill="#ff671f" />
+    <text x="192" y="155" fill="rgba(255,255,255,0.88)" font-size="9" font-family="Space Grotesk, sans-serif" letter-spacing="0.12em" font-weight="600">DELAWARE, USA</text>
   </g>
 
   <!-- Wrocław (17°E, 51.1°N) → (388, 136) -->

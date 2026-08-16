@@ -12,7 +12,7 @@ const landPath = pathGen(land as any);
 <section id="contact-form" class="flex flex-col md:flex-row" style="min-height: calc(100vh - 4rem);" aria-label="Contact form and global offices">
 
   <!-- LEFT: Form Panel -->
-  <div class="w-full md:w-1/2 bg-surface-container-lowest flex flex-col justify-center px-8 md:px-16 py-12 md:py-16">
+  <div class="w-full md:w-1/2 bg-surface-container-lowest flex flex-col justify-start px-8 md:px-16 py-12 md:py-16">
 
     <h2 class="font-headline font-black text-4xl md:text-5xl leading-tight mb-8 md:mb-12">
       <span class="text-primary">Let's Build </span><span class="text-secondary">Something.</span>
@@ -242,6 +242,12 @@ ${name}
         <line x1="572" y1="171" x2="438" y2="86" stroke="rgba(255,103,31,0.18)" stroke-width="1" stroke-dasharray="5 5" />
         <!-- Valencia CA ↔ Wrocław -->
         <line x1="136" y1="123" x2="438" y2="86" stroke="rgba(255,103,31,0.18)" stroke-width="1" stroke-dasharray="5 5" />
+        <!-- Dover DE ↔ Bangalore -->
+        <line x1="232" y1="113" x2="572" y2="171" stroke="rgba(255,103,31,0.18)" stroke-width="1" stroke-dasharray="5 5" />
+        <!-- Dover DE ↔ Valencia CA -->
+        <line x1="232" y1="113" x2="136" y2="123" stroke="rgba(255,103,31,0.18)" stroke-width="1" stroke-dasharray="5 5" />
+        <!-- Dover DE ↔ Wrocław -->
+        <line x1="232" y1="113" x2="438" y2="86" stroke="rgba(255,103,31,0.18)" stroke-width="1" stroke-dasharray="5 5" />
 
         <!-- ── CITY MARKERS ─────────────────────────────────────────────── -->
 
@@ -270,7 +276,22 @@ ${name}
             <animate attributeName="stroke-opacity" from="0.4" to="0" dur="2.5s" begin="1.3s" repeatCount="indefinite" />
           </circle>
           <circle cx="136" cy="123" r="4" fill="#ff671f" />
-          <text x="146" y="116" fill="rgba(255,255,255,0.88)" font-size="9" font-family="Space Grotesk, sans-serif" letter-spacing="0.12em" font-weight="600">CALIFORNIA, USA</text>
+          <!-- label sits below the dot so it clears the Dover DE marker to its right -->
+          <text x="146" y="137" fill="rgba(255,255,255,0.88)" font-size="9" font-family="Space Grotesk, sans-serif" letter-spacing="0.12em" font-weight="600">CALIFORNIA, USA</text>
+        </g>
+
+        <!-- Dover DE (75.5°W, 39.2°N) → SVG (232, 113) -->
+        <g>
+          <circle cx="232" cy="113" r="4" fill="none" stroke="#ff671f" stroke-opacity="0.6">
+            <animate attributeName="r" from="4" to="22" dur="2.5s" begin="1.2s" repeatCount="indefinite" />
+            <animate attributeName="stroke-opacity" from="0.6" to="0" dur="2.5s" begin="1.2s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="232" cy="113" r="4" fill="none" stroke="#ff671f" stroke-opacity="0.4">
+            <animate attributeName="r" from="4" to="22" dur="2.5s" begin="2.1s" repeatCount="indefinite" />
+            <animate attributeName="stroke-opacity" from="0.4" to="0" dur="2.5s" begin="2.1s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="232" cy="113" r="4" fill="#ff671f" />
+          <text x="242" y="105" fill="rgba(255,255,255,0.88)" font-size="9" font-family="Space Grotesk, sans-serif" letter-spacing="0.12em" font-weight="600">DELAWARE, USA</text>
         </g>
 
         <!-- Wrocław (17°E, 51.1°N) → SVG (438, 86) -->
@@ -290,15 +311,15 @@ ${name}
       </svg>
     </div>
 
-    <!-- Address Grid (2×2) -->
+    <!-- Address Grid (3×2) -->
     <div class="grid grid-cols-1 lg:grid-cols-2 shrink-0" style="background-color: #001a40;">
 
       <!-- Divider line at top -->
       <div class="col-span-1 lg:col-span-2 h-px" style="background: rgba(255,255,255,0.08);"></div>
 
       <!-- Cell 1: HQ Address -->
-      <div class="p-6 border-b lg:border-r order-1 lg:order-none" style="border-color: rgba(255,255,255,0.08);">
-        <p class="text-secondary text-xs font-label uppercase tracking-widest mb-2">HQ — Bengaluru, India</p>
+      <div class="p-6 border-b lg:border-r" style="border-color: rgba(255,255,255,0.08);">
+        <p class="text-secondary text-xs font-label uppercase tracking-widest mb-2">Engineering Facility - India</p>
         <p class="text-white text-sm font-semibold leading-snug mb-1.5">Indval Technologies Private Limited</p>
         <p class="text-white/60 text-xs leading-relaxed">
           #181, 3rd Floor, Outer Ring Road<br />
@@ -322,21 +343,28 @@ ${name}
         </a>
       </div>
 
-      <!-- Cell 2: Contact -->
-      <div class="p-6 lg:border-b order-4 lg:order-none" style="border-color: rgba(255,255,255,0.08);">
-        <p class="text-secondary text-xs font-label uppercase tracking-widest mb-3">Contact</p>
+      <!-- Cell 2: Manufacturing Facility, India -->
+      <div class="p-6 border-b" style="border-color: rgba(255,255,255,0.08);">
+        <p class="text-secondary text-xs font-label uppercase tracking-widest mb-2">Manufacturing Facility - India</p>
+        <p class="text-white text-sm font-semibold leading-snug mb-1.5">Anvira Advance Manufacturing Private Limited</p>
+        <p class="text-white/60 text-xs leading-relaxed">
+          No. 23, Sy. 7/1, Kachohalli Village<br />
+          Dasanapura Hobli, Bangalore North Taluk<br />
+          Karnataka 560091
+        </p>
         <a
-          href="mailto:info@indvaltech.com"
-          class="inline-flex items-center gap-2 text-white text-xs hover:text-secondary transition-colors duration-200 break-all"
+          href="https://maps.app.goo.gl/F3CUp1MWYiEkVuEL7"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-1 text-secondary text-xs font-label uppercase tracking-wider mt-3 hover:opacity-80 transition-opacity duration-200"
         >
-          <span class="material-symbols-outlined text-secondary shrink-0" style="font-size: 1em;">mail</span>
-          <span>info@indvaltech.com</span>
+          View on Map →
         </a>
       </div>
 
-      <!-- Cell 3: USA -->
-      <div class="p-6 border-b lg:border-b-0 lg:border-r order-2 lg:order-none" style="border-color: rgba(255,255,255,0.08);">
-        <p class="text-secondary text-xs font-label uppercase tracking-widest mb-2">USA — Valencia, California</p>
+      <!-- Cell 3: USA, Valencia -->
+      <div class="p-6 border-b lg:border-r" style="border-color: rgba(255,255,255,0.08);">
+        <p class="text-secondary text-xs font-label uppercase tracking-widest mb-2">Engineering Facility - USA</p>
         <p class="text-white text-sm font-semibold leading-snug mb-1.5">Regent Indval Engineering Services LLC</p>
         <p class="text-white/60 text-xs leading-relaxed">
           28110 W Harrison Parkway<br />
@@ -360,8 +388,8 @@ ${name}
       </div>
 
       <!-- Cell 4: Poland -->
-      <div class="p-6 border-b lg:border-b-0 order-3 lg:order-none" style="border-color: rgba(255,255,255,0.08);">
-        <p class="text-secondary text-xs font-label uppercase tracking-widest mb-2">Europe — Wrocław, Poland</p>
+      <div class="p-6 border-b" style="border-color: rgba(255,255,255,0.08);">
+        <p class="text-secondary text-xs font-label uppercase tracking-widest mb-2">Engineering Facility - Europe</p>
         <p class="text-white text-sm font-semibold leading-snug mb-1.5">Indval Technologies Sp. z o.o.</p>
         <p class="text-white/60 text-xs leading-relaxed">
           Ul. Marsz. Józefa Piłsudskiego 74/320<br />
@@ -382,6 +410,36 @@ ${name}
           class="inline-flex items-center gap-1 text-secondary text-xs font-label uppercase tracking-wider mt-3 hover:opacity-80 transition-opacity duration-200"
         >
           View on Map →
+        </a>
+      </div>
+
+      <!-- Cell 5: USA, Dover -->
+      <div class="p-6 border-b lg:border-b-0 lg:border-r" style="border-color: rgba(255,255,255,0.08);">
+        <p class="text-secondary text-xs font-label uppercase tracking-widest mb-2">Engineering Facility - USA</p>
+        <p class="text-white text-sm font-semibold leading-snug mb-1.5">Indval Technologies Inc</p>
+        <p class="text-white/60 text-xs leading-relaxed">
+          8 The Green, Suite A<br />
+          Dover, DE 19901
+        </p>
+        <a
+          href="https://maps.app.goo.gl/cATaHRJxyroHCQZp8"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-1 text-secondary text-xs font-label uppercase tracking-wider mt-3 hover:opacity-80 transition-opacity duration-200"
+        >
+          View on Map →
+        </a>
+      </div>
+
+      <!-- Cell 6: Contact -->
+      <div class="p-6" style="border-color: rgba(255,255,255,0.08);">
+        <p class="text-secondary text-xs font-label uppercase tracking-widest mb-2">Contact</p>
+        <a
+          href="mailto:info@indvaltech.com"
+          class="inline-flex items-center gap-2 text-white text-sm font-semibold hover:text-secondary transition-colors duration-200 break-all"
+        >
+          <span class="material-symbols-outlined text-secondary shrink-0" style="font-size: 1em;">mail</span>
+          <span>info@indvaltech.com</span>
         </a>
       </div>
 
